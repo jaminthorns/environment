@@ -1,0 +1,31 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = code --wait
+	pager = diff-so-fancy | less
+[user]
+	name = Jamin Thornsberry
+	email = {{echo $GIT_EMAIL}}
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[diff]
+	tool = code
+[difftool "code"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[rebase]
+	instructionFormat = format:%s (%cr) <%an>
+[alias]
+	pf = push --force-with-lease
+	pr = pull --rebase
+	cb = symbolic-ref --short HEAD
+	pn = !git push --set-upstream origin $(git cb)
+	graph = log --graph --date-order --pretty=format:'%C(red)%h%C(reset) -%C(bold yellow)%d%C(reset) %s %C(bold green)(%cr)%C(reset) %C(blue)<%an>%C(reset)'

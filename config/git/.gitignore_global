@@ -1,0 +1,14 @@
+# macOS folder attributes
+.DS_Store
+
+# Visual Studio Code configuration
+.vscode
+
+# Elixir Language Server artifacts
+.elixir_ls
+
+# IEx configuration
+.iex.exs
+
+# asdf tool versions
+.tool-versions
