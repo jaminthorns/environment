@@ -3,6 +3,7 @@ tap "homebrew/cask-fonts"
 
 brew "asdf"
 brew "awscli"
+brew "bat"
 brew "diff-so-fancy"
 brew "fish"
 brew "fzf"
