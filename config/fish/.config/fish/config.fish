@@ -22,6 +22,10 @@ if status is-interactive
     # Erlang options
     set -x ERL_AFLAGS -kernel shell_history enabled
 
+    # bat options
+    set -x BAT_PAGER less -R
+    set -x BAT_THEME Dracula
+
     # fzf options
     set -l fzf_colors "fg:-1,fg+:-1,bg:-1,bg+:-1,hl:6,hl+:6,spinner:4,info:4,marker:4,pointer:2,prompt:2"
     set -x FZF_DEFAULT_OPTS "--reverse --no-info --height 50% --color $fzf_colors"
