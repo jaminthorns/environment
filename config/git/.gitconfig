@@ -11,6 +11,8 @@
 	tool = code
 [difftool "code"]
 	cmd = code --wait --diff $LOCAL $REMOTE
+[pull]
+	rebase = false
 [rebase]
 	instructionFormat = format:%s (%cr) <%an>
 [alias]
