@@ -8,7 +8,7 @@ end
 -- Media
 bindSystemKey({"cmd", "alt"}, "forwarddelete", "PREVIOUS")
 bindSystemKey({"cmd", "alt"}, "end", "PLAY")
-bindSystemKey({"cmd", "alt"}, "pagedown", "PREVIOUS")
+bindSystemKey({"cmd", "alt"}, "pagedown", "NEXT")
 
 -- Volume
 bindSystemKey({"cmd", "alt"}, "help", "SOUND_DOWN")
