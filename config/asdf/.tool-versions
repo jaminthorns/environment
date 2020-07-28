@@ -1,7 +1,7 @@
-elixir 1.10.2
+elixir 1.10.4
 elm 0.19.1
-erlang 22.3
-haskell 8.8.2
-nodejs 13.11.0
-postgres 12.2
+erlang 23.0.3
+haskell 8.10.1
+nodejs 14.6.0
+postgres 12.3
 yarn 1.22.4
