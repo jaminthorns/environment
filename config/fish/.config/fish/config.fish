@@ -1,6 +1,6 @@
 if status is-login
     # Initialize Homebrew
-    {{brew shellenv}}
+    {{fish -c "brew shellenv"}}
 
     # Initialize asdf
     source {{brew --prefix asdf}}/asdf.fish
