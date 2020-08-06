@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function read_config {
-  local file=$(cat $1)
+  local substitution
+  local file=$(cat "$1")
   local substitutions=$(grep -o "{{\([^}]\|}[^}]\)*}}" <<< "$file")
 
   if [ -n "$substitutions" ]; then
@@ -10,7 +11,7 @@ function read_config {
       local command=${command/%"}}"}
       local value=$(eval $command)
 
-      file=${file/"$substitution"/$value}
+      local file=${file/"$substitution"/$value}
     done <<< "$substitutions"
   fi
 

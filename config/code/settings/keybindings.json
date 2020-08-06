@@ -1,0 +1,29 @@
+[
+  // Mult-line editing shortcuts
+  { "key": "shift+cmd+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
+
+  // Panel shortcuts
+  { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
+
+  // Terminal shortcuts
+  { "key": "ctrl+shift+left", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
+  { "key": "ctrl+shift+right", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus" },
+  { "key": "ctrl+shift+w", "command": "workbench.action.terminal.kill", "when": "terminalFocus" },
+  { "key": "ctrl+shift+n", "command": "workbench.action.terminal.new", "when": "terminalFocus" },
+  { "key": "ctrl+shift+cmd+left", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
+  { "key": "ctrl+shift+cmd+right", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
+  { "key": "ctrl+shift+cmd+n", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
+
+  // Javascript-related shortcuts
+  { "key": "ctrl+cmd+s", "command": "sort-imports.sort", "when": "editorTextFocus" },
+  { "key": "ctrl+cmd+l", "command": "eslint.executeAutofix", "when": "editorTextFocus" },
+
+  // Git-related shortcuts
+  { "key": "shift+alt+c", "command": "git.openChange", "when": "editorTextFocus" },
+
+  // Open projects with project manager in new windows
+  { "key": "cmd+alt+p", "command": "projectManager.listProjectsNewWindow" },
+
+  // Clear the debug screen
+  { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "inDebugRepl" }
+]

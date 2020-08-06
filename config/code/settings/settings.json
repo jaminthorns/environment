@@ -1,0 +1,56 @@
+{
+  "editor.fontSize": 11,
+  "editor.renderWhitespace": "boundary",
+  "editor.lineHeight": 15,
+  "editor.tabSize": 2,
+  "editor.renderLineHighlight": "all",
+  "editor.cursorBlinking": "phase",
+  "editor.rulers": [80, 120],
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.dragAndDrop": false,
+  "editor.minimap.enabled": false,
+
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.showTabs": false,
+  "workbench.colorTheme": "Dracula",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.settings.editor": "json",
+
+  "diffEditor.renderSideBySide": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "window.zoomLevel": 0,
+
+  "search.useGlobalIgnoreFiles": true,
+
+  "problems.decorations.enabled": false,
+
+  "extensions.ignoreRecommendations": true,
+  "extensions.showRecommendationsOnlyOnDemand": true,
+
+  "sort-imports.on-save": false,
+  "sort-imports.default-sort-style": "module-compact",
+
+  "terminal.integrated.fontSize": 11,
+
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+
+  "gitlens.codeLens.enabled": false,
+  "gitlens.keymap": "alternate",
+
+  "projectManager.sortList": "Recent",
+
+  "rest-client.previewResponseInUntitledDocument": true,
+  "rest-client.previewResponsePanelTakeFocus": false,
+
+  "elixirLS.suggestSpecs": false,
+  "elixirLS.dialyzerEnabled": false,
+
+  "javascript.updateImportsOnFileMove.enabled": "never"
+}

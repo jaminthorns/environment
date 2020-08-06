@@ -21,7 +21,7 @@ cat config/asdf/.tool-versions | cut -d " " -f 1 | xargs -n 1 asdf plugin-add
 curl https://git.io/fisher --create-dirs -sLo $HOME/.config/fish/functions/fisher.fish
 
 # Push config files to home directory
-./push.sh $1
+source push.sh $1
 
 # Install global Yarn packages
 yarn global add
