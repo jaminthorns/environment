@@ -17,7 +17,7 @@ function copy {
 }
 
 function run {
-  run_script "$2"
+  run_script "$1"
 }
 
 (cd config && source sync.sh)

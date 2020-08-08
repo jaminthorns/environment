@@ -8,4 +8,4 @@ copy git $HOME
 copy hammerspoon $HOME/.hammerspoon
 copy yarn $HOME/.config/yarn/global
 
-run code/pull_extensions.sh code/push_extensions.sh
+run code/push_extensions.sh code/pull_extensions.sh
