@@ -2,6 +2,7 @@
 
 source functions/config_paths.sh
 source functions/read_config.sh
+source functions/run_script.sh
 
 function copy {
   local config_path dest_path
@@ -16,11 +17,7 @@ function copy {
 }
 
 function run {
-  local script_path=$2
-  local script_dir=$(dirname "$script_path")
-  local script_name=$(basename "$script_path")
-
-  (cd "$script_dir" && source "$script_name")
+  run_script "$2"
 }
 
 (cd config && source sync.sh)

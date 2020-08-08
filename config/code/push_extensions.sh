@@ -1,5 +1,3 @@
-#!/bin/bash
-
 config_extensions=$(cat extensions)
 installed_extensions=$(code --list-extensions)
 
