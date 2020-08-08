@@ -11,10 +11,12 @@ brew "git-delta"
 brew "git"
 brew "ripgrep"
 
-# asdf program dependencies
-brew "wxmac" if OS.mac?
+if OS.mac?
+  # asdf program dependencies
+  brew "wxmac"
 
-# Casks
-cask "font-jetbrains-mono"
-cask "gpg-suite"
-cask "hammerspoon"
+  # Casks
+  cask "font-jetbrains-mono"
+  cask "gpg-suite"
+  cask "hammerspoon"
+end
