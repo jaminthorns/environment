@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function config_paths {
   local path
   local config_dir=$1

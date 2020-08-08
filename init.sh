@@ -3,7 +3,7 @@
 source functions/create_secrets.sh
 
 # Create secrets if not already created
-test -e secrets/values || create_secrets secrets/variables secrets/values
+test -e secrets/values || create_secrets secrets/variables secrets/values.sh
 
 # Install Homebrew packages
 brew bundle --no-lock --file=config/brew/.Brewfile

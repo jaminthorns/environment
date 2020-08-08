@@ -1,6 +1,4 @@
-#!/bin/bash
-
-source ../secrets/values
+source ../secrets/values.sh
 
 copy asdf $HOME
 copy brew $HOME

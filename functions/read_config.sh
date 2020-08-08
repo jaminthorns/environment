@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function read_config {
   local substitution
   local file=$(cat "$1")

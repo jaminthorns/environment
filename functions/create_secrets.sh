@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function create_secrets {
   local variable value
   local variables_path=$1
