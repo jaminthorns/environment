@@ -17,6 +17,5 @@ if OS.mac?
 
   # Casks
   cask "font-jetbrains-mono"
-  cask "gpg-suite"
   cask "hammerspoon"
 end
