@@ -1,7 +1,7 @@
-function modifier {
+function key {
   if [ $(get_os) = "mac_os" ]; then
-    echo "cmd"
-  else
     echo $1
+  else
+    echo $2
   fi
 }

@@ -3,19 +3,22 @@
 MapCommandKeys()
 
 ; Media
-#!End::Send {Media_Play_Pause}
-#!Delete::Send {Media_Prev}
-#!PgDn::Send {Media_Next}
+!#End::Send {Media_Play_Pause}
+!#Delete::Send {Media_Prev}
+!#PgDn::Send {Media_Next}
 
 ; Volume
-#!PgUp::Send {Volume_Up}
-#!Home::Send {Volume_Mute}
-#!Insert::Send {Volume_Down}
+!#PgUp::Send {Volume_Up}
+!#Home::Send {Volume_Mute}
+!#Insert::Send {Volume_Down}
 
 ; Window Snapping
-#!Left::Send #{Left}
-#!Right::Send #{Right}
-#!Enter::Send #{Up}
+!#Left::Send #{Left}
+!#Right::Send #{Right}
+!#Enter::Send #{Up}
+
+; Alt Press Behavior
+Alt::Return
 
 ; Cursor control (Alt -> Command)
 !Up::Send ^{Home}
@@ -38,8 +41,8 @@ MapCommandKeys()
 #+Right::Send ^+{Right}
 
 ; Cursor control (Alt + Win -> Command + Option)
-#!Up::Send ^!{Up}
-#!Down::Send ^!{Down}
+!#Up::Send ^!{Up}
+!#Down::Send ^!{Down}
 
 ; Backspace/Delete
 #Backspace::Send ^{Backspace}
@@ -66,6 +69,12 @@ MapCommandKeys() {
 
     AltShiftFunc := Func("AltShift").Bind(Key)
     Hotkey, #+%Key%, %AltShiftFunc%
+
+    ControlAltFunc := Func("ControlAlt").Bind(Key)
+    Hotkey, !#%Key%, %ControlAltFunc%
+
+    ControlAltShiftFunc := Func("ControlAltShift").Bind(Key)
+    Hotkey, !#+%Key%, %ControlAltShiftFunc%
   }
 }
 
@@ -83,4 +92,12 @@ Alt(Key) {
 
 AltShift(Key) {
   Send !+{%Key%}
+}
+
+ControlAlt(Key) {
+  Send ^!{%Key%}
+}
+
+ControlAltShift(Key) {
+  Send ^!+{%Key%}
 }
