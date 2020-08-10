@@ -1,0 +1,81 @@
+{
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+  "copyOnSelect": false,
+  "copyFormatting": false,
+  "profiles": {
+    "defaults": {
+      "colorScheme": "Dracula",
+      "cursorShape": "filledBox",
+      "fontFace": "JetBrains Mono",
+      "fontSize": 9
+    },
+    "list": [
+      {
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "hidden": false,
+        "name": "Linux",
+        "commandline": "wsl.exe ~",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "PowerShell",
+        "commandline": "powershell.exe",
+        "hidden": false
+      },
+      {
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "name": "Command Prompt",
+        "commandline": "cmd.exe",
+        "hidden": false
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure",
+        "hidden": false
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "name": "Dracula",
+      "background": "#272935",
+      "black": "#21222C",
+      "blue": "#BD93F9",
+      "cyan": "#8BE9FD",
+      "foreground": "#F8F8F2",
+      "green": "#50FA7B",
+      "purple": "#FF79C6",
+      "red": "#FF5555",
+      "white": "#F8F8F2",
+      "yellow": "#FFB86C",
+      "brightBlack": "#6272A4",
+      "brightBlue": "#D6ACFF",
+      "brightCyan": "#A4FFFF",
+      "brightGreen": "#69FF94",
+      "brightPurple": "#FF92DF",
+      "brightRed": "#FF6E6E",
+      "brightWhite": "#F8F8F2",
+      "brightYellow": "#FFFFA5"
+    }
+  ],
+  "keybindings": [
+    {
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "keys": "ctrl+c"
+    },
+    {
+      "command": "paste",
+      "keys": "ctrl+v"
+    },
+    {
+      "command": "find",
+      "keys": "ctrl+f"
+    }
+  ]
+}

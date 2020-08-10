@@ -1,3 +1,5 @@
+source code.sh
+
 config_extensions=$(cat extensions)
 installed_extensions=$(code --list-extensions)
 

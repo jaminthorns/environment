@@ -1,0 +1,86 @@
+#UseHook
+
+MapCommandKeys()
+
+; Media
+#!End::Send {Media_Play_Pause}
+#!Delete::Send {Media_Prev}
+#!PgDn::Send {Media_Next}
+
+; Volume
+#!PgUp::Send {Volume_Up}
+#!Home::Send {Volume_Mute}
+#!Insert::Send {Volume_Down}
+
+; Window Snapping
+#!Left::Send #{Left}
+#!Right::Send #{Right}
+#!Enter::Send #{Up}
+
+; Cursor control (Alt -> Command)
+!Up::Send ^{Home}
+!Down::Send ^{End}
+!Left::Send {Home}
+!Right::Send {End}
+!+Up::Send ^+{Home}
+!+Down::Send ^+{End}
+!+Left::Send +{Home}
+!+Right::Send +{End}
+
+; Cursor control (Win -> Option)
+#Up::Send !{Up}
+#Down::Send !{Down}
+#Left::Send ^{Left}
+#Right::Send ^{Right}
+#+Up::Send !+{Up}
+#+Down::Send !+{Down}
+#+Left::Send ^+{Left}
+#+Right::Send ^+{Right}
+
+; Cursor control (Alt + Win -> Command + Option)
+#!Up::Send ^!{Up}
+#!Down::Send ^!{Down}
+
+; Backspace/Delete
+#Backspace::Send ^{Backspace}
+!Backspace::Send +{Home}{Delete}
+#Delete::Send ^{Delete}
+!Delete::Send +{End}{Delete}
+
+MapCommandKeys() {
+  Keys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
+         , "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+         , "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+         , "-", "=", "[", "]", "\", ";", "'", ",", ".", "/"
+         , "Enter", "LButton"]
+
+  For _, Key In Keys {
+    ControlFunc := Func("Control").Bind(Key)
+    Hotkey, !%Key%, %ControlFunc%
+
+    ControlShiftFunc := Func("ControlShift").Bind(Key)
+    Hotkey, !+%Key%, %ControlShiftFunc%
+
+    AltFunc := Func("Alt").Bind(Key)
+    Hotkey, #%Key%, %AltFunc%
+
+    AltShiftFunc := Func("AltShift").Bind(Key)
+    Hotkey, #+%Key%, %AltShiftFunc%
+  }
+}
+
+Control(Key) {
+  Send ^{%Key%}
+}
+
+ControlShift(Key) {
+  Send ^+{%Key%}
+}
+
+Alt(Key) {
+  Send !{%Key%}
+}
+
+AltShift(Key) {
+  Send !+{%Key%}
+}
