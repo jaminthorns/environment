@@ -1,3 +1,3 @@
-source code.sh
+source run_code.sh
 
-code --list-extensions > extensions
+run_code --list-extensions > extensions
