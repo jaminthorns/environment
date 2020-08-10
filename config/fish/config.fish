@@ -16,7 +16,10 @@ if status is-interactive
     # Disable greeting
     set fish_greeting
 
-    # Less options
+    # pisces options
+    set pisces_only_insert_at_eol 1
+
+    # less options
     set -x LESS -R
 
     # Erlang options
