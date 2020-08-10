@@ -18,4 +18,4 @@ if [ $(get_os) = "wsl" ]; then
   copy windows_terminal "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
 fi
 
-run code/push_extensions.sh code/pull_extensions.sh
+run code/extensions/push.sh code/extensions/pull.sh
