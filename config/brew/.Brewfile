@@ -11,11 +11,10 @@ brew "git-delta"
 brew "git"
 brew "ripgrep"
 
-if OS.mac?
-  # asdf program dependencies
-  brew "wxmac"
+# Dependencies for compiled asdf programs
+brew "erlang", args: ["only-dependencies"]
+brew "postgresql", args: ["only-dependencies"]
 
-  # Casks
-  cask "font-jetbrains-mono"
-  cask "hammerspoon"
-end
+# Casks
+cask "font-jetbrains-mono"
+cask "hammerspoon"

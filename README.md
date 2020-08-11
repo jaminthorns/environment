@@ -8,12 +8,7 @@ My configuration files and initialization scripts for macOS/Linux.
 
 ## Initial Setup
 
-- Install dependencies for `asdf` programs that will be compiled from source:
-
-  - [Erlang](https://github.com/asdf-vm/asdf-erlang#before-asdf-install)
-  - [Postgres](https://github.com/smashedtoatoms/asdf-postgres#dependencies)
-
-- Run the `init` script:
+Run the `init.sh` script:
 
   ```shell
   ./init.sh
