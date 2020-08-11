@@ -8,11 +8,6 @@ My configuration files and initialization scripts for macOS/Linux.
 
 ## Initial Setup
 
-- Install Homebrew:
-
-  - [macOS](https://docs.brew.sh/Installation)
-  - [Linux](https://docs.brew.sh/Homebrew-on-Linux)
-
 - Install dependencies for `asdf` programs that will be compiled from source:
 
   - [Erlang](https://github.com/asdf-vm/asdf-erlang#before-asdf-install)

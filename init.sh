@@ -1,9 +1,19 @@
 #!/bin/bash
 
 source functions/create_secrets.sh
+source functions/get_os.sh
 
 # Create secrets if not already created
 test -e secrets/values.sh || create_secrets secrets/variables secrets/values.sh
+
+# Get Homebrew path
+test $(get_os) = "mac_os" && brew="/usr/local/bin/brew" || brew="/home/linuxbrew/.linuxbrew/bin/brew"
+
+# Install Homebrew
+test -x $brew || bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+# Initialize Homebrew
+eval $($brew shellenv)
 
 # Install Homebrew packages
 brew bundle --no-lock --file=config/brew/.Brewfile
@@ -29,8 +39,11 @@ yarn global add
 # Install Fisher packages
 fish -c fisher
 
+# Get fish path
+fish=$(command -v fish)
+
 # Add fish to shells if not already present
-grep -q $(which fish) /etc/shells || echo $(which fish) | sudo tee -a /etc/shells
+grep -q $fish /etc/shells || echo $fish | sudo tee -a /etc/shells
 
 # Change shell to fish if not already changed
-test $SHELL = $(which fish) || chsh -s $(which fish)
+test $SHELL = $fish || chsh -s $fish
