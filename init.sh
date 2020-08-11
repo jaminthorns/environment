@@ -9,7 +9,7 @@ test -e secrets/values.sh || create_secrets secrets/variables secrets/values.sh
 # Get Homebrew path
 test $(get_os) = "mac_os" && brew="/usr/local/bin/brew" || brew="/home/linuxbrew/.linuxbrew/bin/brew"
 
-# Install Homebrew
+# Install Homebrew if not already installed
 test -x $brew || bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Initialize Homebrew
@@ -30,7 +30,7 @@ cat config/asdf/.tool-versions | cut -d " " -f 1 | xargs -n 1 asdf plugin-add
 # Install Fisher
 curl https://git.io/fisher --create-dirs -sLo $HOME/.config/fish/functions/fisher.fish
 
-# Push config files to home directory
+# Push configuration
 source push.sh
 
 # Install global Yarn packages
