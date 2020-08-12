@@ -1,7 +1,7 @@
 source ../functions/get_os.sh
 source ../secrets/values.sh
 
-copy asdf $HOME
+copy asdf/tools $HOME
 copy brew $HOME
 copy fish $HOME/.config/fish
 copy git $HOME

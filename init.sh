@@ -6,8 +6,11 @@ source functions/get_os.sh
 # Create secrets if not already created
 test -e secrets/values.sh || create_secrets secrets/variables secrets/values.sh
 
+# Install dependencies for compiled asdf programs
+test $(get_os) = "wsl" && sudo apt update && find config/asdf/dependencies -type f | xargs cat | xargs sudo apt install -y
+
 # Get Homebrew path
-test $(get_os) = "mac_os" && brew="/usr/local/bin/brew" || brew="/home/linuxbrew/.linuxbrew/bin/brew"
+test $(get_os) = "wsl" && brew="/home/linuxbrew/.linuxbrew/bin/brew" || brew="/usr/local/bin/brew"
 
 # Install Homebrew if not already installed
 test -x $brew || bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"

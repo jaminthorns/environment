@@ -48,8 +48,8 @@ values will be pulled in, so make sure to ignore those changes.
 
 ## Updating Programs
 
-Programs (installed with `brew`, `asdf`, and `fisher`) can be updated with the
-`update.sh` script:
+Programs (installed with `apt`, `brew`, `asdf`, and `fisher`) can be updated
+with the `update.sh` script:
 
 ```shell
 ./update.sh
