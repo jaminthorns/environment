@@ -17,7 +17,7 @@ Run the `init.sh` script:
 ## Syncing Configuration
 
 Configuration syncing is specified by the `config/sync.sh` script. Within it,
-you can use the the bi-directional operations `copy` and `run`:
+you can use the bi-directional operations `copy` and `run`:
 
 - `copy` allows you to specify a config folder and a destination folder. On
   `push`, files will be copied from the config folder to the destination folder.
