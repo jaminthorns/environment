@@ -1,16 +1,16 @@
 #!/bin/bash
 
 source functions/create_secrets.sh
-source functions/get_os.sh
+source functions/os_status.sh
 
 # Create secrets if not already created
 test -e secrets/values.sh || create_secrets secrets/variables secrets/values.sh
 
 # Install dependencies for compiled asdf programs
-test $(get_os) = "wsl" && sudo apt update && find config/asdf/dependencies -type f | xargs cat | xargs sudo apt install -y
+os_status linux && sudo apt update && find config/asdf/dependencies -type f | xargs cat | xargs sudo apt install -y
 
 # Get Homebrew path
-test $(get_os) = "wsl" && brew="/home/linuxbrew/.linuxbrew/bin/brew" || brew="/usr/local/bin/brew"
+os_status linux && brew="/home/linuxbrew/.linuxbrew/bin/brew" || brew="/usr/local/bin/brew"
 
 # Install Homebrew if not already installed
 test -x $brew || bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"

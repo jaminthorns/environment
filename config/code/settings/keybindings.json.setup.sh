@@ -1,5 +1,5 @@
 function key {
-  if [ $(get_os) = "mac_os" ]; then
+  if os_status mac-os; then
     echo $1
   else
     echo $2

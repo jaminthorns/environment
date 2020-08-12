@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source functions/get_os.sh
+source functions/os_status.sh
 
 # Upgrade Linux packages
-test $(get_os) = "wsl" && sudo apt update && sudo apt upgrade -y
+os_status linux && sudo apt update && sudo apt upgrade -y
 
 # Upgrade Homebrew packages
 brew upgrade

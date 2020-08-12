@@ -1,5 +1,5 @@
 function run_code {
-  if [ $(get_os) = "wsl" ]; then
+  if os_status wsl; then
     cmd.exe /c "code $@" 2> /dev/null
   else
     code $@
