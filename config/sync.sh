@@ -12,6 +12,10 @@ if os_status mac-os; then
   copy hammerspoon $HOME/.hammerspoon
 fi
 
+if os_status linux && ! os_status wsl; then
+  copy code/settings $HOME/.config/Code/User
+fi
+
 if os_status wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
   copy code/settings "$APPDATA/Code/User"
