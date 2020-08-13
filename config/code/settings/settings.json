@@ -36,6 +36,7 @@
   "sort-imports.default-sort-style": "module-compact",
 
   "terminal.integrated.fontSize": 11,
+  "terminal.integrated.rendererType": "experimentalWebgl",
 
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
