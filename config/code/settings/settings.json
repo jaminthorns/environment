@@ -52,6 +52,7 @@
 
   "elixirLS.suggestSpecs": false,
   "elixirLS.dialyzerEnabled": false,
+  "elixirLS.fetchDeps": false,
 
   "javascript.updateImportsOnFileMove.enabled": "never"
 }
