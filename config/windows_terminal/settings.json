@@ -1,8 +1,6 @@
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-  "copyOnSelect": false,
-  "copyFormatting": false,
   "profiles": {
     "defaults": {
       "colorScheme": "Dracula",
@@ -36,24 +34,26 @@
   "schemes": [
     {
       "name": "Dracula",
-      "background": "#272935",
-      "black": "#21222C",
-      "blue": "#BD93F9",
-      "cyan": "#8BE9FD",
+      "cursorColor": "#F8F8F2",
+      "selectionBackground": "#44475A",
+      "background": "#282A36",
       "foreground": "#F8F8F2",
-      "green": "#50FA7B",
-      "purple": "#FF79C6",
+      "black": "#21222C",
       "red": "#FF5555",
+      "green": "#50FA7B",
+      "yellow": "#F1FA8C",
+      "blue": "#BD93F9",
+      "purple": "#FF79C6",
+      "cyan": "#8BE9FD",
       "white": "#F8F8F2",
-      "yellow": "#FFB86C",
       "brightBlack": "#6272A4",
-      "brightBlue": "#D6ACFF",
-      "brightCyan": "#A4FFFF",
-      "brightGreen": "#69FF94",
-      "brightPurple": "#FF92DF",
       "brightRed": "#FF6E6E",
-      "brightWhite": "#F8F8F2",
-      "brightYellow": "#FFFFA5"
+      "brightGreen": "#69FF94",
+      "brightYellow": "#FFFFA5",
+      "brightBlue": "#D6ACFF",
+      "brightPurple": "#FF92DF",
+      "brightCyan": "#A4FFFF",
+      "brightWhite": "#FFFFFF"
     }
   ],
   "keybindings": [
