@@ -10,6 +10,7 @@ copy yarn $HOME/.config/yarn/global
 if os_status mac-os; then
   copy code/settings "$HOME/Library/Application Support/Code/User"
   copy hammerspoon $HOME/.hammerspoon
+  copy iterm $HOME/.iterm
 fi
 
 if os_status linux && ! os_status wsl; then
