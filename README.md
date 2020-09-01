@@ -6,6 +6,17 @@
 
 My configuration files and initialization scripts for macOS/Linux.
 
+## Features
+
+- 🧛‍♂️ Consistent colors with [Dracula](https://draculatheme.com/).
+- 📝 Fully-equipped text editing with [VS Code](https://code.visualstudio.com/).
+- 🍺 Cross-platform packages with [Homebrew](https://brew.sh/).
+- 🛠 Version-controlled development tools with [`asdf`](https://asdf-vm.com/).
+- 🐠 Friendly shell experience with [`fish`](https://fishshell.com/).
+- 🖥 Modern terminal experience with [Windows
+  Terminal](https://github.com/microsoft/terminal)/[iTerm](https://iterm2.com/).
+- ⌨️ Synchronized keyboard setup between Windows/macOS.
+
 ## Initial Setup
 
 Run the `init.sh` script:
