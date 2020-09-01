@@ -4,7 +4,7 @@
 
 ![Tank](https://user-images.githubusercontent.com/6618434/65382519-eb433480-dccc-11e9-9f15-827945187805.jpg)
 
-My configuration files and initialization scripts for macOS/Linux.
+My configuration files and initialization scripts for Windows/macOS/Linux.
 
 ## Features
 
