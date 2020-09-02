@@ -1,10 +1,6 @@
 #!/bin/bash
 
-source functions/create_secrets.sh
 source functions/os_status.sh
-
-# Create secrets if not already created
-test -e secrets/values.sh || create_secrets secrets/variables secrets/values.sh
 
 # Install dependencies for compiled asdf programs
 os_status linux && sudo apt update && find config/asdf/dependencies -type f | xargs cat | xargs sudo apt install -y

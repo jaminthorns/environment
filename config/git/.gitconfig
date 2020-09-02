@@ -1,6 +1,6 @@
 [user]
 	name = Jamin Thornsberry
-	email = {{echo $GIT_EMAIL}}
+	email = {{secret GIT_EMAIL}}
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = code --wait

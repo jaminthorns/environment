@@ -1,5 +1,5 @@
 source ../functions/os_status.sh
-source ../secrets/values.sh
+source ../functions/secret.sh ../secrets/values
 
 copy asdf/tools $HOME
 copy brew $HOME
