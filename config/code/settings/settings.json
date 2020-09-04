@@ -37,6 +37,7 @@
 
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.rendererType": "experimentalWebgl",
+  "terminal.integrated.drawBoldTextInBrightColors": false,
 
   "git.confirmSync": false,
   "git.enableSmartCommit": true,

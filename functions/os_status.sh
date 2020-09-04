@@ -5,6 +5,8 @@ function os_status {
     linux)
       test $(uname -s) = "Linux";;
     wsl)
-      test $(uname -s) = "Linux" && uname -r | grep -q "microsoft";;
+      os_status linux && uname -r | grep -q "microsoft";;
+    linux-non-wsl)
+      os_status linux && ! os_status wsl;;
   esac
 }

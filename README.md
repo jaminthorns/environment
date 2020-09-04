@@ -13,8 +13,9 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 - 🍺 Cross-platform packages with [Homebrew](https://brew.sh/).
 - 🛠 Version-controlled development tools with [`asdf`](https://asdf-vm.com/).
 - 🐠 Friendly shell experience with [`fish`](https://fishshell.com/).
-- 🖥 Modern terminal experience with [Windows
-  Terminal](https://github.com/microsoft/terminal)/[iTerm](https://iterm2.com/).
+- 🖥 Modern terminal experience with
+  [`kitty`](https://sw.kovidgoyal.net/kitty/)/[Windows
+  Terminal](https://github.com/microsoft/terminal).
 - ⌨️ Synchronized keyboard setup between Windows/macOS.
 
 ## Initial Setup

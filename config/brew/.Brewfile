@@ -20,4 +20,5 @@ if OS.mac?
   # Casks
   cask "font-jetbrains-mono"
   cask "hammerspoon"
+  cask "kitty"
 end
