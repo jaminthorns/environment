@@ -10,6 +10,7 @@ brew "fzf"
 brew "git-delta"
 brew "git"
 brew "ripgrep"
+brew "yarn"
 
 if OS.mac?
   # Dependencies for compiled asdf programs
