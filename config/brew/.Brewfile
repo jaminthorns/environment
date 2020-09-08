@@ -9,6 +9,7 @@ brew "fish"
 brew "fzf"
 brew "git-delta"
 brew "git"
+brew "pandoc"
 brew "ripgrep"
 brew "yarn"
 
