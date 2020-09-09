@@ -70,8 +70,10 @@ MapCommandKeys() {
     AltShiftFunc := Func("AltShift").Bind(Key)
     Hotkey, #+%Key%, %AltShiftFunc%
 
-    ControlAltFunc := Func("ControlAlt").Bind(Key)
-    Hotkey, !#%Key%, %ControlAltFunc%
+    If (Key != "Enter") {
+      ControlAltFunc := Func("ControlAlt").Bind(Key)
+      Hotkey, !#%Key%, %ControlAltFunc%
+    }
 
     ControlAltShiftFunc := Func("ControlAltShift").Bind(Key)
     Hotkey, !#+%Key%, %ControlAltShiftFunc%
