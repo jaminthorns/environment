@@ -14,8 +14,8 @@
   { "key": "{{key cmd ctrl}}+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
 
   // Javascript-related shortcuts
-  { "key": "ctrl+{{key cmd alt}}+s", "command": "sort-imports.sort", "when": "editorTextFocus" },
-  { "key": "ctrl+{{key cmd alt}}+l", "command": "eslint.executeAutofix", "when": "editorTextFocus" },
+  { "key": "shift+alt+s", "command": "sort-imports.sort", "when": "editorLangId == javascript" },
+  { "key": "shift+alt+f", "command": "eslint.executeAutofix", "when": "editorLangId == javascript" },
 
   // Git-related shortcuts
   { "key": "shift+alt+c", "command": "git.openChange", "when": "editorTextFocus" },
