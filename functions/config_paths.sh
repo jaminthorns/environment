@@ -3,7 +3,7 @@ function config_paths {
   local config_dir=$1
   local dest_dir=$2
 
-  for path in $(cd "$config_dir" && find . -type f -not -name "*.setup.sh"); do
+  for path in $(cd "$config_dir" && find . -type f); do
     echo $config_dir/$path $dest_dir/$path
   done
 }

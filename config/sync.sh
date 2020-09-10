@@ -1,3 +1,4 @@
+source ../functions/key.sh
 source ../functions/os_status.sh
 source ../functions/secret.sh ../secrets/values
 
