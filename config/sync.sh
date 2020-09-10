@@ -1,5 +1,6 @@
-source ../functions/key.sh
+source ../functions/mac_os_key.sh
 source ../functions/os_status.sh
+source ../functions/windows_run.sh
 source ../functions/secret.sh ../secrets/values
 
 copy asdf/tools $HOME

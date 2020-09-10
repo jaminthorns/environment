@@ -56,7 +56,7 @@ the braces.
 
 ### Available Functions
 
-Within substitutions, you can use the following functions:
+Within substitutions and scripts, you can use the following functions:
 
 - `os_status` allows you to query properties about the current operating system.
   This can be used to implement conditional configuration per-OS.
@@ -66,9 +66,12 @@ Within substitutions, you can use the following functions:
   for security or privacy reasons). When calling `secret` for a value that has
   not yet been stored, you will be prompted to enter a value.
 
-- `key` allows you to specify two keys, one to be used on macOS and the other to
-  be used on any other OS. This is used when configuring keyboard shortcuts that
-  should differ across operating systems.
+- `mac_os_key` allows you to specify two keys, one to be used on macOS and the
+  other to be used on any other OS. This is used when configuring keyboard
+  shortcuts that should differ across operating systems.
+
+- `windows_run` allows you to run a command directly in Windows if possible. If
+  not possible, the command will be run normally.
 
 ## Syncing Configuration
 
