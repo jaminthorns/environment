@@ -57,11 +57,41 @@
     }
   ],
   "keybindings": [
-    { "command": "copy", "keys": "ctrl+c" },
-    { "command": "paste", "keys": "ctrl+v" },
-    { "command": "find", "keys": "ctrl+f" },
-    { "command": "newTab", "keys": "ctrl+shift+n" },
-    { "command": "prevTab", "keys": "ctrl+shift+left" },
-    { "command": "nextTab", "keys": "ctrl+shift+right" }
+    {
+      "command": "copy",
+      "keys": "ctrl+c"
+    },
+    {
+      "command": "paste",
+      "keys": "ctrl+v"
+    },
+    {
+      "command": "find",
+      "keys": "ctrl+f"
+    },
+    {
+      "command": "newTab",
+      "keys": "ctrl+shift+n"
+    },
+    {
+      "command": "prevTab",
+      "keys": "ctrl+shift+left"
+    },
+    {
+      "command": "nextTab",
+      "keys": "ctrl+shift+right"
+    },
+    {
+      "command": { "action": "splitPane", "split": "vertical" },
+      "keys": "ctrl+shift+\\"
+    },
+    {
+      "command": { "action": "moveFocus", "direction": "left" },
+      "keys": "ctrl+shift+["
+    },
+    {
+      "command": { "action": "moveFocus", "direction": "right" },
+      "keys": "ctrl+shift+]"
+    }
   ]
 }

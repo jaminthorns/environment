@@ -10,8 +10,9 @@
   { "key": "ctrl+shift+w", "command": "workbench.action.terminal.kill", "when": "terminalFocus" },
   { "key": "ctrl+shift+left", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
   { "key": "ctrl+shift+right", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus" },
-  { "key": "{{key cmd ctrl}}+[", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
-  { "key": "{{key cmd ctrl}}+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
+  { "key": "ctrl+shift+\\", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
+  { "key": "ctrl+shift+[", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
+  { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
 
   // Javascript-related shortcuts
   { "key": "shift+alt+s", "command": "sort-imports.sort", "when": "editorLangId == javascript" },
