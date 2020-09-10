@@ -20,6 +20,14 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 
 ## Initial Setup
 
+If running on Windows, set `WSLENV` to [share environment variables between
+Windows and
+WSL](https://docs.microsoft.com/en-us/windows/wsl/interop#share-environment-variables-between-windows-and-wsl):
+
+```
+WSLENV=APPDATA/up:LOCALAPPDATA/up
+```
+
 Run the `init.sh` script:
 
 ```shell
