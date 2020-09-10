@@ -13,6 +13,7 @@
   { "key": "ctrl+shift+\\", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
   { "key": "ctrl+shift+[", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
   { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
+  { "key": "{{key cmd ctrl}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
 
   // Javascript-related shortcuts
   { "key": "shift+alt+s", "command": "sort-imports.sort", "when": "editorLangId == javascript" },
