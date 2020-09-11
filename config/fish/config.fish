@@ -20,13 +20,13 @@ if status is-interactive
     set pisces_only_insert_at_eol 1
 
     # less options
-    set -x LESS -R
+    set -x LESS -SRc~
 
     # Erlang options
     set -x ERL_AFLAGS -kernel shell_history enabled
 
     # bat options
-    set -x BAT_PAGER less -R
+    set -x BAT_PAGER less $LESS
     set -x BAT_THEME Dracula
 
     # fzf options
