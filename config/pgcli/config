@@ -1,0 +1,29 @@
+[main]
+less_chatty = True
+multi_line = True
+keyword_casing = upper
+table_format = double
+prompt = '\x1b[1m\x1b[32m« \x1b[34m\h \x1b[36m\d \x1b[32m» '
+multiline_continuation_char = ' '
+
+[colors]
+completion-menu.completion.current = 'ansiblack bg:ansigray'
+completion-menu.completion = 'ansiwhite bg:ansiblue'
+completion-menu.meta.completion.current = 'ansiblack bg:ansiwhite'
+completion-menu.meta.completion = 'ansiwhite bg:ansibrightblue'
+scrollbar = ''
+bottom-toolbar = 'ansigray'
+bottom-toolbar.off = ''
+bottom-toolbar.on = 'ansiwhite bold'
+bottom-toolbar.transaction.valid = 'ansigreen bold'
+bottom-toolbar.transaction.failed = 'ansired bold'
+output.header = 'ansiblue bold'
+pygments.comment = 'ansibrightblack'
+pygments.keyword = 'ansimagenta'
+pygments.literal.number = 'ansiblue'
+pygments.literal.string = 'ansiyellow'
+pygments.name = 'ansigray'
+pygments.name.builtin = 'ansicyan italic'
+pygments.operator = 'ansimagenta'
+pygments.punctuation = 'ansigray'
+pygments.text = 'ansigray'

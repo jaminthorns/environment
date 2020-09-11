@@ -10,6 +10,7 @@ brew "fzf"
 brew "git-delta"
 brew "git"
 brew "pandoc"
+brew "pgcli"
 brew "ripgrep"
 brew "yarn"
 
