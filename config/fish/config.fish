@@ -9,7 +9,7 @@ if status is-login
     set -p PATH {{yarn global bin}}
 
     # Secrets
-    test -e $HOME/.secrets && source $HOME/.secrets
+    test -e $HOME/.secrets.fish && source $HOME/.secrets.fish
 end
 
 if status is-interactive
