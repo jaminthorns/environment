@@ -1,5 +1,3 @@
-#UseHook
-
 MapCommandKeys()
 
 ; Media
@@ -12,13 +10,17 @@ MapCommandKeys()
 !#Home::Send {Volume_Mute}
 !#Insert::Send {Volume_Down}
 
-; Window Snapping
+; Window snapping
 !#Left::Send #{Left}
 !#Right::Send #{Right}
 !#Enter::Send #{Up}
 
-; Alt Press Behavior
+; Disable modifier key press behavior
 Alt::Return
+LWin & vkFF::Return
+LWin::Return
+RWin & vkFF::Return
+RWin::Return
 
 ; Cursor control (Alt -> Command)
 !Up::Send ^{Home}
