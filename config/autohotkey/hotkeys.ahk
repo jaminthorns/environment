@@ -1,3 +1,5 @@
+#UseHook
+
 MapCommandKeys()
 
 ; Media
@@ -9,6 +11,9 @@ MapCommandKeys()
 !#PgUp::Send {Volume_Up}
 !#Home::Send {Volume_Mute}
 !#Insert::Send {Volume_Down}
+
+; Search
+!Space::Send #s
 
 ; Window snapping
 !#Left::Send #{Left}
