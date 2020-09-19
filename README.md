@@ -16,7 +16,7 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 - 🖥 Modern terminal experience with
   [`kitty`](https://sw.kovidgoyal.net/kitty/)/[Windows
   Terminal](https://github.com/microsoft/terminal).
-- ⌨️ Synchronized keyboard setup between Windows/macOS.
+- ⌨️ Uniform keyboard setup between Windows/macOS.
 
 ## Initial Setup
 
