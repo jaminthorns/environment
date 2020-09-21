@@ -4,6 +4,9 @@
 # Visual Studio Code configuration
 .vscode
 
+# Visual Studio Code workspaces
+*.code-workspace
+
 # Elixir Language Server artifacts
 .elixir_ls
 
