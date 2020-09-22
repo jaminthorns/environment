@@ -74,8 +74,10 @@ MapModifierKeys() {
     ControlShiftFunc := Func("ControlShift").Bind(Key)
     Hotkey, !+%Key%, %ControlShiftFunc%
 
-    AltFunc := Func("Alt").Bind(Key)
-    Hotkey, #%Key%, %AltFunc%
+    If (Key != "x") {
+      AltFunc := Func("Alt").Bind(Key)
+      Hotkey, #%Key%, %AltFunc%
+    }
 
     AltShiftFunc := Func("AltShift").Bind(Key)
     Hotkey, #+%Key%, %AltShiftFunc%
