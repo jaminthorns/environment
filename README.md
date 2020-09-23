@@ -36,8 +36,8 @@ Run the `init.sh` script:
 
 ## Updating Programs
 
-Programs (installed with `apt`, `brew`, `asdf`, and `fisher`) can be updated
-with the `update.sh` script:
+Programs (`apt`/`brew` packages, `asdf` tools, and `fisher` plugins) can be
+updated with the `update.sh` script:
 
 ```shell
 ./update.sh
