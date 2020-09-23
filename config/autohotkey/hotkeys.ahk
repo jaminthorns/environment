@@ -16,7 +16,7 @@ MapModifierKeys()
 !Space::Send #s
 
 ; Emoji keyboard
-!^.::Send #.
+!^Space::Send #.
 
 ; Window snapping
 !#Left::Send #{Left}
