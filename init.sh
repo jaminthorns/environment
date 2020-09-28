@@ -21,7 +21,7 @@ brew bundle --no-lock --file=config/brew/.Brewfile
 source $(brew --prefix asdf)/asdf.sh
 
 # Add asdf plugins
-cat config/asdf/tools/.tool-versions | cut -d " " -f 1 | xargs -n 1 asdf plugin-add
+cat config/asdf/tools/.tool-versions | cut -d " " -f 1 | xargs -n 1 asdf plugin add
 
 # Install asdf programs
 (cd config/asdf/tools && NODEJS_CHECK_SIGNATURES=no asdf install)
