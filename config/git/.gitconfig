@@ -9,7 +9,6 @@
 	diffFilter = delta --color-only
 [delta]
 	line-numbers = true
-	hunk-header-decoration-style = cyan ul
 [diff]
 	tool = code
 [difftool "code"]
