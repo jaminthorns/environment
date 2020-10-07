@@ -1,6 +1,6 @@
-elixir 1.10.4
+elixir 1.11.0
 elm 0.19.1
-erlang 23.0.3
+erlang 23.1.1
 haskell 8.10.1
 nodejs 14.6.0
 postgres 12.3
