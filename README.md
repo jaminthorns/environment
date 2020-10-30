@@ -12,9 +12,8 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 - 📝 Fully-equipped text editing with [VS Code](https://code.visualstudio.com/).
 - 🍺 Cross-platform packages with [Homebrew](https://brew.sh/).
 - 🛠 Version-controlled development tools with [`asdf`](https://asdf-vm.com/).
-- 🐠 Friendly shell experience with [`fish`](https://fishshell.com/).
-- 🖥 Modern terminal experience with
-  [`kitty`](https://sw.kovidgoyal.net/kitty/)/[Windows
+- 🐠 Friendly shell with [`fish`](https://fishshell.com/).
+- 🖥 Modern terminal with [`kitty`](https://sw.kovidgoyal.net/kitty/)/[Windows
   Terminal](https://github.com/microsoft/terminal).
 - ⌨️ Uniform keyboard setup between Windows/macOS.
 
