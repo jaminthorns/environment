@@ -26,17 +26,14 @@ cat config/asdf/tools/.tool-versions | cut -d " " -f 1 | xargs -n 1 asdf plugin 
 # Install asdf programs
 (cd config/asdf/tools && NODEJS_CHECK_SIGNATURES=no asdf install)
 
-# Install Fisher
-curl https://git.io/fisher --create-dirs -sLo $HOME/.config/fish/functions/fisher.fish
-
 # Push configuration
 source push.sh
 
 # Install global Yarn packages
 yarn global add
 
-# Install Fisher packages
-fish -c fisher
+# Install Fisher and packages
+fish -c "curl -sL git.io/fisher | source && fisher update"
 
 # Get fish path
 fish=$(command -v fish)
