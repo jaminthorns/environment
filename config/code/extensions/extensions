@@ -4,7 +4,6 @@ alefragnani.project-manager
 amatiasq.sort-imports
 bmalehorn.vscode-fish
 codezombiech.gitignore
-cweijan.vscode-autohotkey-plus
 dbaeumer.vscode-eslint
 DotJoshJohnson.xml
 dracula-theme.theme-dracula
@@ -16,6 +15,7 @@ humao.rest-client
 JakeBecker.elixir-ls
 jaredly.reason-vscode
 justusadam.language-haskell
+mark-wiemer.vscode-autohotkey-plus-plus
 mitchdenny.ecdc
 ms-vscode-remote.remote-wsl
 ms-vsliveshare.vsliveshare
