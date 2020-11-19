@@ -41,7 +41,6 @@
   "terminal.integrated.rendererType": "experimentalWebgl",
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.localEchoLatencyThreshold": -1,
-  "terminal.integrated.shellArgs.linux": ["-l"],
 
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
