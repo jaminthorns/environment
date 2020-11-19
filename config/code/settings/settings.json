@@ -24,6 +24,7 @@
   "files.insertFinalNewline": true,
 
   "window.zoomLevel": 0,
+  "window.title": "${rootName}${separator}${appName}",
 
   "search.useGlobalIgnoreFiles": true,
 
