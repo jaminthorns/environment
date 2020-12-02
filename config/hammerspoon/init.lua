@@ -14,3 +14,6 @@ bindSystemKey({"cmd", "alt"}, "pagedown", "NEXT")
 bindSystemKey({"cmd", "alt"}, "help", "SOUND_DOWN")
 bindSystemKey({"cmd", "alt"}, "home", "MUTE")
 bindSystemKey({"cmd", "alt"}, "pageup", "SOUND_UP")
+
+-- Sleep
+hs.hotkey.bind({"cmd", "alt"}, "f15", hs.caffeinate.systemSleep)

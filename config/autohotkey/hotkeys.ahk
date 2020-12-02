@@ -12,6 +12,9 @@ MapModifierKeys()
 !#Home::Send {Volume_Mute}
 !#Insert::Send {Volume_Down}
 
+; Sleep
+!#Pause::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
+
 ; Search
 !Space::Send #s
 
