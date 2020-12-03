@@ -33,7 +33,7 @@ source push.sh
 yarn global add
 
 # Install Fisher and packages
-fish -c "curl -sL git.io/fisher | source && fisher update"
+fish -c "curl -sL https://git.io/fisher | source && fisher update"
 
 # Get fish path
 fish=$(command -v fish)
