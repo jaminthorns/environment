@@ -10,6 +10,7 @@
   "editor.fontLigatures": true,
   "editor.dragAndDrop": false,
   "editor.minimap.enabled": false,
+  "editor.stickyTabStops": true,
 
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": false,
@@ -31,7 +32,6 @@
   "problems.decorations.enabled": false,
 
   "extensions.ignoreRecommendations": true,
-  "extensions.showRecommendationsOnlyOnDemand": true,
 
   "sort-imports.on-save": false,
   "sort-imports.default-sort-style": "module-compact",
