@@ -1,7 +1,3 @@
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-
-# General
 brew "asdf"
 brew "awscli"
 brew "bat"
@@ -16,12 +12,14 @@ brew "ripgrep"
 brew "yarn"
 
 if OS.mac?
-  # Dependencies for compiled asdf programs
-  brew "erlang", args: ["only-dependencies"]
-  brew "postgresql", args: ["only-dependencies"]
+  tap "homebrew/cask"
+  tap "homebrew/cask-fonts"
 
-  # Casks
   cask "font-jetbrains-mono"
   cask "hammerspoon"
   cask "kitty"
+
+  # Dependencies for compiled asdf programs
+  brew "erlang", args: ["only-dependencies"]
+  brew "postgresql", args: ["only-dependencies"]
 end
