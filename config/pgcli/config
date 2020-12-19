@@ -3,7 +3,7 @@ less_chatty = True
 multi_line = True
 keyword_casing = upper
 table_format = double
-prompt = '\x1b[34m\h \x1b[36m\d\n\x1b[32m» '
+prompt = '\x1b[1m\x1b[34m\h \x1b[36m\d\n\x1b[32m» '
 multiline_continuation_char = ' '
 
 [colors]
