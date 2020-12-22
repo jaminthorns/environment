@@ -51,12 +51,14 @@
 
   "projectManager.sortList": "Recent",
 
-  "rest-client.previewResponseInUntitledDocument": true,
   "rest-client.previewResponsePanelTakeFocus": false,
+  "rest-client.requestNameAsResponseTabTitle": true,
 
   "elixirLS.suggestSpecs": false,
   "elixirLS.dialyzerEnabled": false,
   "elixirLS.fetchDeps": false,
 
-  "javascript.updateImportsOnFileMove.enabled": "never"
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
