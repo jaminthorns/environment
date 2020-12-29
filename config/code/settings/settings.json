@@ -33,9 +33,6 @@
 
   "extensions.ignoreRecommendations": true,
 
-  "sort-imports.on-save": false,
-  "sort-imports.default-sort-style": "module-compact",
-
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.rendererType": "experimentalWebgl",
@@ -54,11 +51,8 @@
   "rest-client.previewResponsePanelTakeFocus": false,
   "rest-client.requestNameAsResponseTabTitle": true,
 
-  "elixirLS.suggestSpecs": false,
   "elixirLS.dialyzerEnabled": false,
-  "elixirLS.fetchDeps": false,
 
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
 }
