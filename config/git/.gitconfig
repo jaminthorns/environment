@@ -9,6 +9,8 @@
 	diffFilter = delta --color-only
 [delta]
 	line-numbers = true
+	file-decoration-style = blue box ul
+	hunk-header-style = omit
 [diff]
 	tool = code
 [difftool "code"]
