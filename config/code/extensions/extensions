@@ -1,5 +1,4 @@
 acarreiro.calculate
-alefragnani.Bookmarks
 alefragnani.project-manager
 bmalehorn.vscode-fish
 codezombiech.gitignore
@@ -9,10 +8,10 @@ dracula-theme.theme-dracula
 eamodio.gitlens
 elmTooling.elm-ls-vscode
 esbenp.prettier-vscode
+GitHub.vscode-pull-request-github
 haskell.haskell
 humao.rest-client
 JakeBecker.elixir-ls
-jaredly.reason-vscode
 justusadam.language-haskell
 mark-wiemer.vscode-autohotkey-plus-plus
 mitchdenny.ecdc
