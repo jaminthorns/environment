@@ -11,6 +11,7 @@
 	line-numbers = true
 	file-decoration-style = blue box ul
 	hunk-header-style = omit
+	navigate = true
 [diff]
 	tool = code
 [difftool "code"]
