@@ -35,7 +35,6 @@
 
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.rightClickBehavior": "default",
-  "terminal.integrated.rendererType": "experimentalWebgl",
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.localEchoLatencyThreshold": -1,
 
