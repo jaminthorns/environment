@@ -69,8 +69,7 @@ Within substitutions and scripts, you can use the following functions:
   other to be used on any other OS. This is used when configuring keyboard
   shortcuts that should differ across operating systems.
 
-- `windows_run` allows you to run a command directly in Windows if possible. If
-  not possible, the command will be run normally.
+- `windows_run` allows you to run a command directly in Windows if possible.
 
 ## Syncing Configuration
 
