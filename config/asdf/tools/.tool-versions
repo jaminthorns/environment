@@ -3,5 +3,5 @@ elm 0.19.1
 erlang 23.2.6
 haskell 8.10.2
 mysql 8.0.23
-nodejs 15.0.1
+nodejs 15.13.0
 postgres 13.0
