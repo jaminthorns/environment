@@ -18,6 +18,7 @@ if OS.mac?
   cask "font-jetbrains-mono"
   cask "hammerspoon"
   cask "kitty"
+  cask "ngrok"
 
   # Dependencies for compiled asdf programs
   brew "erlang", args: ["only-dependencies"]
