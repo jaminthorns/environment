@@ -17,6 +17,7 @@
   "workbench.colorTheme": "Dracula",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
+  "workbench.editor.untitled.hint": "hidden",
 
   "diffEditor.renderSideBySide": false,
   "diffEditor.ignoreTrimWhitespace": false,
