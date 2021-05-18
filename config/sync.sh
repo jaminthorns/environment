@@ -7,6 +7,7 @@ copy asdf/tools $HOME
 copy brew $HOME
 copy fish $HOME/.config/fish
 copy git $HOME
+copy mycli $HOME
 copy pgcli $HOME/.config/pgcli
 copy yarn $HOME/.config/yarn/global
 

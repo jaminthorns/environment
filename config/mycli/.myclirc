@@ -3,8 +3,8 @@ less_chatty = True
 multi_line = True
 keyword_casing = upper
 table_format = double
-prompt = '\x1b[1m\x1b[34m\H \x1b[36m\d\n\x1b[32m» '
-multiline_continuation_char = ' '
+prompt = '\x1b[1m\x1b[34m\h \x1b[36m\d\n\x1b[32m» '
+prompt_continuation = ' '
 
 [colors]
 completion-menu.completion.current = 'ansiblack bg:ansigray'
@@ -21,12 +21,15 @@ output.header = 'ansiblue bold'
 output.null = 'ansibrightblack'
 
 # Syntax Highlighting
-keyword = 'ansimagenta'
-literal.number = 'ansiblue'
-literal.string = 'ansiyellow'
-pygments.comment = 'ansibrightblack'
-pygments.name = 'ansigray'
-pygments.name.builtin = 'ansicyan italic'
-pygments.operator = 'ansimagenta'
-pygments.punctuation = 'ansigray'
-pygments.text = 'ansigray'
+sql.comment = 'ansibrightblack'
+sql.constant = 'ansiblue'
+sql.datatype = 'ansicyan italic'
+sql.escape = 'ansimagenta'
+sql.function = 'ansigreen'
+sql.keyword = 'ansimagenta'
+sql.number = 'ansiblue'
+sql.operator = 'ansimagenta'
+sql.punctuation = 'ansigray'
+sql.string = 'ansiyellow'
+sql.string.escape = 'ansimagenta'
+sql.variable = 'ansiwhite'
