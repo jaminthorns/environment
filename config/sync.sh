@@ -5,6 +5,7 @@ source ../functions/secret.sh ../secrets/values
 
 copy asdf/tools $HOME
 copy brew $HOME
+copy elixir $HOME
 copy fish $HOME/.config/fish
 copy git $HOME
 copy mycli $HOME
