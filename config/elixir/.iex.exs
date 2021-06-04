@@ -1,6 +1,6 @@
-import IO.ANSI
-
 prompt = fn alive ->
+  import IO.ANSI
+
   indicator = green() <> "•"
 
   left = black() <> "" <> black_background() <> indicator <> " "
