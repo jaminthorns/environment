@@ -10,12 +10,14 @@ elmTooling.elm-ls-vscode
 esbenp.prettier-vscode
 GitHub.vscode-pull-request-github
 haskell.haskell
+hbenl.vscode-test-explorer
 humao.rest-client
 JakeBecker.elixir-ls
 justusadam.language-haskell
 mark-wiemer.vscode-autohotkey-plus-plus
 mitchdenny.ecdc
 ms-vscode-remote.remote-wsl
+ms-vscode.test-adapter-converter
 ms-vsliveshare.vsliveshare
 ms-vsliveshare.vsliveshare-audio
 ms-vsliveshare.vsliveshare-pack
