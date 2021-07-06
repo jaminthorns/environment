@@ -1,11 +1,11 @@
 acarreiro.calculate
 alefragnani.project-manager
 bmalehorn.vscode-fish
-codezombiech.gitignore
 dbaeumer.vscode-eslint
 DotJoshJohnson.xml
 dracula-theme.theme-dracula
 eamodio.gitlens
+earshinov.permute-lines
 elmTooling.elm-ls-vscode
 esbenp.prettier-vscode
 GitHub.vscode-pull-request-github
@@ -24,7 +24,7 @@ ms-vsliveshare.vsliveshare-pack
 ryu1kn.partial-diff
 stkb.rewrap
 swindh.enumerator
-Tyriar.sort-lines
+tomoki1207.selectline-statusbar
 vitaliymaz.vscode-svg-previewer
 wmaurer.change-case
 yzhang.markdown-all-in-one
