@@ -4,10 +4,11 @@ source ../functions/windows_run.sh
 source ../functions/secret.sh ../secrets/values
 
 copy asdf/tools $HOME
-copy homebrew $HOME
+copy code/config $HOME/.vscode
 copy elixir $HOME
 copy fish $HOME/.config/fish
 copy git $HOME
+copy homebrew $HOME
 copy mycli $HOME
 copy pgcli $HOME/.config/pgcli
 copy yarn $HOME/.config/yarn/global
