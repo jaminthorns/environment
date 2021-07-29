@@ -4,7 +4,6 @@ source ../functions/windows_run.sh
 source ../functions/secret.sh ../secrets/values
 
 copy asdf/tools $HOME
-copy code/config $HOME/.vscode
 copy elixir $HOME
 copy fish $HOME/.config/fish
 copy git $HOME
@@ -23,11 +22,13 @@ if os_status linux-non-wsl; then
 fi
 
 if os_status mac-os || os_status linux-non-wsl; then
+  copy code/config $HOME/.vscode
   copy kitty $HOME/.config/kitty
 fi
 
 if os_status wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
+  copy code/config "$USERPROFILE/.vscode"
   copy code/settings "$APPDATA/Code/User"
   copy windows_terminal "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
 fi
