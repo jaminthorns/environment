@@ -1,6 +1,7 @@
 brew "asdf"
 brew "awscli"
 brew "bat"
+brew "fd"
 brew "fish"
 brew "fzf"
 brew "git-delta"
