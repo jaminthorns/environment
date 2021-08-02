@@ -26,4 +26,4 @@
 	pr = pull --rebase
 	cb = symbolic-ref --short HEAD
 	pn = !git push --set-upstream origin $(git cb)
-	graph = log --graph --date-order --pretty=format:'%C(red)%h%C(reset) -%C(bold yellow)%d%C(reset) %s %C(bold green)(%cr)%C(reset) %C(blue)<%an>%C(reset)'
+	graph = log --graph --date-order --pretty=format:'%C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)'
