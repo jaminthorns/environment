@@ -11,6 +11,7 @@
   "editor.dragAndDrop": false,
   "editor.minimap.enabled": false,
   "editor.stickyTabStops": true,
+  "editor.find.seedSearchStringFromSelection": "selection",
 
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": false,
