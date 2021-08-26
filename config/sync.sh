@@ -7,6 +7,7 @@ copy asdf/tools $HOME
 copy elixir $HOME
 copy fish $HOME/.config/fish
 copy git $HOME
+copy github_cli $HOME/.config/gh
 copy homebrew $HOME
 copy mycli $HOME
 copy pgcli $HOME/.config/pgcli
