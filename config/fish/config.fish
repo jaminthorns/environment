@@ -1,6 +1,6 @@
 if status is-login
     # Initialize Homebrew
-    {{fish -c "brew shellenv"}}
+    {{unset HOMEBREW_SHELLENV_PREFIX && fish -c "brew shellenv"}}
 
     # Enable global Yarn packages
     set -p PATH {{yarn global bin}}
