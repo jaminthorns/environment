@@ -16,7 +16,9 @@
   { "key": "{{mac_os_key cmd ctrl}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
 
   // Git-related shortcuts
-  { "key": "shift+alt+c", "command": "git.openChange", "when": "editorTextFocus" },
+  { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
+  { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus" },
+  { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus" },
 
   // Open projects with project manager in new windows
   { "key": "{{mac_os_key cmd ctrl}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
