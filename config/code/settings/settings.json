@@ -12,7 +12,6 @@
   "editor.minimap.enabled": false,
   "editor.stickyTabStops": true,
   "editor.find.seedSearchStringFromSelection": "selection",
-  "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
 
   "workbench.editor.enablePreview": false,
