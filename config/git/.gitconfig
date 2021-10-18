@@ -25,5 +25,6 @@
 	pf = push --force-with-lease
 	pr = pull --rebase
 	cb = symbolic-ref --short HEAD
-	pn = !git push --set-upstream origin $(git cb)
+	pn = ! git push --set-upstream origin $(git cb)
 	graph = log --graph --date-order --pretty=format:'%C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)'
+	history = ! "f() { git graph --color $@ | fzf --reverse --ansi --no-sort --preview 'echo {} | grep -E -o '[0-9a-f]+' | head -1 | xargs git show --color | delta --width $FZF_PREVIEW_COLUMNS'; }; f"
