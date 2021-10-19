@@ -22,9 +22,8 @@
 [rebase]
 	instructionFormat = format:%s (%cr) <%an>
 [alias]
-	pf = push --force-with-lease
-	pr = pull --rebase
-	cb = symbolic-ref --short HEAD
-	pn = ! git push --set-upstream origin $(git cb)
+	force = push --force-with-lease
+	current-branch = symbolic-ref --short HEAD
+	publish = ! git push --set-upstream origin $(git current-branch)
 	graph = log --graph --date-order --pretty=format:'%C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)'
 	history = ! fish -c '_git_history $argv' --
