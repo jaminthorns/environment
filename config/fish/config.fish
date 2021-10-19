@@ -30,12 +30,11 @@ if status is-interactive
     set -x BAT_THEME Dracula
 
     # fzf config
-    set -l fzf_colors "fg:-1,fg+:-1,bg:-1,bg+:-1,hl:6,hl+:6,spinner:4,info:4,marker:4,pointer:2,prompt:2,border:bright-black"
-    set -x FZF_DEFAULT_OPTS "--reverse --no-info --prompt='› ' --pointer='▶' --marker='•' --color $fzf_colors"
+    set -l fzf_colors "fg:-1,fg+:-1,bg:-1,bg+:-1,hl:cyan,hl+:cyan,info:blue,marker:blue,pointer:blue,prompt:green,border:bright-black"
+    set -x FZF_DEFAULT_OPTS "--reverse --no-info --prompt='▶ ' --pointer='▶' --marker='•' --color $fzf_colors"
 
-    # fzf.fish config
-    set fzf_git_log_opts --preview="git show {1} | delta"
-    fzf_configure_bindings --directory=\cF --git_log=\cH --git_status=\cS
+    # fzf.fish keybindings
+    fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --git_status --git_log
 end
 
 # Initialize asdf
