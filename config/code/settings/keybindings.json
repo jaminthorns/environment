@@ -1,6 +1,6 @@
 [
   // Mult-line editing shortcuts
-  { "key": "{{mac_os_key cmd ctrl}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
+  { "key": "{{modifier_key}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
 
   // Panel shortcuts
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
@@ -13,7 +13,7 @@
   { "key": "ctrl+shift+\\", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
   { "key": "ctrl+shift+[", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
   { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
-  { "key": "{{mac_os_key cmd ctrl}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
+  { "key": "{{modifier_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
 
   // Git-related shortcuts
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
@@ -21,7 +21,7 @@
   { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus" },
 
   // Open projects with project manager in new windows
-  { "key": "{{mac_os_key cmd ctrl}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
+  { "key": "{{modifier_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
 
   // Clear the debug screen
   { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "inDebugRepl" }

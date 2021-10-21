@@ -57,31 +57,30 @@ the braces.
 
 Within substitutions and scripts, you can use the following functions:
 
-- `os_status` allows you to query properties about the current operating system.
-  This can be used to implement conditional configuration per-OS.
+- `os_status` queries properties about the current operating system. This can be
+  used to implement conditional configuration per-OS.
 
-- `secret` allows you to retrieve the value of a named "secret" (a value that is
-  needed in a configuration file but should not be stored within this repository
-  for security or privacy reasons). When calling `secret` for a value that has
-  not yet been stored, you will be prompted to enter a value.
+- `secret` retrieves the value of a named "secret" (a value that is needed in a
+  configuration file but should not be stored within this repository for
+  security or privacy reasons). When calling `secret` for a value that has not
+  yet been stored, you will be prompted to enter a value.
 
-- `mac_os_key` allows you to specify two keys, one to be used on macOS and the
-  other to be used on any other OS. This is used when configuring keyboard
-  shortcuts that should differ across operating systems.
+- `modifier_key` prints the OS-appropriate modifier key. This is used when
+  configuring keyboard shortcuts that should differ across operating systems.
 
-- `windows_run` allows you to run a command directly in Windows if possible.
+- `windows_run` runs a command directly in Windows if possible.
 
 ## Syncing Configuration
 
 Configuration syncing is specified by the `config/sync.sh` script. Within it,
 you can use the bi-directional functions `copy` and `run`:
 
-- `copy` allows you to specify a config folder and a destination folder. On
+- `copy` requires you to specify a config folder and a destination folder. On
   `push`, files will be copied from the config folder to the destination folder.
   On `pull`, files will be copied from the destination folder to the config
   folder.
 
-- `run` allows you to specify a script to run on `push` and a script to run on
+- `run` requires you to specify a script to run on `push` and a script to run on
   `pull`. The scripts will be run from their containing folder.
 
 If configuration is changed inside the repository, run the `push.sh` script:
