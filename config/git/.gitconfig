@@ -27,3 +27,4 @@
 	publish = ! git push --set-upstream origin $(git current-branch)
 	graph = log --graph --date-order --pretty=format:'%C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)'
 	history = ! fish -c '_git_history $argv' --
+	stashes = ! fish -c '_git_stashes $argv' --
