@@ -32,8 +32,6 @@
 
   "search.useGlobalIgnoreFiles": true,
 
-  "problems.decorations.enabled": false,
-
   "extensions.ignoreRecommendations": true,
 
   "terminal.integrated.fontSize": 11,
