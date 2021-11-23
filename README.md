@@ -21,7 +21,7 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 
 If running on Windows, set `WSLENV` to [share environment variables between
 Windows and
-WSL](https://docs.microsoft.com/en-us/windows/wsl/interop#share-environment-variables-between-windows-and-wsl):
+WSL](https://docs.microsoft.com/en-us/windows/wsl/filesystems#share-environment-variables-between-windows-and-wsl-with-wslenv):
 
 ```
 WSLENV=USERPROFILE/up:APPDATA/up:LOCALAPPDATA/up
