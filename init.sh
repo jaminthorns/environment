@@ -29,9 +29,6 @@ cat config/asdf/tools/.tool-versions | cut -d " " -f 1 | xargs -n 1 asdf plugin 
 # Push configuration
 source push.sh
 
-# Install global Yarn packages
-yarn global add
-
 # Install Fisher and packages
 fish -c "curl -sL https://git.io/fisher | source && fisher update"
 

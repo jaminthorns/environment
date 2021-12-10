@@ -14,7 +14,6 @@ brew "mycli"
 brew "pandoc"
 brew "pgcli"
 brew "ripgrep"
-brew "yarn"
 
 if OS.mac?
   tap "homebrew/cask"

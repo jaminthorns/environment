@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "elm-format": "^0.8.3",
-    "elm-live": "^4.0.2",
-    "elm-test": "^0.19.1-revision2",
-    "typescript": "^4.0.2"
-  }
-}

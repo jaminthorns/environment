@@ -11,7 +11,6 @@ copy github_cli $HOME/.config/gh
 copy homebrew $HOME
 copy mycli $HOME
 copy pgcli $HOME/.config/pgcli
-copy yarn $HOME/.config/yarn/global
 
 if os_status mac-os; then
   copy code/settings "$HOME/Library/Application Support/Code/User"
