@@ -1,5 +1,4 @@
 brew "asdf"
-brew "awscli"
 brew "bat"
 brew "exa"
 brew "fd"
@@ -27,4 +26,11 @@ if OS.mac?
   # Dependencies for compiled asdf programs
   brew "erlang", args: ["only-dependencies"]
   brew "postgresql", args: ["only-dependencies"]
+end
+
+# Local Brewfile
+local_brewfile_path = File.expand_path("~/.local_config/Brewfile")
+
+if File.exist?(local_brewfile_path)
+  eval(IO.read(local_brewfile_path))
 end

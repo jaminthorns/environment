@@ -37,5 +37,5 @@ end
 # Initialize asdf
 source {{brew --prefix asdf}}/asdf.fish
 
-# Secrets
-test -e $HOME/.secrets.fish && source $HOME/.secrets.fish
+# Local config
+test -e $HOME/.local_config/config.fish && source $HOME/.local_config/config.fish
