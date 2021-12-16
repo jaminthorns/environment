@@ -1,6 +1,7 @@
 source ../functions/modifier_key.sh
 source ../functions/os_status.sh
 source ../functions/windows_run.sh
+source ../functions/read_local.sh ../local
 source ../functions/secret.sh ../secrets/values
 
 copy asdf/tools $HOME

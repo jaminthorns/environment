@@ -28,9 +28,4 @@ if OS.mac?
   brew "postgresql", args: ["only-dependencies"]
 end
 
-# Local Brewfile
-local_brewfile_path = File.expand_path("~/.local_config/Brewfile")
-
-if File.exist?(local_brewfile_path)
-  eval(IO.read(local_brewfile_path))
-end
+{{read_local Brewfile}}

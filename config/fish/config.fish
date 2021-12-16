@@ -37,5 +37,4 @@ end
 # Initialize asdf
 source {{brew --prefix asdf}}/asdf.fish
 
-# Local config
-test -e $HOME/.local_config/config.fish && source $HOME/.local_config/config.fish
+{{read_local config.fish}}

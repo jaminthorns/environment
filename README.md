@@ -60,6 +60,10 @@ Within substitutions and scripts, you can use the following functions:
 - `os_status` queries properties about the current operating system. This can be
   used to implement conditional configuration per-OS.
 
+- `read_local` prints the content of a file under the `local` folder. This can
+  be used to extend files with local configuration. When calling `read_local`
+  for a file that doesn't exist, an empty file will be created.
+
 - `secret` retrieves the value of a named "secret" (a value that is needed in a
   configuration file but should not be stored within this repository for
   security or privacy reasons). When calling `secret` for a value that has not
