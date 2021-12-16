@@ -1,8 +1,4 @@
-source ../functions/modifier_key.sh
-source ../functions/os_status.sh
-source ../functions/windows_run.sh
-source ../functions/read_local.sh ../local
-source ../functions/secret.sh ../local/secrets
+source ../functions/config_functions.sh ..
 
 copy asdf/tools $HOME
 copy elixir $HOME

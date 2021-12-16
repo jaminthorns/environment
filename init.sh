@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source functions/os_status.sh
+source functions/read_config.sh
+source functions/config_functions.sh .
 
 # Install dependencies for compiled asdf programs
 os_status linux && sudo apt update && find config/asdf/dependencies -type f | xargs cat | xargs sudo apt install -y
@@ -15,7 +16,7 @@ test -x $brew || bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebre
 eval $($brew shellenv)
 
 # Install Homebrew packages
-brew bundle --no-lock --file=config/homebrew/.Brewfile
+read_config config/homebrew/.Brewfile | brew bundle --no-lock --file=-
 
 # Initialize asdf
 source $(brew --prefix asdf)/asdf.sh
