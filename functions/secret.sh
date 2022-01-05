@@ -9,7 +9,7 @@ function secret {
   local value=$(grep "$1" $secrets_path | cut -d "=" -f 2)
 
   if [ -z "$value" ]; then
-    read -p "$name: " value < /dev/tty
+    read -r -p "$name: " value < /dev/tty
     echo "$name=$value" >> $secrets_path
   fi
 

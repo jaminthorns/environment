@@ -22,7 +22,7 @@ read_config config/homebrew/.Brewfile | brew bundle --no-lock --file=-
 source $(brew --prefix asdf)/asdf.sh
 
 # Add asdf plugins
-cat config/asdf/tools/.tool-versions | cut -d " " -f 1 | xargs -n 1 asdf plugin add
+cut -d " " -f 1 config/asdf/tools/.tool-versions | xargs -n 1 asdf plugin add
 
 # Install asdf programs
 (cd config/asdf/tools && asdf install)

@@ -4,7 +4,7 @@ function read_config {
   local substitutions=$(grep -o "{{\([^}]\|}[^}]\)*}}" <<< "$file")
 
   if [ -n "$substitutions" ]; then
-    while read substitution; do
+    while read -r substitution; do
       local command=${substitution/#"{{"}
       local command=${command/%"}}"}
       local value=$(eval $command)
