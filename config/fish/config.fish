@@ -27,7 +27,7 @@ if status is-interactive
     set -x BAT_THEME Dracula
 
     # fzf config
-    set -l fzf_colors "fg:-1,fg+:-1,bg:-1,bg+:-1,hl:cyan,hl+:cyan,info:blue,marker:blue,pointer:blue,prompt:green,border:bright-black"
+    set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:blue,pointer:blue,prompt:green,border:bright-black"
     set -x FZF_DEFAULT_OPTS "--reverse --no-info --prompt='▶ ' --pointer='▶' --marker='•' --color $fzf_colors"
 
     # fzf.fish keybindings
