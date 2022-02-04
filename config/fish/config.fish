@@ -17,7 +17,7 @@ if status is-interactive
     set -x PAGER less
 
     # less options
-    set -x LESS -SRc~
+    set -x LESS "--RAW-CONTROL-CHARS --mouse --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1"
 
     # Erlang flags
     set -x ERL_AFLAGS -kernel shell_history enabled
