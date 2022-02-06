@@ -1,14 +1,16 @@
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-  "useTabSwitcher": false,
+  "tabSwitcherMode": "disabled",
   "profiles": {
     "defaults": {
       "colorScheme": "Dracula",
       "cursorShape": "filledBox",
-      "fontSize": 9,
+      "fontSize": 8,
       "fontFace": "JetBrains Mono",
-      "antialiasingMode": "cleartype"
+      "antialiasingMode": "cleartype",
+      "intenseTextStyle": "bold",
+      "bellStyle": "none"
     },
     "list": [
       {
@@ -25,11 +27,6 @@
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "name": "Command Prompt",
         "commandline": "cmd.exe"
-      },
-      {
-        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-        "name": "Azure Cloud Shell",
-        "hidden": false
       }
     ]
   },
