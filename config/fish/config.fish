@@ -13,22 +13,22 @@ if status is-interactive
     # Editor
     set -x EDITOR code
 
-    # Pager
-    set -x PAGER less
-
     # less options
-    set -x LESS "--RAW-CONTROL-CHARS --mouse --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1"
+    set -x LESS "--RAW-CONTROL-CHARS --use-color --mouse --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1"
+
+    # Pager
+    set -x PAGER less $LESS
 
     # Erlang flags
     set -x ERL_AFLAGS -kernel shell_history enabled
 
     # bat config
-    set -x BAT_PAGER less $LESS
+    set -x BAT_PAGER $PAGER
     set -x BAT_THEME Dracula
 
     # fzf config
-    set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:blue,pointer:blue,prompt:green,border:bright-black"
-    set -x FZF_DEFAULT_OPTS "--reverse --no-info --prompt='▶ ' --pointer='▶' --marker='•' --color $fzf_colors"
+    set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:blue,pointer:blue,prompt:green,border:blue"
+    set -x FZF_DEFAULT_OPTS "--reverse --no-info --preview-window=border-sharp --prompt='▶ ' --pointer='▶' --marker='•' --color=$fzf_colors"
 
     # fzf.fish keybindings
     fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --git_status --git_log
