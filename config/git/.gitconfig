@@ -22,7 +22,7 @@
 [rebase]
 	instructionFormat = format:%s (%cr) <%an>
 [alias]
-	force = push --force-with-lease
+	force-push = push --force-with-lease
 	current-branch = symbolic-ref --short HEAD
 	publish = ! git push --set-upstream origin $(git current-branch)
 	message = log --max-count=1 --format='%B'
