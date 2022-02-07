@@ -14,7 +14,7 @@ if status is-interactive
     set -x EDITOR code
 
     # less options
-    set -x LESS "--RAW-CONTROL-CHARS --use-color --mouse --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1"
+    set -x LESS "--RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1"
 
     # Pager
     set -x PAGER less $LESS
