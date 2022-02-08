@@ -6,8 +6,10 @@
     "defaults": {
       "colorScheme": "Dracula",
       "cursorShape": "filledBox",
-      "fontSize": 8,
-      "fontFace": "JetBrains Mono",
+      "font": {
+        "size": 8,
+        "face": "JetBrains Mono"
+      },
       "antialiasingMode": "cleartype",
       "intenseTextStyle": "bold",
       "bellStyle": "none"
