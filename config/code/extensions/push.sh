@@ -15,7 +15,7 @@ function push_extensions {
 
 if os_status wsl; then
   push_extensions "windows_run code" "$(windows_run code --list-extensions)"
-  push_extensions "code" "$(code --list-extensions | tail -n +2)"
+  push_extensions "code" "$(code --list-extensions | grep -v 'Extensions installed on')"
 else
   push_extensions "code" "$(code --list-extensions)"
 fi
