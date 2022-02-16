@@ -27,5 +27,6 @@
 	publish = ! git push --set-upstream origin $(git current-branch)
 	message = log --max-count=1 --format='%B'
 	graph = log --graph --date-order --format='%C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)'
+	compare = ! fish -c '_git_compare $argv' --
 	history = ! fish -c '_git_history $argv' --
 	stashes = ! fish -c '_git_stashes $argv' --
