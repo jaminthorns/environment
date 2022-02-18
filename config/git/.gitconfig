@@ -5,6 +5,8 @@
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
 	pager = delta
+[pretty]
+	graph = %C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)
 [interactive]
 	diffFilter = delta --color-only
 [delta]
@@ -26,7 +28,7 @@
 	current-branch = symbolic-ref --short HEAD
 	publish = ! git push --set-upstream origin $(git current-branch)
 	message = log --max-count=1 --format='%B'
-	graph = log --graph --date-order --format='%C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)'
+	graph = log --graph --date-order --format=graph
 	compare = ! fish -c '_git_compare $argv' --
 	history = ! fish -c '_git_history $argv' --
 	stashes = ! fish -c '_git_stashes $argv' --
