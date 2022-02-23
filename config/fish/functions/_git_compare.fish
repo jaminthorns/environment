@@ -23,15 +23,9 @@ function _git_compare
         set path -- $_flag_path
     end
 
-    set file_command "echo {} | cut -d ' ' -f 2,4"
-    set view_command "$file_command | xargs git diff $argv --"
-    set preview_command "$view_command | delta --width \$FZF_PREVIEW_COLUMNS"
-
-    git diff --stat --name-status $argv $path \
-        | _git_compare_format \
-        | _git_compare_color_statuses \
-        | fzf --ansi --no-sort --preview="$preview_command" \
-        --bind="alt-enter:execute($view_command)" \
-        --bind="enter:execute($file_command)+abort" \
-        --bind="double-click:execute($file_command)+abort"
+    _git_fzf_command \
+        --fzf-flags "--ansi --multi" \
+        --list-command "git diff --stat --name-status $argv $path | _git_compare_format | _git_compare_color_statuses" \
+        --item-command "cut -d ' ' -f 2,4" \
+        --view-command "xargs git diff $argv --"
 end
