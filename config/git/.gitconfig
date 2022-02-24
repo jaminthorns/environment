@@ -25,8 +25,7 @@
 	instructionFormat = format:%s (%cr) <%an>
 [alias]
 	force-push = push --force-with-lease
-	current-branch = symbolic-ref --short HEAD
-	publish = ! git push --set-upstream origin $(git current-branch)
+	publish = ! git push --set-upstream origin $(git branch --show-current)
 	message = log --max-count=1 --format='%B'
 	graph = log --graph --date-order --format=graph
 	compare = ! fish -c '_git_compare $argv' --
