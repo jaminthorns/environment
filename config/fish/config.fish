@@ -31,7 +31,7 @@ if status is-interactive
     set -x FZF_DEFAULT_OPTS "--reverse --no-info --preview-window=border-sharp --prompt='▶ ' --pointer='▶' --marker='•' --color=$fzf_colors"
 
     # fzf.fish keybindings
-    fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --git_status --git_log
+    fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --processes=\cG --git_status --git_log
 end
 
 # Initialize asdf
