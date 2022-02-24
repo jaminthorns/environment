@@ -23,8 +23,10 @@ function _git_compare
         set path -- $_flag_path
     end
 
+    set header (git diff --shortstat $argv $path)
+
     _git_fzf_command \
-        --fzf-flags "--ansi --multi" \
+        --flags "--ansi --multi --header='$header'" \
         --list-command "git diff --stat --name-status $argv $path | _git_compare_format | _git_compare_color_statuses" \
         --item-command "cut -d ' ' -f 2,4" \
         --view-command "xargs git diff $argv --"

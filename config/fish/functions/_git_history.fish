@@ -6,7 +6,7 @@ function _git_history
     end
 
     _git_fzf_command \
-        --fzf-flags "--ansi --multi --no-sort" \
+        --flags "--ansi --multi --no-sort" \
         --list-command "git graph --color $argv $path" \
         --item-command "grep -oE '[0-9a-f]+ - ' | cut -d ' ' -f 1" \
         --view-command "xargs -I [] git show --color [] $path"
