@@ -31,3 +31,4 @@
 	compare = ! fish -c '_git_compare $argv' --
 	history = ! fish -c '_git_history $argv' --
 	stashes = ! fish -c '_git_stashes $argv' --
+	branches = ! fish -c '_git_branches $argv' --
