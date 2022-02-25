@@ -13,7 +13,7 @@ function _git_compare_format
         -e (_git_compare_color_status A green) \
         -e (_git_compare_color_status D red) \
         -e (_git_compare_color_status M yellow) \
-        -e (_git_compare_color_status R yellow)
+        -e (_git_compare_color_status R magenta)
 end
 
 function _git_compare
