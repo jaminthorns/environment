@@ -1,4 +1,4 @@
-function _git_branches
+function _git_branches --wraps 'git branch'
     _git_fzf_command \
         --flags "--ansi --multi" \
         --list-command "git branch --color $argv" \
