@@ -45,6 +45,7 @@
 
   "gitlens.codeLens.enabled": false,
   "gitlens.keymap": "alternate",
+  "gitlens.plusFeatures.enabled": false,
 
   "projectManager.sortList": "Recent",
 
