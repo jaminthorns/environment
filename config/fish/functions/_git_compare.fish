@@ -5,10 +5,9 @@ function _git_compare --wraps 'git diff'
         set path -- $_flag_path
     end
 
-    set header (git diff --shortstat $argv $path)
-
     _git_fzf_command \
-        --flags "--ansi --multi --header='$header'" \
+        --flags "--ansi --multi" \
+        --header (git diff --shortstat $argv $path) \
         --list-command "git diff --stat --name-status $argv $path | _git_name_status_format" \
         --item-command "cut -d ' ' -f 2,4" \
         --view-command "xargs git diff $argv --"

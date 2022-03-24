@@ -1,10 +1,19 @@
 function _git_fzf_command
-    argparse "flags=" "list-command=" "item-command=" "view-command=" -- $argv
+    argparse "flags=" "header=" "list-command=" "item-command=" "view-command=" "summary-command=" -- $argv
+
+    set fzf_command "fzf $_flag_flags"
+
+    if set -q _flag_header
+        set -a fzf_command "--header='$_flag_header'"
+    end
 
     set fzf_content_command "echo {} | $_flag_item_command | $_flag_view_command"
-    set fzf_preview_command "$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS"
-    set fzf_view_command "$fzf_content_command > /dev/tty"
-    set fzf_command "fzf $_flag_flags --preview=\"$fzf_preview_command\" --bind=\"alt-enter:execute($fzf_view_command)\""
+    set -a fzf_command "--preview=\"$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS\""
+    set -a fzf_command "--bind=\"alt-enter:execute($fzf_content_command > /dev/tty)\""
+
+    if set -q _flag_summary_command
+        set -a fzf_command "--bind=\"ctrl-space:execute($_flag_summary_command > /dev/tty)\""
+    end
 
     set list (eval "$_flag_list_command | $fzf_command")
     set fzf_status $status
