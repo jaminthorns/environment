@@ -1,4 +1,4 @@
-function _git_compare --wraps 'git diff'
+function _git_compare
     argparse --ignore-unknown "p/path=" -- $argv
 
     if set -q _flag_path

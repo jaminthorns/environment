@@ -1,4 +1,4 @@
-function _git_history --wraps 'git graph'
+function _git_history
     argparse --ignore-unknown "p/path=" -- $argv
 
     if set -q _flag_path

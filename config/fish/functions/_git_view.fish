@@ -1,4 +1,4 @@
-function _git_view --wraps 'git show'
+function _git_view
     argparse --ignore-unknown "p/path=" -- $argv
 
     if set -q _flag_path

@@ -1,4 +1,4 @@
-function _git_stashes --wraps 'git stash'
+function _git_stashes
     _git_fzf_command \
         --flags --multi \
         --list-command "git stash list $argv" \
