@@ -3,7 +3,7 @@ source ../functions/config_functions.sh ..
 copy asdf/tools $HOME
 copy elixir $HOME
 copy fish $HOME/.config/fish
-copy git $HOME
+copy git/config $HOME
 copy github_cli $HOME/.config/gh
 copy homebrew $HOME
 copy mycli $HOME

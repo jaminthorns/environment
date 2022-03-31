@@ -28,8 +28,3 @@
 	publish = ! git push --set-upstream origin $(git branch --show-current)
 	message = log --max-count=1 --format='%B'
 	graph = log --graph --date-order --format=graph
-	view = ! fish -c '_git_view $argv' --
-	compare = ! fish -c '_git_compare $argv' --
-	history = ! fish -c '_git_history $argv' --
-	stashes = ! fish -c '_git_stashes $argv' --
-	branches = ! fish -c '_git_branches $argv' --
