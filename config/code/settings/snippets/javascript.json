@@ -1,12 +1,14 @@
 {
-  "log": {
+  "Log to the console (labeled)": {
     "prefix": "log",
-    "body": ["console.log('$1', $2)"],
-    "description": "Log a value to the console"
+    "body": ["console.log('$1', $2)"]
   },
-  "time": {
+  "Time a section of code": {
     "prefix": "time",
-    "body": ["console.time('$1')", "console.timeEnd('$1')"],
-    "description": "Time a section of code"
+    "body": ["console.time('$1')", "console.timeEnd('$1')"]
+  },
+  "Create a React component": {
+    "prefix": "component",
+    "body": ["export ${1:default} function $2({ $3 }) {", "  return $4", "}"]
   }
 }

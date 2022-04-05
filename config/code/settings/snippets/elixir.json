@@ -1,22 +1,18 @@
 {
-  "put": {
+  "Print a string": {
     "prefix": "put",
-    "body": ["IO.puts(\"$1\")"],
-    "description": "Print a string"
+    "body": ["IO.puts(\"$1\")"]
   },
-  "inspect": {
+  "Inspect a value": {
     "prefix": "ins",
-    "body": ["IO.inspect($1, label: \"$2\")"],
-    "description": "Inspect a value"
+    "body": ["IO.inspect($1, label: \"$2\")"]
   },
-  "inspect_piped": {
+  "Inspect a value (piped)": {
     "prefix": "ins",
-    "body": ["IO.inspect(label: \"$1\")"],
-    "description": "Inspect a value (piped)"
+    "body": ["IO.inspect(label: \"$1\")"]
   },
-  "pry": {
+  "Debug some code": {
     "prefix": "pry",
-    "body": ["require IEx\nIEx.pry()"],
-    "description": "Debug some code"
+    "body": ["require IEx\nIEx.pry()"]
   }
 }
