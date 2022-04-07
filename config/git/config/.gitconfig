@@ -10,10 +10,24 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
+	features = consistent-colors line-number-colors dracula-colors
 	line-numbers = true
 	file-decoration-style = blue box ul
 	hunk-header-style = omit
 	navigate = true
+[delta "consistent-colors"]
+	minus-style = minus-emph-style
+	plus-style = plus-emph-style
+[delta "line-number-colors"]
+	line-numbers-minus-style = red
+	line-numbers-plus-style = green
+	line-numbers-zero-style = brightblack
+[delta "dracula-colors"]
+	minus-emph-style = syntax "#80363E"
+	minus-non-emph-style = syntax "#61303A"
+	plus-emph-style = syntax "#2D583F"
+	plus-non-emph-style = syntax "#2A463B"
+	map-styles = "bold purple => syntax #614e81, bold cyan => syntax #614e81, bold blue => syntax #5C6045, bold yellow => syntax #5C6045"
 [diff]
 	tool = code
 	colorMoved = default
