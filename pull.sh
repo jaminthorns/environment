@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source functions/config_paths.sh
 source functions/read_config.sh
