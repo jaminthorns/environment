@@ -1,4 +1,22 @@
-function _git_fzf_command
+function color_git_name_status -a pattern color_name
+    set color (set_color $color_name)
+    set reset (set_color reset)
+
+    echo "s/^($pattern)/$color\1$reset/"
+end
+
+function format_git_name_status
+    sed -E \
+        -e "s/R[0-9]+/R/" \
+        -e "s/\t/ /" \
+        -e "s/\t/ ⟶ /" \
+        -e (color_git_name_status A green) \
+        -e (color_git_name_status D red) \
+        -e (color_git_name_status M yellow) \
+        -e (color_git_name_status R magenta)
+end
+
+begin
     argparse "flags=" "header=" "list-command=" "item-command=" "view-command=" "summary-command=" -- $argv
 
     set fzf_command "fzf $_flag_flags"

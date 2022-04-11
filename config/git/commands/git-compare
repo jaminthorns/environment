@@ -6,9 +6,9 @@ if set -q _flag_path
     set path -- $_flag_path
 end
 
-_git_fzf_command \
+source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --header (git diff --shortstat $argv $path) \
-    --list-command "git diff --stat --name-status $argv $path | _git_name_status_format" \
+    --list-command "git diff --stat --name-status $argv $path | format_git_name_status" \
     --item-command "cut -d ' ' -f 2,4" \
     --view-command "xargs git diff $argv --"

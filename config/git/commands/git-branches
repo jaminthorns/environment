@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-_git_fzf_command \
+source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --list-command "git branch --color $argv" \
     --item-command "sed -e 's/*//' -e 's/->//' | string split --no-empty ' '" \

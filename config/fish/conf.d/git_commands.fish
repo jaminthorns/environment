@@ -1,5 +1,3 @@
-set -p PATH {{git rev-parse --show-toplevel}}/config/git/commands
-
 complete -c git-branches -w "git branch"
 complete -c git-compare -w "git diff"
 complete -c git-history -w "git log"
