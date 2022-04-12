@@ -12,7 +12,6 @@
   "editor.minimap.enabled": false,
   "editor.stickyTabStops": true,
   "editor.find.seedSearchStringFromSelection": "selection",
-  "editor.suggestSelection": "first",
 
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": false,
@@ -55,7 +54,7 @@
 
   "elixirLS.dialyzerEnabled": false,
 
-  "[javascript][typescript][json][jsonc][markdown]": {
+  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
