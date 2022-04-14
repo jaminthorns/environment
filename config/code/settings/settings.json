@@ -21,7 +21,8 @@
   "workbench.editor.untitled.hint": "hidden",
 
   "diffEditor.renderSideBySide": false,
-  "diffEditor.ignoreTrimWhitespace": false,
+
+  "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
 
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
