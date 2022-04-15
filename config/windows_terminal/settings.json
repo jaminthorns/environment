@@ -93,6 +93,14 @@
     {
       "command": { "action": "moveFocus", "direction": "right" },
       "keys": "ctrl+shift+]"
+    },
+    {
+      "command": { "action": "clearBuffer", "clear": "all" },
+      "keys": "ctrl+k"
+    },
+    {
+      "command": null,
+      "keys": "alt+enter"
     }
   ]
 }
