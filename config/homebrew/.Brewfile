@@ -15,6 +15,10 @@ brew "pandoc"
 brew "pgcli"
 brew "ripgrep"
 
+# Dependencies for compiled asdf programs
+brew "erlang", args: ["only-dependencies"]
+brew "postgresql", args: ["only-dependencies"]
+
 if OS.mac?
   tap "homebrew/cask"
   tap "homebrew/cask-fonts"
@@ -23,10 +27,6 @@ if OS.mac?
   cask "hammerspoon"
   cask "kitty"
   cask "ngrok"
-
-  # Dependencies for compiled asdf programs
-  brew "erlang", args: ["only-dependencies"]
-  brew "postgresql", args: ["only-dependencies"]
 end
 
 {{read_local Brewfile}}
