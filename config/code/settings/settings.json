@@ -38,6 +38,7 @@
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.drawBoldTextInBrightColors": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.minimumContrastRatio": 1,
 
   "git.confirmSync": false,
