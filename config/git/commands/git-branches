@@ -1,7 +1,9 @@
 #!/usr/bin/env fish
 
+argparse --ignore-unknown "o/graph-options=" -- $argv
+
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --list-command "git branch --color $argv" \
     --item-command "sed -e 's/*//' -e 's/->//' | string split --no-empty ' '" \
-    --view-command "xargs git graph --color"
+    --view-command "xargs git graph --color $_flag_graph_options"
