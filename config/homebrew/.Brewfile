@@ -23,7 +23,7 @@ if OS.mac?
   tap "homebrew/cask"
   tap "homebrew/cask-fonts"
 
-  cask "font-jetbrains-mono"
+  cask "font-jetbrains-mono-nerd-font"
   cask "hammerspoon"
   cask "kitty"
   cask "ngrok"

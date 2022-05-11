@@ -3,11 +3,11 @@ prompt = fn alive ->
 
   separator = light_black() <> " ╱ "
 
-  left = black() <> "" <> bright() <> black_background() <> " "
+  left = black() <> "" <> black_background() <> " "
   prefix = blue() <> "%prefix"
   node = if alive, do: cyan() <> "%node"
   counter = yellow() <> "%counter"
-  right = " " <> reset() <> black() <> ""
+  right = " " <> reset() <> black() <> ""
 
   segments = Enum.reject([prefix, node, counter], &is_nil/1)
 
