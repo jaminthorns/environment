@@ -12,7 +12,7 @@ function copy {
     local config_file=$(read_config "$config_path")
     local dest_file=$(cat "$dest_path")
 
-    if [ "$config_file" != "$dest_file" ]; then
+    if test "$config_file" != "$dest_file"; then
       echo "$dest_file" > "$config_path"
     fi
   done <<< "$paths"
