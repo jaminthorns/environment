@@ -27,14 +27,8 @@ cut -d " " -f 1 config/asdf/tools/.tool-versions | xargs -n 1 asdf plugin add
 # Install asdf programs
 (cd config/asdf/tools && asdf install)
 
-# Push configuration
-source push.sh
-
-# Install Fisher and packages
-fish -c "curl -sL https://git.io/fisher | source && fisher update"
-
-# Configure Tide prompt
-fish -c "tide configure <(string join '' 2 2 1 3 3 4 1 1 1 y | psub) 1>/dev/null"
+# Install Fisher and plugins
+fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && cat config/fish/config/fish_plugins | fisher install"
 
 # Get fish path
 fish=$(command -v fish)
@@ -44,3 +38,6 @@ grep -q $fish /etc/shells || echo $fish | sudo tee -a /etc/shells
 
 # Change shell to fish if not already changed
 test $SHELL = $fish || chsh -s $fish
+
+# Push configuration
+source push.sh

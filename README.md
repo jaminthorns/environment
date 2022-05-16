@@ -76,16 +76,21 @@ Within substitutions and scripts, you can use the following functions:
 
 ## Syncing Configuration
 
-Configuration syncing is specified by the `config/sync.sh` script. Within it,
-you can use the bi-directional functions `copy` and `run`:
+Configuration synchronization is specified by the `config/sync.sh` script.
+Within it, you can use the bi-directional `copy` function along with the
+`on_push` and `on_pull` functions:
 
 - `copy` requires you to specify a config folder and a destination folder. On
   `push`, files will be copied from the config folder to the destination folder.
   On `pull`, files will be copied from the destination folder to the config
   folder.
 
-- `run` requires you to specify a script to run on `push` and a script to run on
-  `pull`. The scripts will be run from their containing folder.
+- `on_push` requires you to specify a script to run on `push`.
+
+- `on_pull` requires you to specify a script to run on `pull`.
+
+The scripts for `on_push` and `on_pull` will be run from their containing
+folder.
 
 If configuration is changed inside the repository, run the `push.sh` script:
 

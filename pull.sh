@@ -18,8 +18,12 @@ function copy {
   done <<< "$paths"
 }
 
-function run {
-  run_script "$2"
+function on_push {
+  :
+}
+
+function on_pull {
+  run_script "$1"
 }
 
 (cd config && source sync.sh)
