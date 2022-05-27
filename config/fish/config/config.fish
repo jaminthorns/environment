@@ -7,9 +7,6 @@ if status is-interactive
     # Disable greeting
     set fish_greeting
 
-    # pisces config
-    set pisces_only_insert_at_eol 1
-
     # Editor
     set -x EDITOR code
 
@@ -32,6 +29,10 @@ if status is-interactive
 
     # fzf.fish keybindings
     fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --processes=\cG --git_status --git_log
+
+    # Tide prompt config
+    set -x tide_status_icon ✓
+    set -x tide_status_icon_failure ✕
 end
 
 # Initialize asdf
