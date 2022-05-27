@@ -27,7 +27,7 @@ if os_status wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
   copy code/config "$USERPROFILE/.vscode"
   copy code/settings "$APPDATA/Code/User"
-  copy windows_terminal "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
+  copy windows_terminal "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState"
 fi
 
 on_push code/extensions/push.sh
