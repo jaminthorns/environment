@@ -56,7 +56,7 @@
 
   "elixirLS.dialyzerEnabled": false,
 
-  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown]": {
+  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown][html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
