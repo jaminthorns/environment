@@ -7,6 +7,9 @@ if status is-interactive
     # Disable greeting
     set fish_greeting
 
+    # Enable alternate scroll mode
+    printf "\e[?1007h"
+
     # Set editor to Visual Studio Code
     set -x EDITOR code
 
@@ -16,7 +19,7 @@ if status is-interactive
     # Set pager to less
     set -x PAGER less $LESS
 
-    # Explicitly set true color support
+    # Set true color support
     set -x COLORTERM truecolor
 
     # Configure Erlang
