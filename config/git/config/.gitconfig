@@ -40,6 +40,7 @@
 [rebase]
 	instructionFormat = format:%s (%cr) <%an>
 [alias]
+	me = config --get user.email
 	force-push = push --force-with-lease
 	publish = ! git push --set-upstream origin $(git branch --show-current)
 	message = log --max-count=1 --format='%B'
