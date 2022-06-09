@@ -2,13 +2,15 @@
 
 argparse --ignore-unknown "p/path=" -- $argv
 
+set args (string escape -- $argv)
+
 if set -q _flag_path
     set path -- $_flag_path
 end
 
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
-    --header (git diff --shortstat $argv $path) \
-    --list-command "git diff --stat --name-status $argv $path | format_git_name_status" \
+    --header (git diff --shortstat $args $path) \
+    --list-command "git diff --stat --name-status $args $path | format_git_name_status" \
     --item-command "cut -d ' ' -f 2,4" \
-    --view-command "xargs git diff $argv --"
+    --view-command "xargs git diff $args --"

@@ -2,8 +2,10 @@
 
 argparse --ignore-unknown "o/stash-show-options=" -- $argv
 
+set args (string escape -- $argv)
+
 source (status dirname)/git_fzf_command.fish \
     --flags --multi \
-    --list-command "git stash list $argv" \
+    --list-command "git stash list $args" \
     --item-command "cut -d ':' -f 1" \
     --view-command "xargs -I [] git stash show --patch $_flag_stash_show_options []"
