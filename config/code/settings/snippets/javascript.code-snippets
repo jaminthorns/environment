@@ -1,13 +1,16 @@
 {
   "Log to the console (labeled)": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": "log",
     "body": ["console.log('$1', $2)"]
   },
   "Time a section of code": {
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": "time",
     "body": ["console.time('$1')", "console.timeEnd('$1')"]
   },
   "Create a React component": {
+    "scope": "javascriptreact,typescriptreact",
     "prefix": "component",
     "body": ["export ${1:default} function $2({ $3 }) {", "  return $4", "}"]
   }
