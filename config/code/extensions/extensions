@@ -9,6 +9,7 @@ eamodio.gitlens
 earshinov.permute-lines
 elmTooling.elm-ls-vscode
 esbenp.prettier-vscode
+firefox-devtools.vscode-firefox-debug
 GitHub.vscode-pull-request-github
 hbenl.vscode-test-explorer
 humao.rest-client
