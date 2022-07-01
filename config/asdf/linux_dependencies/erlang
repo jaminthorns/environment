@@ -1,0 +1,7 @@
+autoconf
+automake
+g++
+gcc
+libncurses5-dev
+libssl-dev
+make
