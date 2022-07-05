@@ -42,7 +42,7 @@ if status is-interactive
 end
 
 # Initialize asdf
-source {{brew --prefix asdf}}/asdf.fish
+source {{brew --prefix asdf}}/libexec/asdf.fish
 
 # Enable git commands
 set -p PATH {{git rev-parse --show-toplevel}}/config/git/commands
