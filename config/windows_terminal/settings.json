@@ -19,17 +19,20 @@
       {
         "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
         "name": "Linux",
-        "commandline": "wsl.exe ~"
+        "source": "Windows.Terminal.Wsl",
+        "hidden": false
       },
       {
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "name": "PowerShell",
-        "commandline": "powershell.exe"
+        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "hidden": false
       },
       {
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "name": "Command Prompt",
-        "commandline": "cmd.exe"
+        "commandline": "%SystemRoot%\\System32\\cmd.exe",
+        "hidden": false
       }
     ]
   },
@@ -58,7 +61,7 @@
       "brightYellow": "#FFFFA5"
     }
   ],
-  "keybindings": [
+  "actions": [
     {
       "command": "copy",
       "keys": "ctrl+c"
