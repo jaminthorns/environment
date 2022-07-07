@@ -1,0 +1,6 @@
+build-essential
+libcurl4-openssl-dev
+libreadline-dev
+libssl-dev
+uuid-dev
+zlib1g-dev
