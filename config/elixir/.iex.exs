@@ -15,3 +15,5 @@ prompt = fn alive ->
 end
 
 IEx.configure(default_prompt: prompt.(false), alive_prompt: prompt.(true))
+
+clear()
