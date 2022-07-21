@@ -13,4 +13,4 @@ source (status dirname)/git_fzf_command.fish \
     --header (git diff --shortstat $args $path) \
     --list-command "git diff --stat --name-status $args $path | format_git_name_status" \
     --item-command "cut -d ' ' -f 2,4" \
-    --view-command "xargs git diff $args --"
+    --view-command "xargs git -C (git rev-parse --show-toplevel) diff $args --"
