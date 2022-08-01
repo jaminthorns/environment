@@ -46,5 +46,3 @@ source {{brew --prefix asdf}}/libexec/asdf.fish
 
 # Enable git commands
 set -p PATH {{git rev-parse --show-toplevel}}/config/git/commands
-
-{{read_local config.fish}}
