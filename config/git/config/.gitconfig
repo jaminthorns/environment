@@ -30,6 +30,10 @@
 	map-styles = "bold purple => syntax #614e81, bold cyan => syntax #614e81, bold blue => syntax #5C6045, bold yellow => syntax #5C6045"
 [merge]
 	conflictStyle = diff3
+[merge]
+	tool = code
+[mergetool "code"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [diff]
 	tool = code
 	colorMoved = default
