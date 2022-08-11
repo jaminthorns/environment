@@ -8,11 +8,9 @@ DotJoshJohnson.xml
 dracula-theme.theme-dracula
 eamodio.gitlens
 earshinov.permute-lines
-elmTooling.elm-ls-vscode
 esbenp.prettier-vscode
 firefox-devtools.vscode-firefox-debug
 GitHub.vscode-pull-request-github
-hbenl.vscode-test-explorer
 humao.rest-client
 iliazeus.vscode-ansi
 JakeBecker.elixir-ls
@@ -20,7 +18,6 @@ mark-wiemer.vscode-autohotkey-plus-plus
 mitchdenny.ecdc
 mrorz.language-gettext
 ms-vscode-remote.remote-wsl
-ms-vscode.test-adapter-converter
 ms-vsliveshare.vsliveshare
 ms-vsliveshare.vsliveshare-audio
 ms-vsliveshare.vsliveshare-pack
