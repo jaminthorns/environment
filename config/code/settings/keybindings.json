@@ -17,10 +17,12 @@
 
   // Git-related shortcuts
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
-  { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && !textCompareEditorActive" },
-  { "key": "shift+ctrl+down", "command": "workbench.action.compareEditor.nextChange", "when": "textCompareEditorVisible" },
-  { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus && !textCompareEditorActive" },
-  { "key": "shift+ctrl+up", "command": "workbench.action.compareEditor.previousChange", "when": "textCompareEditorVisible" },
+  { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount == 0" },
+  { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount == 0" },
+  { "key": "shift+ctrl+down", "command": "merge-conflict.previous", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount > 0" },
+  { "key": "shift+ctrl+up", "command": "merge-conflict.next", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount > 0" },
+  { "key": "shift+ctrl+down", "command": "workbench.action.compareEditor.nextChange", "when": "editorTextFocus && isInDiffEditor" },
+  { "key": "shift+ctrl+up", "command": "workbench.action.compareEditor.previousChange", "when": "editorTextFocus && isInDiffEditor" },
 
   // Open projects with project manager in new windows
   { "key": "{{modifier_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
