@@ -16,7 +16,7 @@
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${relativeFile}" }, "when": "terminalFocus" },
   { "key": "{{modifier_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
 
-  // Git-related shortcuts
+  // Git shortcuts
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
   { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount == 0" },
   { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount == 0" },
@@ -24,6 +24,10 @@
   { "key": "shift+ctrl+up", "command": "merge-conflict.next", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount > 0" },
   { "key": "shift+ctrl+down", "command": "workbench.action.compareEditor.nextChange", "when": "editorTextFocus && isInDiffEditor" },
   { "key": "shift+ctrl+up", "command": "workbench.action.compareEditor.previousChange", "when": "editorTextFocus && isInDiffEditor" },
+
+  // Elixir shortcuts
+  { "key": "alt+p", "command": "extension.toPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
+  { "key": "alt+shift+p", "command": "extension.fromPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
 
   // Open projects with project manager in new windows
   { "key": "{{modifier_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
