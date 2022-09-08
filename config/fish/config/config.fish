@@ -39,6 +39,7 @@ if status is-interactive
     # Customize Tide prompt
     set -gx tide_status_icon ✓
     set -gx tide_status_icon_failure ✕
+    set -gx tide_git_truncation_length 50
 end
 
 # Initialize asdf
