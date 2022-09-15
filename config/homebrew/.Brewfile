@@ -1,5 +1,6 @@
 brew "asdf"
 brew "bat"
+brew "broot"
 brew "exa"
 brew "fd"
 brew "fish"
