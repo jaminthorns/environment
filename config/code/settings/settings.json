@@ -49,6 +49,8 @@
   "gitlens.keymap": "alternate",
   "gitlens.plusFeatures.enabled": false,
 
+  "githubPullRequests.pullBranch": "never",
+
   "projectManager.sortList": "Recent",
 
   "rest-client.previewResponsePanelTakeFocus": false,
