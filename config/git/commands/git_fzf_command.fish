@@ -33,11 +33,11 @@ begin
         set -a fzf_command "--bind=\"ctrl-space:execute($_flag_summary_command > /dev/tty)\""
     end
 
-    set list (eval "$_flag_list_command | $fzf_command")
+    set selected (eval "$_flag_list_command | $fzf_command")
     set fzf_status $status
 
     if test $fzf_status -eq 0
-        string collect $list | eval $_flag_item_command | string join " "
+        string collect $selected | eval $_flag_item_command
     end
 
     exit $fzf_status

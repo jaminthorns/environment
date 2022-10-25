@@ -8,9 +8,32 @@ if set -q _flag_path
     set path -- $_flag_path
 end
 
+set header (git diff --shortstat $argv $path)
+
+if test (count $header) -eq 0
+    set header "No changes"
+end
+
+set first_arg $args[1]
+
+function dots_regex -a count
+    echo "(?<!\.)\.{$count}(?!\.)"
+end
+
+if string match -q -r (dots_regex 2) $first_arg
+    set commit_range (string replace -r (dots_regex 2) "..." $first_arg)
+    set summary_command "git graph $commit_range $path"
+else if string match -q -r (dots_regex 3) $first_arg
+    set commit_range (string replace -r (dots_regex 3) ".." $first_arg)
+    set summary_command "git graph $commit_range $path"
+else
+    set summary_command "echo Could not determine a commit range. | less"
+end
+
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
-    --header (git diff --shortstat $args $path) \
+    --header "$header" \
     --list-command "git diff --stat --name-status $args $path | format_git_name_status" \
     --item-command "cut -d ' ' -f 2,4" \
-    --view-command "xargs git -C (git rev-parse --show-toplevel) diff $args --"
+    --view-command "xargs git -C (git rev-parse --show-toplevel) diff $args --" \
+    --summary-command "$summary_command"

@@ -7,5 +7,5 @@ set args (string escape -- $argv)
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --list-command "git branch --color $args" \
-    --item-command "sed -e 's/*//' -e 's/->//' | string split --no-empty ' '" \
+    --item-command "sed -e 's/*//' -e 's/+//' -e 's/->//' | string split --no-empty ' '" \
     --view-command "xargs git graph --color $_flag_graph_options"
