@@ -45,8 +45,9 @@
   "git.enableSmartCommit": true,
   "git.autofetch": true,
 
-  "gitlens.codeLens.enabled": false,
   "gitlens.keymap": "alternate",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.graph.statusBar.enabled": false,
   "gitlens.plusFeatures.enabled": false,
 
   "githubPullRequests.pullBranch": "never",
