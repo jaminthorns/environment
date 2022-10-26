@@ -49,6 +49,7 @@
   "gitlens.codeLens.enabled": false,
   "gitlens.graph.statusBar.enabled": false,
   "gitlens.plusFeatures.enabled": false,
+  "workbench.editorAssociations": { "git-rebase-todo": "default" },
 
   "githubPullRequests.pullBranch": "never",
 
