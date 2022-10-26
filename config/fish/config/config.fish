@@ -1,6 +1,6 @@
 if status is-login
     # Initialize Homebrew
-    {{unset HOMEBREW_SHELLENV_PREFIX && fish -c "brew shellenv"}}
+    {{fish -c "brew shellenv"}}
 end
 
 if status is-interactive
