@@ -1,6 +1,12 @@
 if status is-login
     # Initialize Homebrew
     {{fish -c "brew shellenv"}}
+
+    # Initialize asdf
+    source {{brew --prefix asdf}}/libexec/asdf.fish
+
+    # Enable git commands
+    set -p PATH {{git rev-parse --show-toplevel}}/config/git/commands
 end
 
 if status is-interactive
@@ -41,9 +47,3 @@ if status is-interactive
     set -gx tide_status_icon_failure ✕
     set -gx tide_git_truncation_length 50
 end
-
-# Initialize asdf
-source {{brew --prefix asdf}}/libexec/asdf.fish
-
-# Enable git commands
-set -p PATH {{git rev-parse --show-toplevel}}/config/git/commands
