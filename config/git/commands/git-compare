@@ -14,7 +14,7 @@ if test (count $header) -eq 0
     set header "No changes"
 end
 
-set first_arg $args[1]
+set first_arg (string match -e -v -r "^-" -- $args)
 
 function dots_regex -a count
     echo "(?<!\.)\.{$count}(?!\.)"
