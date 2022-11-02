@@ -2,6 +2,9 @@ if status is-login
     # Initialize Homebrew
     {{fish -c "set -p PATH /dev/null && brew shellenv"}}
 
+    # Enable usage of libraries installed with Homebrew
+    set -p LD_LIBRARY_PATH {{brew --prefix}}/lib
+
     # Initialize asdf
     source {{brew --prefix asdf}}/libexec/asdf.fish
 
