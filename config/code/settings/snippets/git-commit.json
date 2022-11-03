@@ -1,0 +1,6 @@
+{
+  "Add a co-author tag": {
+    "prefix": "co",
+    "body": "Co-authored-by: $1"
+  }
+}
