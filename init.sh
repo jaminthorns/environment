@@ -4,7 +4,7 @@ source functions/read_config.sh
 source functions/config_functions.sh .
 
 # Install dependencies for compiled asdf programs
-os_status linux && sudo apt update && find config/asdf/linux_dependencies -type f | xargs cat | xargs sudo apt install -y
+os_status linux && sudo apt update && sudo apt upgrade -y && find config/asdf/linux_dependencies -type f | xargs cat | xargs sudo apt install -y
 
 # Get Homebrew path
 os_status linux && brew="/home/linuxbrew/.linuxbrew/bin/brew" || brew="/opt/homebrew/bin/brew"
