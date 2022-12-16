@@ -12,7 +12,7 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	features = consistent-colors line-number-colors dracula-colors
+	features = consistent-colors line-number-colors dracula-colors less-status-column-width-adjustment
 	line-numbers = true
 	file-decoration-style = blue box ul
 	hunk-header-style = omit
@@ -30,6 +30,8 @@
 	plus-emph-style = syntax "#2D583F"
 	plus-non-emph-style = syntax "#2A463B"
 	map-styles = "bold purple => syntax #614e81, bold cyan => syntax #614e81, bold blue => syntax #5C6045, bold yellow => syntax #5C6045"
+[delta "less-status-column-width-adjustment"]
+	width = -2
 [merge]
 	conflictStyle = diff3
 [merge]
