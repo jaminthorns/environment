@@ -16,6 +16,15 @@ function format_git_name_status
         -e (color_git_name_status R magenta)
 end
 
+# Handle mouse reporting and redirection for executing an external command
+function external_command -a command
+    set enable_mouse_reporting "printf '\e[?1000h\e[?1006h'"
+    set disable_mouse_reporting "printf '\e[?1006l\e[?1000l'"
+    set commands "$disable_mouse_reporting" "$command" "$enable_mouse_reporting"
+
+    string replace -r '$' " > /dev/tty" $commands | string join " && "
+end
+
 begin
     argparse "flags=" "header=" "list-command=" "item-command=" "view-command=" "summary-command=" -- $argv
 
@@ -27,10 +36,13 @@ begin
 
     set fzf_content_command "echo {} | $_flag_item_command | $_flag_view_command"
     set -a fzf_command "--preview=\"$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS\""
-    set -a fzf_command "--bind=\"alt-enter:execute($fzf_content_command > /dev/tty)\""
+
+    set fzf_view_command (external_command $fzf_content_command)
+    set -a fzf_command "--bind=\"alt-enter:execute($fzf_view_command)\""
 
     if set -q _flag_summary_command
-        set -a fzf_command "--bind=\"ctrl-space:execute($_flag_summary_command > /dev/tty)\""
+        set fzf_summary_command (external_command $_flag_summary_command)
+        set -a fzf_command "--bind=\"ctrl-space:execute($fzf_summary_command)\""
     end
 
     set selected (eval "$_flag_list_command | $fzf_command")
