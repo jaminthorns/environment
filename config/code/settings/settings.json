@@ -46,6 +46,9 @@
   "git.enableSmartCommit": true,
   "git.autofetch": true,
 
+  "errorLens.padding": "2px 1ch",
+  "errorLens.messageBackgroundMode": "message",
+
   "gitlens.keymap": "alternate",
   "gitlens.codeLens.enabled": false,
   "gitlens.graph.statusBar.enabled": false,
