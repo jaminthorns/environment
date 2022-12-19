@@ -33,9 +33,8 @@
 [delta "less-status-column-width-adjustment"]
 	width = -2
 [merge]
-	conflictStyle = diff3
-[merge]
 	tool = code
+	conflictStyle = diff3
 [mergetool "code"]
 	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [diff]
@@ -47,6 +46,15 @@
 	rebase = false
 [rebase]
 	instructionFormat = format:%s (%cr) <%an>
+[sequence]
+	editor = interactive-rebase-tool
+[interactive-rebase-tool]
+	autoSelectNext = true
+	verticalSpacingCharacter = ""
+	selectedBackgroundColor = 68,71,90
+	inputMoveSelectionDown = Alt+Down
+	inputMoveSelectionUp = Alt+Up
+	inputRebase = Alt+Enter
 [alias]
 	me = config --get user.email
 	force-push = push --force-with-lease
