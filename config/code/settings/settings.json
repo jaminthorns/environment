@@ -23,6 +23,7 @@
   "workbench.editor.untitled.hint": "hidden",
 
   "diffEditor.renderSideBySide": false,
+  "diffEditor.renderIndicators": false,
 
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
 
