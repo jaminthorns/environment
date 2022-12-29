@@ -12,11 +12,16 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	features = hyperlinks section-styles line-numbers consistent-diff-colors dracula-colors less-status-column-width-adjustment
+	features = hyperlinks merge-conflicts section-styles line-numbers consistent-diff-colors dracula-colors less-status-column-width-adjustment
 	navigate = true
 [delta "hyperlinks"]
 	hyperlinks = true
 	hyperlinks-file-link-format = vscode://file/{path}:{line}
+[delta "merge-conflicts"]
+	merge-conflict-ours-diff-header-style = cyan
+	merge-conflict-ours-diff-header-decoration-style = cyan box
+	merge-conflict-theirs-diff-header-style = magenta
+	merge-conflict-theirs-diff-header-decoration-style = magenta box
 [delta "section-styles"]
 	file-decoration-style = blue box ul
 	hunk-header-style = omit
