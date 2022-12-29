@@ -39,6 +39,7 @@
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.tabs.hideCondition": "singleGroup",
+  "terminal.integrated.showLinkHover": false,
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.minimumContrastRatio": 1,
