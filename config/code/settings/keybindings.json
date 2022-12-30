@@ -16,6 +16,10 @@
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${relativeFile}" }, "when": "terminalFocus" },
   { "key": "{{modifier_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
 
+  // Terminal cursor control on macOS
+  { "key": "cmd+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
+  { "key": "cmd+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
+
   // Git shortcuts
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
   { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount == 0" },
