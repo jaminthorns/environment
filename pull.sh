@@ -9,12 +9,10 @@ function copy {
   local paths=$(config_paths "$1" "$2")
 
   while read -r config_path dest_path; do
-    local config_file=$(read_config "$config_path")
-    local dest_file=$(cat "$dest_path")
+    local labels="-L config -L evaluated -L destination"
+    local merged=$(read_config "$config_path" | diff3 -m $labels "$config_path" - "$dest_path")
 
-    if test "$config_file" != "$dest_file"; then
-      echo "$dest_file" > "$config_path"
-    fi
+    echo "$merged" > "$config_path"
   done <<< "$paths"
 }
 

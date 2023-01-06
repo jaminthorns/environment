@@ -108,5 +108,5 @@ If configuration is changed outside the repository, run the `pull.sh` script:
 ```
 
 This will copy files into `config` from the system and run scripts according to
-`config/sync.sh`. If a file with substitutions is changed, the substituted
-values will be pulled in, so make sure to ignore those changes.
+`config/sync.sh`. If lines near a substitution are changed, running `pull.sh`
+could result in conflicts. Make sure to resolve these before committing.
