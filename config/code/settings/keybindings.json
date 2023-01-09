@@ -2,6 +2,11 @@
   // Mult-line editing shortcuts
   { "key": "{{modifier_key}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
 
+  // Definitions and references
+  { "key": "ctrl+]", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
+  { "key": "ctrl+[", "command": "editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" },
+  { "key": "ctrl+alt+[", "command": "references-view.findReferences", "when": "editorHasReferenceProvider" },
+
   // Panel shortcuts
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
 
