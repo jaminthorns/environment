@@ -19,7 +19,7 @@ eval $($brew shellenv)
 read_config config/homebrew/.Brewfile | brew bundle --no-lock --file=-
 
 # Initialize asdf
-source $(brew --prefix asdf)/asdf.sh
+source $(brew --prefix asdf)/libexec/asdf.sh
 
 # Add asdf plugins
 cut -d " " -f 1 config/asdf/tools/.tool-versions | xargs -n 1 asdf plugin add
