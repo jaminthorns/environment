@@ -1,15 +1,17 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown "p/path=" "o/show-options=" -- $argv
+argparse --ignore-unknown "p/path=+" "f/file=" "o/show-options=" -- $argv
 
 set args (string escape -- $argv)
 
 if set -q _flag_path
-    set path -- $_flag_path
+    set paths -- $_flag_path
+else if set -q _flag_file
+    set paths -- (git log --format="" --follow --name-only $_flag_file | uniq)
 end
 
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi --no-sort" \
-    --list-command "git graph --color $args $path" \
+    --list-command "git graph --color $args $paths" \
     --item-command "grep -oE '[0-9a-f]+ - ' | cut -d ' ' -f 1" \
-    --view-command "xargs -I [] git show --color $_flag_show_options [] $path"
+    --view-command "xargs -I [] git show --color $_flag_show_options [] $paths"
