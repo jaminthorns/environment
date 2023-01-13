@@ -1,0 +1,16 @@
+#!/usr/bin/env fish
+
+set file $argv[1]
+
+set commit_filenames (
+    git log --format="%x00%h" --follow --name-only $file |
+    tail -c +2 |
+    while read -z commit filename
+        echo $commit\t(string trim $filename)
+    end
+)
+
+if set commit (git history -f $file)
+    set filename (string collect $commit_filenames | grep $commit | cut -f 2)
+    git show $commit:$filename
+end
