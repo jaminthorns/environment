@@ -15,3 +15,6 @@
 
 # asdf tool versions
 .tool-versions
+
+# Obsidian configuration
+.obsidian
