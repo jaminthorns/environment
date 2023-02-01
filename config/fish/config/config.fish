@@ -10,6 +10,9 @@ if status is-login
 end
 
 if status is-interactive
+    # Set theme
+    fish_config theme choose "Dracula Official"
+
     # Disable greeting
     set -g fish_greeting
 
