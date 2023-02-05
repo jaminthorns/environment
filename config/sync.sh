@@ -2,6 +2,7 @@ source ../functions/config_functions.sh ..
 
 copy asdf/tools $HOME
 copy bat $HOME/.config/bat
+copy broot $HOME/.config/broot
 copy elixir $HOME
 copy fish/config $HOME/.config/fish
 copy git/config $HOME
