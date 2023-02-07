@@ -22,14 +22,14 @@ fi
 
 if os_status mac-os || os_status linux-non-wsl; then
   copy code/config $HOME/.vscode
-  copy kitty $HOME/.config/kitty
+  copy wezterm $HOME/.config/wezterm
 fi
 
 if os_status wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
   copy code/config "$USERPROFILE/.vscode"
   copy code/settings "$APPDATA/Code/User"
-  copy windows_terminal "$LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState"
+  copy wezterm "$ProgramFiles/WezTerm"
 fi
 
 on_push code/extensions/push.sh

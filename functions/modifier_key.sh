@@ -1,7 +1,7 @@
 function modifier_key {
   if os_status mac-os; then
-    echo cmd
+    test "$1" = "upper" && echo "CMD" || echo "cmd"
   else
-    echo ctrl
+    test "$1" = "upper" && echo "CTRL" || echo "ctrl"
   fi
 }

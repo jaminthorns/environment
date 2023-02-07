@@ -13,8 +13,7 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 - 🍺 Cross-platform packages with [Homebrew](https://brew.sh/).
 - 🛠 Version-controlled development tools with [`asdf`](https://asdf-vm.com/).
 - 🐠 Friendly shell with [`fish`](https://fishshell.com/).
-- 🖥 Modern terminal with [`kitty`](https://sw.kovidgoyal.net/kitty/)/[Windows
-  Terminal](https://github.com/microsoft/terminal).
+- 🖥 Modern terminal with [WezTerm](https://wezfurlong.org/wezterm/).
 - ⌨️ Uniform keyboard setup between Windows/macOS.
 
 ## Initial Setup
@@ -24,7 +23,7 @@ Windows and
 WSL](https://docs.microsoft.com/en-us/windows/wsl/filesystems#share-environment-variables-between-windows-and-wsl-with-wslenv):
 
 ```
-WSLENV=USERPROFILE/up:APPDATA/up:LOCALAPPDATA/up
+WSLENV=USERPROFILE/up:APPDATA/up:ProgramFiles/up
 ```
 
 Run the `init.sh` script:
