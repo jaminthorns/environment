@@ -1,7 +1,6 @@
 {
-  "editor.fontSize": 11,
+  "editor.fontSize": 12,
   "editor.renderWhitespace": "boundary",
-  "editor.lineHeight": 15,
   "editor.tabSize": 2,
   "editor.renderLineHighlight": "all",
   "editor.cursorBlinking": "phase",
@@ -36,7 +35,7 @@
 
   "extensions.ignoreRecommendations": true,
 
-  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.fontSize": 12,
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.tabs.hideCondition": "singleGroup",
   "terminal.integrated.showLinkHover": false,
