@@ -88,9 +88,14 @@ local config = {
     { key = "LeftArrow", mods = "CTRL|SHIFT", action = action.ActivateTabRelative(-1) },
     { key = "RightArrow", mods = "CTRL|SHIFT", action = action.ActivateTabRelative(1) },
 
-    -- Miscellaneous
+    -- Override fullscreen shortcut
     { key = "Enter", mods = "ALT", action = action.SendKey({ key = "Enter", mods = "ALT" }) },
+
+    -- Clear the screen
     { key = "k", mods = "{{modifier_key upper}}", action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
+
+    -- Delete word forward
+    { key = "Delete", mods = "ALT", action = action.SendString("\x1bd") },
   },
 }
 

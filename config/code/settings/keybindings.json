@@ -1,5 +1,5 @@
 [
-  // Mult-line editing shortcuts
+  // Mult-line editing
   { "key": "{{modifier_key}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
 
   // Definitions and references
@@ -7,10 +7,16 @@
   { "key": "ctrl+[", "command": "editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" },
   { "key": "ctrl+alt+[", "command": "references-view.findReferences", "when": "editorHasReferenceProvider" },
 
-  // Panel shortcuts
+  // Panel
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
 
-  // Terminal shortcuts
+  // Navigation on Windows
+  { "key": "ctrl+-", "command": "-workbench.action.zoomOut" },
+  { "key": "ctrl+-", "command": "workbench.action.navigateBack", "when": "canNavigateBack" },
+  { "key": "ctrl+shift+-", "command": "-workbench.action.zoomOut" },
+  { "key": "ctrl+shift+-", "command": "workbench.action.navigateForward", "when": "canNavigateForward" }
+
+  // Terminal
   { "key": "ctrl+shift+n", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus" },
   { "key": "ctrl+shift+w", "command": "workbench.action.terminal.kill", "when": "terminalFocus" },
   { "key": "ctrl+shift+left", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
@@ -26,7 +32,7 @@
   { "key": "cmd+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
   { "key": "cmd+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
 
-  // Git shortcuts
+  // Git
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
   { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount == 0" },
   { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount == 0" },
@@ -35,7 +41,7 @@
   { "key": "shift+ctrl+down", "command": "workbench.action.compareEditor.nextChange", "when": "editorTextFocus && isInDiffEditor" },
   { "key": "shift+ctrl+up", "command": "workbench.action.compareEditor.previousChange", "when": "editorTextFocus && isInDiffEditor" },
 
-  // Elixir shortcuts
+  // Elixir
   { "key": "alt+p", "command": "extension.toPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
   { "key": "alt+shift+p", "command": "extension.fromPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
 
