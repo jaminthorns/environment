@@ -9,7 +9,7 @@ complete -c git-history -s p -l path -d "Show only commits and changes from spec
 complete -c git-history -s o -l show-options -d "Options for the 'git show' view"
 
 complete -c git-stashes -w "git stash"
-complete -c git-history -s o -l stash-show-options -d "Options for the 'git stash show' view"
+complete -c git-stashes -s o -l stash-show-options -d "Options for the 'git stash show' view"
 
 complete -c git-view -w "git show"
 complete -c git-view -s p -l path -d "Show only changes from specified path"
