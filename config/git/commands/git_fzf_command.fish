@@ -13,7 +13,8 @@ function format_git_name_status
         -e (color_git_name_status A green) \
         -e (color_git_name_status D red) \
         -e (color_git_name_status M yellow) \
-        -e (color_git_name_status R magenta)
+        -e (color_git_name_status R blue) \
+        -e (color_git_name_status U magenta)
 end
 
 # Handle mouse reporting and redirection for executing an external command
