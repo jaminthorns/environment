@@ -1,6 +1,6 @@
 [
   // Mult-line editing
-  { "key": "{{modifier_key}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
+  { "key": "{{command_key}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
 
   // Definitions and references
   { "key": "ctrl+]", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
@@ -26,7 +26,7 @@
   { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${relativeFile}" }, "when": "terminalFocus" },
   { "key": "ctrl+shift+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${lineNumber},+1:${relativeFile}" }, "when": "terminalFocus" },
-  { "key": "{{modifier_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
+  { "key": "{{command_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
 
   // Terminal cursor control on macOS
   { "key": "cmd+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
@@ -46,7 +46,7 @@
   { "key": "alt+shift+p", "command": "extension.fromPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
 
   // Open projects with project manager in new windows
-  { "key": "{{modifier_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
+  { "key": "{{command_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
 
   // Clear the debug screen
   { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "inDebugRepl" }

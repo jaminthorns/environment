@@ -73,11 +73,11 @@ local config = {
 
   keys = {
     -- Cursor Control
-    { key = "LeftArrow", mods = "{{modifier_key upper}}", action = action.SendString("\x01") },
-    { key = "RightArrow", mods = "{{modifier_key upper}}", action = action.SendString("\x05") },
-    { key = "Backspace", mods = "{{modifier_key upper}}", action = action.SendString("\x15") },
-    { key = "UpArrow", mods = "{{modifier_key upper}}", action = action.SendString("\x1b[1;5H") },
-    { key = "DownArrow", mods = "{{modifier_key upper}}", action = action.SendString("\x1b[1;5F") },
+    { key = "LeftArrow", mods = "{{command_key upper}}", action = action.SendString("\x01") },
+    { key = "RightArrow", mods = "{{command_key upper}}", action = action.SendString("\x05") },
+    { key = "Backspace", mods = "{{command_key upper}}", action = action.SendString("\x15") },
+    { key = "UpArrow", mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5H") },
+    { key = "DownArrow", mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5F") },
 
     -- Tab/Pane Control
     { key = "n", mods = "CTRL|SHIFT", action = action.SpawnTab("DefaultDomain") },
@@ -92,7 +92,7 @@ local config = {
     { key = "Enter", mods = "ALT", action = action.SendKey({ key = "Enter", mods = "ALT" }) },
 
     -- Clear the screen
-    { key = "k", mods = "{{modifier_key upper}}", action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
+    { key = "k", mods = "{{command_key upper}}", action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
 
     -- Delete word forward
     { key = "Delete", mods = "ALT", action = action.SendString("\x1bd") },

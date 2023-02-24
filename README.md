@@ -68,10 +68,11 @@ Within substitutions and scripts, you can use the following functions:
   security or privacy reasons). When calling `secret` for a value that has not
   yet been stored, you will be prompted to enter a value.
 
-- `modifier_key` prints the OS-appropriate modifier key. This is used when
-  configuring keyboard shortcuts that should differ across operating systems.
+- `command_key` prints the OS-appropriate command key. The uniform keyboard
+  setup is meant to act like macOS, so command key behavior is emulated in other
+  environments.
 
-- `windows_run` runs a command directly in Windows if possible.
+- `windows_run` runs a command directly in Windows.
 
 ## Syncing Configuration
 
