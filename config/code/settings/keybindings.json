@@ -2,7 +2,7 @@
   // Mult-line editing
   { "key": "{{command_key}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
 
-  // Definitions and references
+  // Code navigation
   { "key": "ctrl+]", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
   { "key": "ctrl+[", "command": "editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" },
   { "key": "ctrl+alt+[", "command": "references-view.findReferences", "when": "editorHasReferenceProvider" },
@@ -10,11 +10,11 @@
   // Panel
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
 
-  // Navigation on Windows
+  // Cursor navigation (for Windows)
   { "key": "ctrl+-", "command": "-workbench.action.zoomOut" },
   { "key": "ctrl+-", "command": "workbench.action.navigateBack", "when": "canNavigateBack" },
   { "key": "ctrl+shift+-", "command": "-workbench.action.zoomOut" },
-  { "key": "ctrl+shift+-", "command": "workbench.action.navigateForward", "when": "canNavigateForward" }
+  { "key": "ctrl+shift+-", "command": "workbench.action.navigateForward", "when": "canNavigateForward" },
 
   // Terminal
   { "key": "ctrl+shift+n", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus" },
@@ -32,6 +32,9 @@
   { "key": "cmd+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
   { "key": "cmd+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
 
+  // Debugging
+  { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "inDebugRepl" },
+
   // Git
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
   { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && !isInDiffEditor && mergeConflictsCount == 0" },
@@ -46,8 +49,5 @@
   { "key": "alt+shift+p", "command": "extension.fromPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
 
   // Open projects with project manager in new windows
-  { "key": "{{command_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
-
-  // Clear the debug screen
-  { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "inDebugRepl" }
+  { "key": "{{command_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" }
 ]
