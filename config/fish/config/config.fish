@@ -23,7 +23,7 @@ if status is-interactive
     set -gx EDITOR code
 
     # Configure less
-    set -gx LESS --status-column --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1
+    set -gx LESS --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1
 
     # Set pager to less
     set -gx PAGER less $LESS
