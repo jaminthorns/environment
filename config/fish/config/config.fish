@@ -16,9 +16,6 @@ if status is-interactive
     # Disable greeting
     set -g fish_greeting
 
-    # Enable alternate scroll mode
-    printf "\e[?1007h"
-
     # Set editor to Visual Studio Code
     set -gx EDITOR code
 
