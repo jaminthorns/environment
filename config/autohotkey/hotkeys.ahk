@@ -2,7 +2,7 @@
 
 TerminalClass := "ahk_class org.wezfurlong.wezterm"
 
-MapModifierKeys()
+MapAllModifiers()
 
 ; Media
 !#End::Send("{Media_Play_Pause}")
@@ -23,12 +23,12 @@ MapModifierKeys()
 ; Window snapping
 !#Left::Send("#{Left}")
 !#Right::Send("#{Right}")
-!#Enter::Send("#{Up}")
+!#Enter::Send("#{Up 2}")
 
 ; Disable modifier key press behavior
-~Alt::Send("{vkFF}")
-~LWin::Send("{vkFF}")
-~RWin::Send("{vkFF}")
+~Alt::Send("{Blind}{vkFF}")
+~LWin::Send("{Blind}{vkFF}")
+~RWin::Send("{Blind}{vkFF}")
 
 #HotIf !WinActive(TerminalClass)
 ; Cursor control (Alt -> Command)
@@ -80,7 +80,7 @@ MapModifierKeys()
 !#Up::Send("^!{Up}")
 !#Down::Send("^!{Down}")
 
-MapModifierKeys() {
+MapAllModifiers() {
   Keys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
          , "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
          , "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
@@ -88,20 +88,21 @@ MapModifierKeys() {
          , "Enter", "RButton", "LButton", "MButton"]
 
   for _, Key in Keys {
-    Hotkey("!" Key, ((K, *) => Send("^{" K "}")).Bind(Key))
-
-    Hotkey("!+" Key, ((K, *) => Send("^+{" K "}")).Bind(Key))
-
-    if (Key != "x") {
-      Hotkey("#" Key, ((K, *) => Send("!{" K "}")).Bind(Key))
-    }
-
-    Hotkey("#+" Key, ((K, *) => Send("!+{" K "}")).Bind(Key))
+    MapModifiers(Key, "!", "^")
+    MapModifiers(Key, "!+", "^+")
+    MapModifiers(Key, "#", "!")
+    MapModifiers(Key, "#+", "!+")
 
     if (Key != "Enter") {
-      Hotkey("!#" Key, ((K, *) => Send("^!{" K "}")).Bind(Key))
+      MapModifiers(Key, "!#", "^!")
     }
 
-    Hotkey("!#+" Key, ((K, *) => Send("^!+{" K "}")).Bind(Key))
+    MapModifiers(Key, "!#+", "^!+")
+    MapModifiers(Key, "^#", "^!")
+    MapModifiers(Key, "^#+", "^!+")
   }
+}
+
+MapModifiers(Key, From, To) {
+  Hotkey(From Key, ((K, *) => Send(To "{" K "}")).Bind(Key))
 }
