@@ -35,7 +35,7 @@ local config = {
   inactive_pane_hsb = { brightness = 0.75 },
   front_end = "WebGpu",
 
-  -- Tab Bar
+  -- Tab bar
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
   hide_tab_bar_if_only_one_tab = true,
@@ -72,14 +72,7 @@ local config = {
   },
 
   keys = {
-    -- Cursor Control
-    { key = "LeftArrow", mods = "{{command_key upper}}", action = action.SendString("\x01") },
-    { key = "RightArrow", mods = "{{command_key upper}}", action = action.SendString("\x05") },
-    { key = "Backspace", mods = "{{command_key upper}}", action = action.SendString("\x15") },
-    { key = "UpArrow", mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5H") },
-    { key = "DownArrow", mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5F") },
-
-    -- Tab/Pane Control
+    -- Tab/pane control
     { key = "n", mods = "CTRL|SHIFT", action = action.SpawnTab("DefaultDomain") },
     { key = "w", mods = "CTRL|SHIFT", action = action.CloseCurrentPane({ confirm = false }) },
     { key = "|", mods = "CTRL|SHIFT", action = action.SplitHorizontal({ domain = "DefaultDomain" }) },
@@ -88,14 +81,17 @@ local config = {
     { key = "LeftArrow", mods = "CTRL|SHIFT", action = action.ActivateTabRelative(-1) },
     { key = "RightArrow", mods = "CTRL|SHIFT", action = action.ActivateTabRelative(1) },
 
-    -- Override fullscreen shortcut
-    { key = "Enter", mods = "ALT", action = action.SendKey({ key = "Enter", mods = "ALT" }) },
-
-    -- Clear the screen
+    -- Screen/cursor control
     { key = "k", mods = "{{command_key upper}}", action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
-
-    -- Delete word forward
+    { key = "LeftArrow", mods = "{{command_key upper}}", action = action.SendString("\x01") },
+    { key = "RightArrow", mods = "{{command_key upper}}", action = action.SendString("\x05") },
+    { key = "Backspace", mods = "{{command_key upper}}", action = action.SendString("\x15") },
+    { key = "UpArrow", mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5H") },
+    { key = "DownArrow", mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5F") },
     { key = "Delete", mods = "ALT", action = action.SendString("\x1bd") },
+
+    -- Disable fullscreen shortcut
+    { key = "Enter", mods = "ALT", action = action.SendKey({ key = "Enter", mods = "ALT" }) },
   },
 }
 

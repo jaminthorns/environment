@@ -16,21 +16,24 @@
   { "key": "ctrl+shift+-", "command": "-workbench.action.zoomOut" },
   { "key": "ctrl+shift+-", "command": "workbench.action.navigateForward", "when": "canNavigateForward" },
 
-  // Terminal
+  // Terminal (tab/pane control)
   { "key": "ctrl+shift+n", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus" },
   { "key": "ctrl+shift+w", "command": "workbench.action.terminal.kill", "when": "terminalFocus" },
+  { "key": "ctrl+shift+\\", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
   { "key": "ctrl+shift+left", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
   { "key": "ctrl+shift+right", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus" },
-  { "key": "ctrl+shift+\\", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
   { "key": "ctrl+shift+[", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
   { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
-  { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${relativeFile}" }, "when": "terminalFocus" },
-  { "key": "ctrl+shift+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${lineNumber},+1:${relativeFile}" }, "when": "terminalFocus" },
-  { "key": "{{command_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
 
-  // Terminal cursor control on macOS
+  // Terminal (screen/cursor control)
+  { "key": "{{command_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
   { "key": "cmd+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
   { "key": "cmd+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
+  { "key": "alt+backspace", "command": "workbench.action.terminal.sendSequence", "args": { "text":"\u001b\u007f" }, "when": "terminalFocus" },
+
+  // Terminal (printing file info)
+  { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${relativeFile}" }, "when": "terminalFocus" },
+  { "key": "ctrl+shift+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${lineNumber},+1:${relativeFile}" }, "when": "terminalFocus" },
 
   // Debugging
   { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "inDebugRepl" },
