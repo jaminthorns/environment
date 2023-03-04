@@ -27,9 +27,10 @@ function external_command -a command
 end
 
 begin
-    argparse "flags=" "header=" "list-command=" "item-command=" "view-command=" "summary-command=" -- $argv
+    argparse "flags=" "items-variable=" "header=" "list-command=" "item-command=" "view-command=" "summary-command=" -- $argv
 
-    set fzf_command "fzf $_flag_flags"
+    set variable_expect ctrl-b
+    set fzf_command "fzf --expect=$variable_expect $_flag_flags"
 
     if set -q _flag_header
         set -a fzf_command "--header='$_flag_header'"
@@ -50,7 +51,17 @@ begin
     set fzf_status $status
 
     if test $fzf_status -eq 0
-        string collect $selected | eval $_flag_item_command
+        set completed_key $selected[1]
+        set -e selected[1]
+        set items (string collect $selected | eval $_flag_item_command)
+
+        switch $completed_key
+            case $variable_expect
+                set message "Selected items stored in $(set_color green)\$$_flag_items_variable$(set_color reset) variable"
+                exec fish -i -C "set $_flag_items_variable $items && echo '$message'"
+            case '*'
+                string collect $items
+        end
     end
 
     exit $fzf_status
