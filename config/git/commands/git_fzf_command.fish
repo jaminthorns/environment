@@ -47,18 +47,20 @@ begin
         set -a fzf_command "--bind=\"ctrl-space:execute($fzf_summary_command)\""
     end
 
-    set selected (eval "$_flag_list_command | $fzf_command")
+    set output (eval "$_flag_list_command | $fzf_command")
     set fzf_status $status
 
     if test $fzf_status -eq 0
-        set completed_key $selected[1]
-        set -e selected[1]
+        set completed_key $output[1]
+        set selected $output[2..]
         set items (string collect $selected | eval $_flag_item_command)
 
         switch $completed_key
             case $variable_expect
-                set message "Selected items stored in $(set_color green)\$$_flag_items_variable$(set_color reset) variable"
-                exec fish -i -C "set $_flag_items_variable $items && echo '$message'"
+                set calling_pid (parent_pid (parent_pid $fish_pid))
+
+                send_values $calling_pid $_flag_items_variable $items
+                echo "Selected items stored in $(set_color green)\$$_flag_items_variable$(set_color reset) variable"
             case '*'
                 string collect $items
         end
