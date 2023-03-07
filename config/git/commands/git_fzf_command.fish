@@ -59,7 +59,7 @@ begin
             case $variable_expect
                 set calling_pid (parent_pid (parent_pid $fish_pid))
 
-                send_values $calling_pid $_flag_items_variable $items
+                set_remote $calling_pid $_flag_items_variable $items
                 echo "Selected items stored in $(set_color green)\$$_flag_items_variable$(set_color reset) variable"
             case '*'
                 string collect $items
