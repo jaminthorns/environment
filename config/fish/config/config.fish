@@ -37,7 +37,7 @@ if status is-interactive
 
     # Configure fzf
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:blue,pointer:blue,prompt:green,border:blue,header:bright-black"
-    set -gx FZF_DEFAULT_OPTS --reverse --no-info --preview-window=border-sharp --bind="ctrl-p:toggle-preview" --prompt="'▶ '" --pointer=▶ --marker=• --color=$fzf_colors
+    set -gx FZF_DEFAULT_OPTS --reverse --no-info --preview-window=border-sharp --bind="ctrl-p:toggle-preview" --prompt="'▶ '" --pointer=▶ --marker=⏽ --color=$fzf_colors
 
     # Configure fzf.fish keybindings
     fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --processes=\cG --git_status --git_log
