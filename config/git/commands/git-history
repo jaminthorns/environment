@@ -7,11 +7,11 @@ set args (string escape -- $argv)
 if set -q _flag_path
     set paths -- $_flag_path
 else if set -q _flag_file
-    set paths -- (git log --format="" --follow --name-only $_flag_file | uniq)
+    set paths -- (git log --format="" --follow --name-only -- $_flag_file | uniq)
 end
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--ansi --multi --no-sort" \
+    --flags "--ansi --multi" \
     --items-variable commits \
     --list-command "git graph --color $args $paths" \
     --item-command "grep -oE '[0-9a-f]+ - ' | cut -d ' ' -f 1" \

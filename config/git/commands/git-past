@@ -3,7 +3,7 @@
 set file $argv[1]
 
 set commit_filenames (
-    git log --format="%x00%h" --follow --name-only $file |
+    git log --format="%x00%h" --follow --name-only -- $file |
     tail -c +2 |
     while read -z commit filename
         echo $commit\t(string trim $filename)
