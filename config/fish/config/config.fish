@@ -31,6 +31,9 @@ if status is-interactive
     # Configure Erlang
     set -gx ERL_AFLAGS -kernel shell_history enabled
 
+    # Configure filetype colors
+    set -gx LS_COLORS "{{vivid generate dracula}}"
+
     # Configure bat
     set -gx BAT_PAGER $PAGER
     set -gx BAT_THEME Dracula

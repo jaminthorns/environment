@@ -18,6 +18,7 @@ brew "mycli"
 brew "pandoc"
 brew "pgcli"
 brew "ripgrep"
+brew "vivid"
 
 if OS.mac?
   tap "homebrew/cask"
