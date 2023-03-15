@@ -64,6 +64,7 @@
 	inputRebase = Alt+Enter
 [alias]
 	me = config --get user.email
+	cb = branch --show-current
 	force-push = push --force-with-lease
 	publish = ! git push --set-upstream origin $(git branch --show-current)
 	message = log --max-count=1 --format='%B'
