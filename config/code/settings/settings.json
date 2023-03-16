@@ -50,11 +50,9 @@
   "errorLens.padding": "2px 1ch",
   "errorLens.messageBackgroundMode": "message",
 
-  "gitlens.keymap": "alternate",
   "gitlens.codeLens.enabled": false,
-  "gitlens.graph.statusBar.enabled": false,
+  "gitlens.statusBar.enabled": false,
   "gitlens.plusFeatures.enabled": false,
-  "workbench.editorAssociations": { "git-rebase-todo": "default" },
 
   "githubPullRequests.pullBranch": "never",
 
