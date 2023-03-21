@@ -3,12 +3,8 @@ local action = wezterm.action
 local mac_os = {{os_status mac-os && echo true || echo false}}
 local wsl = {{os_status wsl && echo true || echo false}}
 
-wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
-  return tab.active_pane.title
-end)
-
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-  local tab_config = tab.is_active and "active_tab" or "inactive_tab"
+  local tab_config = tab.is_active and "active_tab" or hover and "inactive_tab_hover" or "inactive_tab"
   local cap_bg_color = config.colors.tab_bar.background
   local cap_fg_color = config.colors.tab_bar[tab_config].bg_color
 
@@ -66,8 +62,9 @@ local config = {
     brights = { "#6272a4", "#ff6e6e", "#69ff94", "#ffffa5", "#d6acff", "#ff92df", "#a4ffff", "#ffffff" },
     tab_bar = {
       background = "#282a36",
-      active_tab = { bg_color = "#ffffff", fg_color = "#21222c", intensity = "Bold" },
-      inactive_tab = { bg_color = "#6272a4", fg_color = "#21222c" },
+      active_tab = { bg_color = "#f8f8f2", fg_color = "#21222c", intensity = "Bold" },
+      inactive_tab = { bg_color = "#6272a4", fg_color = "#21222c", intensity = "Bold" },
+      inactive_tab_hover = { bg_color = "#b0b8d1", fg_color = "#21222c", intensity = "Bold" },
     }
   },
 
