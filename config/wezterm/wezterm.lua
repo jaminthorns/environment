@@ -51,20 +51,20 @@ local config = {
 
   -- Colors
   colors = {
-    foreground = "#f8f8f2",
-    background = "#282a36",
+    foreground = "#F8F8F2",
+    background = "#282A36",
     cursor_fg = "black",
     cursor_bg = "white",
     cursor_border = "white",
     selection_fg = "white",
-    selection_bg = "#44475a",
-    ansi = { "#21222c", "#ff5555", "#50fa7b", "#f1fa8c", "#bd93f9", "#ff79c6", "#8be9fd", "#f8f8f2" },
-    brights = { "#6272a4", "#ff6e6e", "#69ff94", "#ffffa5", "#d6acff", "#ff92df", "#a4ffff", "#ffffff" },
+    selection_bg = "#44475A",
+    ansi = { "#21222C", "#FF5555", "#50FA7B", "#F1FA8C", "#BD93F9", "#FF79C6", "#8BE9FD", "#F8F8F2" },
+    brights = { "#6272A4", "#FF6E6E", "#69FF94", "#FFFFA5", "#D6ACFF", "#FF92DF", "#A4FFFF", "#FFFFFF" },
     tab_bar = {
-      background = "#282a36",
-      active_tab = { bg_color = "#f8f8f2", fg_color = "#21222c", intensity = "Bold" },
-      inactive_tab = { bg_color = "#6272a4", fg_color = "#21222c", intensity = "Bold" },
-      inactive_tab_hover = { bg_color = "#b0b8d1", fg_color = "#21222c", intensity = "Bold" },
+      background = "#282A36",
+      active_tab = { bg_color = "#F8F8F2", fg_color = "#21222C", intensity = "Bold" },
+      inactive_tab = { bg_color = "#6272A4", fg_color = "#21222C", intensity = "Bold" },
+      inactive_tab_hover = { bg_color = "#B0B8D1", fg_color = "#21222C", intensity = "Bold" },
     }
   },
 
