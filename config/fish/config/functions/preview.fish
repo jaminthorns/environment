@@ -16,7 +16,9 @@ function preview
 
     switch (file -b --mime-type $path)
         case inode/directory
-            exa --all --oneline $path
+            exa --all --long --header $path
+        case application/zip
+            unzip -l $path
         case application/pdf
             pdftoppm -jpeg -f 1 -l 1 $path | chafa $chafa_options
         case "image/*"
