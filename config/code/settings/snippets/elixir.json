@@ -5,11 +5,11 @@
   },
   "Inspect a value": {
     "prefix": "ins",
-    "body": ["IO.inspect($1, label: \"$2\")"]
+    "body": ["IO.inspect($1, IEx.inspect_opts() ++ [label: \"$2\"])"]
   },
   "Inspect a value (piped)": {
     "prefix": "ins",
-    "body": ["IO.inspect(label: \"$1\")"]
+    "body": ["IO.inspect(IEx.inspect_opts() ++ [label: \"$1\"])"]
   },
   "Debug some code": {
     "prefix": "pry",
