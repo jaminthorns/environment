@@ -30,6 +30,7 @@ if status is-interactive
 
     # Configure Erlang
     set -gx ERL_AFLAGS -kernel shell_history enabled
+    set -gx KERL_BUILD_DOCS yes
 
     # Configure filetype colors
     set -gx LS_COLORS "{{vivid generate dracula}}"
