@@ -16,7 +16,7 @@ function preview
 
     switch (file -b --mime-type $path)
         case inode/directory
-            exa --all --long --header $path
+            exa --all --tree --level=1 $path
         case application/zip
             unzip -l $path
         case application/pdf
