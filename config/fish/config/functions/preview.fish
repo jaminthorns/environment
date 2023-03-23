@@ -18,7 +18,9 @@ function preview
         case inode/directory
             exa --all --tree --level=1 $path
         case application/zip
-            unzip -l $path
+            zipinfo -1 $path | as-tree --color always
+        case application/gzip
+            tar --list --file $path | as-tree --color always
         case application/pdf
             pdftoppm -jpeg -f 1 -l 1 $path | chafa $chafa_options
         case "image/*"
