@@ -42,13 +42,14 @@ if status is-interactive
     # Configure fzf
     set -l fzf_prompt "▶ "
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:blue,pointer:blue,prompt:green,border:blue,header:bright-black"
-    set -gx FZF_DEFAULT_OPTS --reverse --no-info --preview-window=border-sharp --bind="ctrl-p:toggle-preview" --prompt=(string escape $fzf_prompt) --pointer=▶ --marker=⏽ --color=$fzf_colors
+    set -gx FZF_DEFAULT_OPTS --reverse --no-info --preview-window=border-sharp --bind="esc:cancel" --bind="ctrl-p:toggle-preview" --prompt=(string escape $fzf_prompt) --pointer=▶ --marker=⏽ --color=$fzf_colors
 
     # Configure fzf.fish
-    set -g fzf_directory_opts --prompt="Files $fzf_prompt"
+    set -g fzf_directory_opts --prompt="Files $fzf_prompt" --bind="alt-enter:replace-query"
     set -g fzf_history_opts --prompt="History $fzf_prompt"
     set -g fzf_variables_opts --prompt="Variables $fzf_prompt"
     set -g fzf_processes_opts --prompt="Processes $fzf_prompt"
+    set -g fzf_fd_opts --unrestricted --exclude=.git
     set -l fzf_preview_cmd "preview --embedded --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES"
     set -gx fzf_preview_dir_cmd $fzf_preview_cmd
     set -gx fzf_preview_file_cmd $fzf_preview_cmd
