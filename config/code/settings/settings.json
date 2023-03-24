@@ -50,6 +50,7 @@
   "errorLens.padding": "2px 1ch",
   "errorLens.messageBackgroundMode": "message",
 
+  "gitlens.keymap": "none",
   "gitlens.codeLens.enabled": false,
   "gitlens.statusBar.enabled": false,
   "gitlens.plusFeatures.enabled": false,
