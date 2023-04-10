@@ -1,8 +1,12 @@
 function preview
+    set options $argv
+
     argparse embedded "width=" "height=" -- $argv
 
     set path $argv
     set chafa_options --color-extractor=median --bg="#282A36"
+
+    set -e options[(contains -i $path $options)]
 
     if set -q _flag_embedded
         set -a chafa_options --format=symbols --animate=off
@@ -19,8 +23,10 @@ function preview
             exa --all --tree --level=1 $path
         case application/zip
             zipinfo -1 $path | as-tree --color always
-        case application/gzip
+        case application/x-tar
             tar --list --file $path | as-tree --color always
+        case application/gzip
+            preview $options (gunzip --stdout $path | psub --suffix (path extension $path))
         case application/pdf
             pdftoppm -jpeg -f 1 -l 1 $path | chafa $chafa_options
         case "image/*"
