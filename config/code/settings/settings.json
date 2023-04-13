@@ -53,6 +53,7 @@
   "gitlens.keymap": "none",
   "gitlens.codeLens.enabled": false,
   "gitlens.statusBar.enabled": false,
+  "gitlens.graph.statusBar.enabled": false,
   "gitlens.plusFeatures.enabled": false,
 
   "githubPullRequests.pullBranch": "never",
