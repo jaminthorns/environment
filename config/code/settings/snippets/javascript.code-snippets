@@ -1,5 +1,5 @@
 {
-  "Log to the console (labeled)": {
+  "(Labeled) Log to the console": {
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": "log",
     "body": ["console.log('$1', $2)"]
@@ -9,7 +9,7 @@
     "prefix": "time",
     "body": ["console.time('$1')", "console.timeEnd('$1')"]
   },
-  "Create a React component (default)": {
+  "(Default Export) Create a React component": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "rcd",
     "body": [
@@ -18,7 +18,7 @@
       "}"
     ]
   },
-  "Create a React component (local)": {
+  "(Local) Create a React component": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "rcl",
     "body": ["function $2({ $3 }) {", "  return $4", "}"]
