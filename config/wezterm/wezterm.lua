@@ -94,7 +94,6 @@ local config = {
 
 if wsl then
   config.default_domain = "WSL:Ubuntu"
-  config.wsl_domains = { { name = "WSL:Ubuntu", distribution = "Ubuntu", default_cwd = "~" } }
 end
 
 return config
