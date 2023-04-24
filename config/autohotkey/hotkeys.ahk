@@ -1,5 +1,7 @@
 #UseHook
 
+SendMode "Event"
+
 ProcessSetPriority("Realtime")
 
 TerminalClass := "ahk_class org.wezfurlong.wezterm"
