@@ -1,0 +1,22 @@
+set mouse
+set info time
+set sortby time
+set reverse
+set nodirfirst
+set ifs "\n"
+set previewer {{git rev-parse --show-toplevel}}/config/lf/previewer
+
+map <tab> :toggle; down
+map <esc> :unselect; clear
+map <c-c> copy
+map <c-x> cut
+map <c-v> paste
+map <delete> delete
+
+cmd delete ${{
+  num_files=$(echo "$fx" | wc -l | sed 's/ *//')
+  file_noun=$(test $num_files -eq 1 && echo "file" || echo "files")
+  prompt="Permanently delete $num_files $file_noun?"
+
+  gum confirm --prompt.width $lf_width --prompt.align center $prompt && rm -rf $fx || true
+}}

@@ -5,7 +5,7 @@ if status is-login
     # Initialize asdf
     source {{brew --prefix asdf}}/libexec/asdf.fish
 
-    # Enable git commands
+    # Add Git commands to PATH
     set -p PATH {{git rev-parse --show-toplevel}}/config/git/commands
 end
 

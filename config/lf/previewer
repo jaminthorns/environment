@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+
+preview --embedded --width=$argv[2] --height=$argv[3] $argv[1]

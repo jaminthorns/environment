@@ -1,12 +1,12 @@
 source ../functions/config_functions.sh ..
 
 copy asdf/tools $HOME
-copy broot $HOME/.config/broot
 copy elixir $HOME
 copy fish/config $HOME/.config/fish
 copy git/config $HOME
 copy github_cli $HOME/.config/gh
 copy homebrew $HOME
+copy lf/config $HOME/.config/lf
 copy mycli $HOME
 copy pgcli $HOME/.config/pgcli
 
