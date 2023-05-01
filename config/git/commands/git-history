@@ -11,7 +11,7 @@ else if set -q _flag_file
 end
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--ansi --multi" \
+    --flags "--ansi --multi --track" \
     --items-variable commits \
     --list-command "git graph --color $args $paths" \
     --item-command "grep -oE '[0-9a-f]+ - ' | cut -d ' ' -f 1" \
