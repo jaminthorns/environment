@@ -1,8 +1,8 @@
-set mouse
+set mouse true
 set info time
 set sortby time
-set reverse
-set nodirfirst
+set reverse true
+set dirfirst false
 set ifs "\n"
 set previewer {{git rev-parse --show-toplevel}}/config/lf/previewer
 
@@ -12,6 +12,8 @@ map <c-c> copy
 map <c-x> cut
 map <c-v> paste
 map <delete> delete
+map <enter> rename
+map <c-n> :push %mkdir<space>
 
 cmd delete ${{
   num_files=$(echo "$fx" | wc -l | sed 's/ *//')
