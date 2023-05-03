@@ -27,7 +27,7 @@
 
   // Terminal (printing file info)
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${relativeFile}" }, "when": "terminalFocus" },
-  { "key": "ctrl+shift+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${lineNumber},+1:${relativeFile}" }, "when": "terminalFocus" },
+  { "key": "ctrl+shift+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${lineNumber},+1" }, "when": "terminalFocus" },
 
   // Debugging
   { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "inDebugRepl" },
