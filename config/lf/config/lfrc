@@ -6,8 +6,9 @@ set dirfirst false
 set ifs "\n"
 set previewer {{git rev-parse --show-toplevel}}/config/lf/previewer
 
-map <tab> :toggle; down
+map <tab> :toggle
 map <esc> :unselect; clear
+map <c-a> :unselect; invert
 map <c-c> copy
 map <c-x> cut
 map <c-v> paste
