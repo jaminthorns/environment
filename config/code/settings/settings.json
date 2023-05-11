@@ -64,7 +64,7 @@
   "rest-client.previewResponsePanelTakeFocus": false,
   "rest-client.requestNameAsResponseTabTitle": true,
 
-  "elixirLS.suggestSpecs": false,
+  "elixirLS.dialyzerEnabled": false,
 
   "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown][html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
