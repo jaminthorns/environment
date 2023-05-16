@@ -71,6 +71,7 @@
   },
 
   "[elixir]": {
-    "editor.rulers": [80, 98]
+    "editor.rulers": [80, 98],
+    "editor.wordSeparators": "`~@#$%^&*()-=+[{]}\\|;:'\",.<>/"
   }
 }
