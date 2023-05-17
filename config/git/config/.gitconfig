@@ -38,7 +38,7 @@
 	minus-non-emph-style = syntax "#61303A"
 	plus-emph-style = syntax "#2D583F"
 	plus-non-emph-style = syntax "#2A463B"
-	map-styles = "bold purple => syntax #614E81, bold cyan => syntax #614E81, bold blue => syntax #5C6045, bold yellow => syntax #5C6045"
+	map-styles = "bold purple => syntax #404968, bold cyan => syntax #404968, bold blue => syntax #363C53, bold yellow => syntax #363C53"
 [merge]
 	tool = code
 	conflictStyle = diff3
