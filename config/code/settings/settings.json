@@ -33,6 +33,7 @@
   "window.title": "${rootName}${separator}${appName}",
 
   "search.useGlobalIgnoreFiles": true,
+  "search.mode": "newEditor",
 
   "extensions.ignoreRecommendations": true,
 
