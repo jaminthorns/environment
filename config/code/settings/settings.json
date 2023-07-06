@@ -44,6 +44,7 @@
   "terminal.integrated.drawBoldTextInBrightColors": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.minimumContrastRatio": 1,
+  "terminal.integrated.shellIntegration.enabled": false,
 
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
