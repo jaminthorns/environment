@@ -5,10 +5,12 @@ argparse --ignore-unknown "p/path=+" -- $argv
 set args (string escape -- $argv)
 
 if set -q _flag_path
-    set path -- $_flag_path
+    set paths -- $_flag_path
+else
+    set paths --
 end
 
-set header (git show --format="" --shortstat $argv $path)
+set header (git show --format="" --shortstat $argv $paths)
 
 if test (count $header) -eq 0
     set header "No changes"
@@ -18,7 +20,7 @@ source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --header "$header" \
     --items-variable files \
-    --list-command "git show --format="" --name-status $args $path | format_git_name_status" \
+    --list-command "git show --format="" --name-status $args $paths | format_git_name_status" \
     --item-command "cut -d ' ' -f 2,4" \
     --view-command "xargs git -C (git rev-parse --show-toplevel) show --format="" $args --" \
-    --summary-command "git show --no-patch $args $path"
+    --summary-command "git show --no-patch $args $paths"

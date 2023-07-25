@@ -8,6 +8,8 @@ if set -q _flag_path
     set paths -- $_flag_path
 else if set -q _flag_file
     set paths -- (git log --format="" --follow --name-only -- $_flag_file | uniq)
+else
+    set paths --
 end
 
 source (status dirname)/git_fzf_command.fish \

@@ -30,7 +30,7 @@ begin
     argparse "flags=" "items-variable=" "header=" "list-command=" "item-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect ctrl-b
-    set fzf_command "fzf --expect=$variable_expect $_flag_flags"
+    set fzf_command "fzf --exit-0 --expect=$variable_expect $_flag_flags"
 
     if set -q _flag_header
         set -a fzf_command "--header='$_flag_header'"
