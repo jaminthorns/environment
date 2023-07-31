@@ -15,6 +15,7 @@ map <c-v> paste
 map <delete> delete
 map <enter> rename
 map <c-n> :push %mkdir<space>
+map o reveal-in-system-file-manager
 
 cmd delete ${{
   num_files=$(echo "$fx" | wc -l | sed 's/ *//')
@@ -22,4 +23,8 @@ cmd delete ${{
   prompt="Permanently delete $num_files $file_noun?"
 
   gum confirm --prompt.width $lf_width --prompt.align center $prompt && rm -rf $fx || true
+}}
+
+cmd reveal-in-system-file-manager ${{
+  open -R $f
 }}
