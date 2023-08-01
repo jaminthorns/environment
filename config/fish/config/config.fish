@@ -50,6 +50,7 @@ if status is-interactive
         --prompt=(string escape $fzf_prompt) \
         --pointer=(string escape "▶") \
         --marker=(string escape "█ ") \
+        --ellipsis=(string escape "…") \
         --color=$fzf_colors
 
     # Configure fzf.fish
