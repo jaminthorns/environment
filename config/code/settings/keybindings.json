@@ -26,7 +26,8 @@
   { "key": "alt+backspace", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b\u007f" }, "when": "terminalFocus" },
 
   // Terminal (printing file info)
-  { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "'${relativeFile}'" }, "when": "terminalFocus" },
+  { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "'${relativeFile}'" }, "when": "!isWindows && terminalFocus" },
+  { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "(wslpath '${relativeFile}')" }, "when": "isWindows && terminalFocus" },
   { "key": "ctrl+shift+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${lineNumber},+1" }, "when": "terminalFocus" },
 
   // Debugging
