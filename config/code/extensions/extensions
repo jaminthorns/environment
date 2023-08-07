@@ -6,7 +6,6 @@ bradymholt.pgformatter
 dbaeumer.vscode-eslint
 DotJoshJohnson.xml
 dracula-theme.theme-dracula
-eamodio.gitlens
 earshinov.permute-lines
 esbenp.prettier-vscode
 firefox-devtools.vscode-firefox-debug
@@ -14,6 +13,7 @@ GitHub.vscode-pull-request-github
 humao.rest-client
 iliazeus.vscode-ansi
 JakeBecker.elixir-ls
+jaminthorns.gitterm
 mitchdenny.ecdc
 mrorz.language-gettext
 ms-vscode-remote.remote-wsl
