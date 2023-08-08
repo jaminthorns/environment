@@ -45,5 +45,3 @@ end
 import IexUtils, only: [time: 1, time: 2]
 
 IEx.configure(default_prompt: IexUtils.prompt(false), alive_prompt: IexUtils.prompt(true))
-
-clear()
