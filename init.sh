@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source functions/read_config.sh
-source functions/config_functions.sh .
+source functions/config_functions.sh
 
 # Install dependencies for compiled asdf programs
 os_status linux && sudo apt update && sudo apt upgrade -y && find config/asdf/linux_dependencies -type f | xargs cat | xargs sudo apt install -y

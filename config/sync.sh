@@ -1,4 +1,4 @@
-source ../functions/config_functions.sh ..
+source ../functions/config_functions.sh
 
 copy asdf/tools $HOME
 copy elixir $HOME

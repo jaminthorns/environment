@@ -1,4 +1,4 @@
-root_dir=$1
+root_dir=$(dirname $BASH_SOURCE)/..
 
 source $root_dir/functions/command_key.sh
 source $root_dir/functions/os_status.sh
