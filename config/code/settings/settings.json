@@ -22,6 +22,8 @@
   "workbench.settings.editor": "json",
   "workbench.editor.untitled.hint": "hidden",
 
+  "security.workspace.trust.banner": "never",
+
   "diffEditor.renderSideBySide": false,
   "diffEditor.renderIndicators": false,
 
