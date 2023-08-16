@@ -23,5 +23,5 @@ source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi --track" \
     --items-variable commits \
     --list-command "git graph --color $args $paths" \
-    --item-command "grep -oE '[0-9a-f]+ - ' | cut -d ' ' -f 1 | xargs git rev-parse" \
+    --item-command "sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
     --view-command "xargs -I [] git show --color $_flag_show_options [] $paths"
