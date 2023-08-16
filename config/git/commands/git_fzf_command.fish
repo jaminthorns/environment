@@ -2,7 +2,8 @@ function color_git_name_status -a pattern color_name
     set color (set_color $color_name)
     set reset (set_color reset)
 
-    echo "s/^($pattern)/$color\1$reset/"
+    echo -- -e "s/^(.)($pattern)/\1$color\2$reset/"
+    echo -- -e "s/^($pattern)/$color\1$reset/"
 end
 
 function format_git_name_status
@@ -10,11 +11,11 @@ function format_git_name_status
         -e "s/R[0-9]+/R/" \
         -e "s/\t/ /" \
         -e "s/\t/ ⟶ /" \
-        -e (color_git_name_status A green) \
-        -e (color_git_name_status D red) \
-        -e (color_git_name_status M yellow) \
-        -e (color_git_name_status R blue) \
-        -e (color_git_name_status U magenta)
+        (color_git_name_status A green) \
+        (color_git_name_status D red) \
+        (color_git_name_status M yellow) \
+        (color_git_name_status R blue) \
+        (color_git_name_status U magenta)
 end
 
 # Handle mouse reporting and redirection for executing an external command
