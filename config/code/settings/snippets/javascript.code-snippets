@@ -1,5 +1,5 @@
 {
-  "(Labeled) Log to the console": {
+  "Log to the console": {
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": "log",
     "body": ["console.log('$1', $2)"]
