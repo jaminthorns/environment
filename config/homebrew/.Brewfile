@@ -28,13 +28,10 @@ brew "ripgrep"
 brew "vivid"
 
 if OS.mac?
-  tap "homebrew/cask"
-  tap "homebrew/cask-fonts"
-
-  cask "font-jetbrains-mono"
   cask "hammerspoon"
   cask "ngrok"
   cask "wezterm"
+  cask "homebrew/cask-fonts/font-jetbrains-mono"
 
   # Dependencies for compiled asdf programs
   brew "erlang", args: ["only-dependencies"]
