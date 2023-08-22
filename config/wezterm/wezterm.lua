@@ -85,6 +85,8 @@ local config = {
     { key = "Backspace", mods = "{{command_key upper}}", action = action.SendString("\x15") },
     { key = "UpArrow", mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5H") },
     { key = "DownArrow", mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5F") },
+    { key = "LeftArrow", mods = "ALT", action = action.SendString("\x1bb") },
+    { key = "RightArrow", mods = "ALT", action = action.SendString("\x1bf") },
     { key = "Delete", mods = "ALT", action = action.SendString("\x1bd") },
 
     -- Disable fullscreen shortcut
