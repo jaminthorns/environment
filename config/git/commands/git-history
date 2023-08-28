@@ -20,7 +20,7 @@ else
 end
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--ansi --multi --track" \
+    --flags "--ansi --multi --track --scheme=history" \
     --items-variable commits \
     --list-command "git graph --color $args $paths" \
     --item-command "sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
