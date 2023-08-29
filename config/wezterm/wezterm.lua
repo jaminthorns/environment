@@ -29,7 +29,7 @@ local config = {
   audible_bell = "Disabled",
   window_close_confirmation = "NeverPrompt",
   inactive_pane_hsb = { brightness = 0.75 },
-  front_end = "WebGpu",
+  front_end = wsl and "OpenGL" or "WebGpu",
 
   -- Tab bar
   use_fancy_tab_bar = false,
