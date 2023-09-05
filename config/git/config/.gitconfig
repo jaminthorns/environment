@@ -46,6 +46,8 @@
 [diff]
 	tool = code
 	colorMoved = default
+[log]
+	diffMerges = first-parent
 [blame]
 	coloring = highlightRecent
 [difftool "code"]

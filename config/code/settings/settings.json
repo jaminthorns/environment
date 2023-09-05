@@ -54,8 +54,8 @@
   "errorLens.padding": "2px 1ch",
   "errorLens.messageBackgroundMode": "message",
 
-  "gitterm.gitCommands.fileHistory": "git history -f '${filename}'",
-  "gitterm.gitCommands.showCommit": "git view ${commit}",
+  "gitterm.gitCommands.fileHistory": "git history -o '-m' -f '${filename}'",
+  "gitterm.gitCommands.showCommit": "git view -m ${commit}",
 
   "githubPullRequests.pullBranch": "never",
 
