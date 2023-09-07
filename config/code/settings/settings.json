@@ -33,6 +33,7 @@
   "files.insertFinalNewline": true,
 
   "window.title": "${rootName}${separator}${appName}",
+  "window.commandCenter": false,
 
   "search.useGlobalIgnoreFiles": true,
   "search.mode": "newEditor",
