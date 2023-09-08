@@ -15,6 +15,7 @@ humao.rest-client
 iliazeus.vscode-ansi
 JakeBecker.elixir-ls
 jaminthorns.gitterm
+mark-wiemer.vscode-autohotkey-plus-plus
 mitchdenny.ecdc
 mrorz.language-gettext
 ms-vscode-remote.remote-wsl
@@ -25,7 +26,6 @@ rust-lang.rust-analyzer
 stkb.rewrap
 swindh.enumerator
 tamasfe.even-better-toml
-thqby.vscode-autohotkey2-lsp
 tomoki1207.selectline-statusbar
 usernamehw.errorlens
 vitaliymaz.vscode-svg-previewer
