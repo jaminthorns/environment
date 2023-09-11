@@ -20,7 +20,7 @@ function preview
 
     switch (file -b --mime-type $path)
         case inode/directory
-            exa --all --tree --level=1 $path
+            eza --all --tree --level=1 $path
         case application/zip
             zipinfo -1 $path | as-tree --color always
         case application/x-tar
