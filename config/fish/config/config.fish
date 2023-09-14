@@ -44,7 +44,6 @@ if status is-interactive
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,pointer:white,prompt:green,border:blue,header:bright-black"
     set -gx FZF_DEFAULT_OPTS --reverse --no-info --preview-window=border-sharp \
         --bind="esc:cancel" \
-        --bind="tab:toggle" \
         --bind="ctrl-a:select-all" \
         --bind="ctrl-p:toggle-preview" \
         --prompt=(string escape $fzf_prompt) \
