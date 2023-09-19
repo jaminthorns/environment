@@ -49,8 +49,7 @@ folders for each program they're related to.
 ### Substitution
 
 When copying configuration files to their destinations, any section that looks
-like `{{this}}` will be substituted with the output of the shell command between
-the braces.
+like `{{command}}` will be substituted with the output of executing `command`.
 
 ### Available Functions
 
