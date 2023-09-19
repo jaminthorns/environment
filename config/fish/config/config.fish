@@ -1,6 +1,6 @@
 if status is-login
     # Initialize Homebrew
-    {{fish -c "set -p PATH /dev/null && brew shellenv"}}
+    {{export PATH="/dev/null:$PATH" && brew shellenv fish}}
 
     # Initialize asdf
     source {{brew --prefix asdf}}/libexec/asdf.fish
