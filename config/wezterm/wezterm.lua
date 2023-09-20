@@ -29,7 +29,7 @@ local config = {
   audible_bell = "Disabled",
   window_close_confirmation = "NeverPrompt",
   inactive_pane_hsb = { brightness = 0.75 },
-  front_end = wsl and "OpenGL" or "WebGpu",
+  front_end = "WebGpu",
 
   -- Tab bar
   use_fancy_tab_bar = false,
@@ -93,6 +93,14 @@ local config = {
     { key = "Enter", mods = "ALT", action = action.SendKey({ key = "Enter", mods = "ALT" }) },
   },
 }
+
+-- Force WebGPU front-end to use discrete GPU (issue on Windows)
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+  if gpu.device_type == "DiscreteGpu" then
+    config.webgpu_preferred_adapter = gpu
+    break
+  end
+end
 
 if wsl then
   config.default_domain = "WSL:Ubuntu"
