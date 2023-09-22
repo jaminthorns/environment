@@ -7,7 +7,7 @@ set args (string escape -- $argv)
 if set -q _flag_path
     set paths -- $_flag_path
 else if set -q _flag_file
-    set file_names (git log --format="" --follow --name-only --diff-filter=AR -- $_flag_file | uniq)
+    set file_names (git log --follow --name-only --diff-merges=first-parent --diff-filter=AR --format="" -- $_flag_file | uniq)
 
     if test (count $file_names) -eq 0
         echo "fatal: no file history for '$_flag_file'"
