@@ -41,7 +41,7 @@ if status is-interactive
 
     # Configure fzf
     set -l fzf_prompt "▶ "
-    set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,pointer:white,prompt:green,border:blue,header:bright-black"
+    set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,pointer:white,spinner:green,prompt:green,border:blue,header:bright-black"
     set -gx FZF_DEFAULT_OPTS --reverse --no-info --preview-window=border-sharp \
         --bind="esc:cancel" \
         --bind="ctrl-a:select-all" \
