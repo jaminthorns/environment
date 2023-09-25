@@ -53,6 +53,7 @@ if status is-interactive
         --color=$fzf_colors
 
     # Configure fzf.fish
+    set -g fzf_history_time_format "%F %r"
     set -g fzf_directory_opts --prompt="Files $fzf_prompt" --bind="alt-enter:replace-query"
     set -g fzf_history_opts --prompt="History $fzf_prompt"
     set -g fzf_variables_opts --prompt="Variables $fzf_prompt"
