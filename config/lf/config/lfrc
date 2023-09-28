@@ -7,6 +7,8 @@ set ifs "\n"
 set previewer {{git rev-parse --show-toplevel}}/config/lf/previewer
 set sixel true
 
+map <c-home> top
+map <c-end> bottom
 map <tab> :toggle; down
 map <esc> :unselect; clear
 map <c-a> :unselect; invert
@@ -16,7 +18,7 @@ map <c-v> paste
 map <delete> delete
 map <enter> rename
 map <c-n> :push %mkdir<space>
-map o reveal-in-system-file-manager
+map r reveal-in-system-file-manager
 
 cmd delete ${{
   num_files=$(echo "$fx" | wc -l | sed 's/ *//')
