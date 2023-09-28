@@ -5,6 +5,7 @@ set reverse true
 set dirfirst false
 set ifs "\n"
 set previewer {{git rev-parse --show-toplevel}}/config/lf/previewer
+set sixel true
 
 map <tab> :toggle; down
 map <esc> :unselect; clear
