@@ -47,6 +47,7 @@
 	tool = code
 	colorMoved = default
 [log]
+	date = "format-local:%F %r"
 	diffMerges = first-parent
 [blame]
 	coloring = highlightRecent
