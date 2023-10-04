@@ -20,7 +20,7 @@
   "workbench.colorTheme": "Dracula",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
-  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editor.empty.hint": "hidden",
 
   "security.workspace.trust.banner": "never",
 
@@ -33,10 +33,11 @@
   "files.insertFinalNewline": true,
 
   "window.title": "${rootName}${separator}${appName}",
-  "window.commandCenter": false,
 
   "search.useGlobalIgnoreFiles": true,
   "search.mode": "newEditor",
+
+  "debug.toolBarLocation": "commandCenter",
 
   "extensions.ignoreRecommendations": true,
 
