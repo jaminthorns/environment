@@ -47,6 +47,7 @@
 
   // Git
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
+  { "key": "cmd+k cmd+r", "command": "git.revertSelectedRanges", "when": "editorTextFocus && !operationInProgress" },
 
   // Elixir
   { "key": "alt+p", "command": "extension.toPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
