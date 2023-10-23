@@ -38,5 +38,5 @@ source (status dirname)/git_fzf_command.fish \
     --items-variable files \
     --list-command "git diff --name-status $args $paths | format_git_name_status" \
     --item-command "cut -d ' ' -f 2,4" \
-    --view-command "xargs git -C (git rev-parse --show-toplevel) diff $args --" \
+    --view-command "git -C (git rev-parse --show-toplevel) diff $args -- \\\$item" \
     --summary-command "$summary_command"

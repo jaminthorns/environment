@@ -6,6 +6,7 @@ complete -c git-compare -s p -l path -d "Show only changes from specified path"
 
 complete -c git-history -w "git log"
 complete -c git-history -s p -l path -d "Show only commits and changes from specified path"
+complete -c git-history -s f -l file -d "Show only commits and changes from specified file"
 complete -c git-history -s o -l show-options -d "Options for the 'git show' view"
 
 complete -c git-stashes -w "git stash"

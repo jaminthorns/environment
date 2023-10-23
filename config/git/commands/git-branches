@@ -9,4 +9,4 @@ source (status dirname)/git_fzf_command.fish \
     --items-variable branches \
     --list-command "git branch --color $args" \
     --item-command "sed -e 's/*//' -e 's/+//' -e 's/->//' | string split --no-empty ' '" \
-    --view-command "xargs git graph --color $_flag_graph_options"
+    --view-command "git graph --color $_flag_graph_options \\\$item"

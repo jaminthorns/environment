@@ -37,7 +37,7 @@ begin
         set -a fzf_command "--header='$_flag_header'"
     end
 
-    set fzf_content_command "echo {} | $_flag_item_command | $_flag_view_command"
+    set fzf_content_command "set item (echo {} | $_flag_item_command); $_flag_view_command"
     set -a fzf_command "--preview=\"$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS\""
 
     set fzf_view_command (external_command $fzf_content_command)

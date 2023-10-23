@@ -10,7 +10,7 @@
 [color.blame]
 	highlightRecent = "normal #000000, 1 year ago, normal #241B30, 6 months ago, normal #302540, 3 months ago, normal #3C2E50, 1 month ago, normal #483860, 2 weeks ago, normal #554170, 1 day ago, normal #614B80"
 [pretty]
-	graph = %C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)
+	compact = %C(bold blue)%h%C(reset) -%C(yellow)%d%C(reset) %s%C(reset) %C(brightblack)%an, %cr%C(reset)
 [interactive]
 	diffFilter = delta --color-only
 [delta]
@@ -73,4 +73,4 @@
 	force-push = push --force-with-lease
 	publish = ! git push --set-upstream origin $(git branch --show-current)
 	message = log --max-count=1 --format='%B'
-	graph = log --graph --date-order --format=graph
+	graph = log --graph --date-order --format=compact

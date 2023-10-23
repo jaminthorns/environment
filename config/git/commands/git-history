@@ -5,23 +5,24 @@ argparse --ignore-unknown "p/path=+" "f/file=" "o/show-options=" -- $argv
 set args (string escape -- $argv)
 
 if set -q _flag_path
-    set paths -- $_flag_path
+    set show_paths -- $_flag_path
+    set view_paths -- $_flag_path
 else if set -q _flag_file
-    set file_names (git log --follow --name-only --diff-merges=first-parent --diff-filter=AR --format="" -- $_flag_file | uniq)
+    set -x commit_filenames (string replace -a -r "\n\n" "\t" (git log --follow --name-status --format="%H" -- $_flag_file | string collect) | string collect)
 
-    if test (count $file_names) -eq 0
+    if test (count $commit_filenames) -eq 0
         echo "fatal: no file history for '$_flag_file'"
         exit 1
     else
-        set paths -- $file_names
+        set list_options --follow
+        set show_paths -- $_flag_file
+        set view_paths -- '\$(echo "\$commit_filenames" | grep \$item | cut -f 3- | string split \t)'
     end
-else
-    set paths --
 end
 
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi --track --scheme=history" \
     --items-variable commits \
-    --list-command "git graph --color $args $paths" \
+    --list-command "git log --color --format=compact $list_options $args $show_paths" \
     --item-command "sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
-    --view-command "xargs -I [] git show --color $_flag_show_options [] $paths"
+    --view-command "git show --color $_flag_show_options \\\$item $view_paths"
