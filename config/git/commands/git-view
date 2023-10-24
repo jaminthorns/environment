@@ -21,6 +21,6 @@ source (status dirname)/git_fzf_command.fish \
     --header $header \
     --items-variable files \
     --list-command "git show --format="" --name-status $args $paths | format_git_name_status" \
-    --item-command "cut -d ' ' -f 2,4" \
-    --view-command "git -C (git rev-parse --show-toplevel) show --format="" $args -- (string split ' ' \\\$item)" \
+    --item-command "cut -d ' ' -f 2,4 | string split ' '" \
+    --view-command "git -C (git rev-parse --show-toplevel) show --format="" $args -- \\\$item" \
     --summary-command "git show --no-patch $args $paths"
