@@ -8,5 +8,5 @@ source (status dirname)/git_fzf_command.fish \
     --flags --multi \
     --items-variable stashes \
     --list-command "git stash list $args" \
-    --item-command "cut -d ':' -f 1" \
-    --view-command "git show --color --diff-merges=first-parent $_flag_stash_show_options \\\$item"
+    --items-command "cut -d ':' -f 1" \
+    --view-command "git show --color --diff-merges=first-parent $_flag_stash_show_options \\\$items"

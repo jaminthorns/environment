@@ -28,7 +28,7 @@ function external_command -a command
 end
 
 begin
-    argparse "flags=" "items-variable=" "header=" "list-command=" "item-command=" "view-command=" "summary-command=" -- $argv
+    argparse "flags=" "items-variable=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect ctrl-b
     set fzf_command "fzf --exit-0 --expect=$variable_expect $_flag_flags"
@@ -37,7 +37,7 @@ begin
         set -a fzf_command "--header='$_flag_header'"
     end
 
-    set fzf_content_command "set item (echo {} | $_flag_item_command); $_flag_view_command"
+    set fzf_content_command "set items (echo {} | $_flag_items_command); $_flag_view_command"
     set -a fzf_command "--preview=\"$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS\""
 
     set fzf_view_command (external_command $fzf_content_command)
@@ -54,7 +54,7 @@ begin
     if test $fzf_status -eq 0
         set completed_key $output[1]
         set selected $output[2..]
-        set items (string collect $selected | eval $_flag_item_command)
+        set items (string collect $selected | eval $_flag_items_command)
 
         switch $completed_key
             case $variable_expect

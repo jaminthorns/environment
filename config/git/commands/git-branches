@@ -8,5 +8,5 @@ source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --items-variable branches \
     --list-command "git branch --color $args" \
-    --item-command "sed -e 's/*//' -e 's/+//' -e 's/->//' | string split --no-empty ' '" \
-    --view-command "git graph --color $_flag_graph_options \\\$item"
+    --items-command "sed -e 's/*//' -e 's/+//' -e 's/->//' | string split --no-empty ' '" \
+    --view-command "git graph --color $_flag_graph_options \\\$items"
