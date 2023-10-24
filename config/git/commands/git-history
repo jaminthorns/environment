@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown "p/path=+" "f/file=" "o/show-options=" -- $argv
+argparse --ignore-unknown "p/path=+" "f/file=" "s/show-options=" -- $argv
 
 set args (string escape -- $argv)
 

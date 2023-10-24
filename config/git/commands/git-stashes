@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown "o/stash-show-options=" -- $argv
+argparse --ignore-unknown "s/show-options=" -- $argv
 
 set args (string escape -- $argv)
 
@@ -9,4 +9,4 @@ source (status dirname)/git_fzf_command.fish \
     --items-variable stashes \
     --list-command "git stash list $args" \
     --item-command "cut -d ':' -f 1" \
-    --view-command "git stash show --patch $_flag_stash_show_options \\\$item"
+    --view-command "git show --color --diff-merges=first-parent $_flag_stash_show_options \\\$item"
