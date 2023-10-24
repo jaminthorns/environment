@@ -22,7 +22,7 @@ end
 function external_command -a command
     set enable_mouse_reporting "printf '\e[?1000h\e[?1006h'"
     set disable_mouse_reporting "printf '\e[?1006l\e[?1000l'"
-    set commands "$disable_mouse_reporting" "$command" "$enable_mouse_reporting"
+    set commands $disable_mouse_reporting $command $enable_mouse_reporting
 
     string replace -r '$' " > /dev/tty" $commands | string join " && "
 end
