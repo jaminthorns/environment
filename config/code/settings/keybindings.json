@@ -7,7 +7,8 @@
   { "key": "ctrl+[", "command": "editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" },
   { "key": "ctrl+alt+[", "command": "references-view.findReferences", "when": "editorHasReferenceProvider" },
 
-  // Panel
+  // Maximizing
+  { "key": "ctrl+shift+enter", "command": "workbench.action.toggleEditorWidths", "when": "editorFocus" },
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
 
   // Terminal (tab/pane control)
@@ -48,6 +49,8 @@
   // Git
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
   { "key": "cmd+k cmd+r", "command": "git.revertSelectedRanges", "when": "editorTextFocus && !operationInProgress" },
+  { "key": "cmd+k cmd+s", "command": "git.stageSelectedRanges", "when": "editorTextFocus && !operationInProgress" },
+  { "key": "cmd+k cmd+u", "command": "git.unstageSelectedRanges", "when": "isInDiffEditor && !operationInProgress" },
 
   // Elixir
   { "key": "alt+p", "command": "extension.toPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
