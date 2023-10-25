@@ -20,8 +20,7 @@
   { "key": "ctrl+shift+[", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
   { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
 
-  // Terminal (screen/cursor control)
-  { "key": "{{command_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
+  // Terminal (cursor control)
   { "key": "cmd+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
   { "key": "cmd+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
   { "key": "alt+backspace", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b\u007f" }, "when": "terminalFocus" },
@@ -31,8 +30,10 @@
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "(wslpath '${relativeFile}')" }, "when": "isWindows && terminalFocus" },
   { "key": "ctrl+shift+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${lineNumber},+1" }, "when": "terminalFocus" },
 
-  // Debugging
-  { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "inDebugRepl" },
+  // Clearing
+  { "key": "{{command_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
+  { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "focusedView == 'workbench.panel.repl.view'" },
+  { "key": "ctrl+l", "command": "workbench.output.action.clearOutput", "when": "focusedView == 'workbench.panel.output'" },
 
   // Jumping within a file (later keybindings supersede earlier ones)
   { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus" },
