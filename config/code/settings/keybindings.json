@@ -59,6 +59,12 @@
   { "key": "alt+p", "command": "extension.toPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
   { "key": "alt+shift+p", "command": "extension.fromPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
 
+  // Bookmarks
+  { "key": "alt+cmd+b a", "command": "bookmarks.toggleLabeled", "when": "editorTextFocus" },
+  { "key": "alt+cmd+b t", "command": "bookmarks.toggle", "when": "editorTextFocus" },
+  { "key": "alt+cmd+b l", "command": "bookmarks.listFromAllFiles" },
+  { "key": "alt+cmd+b c", "command": "bookmarks.clearFromAllFiles" },
+
   // Open projects with project manager in new windows
   { "key": "{{command_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
 
