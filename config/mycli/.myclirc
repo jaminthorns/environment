@@ -5,7 +5,7 @@ keyword_casing = upper
 table_format = psql_unicode
 prompt = '\x1b[30m\x1b[40m \x1b[34m\h \x1b[90m╱ \x1b[36m\d \x1b[0m\x1b[30m\n\x1b[32m▶ '
 prompt_continuation = '~'
-pager = 'less --header=3 --jump-target=4'
+pager = 'ov --disable-column-cycle --wrap=false --column-mode --column-delimiter=│ --section-delimiter=┌ --section-header --section-header-num=3'
 
 [colors]
 completion-menu.completion.current = 'ansiblack bg:ansigray'

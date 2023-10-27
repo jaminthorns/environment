@@ -1,0 +1,11 @@
+StyleSearchHighlight:
+  Reverse: false
+  Foreground: "black"
+  Background: "green"
+StyleColumnHighlight:
+  Reverse: false
+  Foreground: "white"
+  Background: "gray"
+StyleSectionLine:
+  Bold: true
+  Background: "normal"

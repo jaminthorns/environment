@@ -1,3 +1,5 @@
+tap "noborus/tap"
+
 brew "asdf"
 brew "bat"
 brew "bottom"
@@ -21,6 +23,7 @@ brew "less"
 brew "lf"
 brew "mycli"
 brew "ouch"
+brew "ov"
 brew "pandoc"
 brew "pgcli"
 brew "poppler"
