@@ -56,8 +56,9 @@
   "git.enableSmartCommit": true,
   "git.autofetch": true,
 
-  "errorLens.padding": "2px 1ch",
+  "errorLens.removeLinebreaks": false,
   "errorLens.messageBackgroundMode": "message",
+  "errorLens.padding": "1px 1ch",
 
   "gitterm.gitCommands.fileHistory": "git history -s '-m' ${commit} -f '${filename}'",
   "gitterm.gitCommands.commitHistory": "git history -s '-m' ${commit}",
