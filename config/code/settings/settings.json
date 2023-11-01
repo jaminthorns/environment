@@ -16,7 +16,7 @@
   "editor.inlayHints.enabled": "off",
 
   "workbench.editor.enablePreview": false,
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "workbench.colorTheme": "Dracula",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
