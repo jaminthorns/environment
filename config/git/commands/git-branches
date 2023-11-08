@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown "o/graph-options=" -- $argv
+argparse --ignore-unknown "g/graph-options=" -- $argv
 
 set args (string escape -- $argv)
 
