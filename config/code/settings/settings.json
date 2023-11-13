@@ -60,6 +60,7 @@
   "errorLens.messageBackgroundMode": "message",
   "errorLens.padding": "1px 1ch",
 
+  "gitterm.gitCommands.folderHistory": "git history -s '-m' ${commit} -p '${folder}'",
   "gitterm.gitCommands.fileHistory": "git history -s '-m' ${commit} -f '${filename}'",
   "gitterm.gitCommands.commitHistory": "git history -s '-m' ${commit}",
   "gitterm.gitCommands.showCommit": "git view -m ${commit}",
