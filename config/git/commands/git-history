@@ -5,8 +5,8 @@ argparse --ignore-unknown "p/path=+" "f/file=" "s/show-options=" -- $argv
 set args (string escape -- $argv)
 
 if set -q _flag_path
-    set show_paths -- $_flag_path
-    set view_paths -- $_flag_path
+    set show_paths -- (string escape $_flag_path)
+    set view_paths -- (string escape $_flag_path)
 else if set -q _flag_file
     set -x commit_filenames (string replace -a -r "\n\n" "\t" (git log --follow --name-status --format="%H" -- $_flag_file | string collect) | string collect)
 
@@ -15,7 +15,7 @@ else if set -q _flag_file
         exit 1
     else
         set list_options --follow
-        set show_paths -- $_flag_file
+        set show_paths -- (string escape $_flag_file)
         set view_paths -- '\$(echo "\$commit_filenames" | grep \$items | cut -f 3- | string split \t)'
     end
 end
