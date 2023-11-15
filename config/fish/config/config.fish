@@ -59,7 +59,7 @@ if status is-interactive
     set -g fzf_variables_opts --prompt="Variables $fzf_prompt"
     set -g fzf_processes_opts --prompt="Processes $fzf_prompt"
     set -g fzf_fd_opts --unrestricted --exclude=.git
-    set -l fzf_preview_cmd "preview --no-images --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES"
+    set -l fzf_preview_cmd "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES"
     set -gx fzf_preview_dir_cmd $fzf_preview_cmd
     set -gx fzf_preview_file_cmd $fzf_preview_cmd
     fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --processes=\cG --git_status --git_log

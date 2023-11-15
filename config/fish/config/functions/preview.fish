@@ -1,17 +1,18 @@
 function preview
     set options $argv
 
-    argparse no-images "width=" "height=" -- $argv
+    argparse "width=" "height=" -- $argv
 
     set path $argv
     set chafa_options --animate=off --bg="#282A36"
 
     set -e options[(contains -i $path $options)]
 
-    if set -q _flag_no_images
-        set -a chafa_options --format=symbols --color-extractor=median
-    else
-        set -a chafa_options --format=sixels
+    switch $TERM_PROGRAM
+        case WezTerm
+            set -a chafa_options --format=sixels
+        case vscode
+            set -a chafa_options --format=symbols --color-extractor=median
     end
 
     if set -q _flag_width _flag_height
