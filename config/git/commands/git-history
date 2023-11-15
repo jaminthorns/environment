@@ -25,4 +25,4 @@ source (status dirname)/git_fzf_command.fish \
     --items-variable commits \
     --list-command "git log --color --format=compact $list_options $args $show_paths" \
     --items-command "sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
-    --view-command "git show --color $_flag_show_options \\\$items $view_paths"
+    --view-command "git show --color --decorate $_flag_show_options \\\$items $view_paths"
