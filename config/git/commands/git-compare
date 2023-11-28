@@ -23,13 +23,16 @@ else if string match -q -r (dots_regex 3) $first_arg
     set commit_range (string replace -r (dots_regex 3) ".." $first_arg)
     set summary_command "git graph $commit_range $paths"
 else
-    set summary_command "echo Could not determine a commit range. | less"
+    set highlight (set_color cyan)
+    set reset (set_color reset)
+    set summary_command "echo 'Could not determine a commit range (use $highlight<commit>..<commit>$reset or $highlight<commit>...<commit>$reset syntax).' | less"
 end
 
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --header $header \
     --items-variable files \
+    --no-items-message "No file selected." \
     --list-command "git diff --name-status $args $paths | format_git_name_status" \
     --items-command "cut -d \$separator -f 2,4 | string split \$separator" \
     --view-command "git -C (git rev-parse --show-toplevel) diff $args -- \\\$items" \

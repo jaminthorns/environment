@@ -14,6 +14,7 @@ source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --header $header \
     --items-variable files \
+    --no-items-message "No file selected." \
     --list-command "git show --format="" --name-status $args $paths | format_git_name_status" \
     --items-command "cut -d \$separator -f 2,4 | string split \$separator" \
     --view-command "git -C (git rev-parse --show-toplevel) show --format="" $args -- \\\$items" \

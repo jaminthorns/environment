@@ -24,13 +24,12 @@ end
 function external_command -a command
     set enable_mouse_reporting "printf '\e[?1000h\e[?1006h'"
     set disable_mouse_reporting "printf '\e[?1006l\e[?1000l'"
-    set commands $disable_mouse_reporting $command $enable_mouse_reporting
 
-    string replace -r '$' " > /dev/tty" $commands | string join " && "
+    string collect $enable_mouse_reporting "$command >/dev/tty" $disable_mouse_reporting | string join ";"
 end
 
 begin
-    argparse "flags=" "items-variable=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
+    argparse "flags=" "items-variable=" "no-items-message=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect ctrl-b
     set fzf_command "fzf --exit-0 --expect=$variable_expect $_flag_flags"
@@ -39,7 +38,23 @@ begin
         set -a fzf_command "--header='$_flag_header'"
     end
 
-    set fzf_content_command "set items (echo {} | $_flag_items_command); $_flag_view_command"
+    if set -q _flag_no_items_message
+        set no_items_message $_flag_no_items_message
+    else
+        set no_items_message "No items selected."
+    end
+
+    set fzf_content_command "
+    begin
+        set items (echo {} | $_flag_items_command)
+
+        if test (count \\\$items) -eq 0
+            set_color brblack && echo '$no_items_message' | less
+        else
+            $_flag_view_command
+        end
+    end"
+
     set -a fzf_command "--preview=\"$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS\""
 
     set fzf_view_command (external_command $fzf_content_command)
