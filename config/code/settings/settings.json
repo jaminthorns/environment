@@ -27,8 +27,8 @@
 
   "security.workspace.trust.banner": "never",
 
-  "diffEditor.renderSideBySide": false,
   "diffEditor.renderIndicators": false,
+  "diffEditor.experimental.showMoves": true,
 
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
 
