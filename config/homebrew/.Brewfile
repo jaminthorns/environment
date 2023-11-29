@@ -25,6 +25,7 @@ brew "pandoc"
 brew "pgcli"
 brew "poppler"
 brew "ripgrep"
+brew "tldr"
 brew "vivid"
 
 if OS.mac?
