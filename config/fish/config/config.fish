@@ -78,3 +78,6 @@ if status is-interactive
     set -g man_standout -r
     set -g man_underline -u cyan
 end
+
+# Toggle delta side-by-side view based on terminal width
+toggle_delta_side_by_side
