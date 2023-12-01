@@ -1,5 +1,7 @@
 build-essential
+icu-devtools
 libcurl4-openssl-dev
+libicu-dev
 libreadline-dev
 libssl-dev
 uuid-dev
