@@ -8,4 +8,4 @@ fish -c "tide configure --auto \
   --powerline_prompt_style='One line' \
   --prompt_spacing='Compact' \
   --icons='Few icons' \
-  --transient='No'" > /dev/null
+  --transient='Yes'" > /dev/null

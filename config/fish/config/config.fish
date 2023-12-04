@@ -65,6 +65,7 @@ if status is-interactive
     fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --processes=\cG --git_status --git_log
 
     # Customize Tide prompt
+    set -gx tide_character_icon ▶
     set -gx tide_left_prompt_items pwd git
     set -gx tide_right_prompt_items status cmd_duration context jobs
     set -gx tide_status_icon ✓
