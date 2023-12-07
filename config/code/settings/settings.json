@@ -17,6 +17,7 @@
 
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": "single",
+  "workbench.tree.enableStickyScroll": true,
   "workbench.colorTheme": "Dracula",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
@@ -29,6 +30,8 @@
 
   "diffEditor.renderIndicators": false,
   "diffEditor.experimental.showMoves": true,
+
+  "multiDiffEditor.experimental.enabled": true,
 
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
 
