@@ -10,7 +10,7 @@
   { "key": "ctrl+alt+[", "command": "references-view.findReferences", "when": "editorHasReferenceProvider && editorTextFocus" },
 
   // Maximizing
-  { "key": "ctrl+shift+enter", "command": "workbench.action.toggleEditorWidths", "when": "editorFocus" },
+  { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizeEditorGroup", "when": "editorPartMultipleEditorGroups" },
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
 
   // Terminal (tab/pane control)
