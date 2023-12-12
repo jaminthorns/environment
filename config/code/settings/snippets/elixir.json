@@ -5,7 +5,7 @@
   },
   "Inspect a value": {
     "prefix": "ins",
-    "body": ["IO.inspect($2, label: \"$1\")"]
+    "body": ["IO.inspect($1, label: \"$2\")"]
   },
   "(Piped) Inspect a value": {
     "prefix": "ins",
