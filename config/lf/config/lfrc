@@ -15,19 +15,32 @@ map <c-a> :unselect; invert
 map <c-c> copy
 map <c-x> cut
 map <c-v> paste
-map <delete> delete
+map <c-z> zip
+map <c-u> unzip
+map <c-n> new-folder
+map <c-d> drag-and-drop
 map <enter> rename
-map <c-n> :push %mkdir<space>
-map r reveal-in-system-file-manager
+map <delete> delete
 
-cmd delete ${{
-  num_files=$(echo "$fx" | wc -l | sed 's/ *//')
-  file_noun=$(test $num_files -eq 1 && echo "file" || echo "files")
-  prompt="Permanently delete $num_files $file_noun?"
-
-  gum confirm --prompt.width $lf_width --prompt.align center $prompt && rm -rf $fx || true
+cmd new-folder %{{
+  if test -z "$fs"; then
+    printf " create new folder: " && read folder_name
+    mkdir -p $folder_name && printf "new folder created"
+  else
+    printf " moves files to new folder: " && read folder_name
+    mkdir -p $folder_name && mv $fs $folder_name && printf "files moved to new folder"
+  fi
 }}
 
-cmd reveal-in-system-file-manager ${{
-  open -R $f
+cmd zip %{{
+  printf " create zip archive: " && read zip_archive_name
+  relative_files=$(for file in $fx; do printf "${file#$PWD/}\n"; done)
+  zip -r "$zip_archive_name.zip" $relative_files && printf "zip archive created"
 }}
+
+cmd unzip %{{
+  printf " unzip archive to new folder: " && read folder_name
+  mkdir -p $folder_name && unzip $f -d $folder_name && printf "archive unzipped"
+}}
+
+cmd drag-and-drop &ripdrag --no-click $fx

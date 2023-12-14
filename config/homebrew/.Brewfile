@@ -16,7 +16,6 @@ brew "git-delta"
 brew "git-interactive-rebase-tool"
 brew "git"
 brew "gpg"
-brew "gum"
 brew "imagemagick"
 brew "less"
 brew "lf"
@@ -27,6 +26,10 @@ brew "poppler"
 brew "ripgrep"
 brew "tldr"
 brew "vivid"
+
+# Dependencies for ripdrag
+brew "gtk4"
+brew "pkg-config"
 
 if OS.mac?
   cask "hammerspoon"
