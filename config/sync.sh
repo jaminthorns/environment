@@ -1,6 +1,6 @@
 source ../functions/config_functions.sh
 
-copy asdf/tools $HOME
+copy asdf $HOME
 copy elixir $HOME
 copy fish/config $HOME/.config/fish
 copy git/config $HOME
