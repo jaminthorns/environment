@@ -18,7 +18,7 @@ map <c-v> paste
 map <c-z> zip
 map <c-u> unzip
 map <c-n> new-folder
-map <c-d> drag-and-drop
+map <c-o> reveal-in-system-file-manager
 map <enter> rename
 map <delete> delete
 
@@ -43,4 +43,7 @@ cmd unzip %{{
   mkdir -p $folder_name && unzip $f -d $folder_name && printf "archive unzipped"
 }}
 
-cmd drag-and-drop &ripdrag --no-click $fx
+cmd reveal-in-system-file-manager &{{
+  {{os_status wsl && echo true || echo false}} && explorer.exe /select,$f
+  {{os_status mac-os && echo true || echo false}} && open -R $f
+}}
