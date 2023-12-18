@@ -1,11 +1,12 @@
 set mouse true
-set info time
-set sortby time
+set sixel true
 set reverse true
 set dirfirst false
+set info time
+set sortby time
 set ifs "\n"
-set previewer {{git rev-parse --show-toplevel}}/config/lf/previewer
-set sixel true
+set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
+set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0m\033[30m\033[0m"
 
 map <c-home> top
 map <c-end> bottom
