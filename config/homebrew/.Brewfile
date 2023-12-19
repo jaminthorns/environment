@@ -1,4 +1,3 @@
-brew "as-tree"
 brew "asdf"
 brew "bat"
 brew "bottom"

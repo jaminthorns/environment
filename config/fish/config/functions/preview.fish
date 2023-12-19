@@ -22,12 +22,8 @@ function preview
     switch (file -b --mime-type $path)
         case inode/directory
             eza --all --tree --level=1 $path
-        case application/zip
-            zipinfo -1 $path | as-tree --color always
-        case application/x-tar
-            tar --list --file $path | as-tree --color always
-        case application/gzip
-            preview $options (gunzip --stdout $path | psub --suffix (path extension $path))
+        case application/gzip application/x-7z-compressed application/x-bzip2 application/x-tar application/x-xz application/zip application/zstd
+            ouch list --tree $path
         case application/pdf
             pdftoppm -jpeg -f 1 -l 1 $path | chafa $chafa_options
         case "image/*"
