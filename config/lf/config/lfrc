@@ -4,44 +4,92 @@ set reverse true
 set dirfirst false
 set info time
 set sortby time
-set ifs "\n"
+set shell fish
+set ifs
 set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
 set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0m\033[30m\033[0m"
 
+clearmaps
+
+# Default keybindings to keep
+map q quit
+map <up> up
+map <down> down
+map <left> updir
+map <right> open
+map <c-r> reload
+map / search
+map ? search-back
+map n search-next
+map N search-prev
+map zh set hidden!
+map zr set reverse!
+map zn set info
+map zs set info size
+map zt set info time
+map za set info size:time
+map sn :set sortby natural; set info
+map ss :set sortby size; set info size
+map st :set sortby time; set info time
+map sa :set sortby atime; set info atime
+map sc :set sortby ctime; set info ctime
+map se :set sortby ext; set info
+
+# macOS-like top/bottom navigation
 map <c-home> top
 map <c-end> bottom
+
+# Conventional file manager keybindings
 map <tab> :toggle; down
 map <esc> :unselect; clear
 map <c-a> :unselect; invert
 map <c-c> copy
 map <c-x> cut
 map <c-v> paste
-map <c-z> zip
-map <c-u> unzip
 map <c-n> new-folder
-map <c-o> reveal-in-system-file-manager
 map <enter> rename
 map <delete> delete
 
+# Custom commands
+map e edit
+map ac archive-compress
+map ae archive-extract
+map cw copy-working-path
+map cs copy-selected-paths
+map r reveal-in-system-file-manager
+
 cmd new-folder %{{
-  if test -z "$fs"; then
+  if test -z $fs
     printf " create new folder: " && read folder_name
     mkdir -p $folder_name && printf "new folder created"
   else
-    printf " moves files to new folder: " && read folder_name
-    mkdir -p $folder_name && mv $fs $folder_name && printf "files moved to new folder"
-  fi
+    printf " move files to new folder: " && read folder_name
+    mkdir -p $folder_name && mv (echo $fs) $folder_name && printf "files moved to new folder"
+  end
 }}
 
-cmd zip %{{
-  printf " create zip archive: " && read zip_archive_name
-  relative_files=$(for file in $fx; do printf "${file#$PWD/}\n"; done)
-  zip -r "$zip_archive_name.zip" $relative_files && printf "zip archive created"
+cmd edit &{{
+  $EDITOR (echo $fx)
 }}
 
-cmd unzip %{{
-  printf " unzip archive to new folder: " && read folder_name
-  mkdir -p $folder_name && unzip $f -d $folder_name && printf "archive unzipped"
+cmd archive-compress %{{
+  printf " compress to archive: " && read archive_name
+  set relative_files (string replace "$PWD/" "" (echo $fx))
+  ouch compress $relative_files $archive_name && printf "archive created"
+}}
+
+cmd archive-extract %{{
+  ouch decompress $f && printf "archive extracted"
+}}
+
+cmd copy-working-path %{{
+  printf $PWD | fish_clipboard_copy 2>/dev/null
+  printf "working path copied to clipboard"
+}}
+
+cmd copy-selected-paths %{{
+  printf $fx | fish_clipboard_copy 2>/dev/null
+  printf "selected paths copied to clipboard"
 }}
 
 cmd reveal-in-system-file-manager &{{
