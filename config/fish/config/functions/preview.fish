@@ -19,11 +19,15 @@ function preview
         set -a chafa_options --size={$_flag_width}x{$_flag_height}
     end
 
+    if not test -s $path
+        set_color brblack && echo "Empty File" && exit
+    end
+
     switch (file -b --mime-type $path)
         case inode/directory
-            eza --all --tree --level=1 $path
+            eza --all --tree --level=1 --color=always $path
         case application/gzip application/x-7z-compressed application/x-bzip2 application/x-tar application/x-xz application/zip application/zstd
-            ouch list --tree $path
+            ouch list --yes --tree $path
         case application/pdf
             pdftoppm -jpeg -f 1 -l 1 $path | chafa $chafa_options
         case "image/*"
@@ -34,7 +38,7 @@ function preview
             if test (file -b --mime-encoding $path) = binary
                 hexyl --border=none $path
             else
-                bat --plain --color=always $path
+                bat --plain --wrap=character --terminal-width=$_flag_width --color=always $path
             end
     end
 end
