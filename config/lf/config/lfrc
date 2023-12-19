@@ -14,7 +14,9 @@ clearmaps
 # Default keybindings to keep
 map q quit
 map <up> up
+map <m-up> up
 map <down> down
+map <m-down> down
 map <left> updir
 map <right> open
 map <c-r> reload
