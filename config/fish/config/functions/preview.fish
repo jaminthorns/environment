@@ -31,6 +31,10 @@ function preview
         case "video/*"
             ffmpeg -v quiet -i $path -frames:v 1 -codec:v tiff -f image2pipe - | chafa $chafa_options
         case "*"
-            bat --plain --color=always $path
+            if test (file -b --mime-encoding $path) = binary
+                hexyl --border=none $path
+            else
+                bat --plain --color=always $path
+            end
     end
 end
