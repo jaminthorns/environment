@@ -95,6 +95,11 @@ cmd copy-selected-paths %{{
 }}
 
 cmd reveal-in-system-file-manager &{{
-  {{os_status wsl && echo true || echo false}} && explorer.exe /select,$f
-  {{os_status mac-os && echo true || echo false}} && open -R $f
+  if {{os_status mac-os && echo true || echo false}}
+    open -R $f
+  end
+
+  if {{os_status wsl && echo true || echo false}}
+    powershell.exe "explorer.exe /select,$(basename $f)"
+  end
 }}
