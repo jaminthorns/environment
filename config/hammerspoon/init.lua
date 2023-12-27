@@ -17,3 +17,6 @@ bindSystemKey({"cmd", "alt"}, "pageup", "SOUND_UP")
 
 -- Sleep
 hs.hotkey.bind({"cmd", "alt"}, "f15", hs.caffeinate.systemSleep)
+
+-- Open terminal
+hs.hotkey.bind({"alt"}, "`", function() hs.application.open("WezTerm.app") end)
