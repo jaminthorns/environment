@@ -39,6 +39,9 @@ if status is-interactive
     set -gx BAT_PAGER $PAGER
     set -gx BAT_THEME Dracula
 
+    # Configure delta features
+    set -gx DELTA_SIDE_BY_SIDE_BREAKPOINT 120
+
     # Configure fzf
     set -l fzf_prompt "▶ "
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,pointer:white,spinner:green,prompt:green,border:blue,header:bright-black"
@@ -80,5 +83,8 @@ if status is-interactive
     set -g man_underline -u cyan
 end
 
-# Toggle delta side-by-side view based on terminal width
-toggle_delta_side_by_side
+# In a terminal or some process started by a terminal
+if set -q TERM
+    # Toggle delta side-by-side view based on terminal width
+    toggle_delta_side_by_side
+end
