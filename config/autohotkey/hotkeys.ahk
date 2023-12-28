@@ -22,9 +22,9 @@ MapAllModifiers()
 !^Space::Send #.
 
 ; Window snapping
-!#Left::Send #{Left}
-!#Right::Send #{Right}
-!#Enter::Send #{Up 2}
+^#Left::Send #{Left}
+^#Right::Send #{Right}
+^#Enter::Send #{Up 2}
 
 ; Disable modifier key press behavior
 Alt::Return
