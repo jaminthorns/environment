@@ -1,5 +1,3 @@
-#UseHook
-
 TerminalClass := "ahk_class org.wezfurlong.wezterm"
 
 MapAllModifiers()
@@ -16,6 +14,9 @@ MapAllModifiers()
 
 ; Sleep
 !#Pause::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
+
+; Open terminal
+#`:: Run "wezterm-gui.exe"
 
 ; Emoji keyboard
 !^Space::Send #.
