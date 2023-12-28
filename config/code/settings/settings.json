@@ -83,6 +83,6 @@
 
   "[elixir]": {
     "editor.rulers": [80, 98],
-    "editor.wordSeparators": "`~@#$%^&*()-=+[{]}\\|;:'\",.<>/"
+    "editor.wordSeparators": "`~#$%^&*()-=+[{]}\\|;:'\",.<>/"
   }
 }
