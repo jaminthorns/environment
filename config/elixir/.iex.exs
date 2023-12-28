@@ -1,4 +1,4 @@
-defmodule IexUtils do
+defmodule IExUtils do
   def prompt(alive) do
     import IO.ANSI
 
@@ -42,6 +42,6 @@ defmodule IexUtils do
   end
 end
 
-import IexUtils, only: [time: 1, time: 2]
+import IExUtils, only: [time: 1, time: 2]
 
-IEx.configure(default_prompt: IexUtils.prompt(false), alive_prompt: IexUtils.prompt(true))
+IEx.configure(default_prompt: IExUtils.prompt(false), alive_prompt: IExUtils.prompt(true))
