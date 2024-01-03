@@ -1,3 +1,5 @@
+#UseHook
+
 TerminalClass := "ahk_class org.wezfurlong.wezterm"
 
 MapAllModifiers()
@@ -16,6 +18,9 @@ MapAllModifiers()
 !#Pause::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
 
 ; Open terminal
+;
+; This currently opens in the background because the hook is enabled, but the
+; hook is needed for mapping the modifier keys.
 #`:: Run "wezterm-gui.exe"
 
 ; Emoji keyboard
