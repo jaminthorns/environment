@@ -1,3 +1,5 @@
+complete -c git-todo -k -a "(__fish_git_refs)"
+
 complete -c git-branches -w "git branch"
 complete -c git-branches -s g -l graph-options -d "Options for the 'git graph' view"
 

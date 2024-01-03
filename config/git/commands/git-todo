@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+set branch $argv[1]
+set -lxa LESS --pattern=TODO
+
+git diff $branch...
