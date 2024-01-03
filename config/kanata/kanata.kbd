@@ -1,0 +1,62 @@
+(defsrc
+  esc     f1      f2      f3      f4      f5      f6      f7      f8      f9      f10     f11     f12             prnt    slck    brk
+  grv     1       2       3       4       5       6       7       8       9       0       -       =       bspc    ins     home    pgup
+  tab     q       w       e       r       t       y       u       i       o       p       [       ]       \       del     end     pgdn
+  caps    a       s       d       f       g       h       j       k       l       ;       '               ent
+  lsft    z       x       c       v       b       n       m       ,       .       /                       rsft            up
+  lctl    lmet    lalt                            spc                                     ralt    rmet    rctl    left    down    rght
+)
+
+(deflayer base
+  _       _       _       _       _       _       _       _       _       _       _       _       _               _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _               _
+  _       _       _       _       _       _       _       _       _       _       _                       _               _
+  _       @opt    @cmd                            _                                       @cmd    @opt    _       _       _       _
+)
+
+(deflayer cmd
+  _       _       _       _       _       _       _       _       _       _       _       _       _               _       _       _
+  A-esc   _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  @alttab _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _               _
+  _       _       _       _       _       _       _       _       _       _       _                       _               _
+  _       @optcmd XX                              A-spc                                   _       @optcmd XX      _       _       _
+)
+
+(deflayer opt
+  _       _       _       _       _       _       _       _       _       _       _       _       _               _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _               _
+  _       _       _       _       _       _       _       _       _       _       _                       _               _
+  _       XX      @optcmd                         _                                       @optcmd XX      _       _       _       _
+)
+
+(deflayer opt-cmd
+  _       _       _       _       _       _       _       _       _       _       _       _       _               _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _               _
+  _       _       _       _       _       _       _       _       _       _       _                       _               _
+  _       XX      XX                              _                                       XX      XX      _       _       _       _
+)
+
+;; An insane (and non-functional) attempt at implementing alt-tab.
+(deflayer alt-tab
+  @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base           @base   @base   @base
+  @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base
+  tab     @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base
+  @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base           @base
+  @base   @base   @base   @base   @base   @base   @base   @base   @base   @base   @base                   @base           @base
+  @base   @base   @base                           @base                                   @base   @base   @base   @base   @base   @base
+)
+
+(defalias
+  cmd (multi ctl (layer-while-held cmd))
+  opt (multi alt (layer-while-held opt))
+  optcmd (multi alt ctl (layer-while-held opt-cmd))
+  alttab (multi (release-key ctl) alt (layer-switch alt-tab))
+  base (layer-switch base)
+)

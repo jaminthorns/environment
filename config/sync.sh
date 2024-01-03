@@ -28,6 +28,7 @@ if os_status wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
   copy code/config "$USERPROFILE/.vscode"
   copy code/settings "$APPDATA/Code/User"
+  copy kanata "$USERPROFILE/Documents/Kanata"
   copy wezterm "$ProgramFiles/WezTerm"
 fi
 

@@ -78,6 +78,8 @@
 
   "elixirLS.dialyzerEnabled": false,
 
+  "vscode-kanata.localKeysVariant": "deflocalkeys-wintercept",
+
   "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown][html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
