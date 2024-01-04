@@ -8,7 +8,7 @@ if set -q _flag_path
     set show_paths -- (string escape $_flag_path)
     set view_paths -- (string escape $_flag_path)
 else if set -q _flag_file
-    set -x commit_filenames (string replace -a -r "\n\n" "\t" (git log --follow --name-status --format="%H" -- $_flag_file | string collect) | string collect)
+    set -x commit_filenames (string replace -a -r "\n\n" "\t" (git log $argv --follow --name-status --format="%H" -- $_flag_file | string collect) | string collect)
 
     if test (count $commit_filenames) -eq 0
         echo "fatal: no file history for '$_flag_file'"
