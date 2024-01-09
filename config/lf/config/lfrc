@@ -5,6 +5,7 @@ set dirfirst false
 set info time
 set sortby time
 set shell fish
+set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)"
 set ifs
 set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
 set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0m\033[30m\033[0m"
@@ -56,6 +57,8 @@ map <delete> delete
 map e edit
 map ac archive-compress
 map ae archive-extract
+map ic image-convert-format
+map ir image-resize
 map cw copy-working-path
 map cs copy-selected-paths
 map r reveal-in-system-file-manager
@@ -71,12 +74,12 @@ cmd new-folder %{{
 }}
 
 cmd edit &{{
-  $EDITOR (echo $fx)
+  $EDITOR $fx
 }}
 
 cmd archive-compress %{{
   printf " compress to archive: " && read archive_name
-  set relative_files (string replace "$PWD/" "" (echo $fx))
+  set relative_files (string replace "$PWD/" "" $fx)
   ouch compress $relative_files $archive_name && printf "archive created"
 }}
 
@@ -84,13 +87,33 @@ cmd archive-extract %{{
   ouch decompress $f && printf "archive extracted"
 }}
 
+cmd image-convert-format %{{
+  printf " convert images to format: " && read format
+
+  for file in $fx
+    magick $file (path change-extension $format $file)
+  end
+
+  printf "images converted to $format"
+}}
+
+cmd image-resize %{{
+  printf " resize images: " && read geometry
+
+  for file in $fx
+    magick $file -resize $geometry (path change-extension "resized$(path extension $file)" $file)
+  end
+
+  printf "images resized"
+}}
+
 cmd copy-working-path %{{
-  printf $PWD | fish_clipboard_copy 2>/dev/null
+  string collect $PWD | fish_clipboard_copy 2>/dev/null
   printf "working path copied to clipboard"
 }}
 
 cmd copy-selected-paths %{{
-  printf $fx | fish_clipboard_copy 2>/dev/null
+  string collect $fx | fish_clipboard_copy 2>/dev/null
   printf "selected paths copied to clipboard"
 }}
 
