@@ -23,8 +23,8 @@
   { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
 
   // Terminal (cursor control)
-  { "key": "cmd+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
-  { "key": "cmd+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
+  { "key": "{{command_key}}+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
+  { "key": "{{command_key}}+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
   { "key": "alt+backspace", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b\u007f" }, "when": "terminalFocus" },
 
   // Terminal (printing file info)
@@ -51,9 +51,9 @@
 
   // Git
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
-  { "key": "cmd+k cmd+r", "command": "git.revertSelectedRanges", "when": "editorTextFocus && !operationInProgress" },
-  { "key": "cmd+k cmd+s", "command": "git.stageSelectedRanges", "when": "editorTextFocus && !operationInProgress" },
-  { "key": "cmd+k cmd+u", "command": "git.unstageSelectedRanges", "when": "isInDiffEditor && !operationInProgress" },
+  { "key": "{{command_key}}+k {{command_key}}+r", "command": "git.revertSelectedRanges", "when": "editorTextFocus && !operationInProgress" },
+  { "key": "{{command_key}}+k {{command_key}}+s", "command": "git.stageSelectedRanges", "when": "editorTextFocus && !operationInProgress" },
+  { "key": "{{command_key}}+k {{command_key}}+u", "command": "git.unstageSelectedRanges", "when": "isInDiffEditor && !operationInProgress" },
 
   // Elixir
   { "key": "alt+p", "command": "extension.toPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
