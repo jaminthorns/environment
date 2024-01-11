@@ -63,6 +63,7 @@
   "errorLens.messageBackgroundMode": "message",
   "errorLens.padding": "0 1ch",
 
+  "gitterm.terminalLinks.provideFileLinks": "withCommitContext",
   "gitterm.gitCommands.folderHistory": "git history -s '-m' ${commit} -p '${folder}'",
   "gitterm.gitCommands.fileHistory": "git history -s '-m' ${commit} -f '${filename}'",
   "gitterm.gitCommands.commitHistory": "git history -s '-m' ${commit}",
