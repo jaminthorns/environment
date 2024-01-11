@@ -4,8 +4,13 @@ function push_extensions {
   local code_command=$1
   local installed_extensions=$(echo "$2" | sort)
 
-  comm -23 <(echo "$config_extensions") <(echo "$installed_extensions") | xargs -r -n 1 $code_command --install-extension $extension
-  comm -13 <(echo "$config_extensions") <(echo "$installed_extensions") | xargs -r -n 1 $code_command --uninstall-extension $extension
+  for extension in $(comm -23 <(echo "$config_extensions") <(echo "$installed_extensions")); do
+    $code_command --install-extension $extension
+  done
+
+  for extension in $(comm -13 <(echo "$config_extensions") <(echo "$installed_extensions")); do
+    $code_command --uninstall-extension $extension
+  done
 }
 
 if os_status wsl; then
