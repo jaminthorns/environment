@@ -54,6 +54,7 @@
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.shellIntegration.enabled": false,
+  "terminal.integrated.enableImages": true,
 
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
