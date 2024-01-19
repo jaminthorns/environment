@@ -63,11 +63,11 @@
   "errorLens.messageBackgroundMode": "message",
   "errorLens.padding": "0 1ch",
 
-  "gitterm.terminalLinks.provideFileLinks": "withCommitContext",
-  "gitterm.gitCommands.folderHistory": "git history -s '-m' ${commit} -p '${folder}'",
-  "gitterm.gitCommands.fileHistory": "git history -s '-m' ${commit} -f '${filename}'",
-  "gitterm.gitCommands.commitHistory": "git history -s '-m' ${commit}",
-  "gitterm.gitCommands.showCommit": "git view -m ${commit}",
+  "gitterm.terminalLinks.provideFileLinks": "withRevisionContext",
+  "gitterm.gitCommands.folderHistory": "git history -s '-m' ${revision} -p '${folder}'",
+  "gitterm.gitCommands.fileHistory": "git history -s '-m' ${revision} -f '${filename}'",
+  "gitterm.gitCommands.revisionHistory": "git history -s '-m' ${revision}",
+  "gitterm.gitCommands.showRevision": "git view -m ${revision}",
 
   "githubPullRequests.pullBranch": "never",
 
