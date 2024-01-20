@@ -32,9 +32,6 @@ if status is-interactive
     set -gx ERL_AFLAGS -kernel shell_history enabled
     set -gx KERL_BUILD_DOCS yes
 
-    # Configure filetype colors
-    set -gx LS_COLORS "{{vivid generate dracula}}"
-
     # Configure bat
     set -gx BAT_PAGER $PAGER
     set -gx BAT_THEME Dracula
