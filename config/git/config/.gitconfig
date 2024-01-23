@@ -57,6 +57,8 @@
 	rebase = false
 [rebase]
 	instructionFormat = format:%s (%cr) <%an>
+[rerere]
+	enabled = true
 [sequence]
 	editor = interactive-rebase-tool
 [interactive-rebase-tool]
