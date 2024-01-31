@@ -108,12 +108,12 @@ cmd image-resize %{{
 }}
 
 cmd copy-working-path %{{
-  string collect $PWD | fish_clipboard_copy 2>/dev/null
+  echo -n $PWD | fish_clipboard_copy 2>/dev/null
   printf "working path copied to clipboard"
 }}
 
 cmd copy-selected-paths %{{
-  string collect $fx | fish_clipboard_copy 2>/dev/null
+  echo -n "$(string collect $fx)" | fish_clipboard_copy 2>/dev/null
   printf "selected paths copied to clipboard"
 }}
 
