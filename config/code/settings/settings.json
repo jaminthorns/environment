@@ -17,7 +17,6 @@
 
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": "single",
-  "workbench.tree.enableStickyScroll": true,
   "workbench.colorTheme": "Dracula",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
@@ -30,8 +29,6 @@
 
   "diffEditor.renderIndicators": false,
   "diffEditor.experimental.showMoves": true,
-
-  "multiDiffEditor.experimental.enabled": true,
 
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
 
@@ -51,7 +48,7 @@
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.tabs.hideCondition": "singleGroup",
   "terminal.integrated.drawBoldTextInBrightColors": false,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.shellIntegration.enabled": false,
 
