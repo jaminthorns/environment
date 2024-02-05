@@ -8,7 +8,7 @@
     "body": ["IO.inspect($1, label: \"$2\")"]
   },
   "(Piped) Inspect a value": {
-    "prefix": "ins",
+    "prefix": "pins",
     "body": ["IO.inspect(label: \"$1\")"]
   }
 }
