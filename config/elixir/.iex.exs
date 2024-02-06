@@ -44,4 +44,8 @@ end
 
 import IExUtils, only: [time: 1, time: 2]
 
-IEx.configure(default_prompt: IExUtils.prompt(false), alive_prompt: IExUtils.prompt(true))
+IEx.configure(
+  default_prompt: IExUtils.prompt(false),
+  alive_prompt: IExUtils.prompt(true),
+  inspect: [charlists: false]
+)
