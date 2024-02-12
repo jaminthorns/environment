@@ -4,9 +4,16 @@ function preview
     argparse "width=" "height=" -- $argv
 
     set path $argv
-    set chafa_options --format=symbols --color-extractor=median --animate=off --bg="#282A36"
+    set chafa_options --animate=off --bg="#282A36"
 
     set -e options[(contains -i $path $options)]
+
+    switch $TERM_PROGRAM
+        case WezTerm
+            set -a chafa_options --format=sixels --polite=on
+        case vscode
+            set -a chafa_options --format=symbols --color-extractor=median
+    end
 
     if set -q _flag_width _flag_height
         set -a chafa_options --view-size={$_flag_width}x{$_flag_height}
