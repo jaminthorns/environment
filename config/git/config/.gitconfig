@@ -75,6 +75,6 @@
 	cb = branch --show-current
 	mend = commit --amend --no-edit
 	force-push = push --force-with-lease --force-if-includes
-	publish = ! git push --set-upstream origin $(git branch --show-current)
 	message = log --max-count=1 --format='%B'
 	graph = log --graph --format=compact
+	publish = "! f() { git push --set-upstream ${1:-origin} $(git branch --show-current); }; f"
