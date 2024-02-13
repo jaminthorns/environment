@@ -38,6 +38,8 @@
 	plus-emph-style = syntax "#2D583F"
 	plus-non-emph-style = syntax "#2A463B"
 	map-styles = "bold purple => syntax #404968, bold cyan => syntax #404968, bold blue => syntax #363C53, bold yellow => syntax #363C53"
+[branch]
+	sort = -committerdate
 [merge]
 	tool = code
 	conflictStyle = diff3
