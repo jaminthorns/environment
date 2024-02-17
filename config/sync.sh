@@ -21,13 +21,11 @@ if os_status linux-non-wsl; then
 fi
 
 if os_status mac-os || os_status linux-non-wsl; then
-  copy code/config $HOME/.vscode
   copy wezterm $HOME/.config/wezterm
 fi
 
 if os_status wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
-  copy code/config "$USERPROFILE/.vscode"
   copy code/settings "$APPDATA/Code/User"
   copy wezterm "$ProgramFiles/WezTerm"
 fi
