@@ -1,7 +1,6 @@
 source ../functions/config_functions.sh
 
 copy asdf $HOME
-copy continue $HOME/.continue
 copy elixir $HOME
 copy fish/config $HOME/.config/fish
 copy git/config $HOME
@@ -21,12 +20,14 @@ if os_status linux-non-wsl; then
 fi
 
 if os_status mac-os || os_status linux-non-wsl; then
+  copy continue $HOME/.continue
   copy wezterm $HOME/.config/wezterm
 fi
 
 if os_status wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
   copy code/settings "$APPDATA/Code/User"
+  copy continue "$USERPROFILE/.continue"
   copy wezterm "$ProgramFiles/WezTerm"
 fi
 
