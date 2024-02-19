@@ -40,14 +40,17 @@
 	map-styles = "bold purple => syntax #404968, bold cyan => syntax #404968, bold blue => syntax #363C53, bold yellow => syntax #363C53"
 [branch]
 	sort = -committerdate
+[commit]
+	cleanup = scissors
 [merge]
 	tool = code
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 [mergetool "code"]
 	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [diff]
 	tool = code
 	colorMoved = default
+	colorMovedWS = allow-indentation-change
 [log]
 	date = "format-local:%F %r"
 	diffMerges = combined
