@@ -3,7 +3,7 @@
     {
       "title": "DeepSeek Coder",
       "provider": "ollama",
-      "model": "deepseek-coder:6.7b"
+      "model": "deepseek-coder:6.7b-instruct"
     }
   ],
   "slashCommands": [
