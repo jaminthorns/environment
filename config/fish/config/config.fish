@@ -6,7 +6,7 @@ if status is-login
     source {{brew --prefix asdf}}/libexec/asdf.fish
 
     # Add Git commands to PATH
-    set -p PATH {{git rev-parse --show-toplevel}}/config/git/commands
+    fish_add_path -gP {{git rev-parse --show-toplevel}}/config/git/commands
 end
 
 if status is-interactive
