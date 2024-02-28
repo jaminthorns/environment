@@ -51,7 +51,7 @@
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.shellIntegration.enabled": false,
-  "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.inheritEnv": {{os_status mac-os && echo false || echo true}},
 
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
