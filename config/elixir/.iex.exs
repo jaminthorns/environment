@@ -15,6 +15,31 @@ defmodule IExUtils do
     left <> Enum.join(segments, separator) <> right <> reset()
   end
 
+  def copy(text) when is_binary(text) do
+    port = Port.open({:spawn, "fish -c fish_clipboard_copy"}, [:out])
+
+    Port.command(port, text)
+    Port.close(port)
+
+    :ok
+  end
+
+  def copy(term), do: term |> inspect(pretty: true, limit: :infinity) |> copy()
+
+  def code(text) when is_binary(text) do
+    port = Port.open({:spawn, "code -"}, [])
+
+    Port.command(port, text)
+
+    receive do
+      {^port, {:data, _data}} ->
+        Port.close(port)
+        :ok
+    end
+  end
+
+  def code(term), do: term |> inspect(pretty: true, limit: :infinity) |> code()
+
   defmacro time(code) do
     quote do: unquote(__MODULE__).do_time(fn -> unquote(code) end)
   end
@@ -42,7 +67,7 @@ defmodule IExUtils do
   end
 end
 
-import IExUtils, only: [time: 1, time: 2]
+import IExUtils, only: [copy: 1, code: 1, time: 1, time: 2]
 
 IEx.configure(
   default_prompt: IExUtils.prompt(false),
