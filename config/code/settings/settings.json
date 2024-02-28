@@ -10,7 +10,6 @@
   "editor.dragAndDrop": false,
   "editor.minimap.enabled": false,
   "editor.stickyTabStops": true,
-  "editor.stickyScroll.enabled": true,
   "editor.smoothScrolling": true,
   "editor.find.seedSearchStringFromSelection": "selection",
   "editor.inlayHints.enabled": "off",
