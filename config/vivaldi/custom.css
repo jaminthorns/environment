@@ -1,0 +1,4 @@
+/* Remove favicon highlight */
+.tab.active .favicon {
+  filter: unset !important;
+}
