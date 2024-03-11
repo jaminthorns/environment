@@ -61,6 +61,7 @@ map ic image-convert-format
 map ir image-resize
 map cw copy-working-path
 map cs copy-selected-paths
+map cf copy-selected-filenames
 map r reveal-in-system-file-manager
 
 cmd new-folder %{{
@@ -117,12 +118,17 @@ cmd copy-selected-paths %{{
   printf "selected paths copied to clipboard"
 }}
 
+cmd copy-selected-filenames %{{
+  echo -n "$(path basename $fx)" | fish_clipboard_copy 2>/dev/null
+  printf "selected filenames copied to clipboard"
+}}
+
 cmd reveal-in-system-file-manager &{{
   if {{os_status mac-os && echo true || echo false}}
     open -R $f
   end
 
   if {{os_status wsl && echo true || echo false}}
-    powershell.exe "explorer.exe /select,$(basename $f)"
+    powershell.exe "explorer.exe /select,$(path basename $f)"
   end
 }}
