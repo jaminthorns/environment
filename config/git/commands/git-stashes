@@ -6,6 +6,7 @@ set args (string escape -- $argv)
 
 source (status dirname)/git_fzf_command.fish \
     --flags --multi \
+    --main-view-name stashes \
     --items-variable stashes \
     --no-items-message "No stash selected." \
     --list-command "git stash list $args" \

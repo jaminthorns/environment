@@ -20,6 +20,21 @@ function format_git_name_status
         (color_git_name_status U magenta)
 end
 
+function add_back_header -a command main_view_name
+    string collect "
+    begin
+        set -a LESS --header=1
+
+        begin
+            set_color --underline cyan
+            echo -e '← Back to $main_view_name [q]\n'
+            set_color normal
+
+            $command
+        end | delta
+    end"
+end
+
 # Handle mouse reporting and redirection for executing an external command
 function external_command -a command
     set enable_mouse_reporting "printf '\e[?1000h\e[?1006h'"
@@ -29,7 +44,7 @@ function external_command -a command
 end
 
 begin
-    argparse "flags=" "items-variable=" "no-items-message=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
+    argparse "flags=" "main-view-name=" "items-variable=" "no-items-message=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect ctrl-b
     set fzf_command "fzf --exit-0 --expect=$variable_expect $_flag_flags"
@@ -55,13 +70,14 @@ begin
         end
     end"
 
-    set -a fzf_command "--preview=\"$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS\""
+    set fzf_preview_command "$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS"
+    set -a fzf_command "--preview=\"$fzf_preview_command\""
 
-    set fzf_view_command (external_command $fzf_content_command)
+    set fzf_view_command (external_command (add_back_header $fzf_content_command $_flag_main_view_name))
     set -a fzf_command "--bind=\"alt-enter:execute($fzf_view_command)\""
 
     if set -q _flag_summary_command
-        set fzf_summary_command (external_command $_flag_summary_command)
+        set fzf_summary_command (external_command (add_back_header $_flag_summary_command $_flag_main_view_name))
         set -a fzf_command "--bind=\"ctrl-space:execute($fzf_summary_command)\""
     end
 

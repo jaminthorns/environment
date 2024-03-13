@@ -22,6 +22,7 @@ end
 
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi --track --scheme=history" \
+    --main-view-name history \
     --items-variable commits \
     --no-items-message "No commit selected." \
     --list-command "git log --color --format=compact $list_options $args $show_paths" \

@@ -6,6 +6,7 @@ set args (string escape -- $argv)
 
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
+    --main-view-name branches \
     --items-variable branches \
     --no-items-message "No branch selected." \
     --list-command "git branch --color $args" \
