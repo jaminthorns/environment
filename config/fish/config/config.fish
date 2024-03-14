@@ -23,7 +23,7 @@ if status is-interactive
     set -gx LESS --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1
 
     # Set pager to less
-    set -gx PAGER less $LESS
+    set -gx PAGER less
 
     # Set true color support
     set -gx COLORTERM truecolor
@@ -33,8 +33,8 @@ if status is-interactive
     set -gx KERL_BUILD_DOCS yes
 
     # Configure bat
-    set -gx BAT_PAGER $PAGER
     set -gx BAT_THEME Dracula
+    set -gx BAT_PAGING always
 
     # Configure delta features
     set -gx DELTA_SIDE_BY_SIDE_BREAKPOINT 120

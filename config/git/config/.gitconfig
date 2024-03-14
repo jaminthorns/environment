@@ -16,6 +16,7 @@
 [delta]
 	features = merge-conflicts section-styles line-numbers consistent-diff-colors dracula-colors
 	navigate = true
+	paging = always
 [delta "merge-conflicts"]
 	merge-conflict-ours-diff-header-style = cyan
 	merge-conflict-ours-diff-header-decoration-style = cyan box
