@@ -39,6 +39,11 @@ if status is-interactive
     # Configure delta features
     set -gx DELTA_SIDE_BY_SIDE_BREAKPOINT 120
 
+    # Configure lf
+    if {{os_status wsl && echo true || echo false}}
+        set -gx OPENER wslview
+    end
+
     # Configure fzf
     set -l fzf_prompt "▶ "
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,pointer:white,spinner:green,prompt:green,border:blue,header:bright-black"
