@@ -20,7 +20,7 @@ function format_git_name_status
         (color_git_name_status U magenta)
 end
 
-function add_back_header -a command main_view_name
+function external_command -a command main_view_name
     string collect "
     begin
         set -a LESS --jump-target=2 --header=1
@@ -32,15 +32,7 @@ function add_back_header -a command main_view_name
 
             $command
         end | delta
-    end"
-end
-
-# Handle mouse reporting and redirection for executing an external command
-function external_command -a command
-    set enable_mouse_reporting "printf '\e[?1000h\e[?1006h'"
-    set disable_mouse_reporting "printf '\e[?1006l\e[?1000l'"
-
-    string collect $enable_mouse_reporting "$command >/dev/tty" $disable_mouse_reporting | string join ";"
+    end >/dev/tty"
 end
 
 begin
@@ -73,11 +65,11 @@ begin
     set fzf_preview_command "$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS"
     set -a fzf_command "--preview=\"$fzf_preview_command\""
 
-    set fzf_view_command (external_command (add_back_header $fzf_content_command $_flag_main_view_name))
+    set fzf_view_command (external_command $fzf_content_command $_flag_main_view_name)
     set -a fzf_command "--bind=\"alt-enter:execute($fzf_view_command)\""
 
     if set -q _flag_summary_command
-        set fzf_summary_command (external_command (add_back_header $_flag_summary_command $_flag_main_view_name))
+        set fzf_summary_command (external_command $_flag_summary_command $_flag_main_view_name)
         set -a fzf_command "--bind=\"ctrl-space:execute($fzf_summary_command)\""
     end
 
