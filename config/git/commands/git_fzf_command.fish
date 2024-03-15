@@ -23,7 +23,7 @@ end
 function add_back_header -a command main_view_name
     string collect "
     begin
-        set -a LESS --header=1
+        set -a LESS --jump-target=2 --header=1
 
         begin
             set_color --underline cyan
