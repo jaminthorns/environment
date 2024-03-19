@@ -6,6 +6,11 @@
       "model": "deepseek-coder:6.7b-instruct"
     }
   ],
+  "tabAutocompleteModel": {
+    "title": "StarCoder2",
+    "provider": "ollama",
+    "model": "starcoder2:3b"
+  },
   "slashCommands": [
     {
       "name": "edit",
@@ -17,7 +22,7 @@
     },
     {
       "name": "share",
-      "description": "Download and share this session"
+      "description": "Export this session as markdown"
     },
     {
       "name": "cmd",
@@ -50,6 +55,14 @@
     },
     {
       "name": "codebase",
+      "params": {}
+    },
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
       "params": {}
     }
   ]
