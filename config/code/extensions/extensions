@@ -10,7 +10,6 @@ dracula-theme.theme-dracula
 earshinov.permute-lines
 esbenp.prettier-vscode
 firefox-devtools.vscode-firefox-debug
-github.remotehub
 github.vscode-pull-request-github
 grapecity.gc-excelviewer
 humao.rest-client
@@ -19,7 +18,6 @@ jaminthorns.gitterm
 mark-wiemer.vscode-autohotkey-plus-plus
 mrorz.language-gettext
 ms-vscode-remote.remote-wsl
-ms-vscode.remote-repositories
 ms-vsliveshare.vsliveshare
 phoenixframework.phoenix
 rust-lang.rust-analyzer
