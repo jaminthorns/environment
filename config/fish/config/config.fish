@@ -36,8 +36,8 @@ if status is-interactive
     set -gx BAT_THEME Dracula
     set -gx BAT_PAGING always
 
-    # Configure delta features
-    set -gx DELTA_SIDE_BY_SIDE_BREAKPOINT 120
+    # Configure width breakpoint
+    set -gx WIDTH_BREAKPOINT 120
 
     # Configure lf
     if {{os_status wsl && echo true || echo false}}
@@ -87,6 +87,5 @@ end
 
 # In a terminal or some process started by a terminal
 if set -q TERM
-    # Toggle delta side-by-side view based on terminal width
-    toggle_delta_side_by_side
+    width_change_handler
 end

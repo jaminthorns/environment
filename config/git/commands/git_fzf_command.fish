@@ -41,6 +41,10 @@ begin
     set variable_expect ctrl-b
     set fzf_command "fzf --exit-0 --expect=$variable_expect $_flag_flags"
 
+    if not set -q GIT_FZF_SHOW_PREVIEW
+        set -a fzf_command "--bind=start:hide-preview"
+    end
+
     if set -q _flag_header
         set -a fzf_command "--header='$_flag_header'"
     end
