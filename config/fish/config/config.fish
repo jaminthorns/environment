@@ -77,12 +77,6 @@ if status is-interactive
     set -gx tide_status_icon_failure ✕
     set -gx tide_jobs_icon ⋯
     set -gx tide_git_truncation_length 50
-
-    # Configure man page colors
-    set -g man_blink -o red
-    set -g man_bold -o blue
-    set -g man_standout -r
-    set -g man_underline -u cyan
 end
 
 # In a terminal or some process started by a terminal
