@@ -11,4 +11,4 @@ source (status dirname)/git_fzf_command.fish \
     --no-items-message "No stash selected." \
     --list-command "git stash list $args" \
     --items-command "cut -d ':' -f 1" \
-    --view-command "git show --color --diff-merges=first-parent $_flag_stash_show_options \\\$items"
+    --view-command "git show --color --decorate --diff-merges=first-parent $_flag_stash_show_options \\\$items"
