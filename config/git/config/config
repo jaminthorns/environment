@@ -2,7 +2,6 @@
 	name = Jamin Thornsberry
 	email = {{secret GIT_EMAIL}}
 [core]
-	excludesfile = ~/.gitignore_global
 	editor = code --wait
 	pager = delta
 [init]
