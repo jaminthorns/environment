@@ -84,5 +84,9 @@
   "[elixir]": {
     "editor.rulers": [80, 98],
     "editor.wordSeparators": "`~#$%^&*()-=+[{]}\\|;:'\",.<>/"
+  },
+
+  "[fish]": {
+    "editor.tabSize": 4
   }
 }
