@@ -7,6 +7,7 @@ set sortby time
 set shell fish
 set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)"
 set ifs
+set truncatechar …
 set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
 set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0m\033[30m\033[0m"
 
