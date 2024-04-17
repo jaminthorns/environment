@@ -1,0 +1,14 @@
+#!/usr/bin/env fish
+
+argparse --ignore-unknown "s/status-options=" -- $argv
+
+set args (string escape -- $argv)
+
+source (status dirname)/git_fzf_command.fish \
+    --flags "--ansi --multi" \
+    --main-view-name worktrees \
+    --items-variable worktrees \
+    --no-items-message "No worktree selected." \
+    --list-command "git worktree list --porcelain $args | string match -g -r '^worktree (.*)'" \
+    --items-command cat \
+    --view-command "git -C \\\$items -c color.status=always status $_flag_status_options"
