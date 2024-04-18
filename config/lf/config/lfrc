@@ -55,6 +55,7 @@ map <enter> rename
 map <delete> delete
 
 # Custom commands
+map <a-enter> bulk-edit
 map e edit
 map ac archive-compress
 map ae archive-extract
@@ -73,6 +74,14 @@ cmd new-folder %{{
     printf " move files to new folder: " && read folder_name
     mkdir -p $folder_name && mv (echo $fs) $folder_name && printf "files moved to new folder"
   end
+}}
+
+cmd bulk-edit &{{
+  if test $TERM_PROGRAM != vscode
+    set -a EDITOR --new-window
+  end
+
+  vimv $fx
 }}
 
 cmd edit &{{
