@@ -17,7 +17,7 @@ if status is-interactive
     set -g fish_greeting
 
     # Set editor to Visual Studio Code
-    set -gx EDITOR code
+    set -gx EDITOR code --wait
 
     # Configure less
     set -gx LESS --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1

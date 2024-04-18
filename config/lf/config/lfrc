@@ -76,7 +76,7 @@ cmd new-folder %{{
 }}
 
 cmd edit &{{
-  $EDITOR $fx
+  code $fx
 }}
 
 cmd archive-compress %{{

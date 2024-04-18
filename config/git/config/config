@@ -2,7 +2,6 @@
 	name = Jamin Thornsberry
 	email = {{secret GIT_EMAIL}}
 [core]
-	editor = code --wait
 	pager = delta
 [init]
 	defaultBranch = main
