@@ -38,6 +38,14 @@
   ],
   "contextProviders": [
     {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
       "name": "diff",
       "params": {}
     },
@@ -54,15 +62,11 @@
       "params": {}
     },
     {
+      "name": "folder",
+      "params": {}
+    },
+    {
       "name": "codebase",
-      "params": {}
-    },
-    {
-      "name": "code",
-      "params": {}
-    },
-    {
-      "name": "docs",
       "params": {}
     }
   ]
