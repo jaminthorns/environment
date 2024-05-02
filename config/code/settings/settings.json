@@ -25,6 +25,7 @@
   "breadcrumbs.enabled": false,
 
   "security.workspace.trust.banner": "never",
+  "security.promptForLocalFileProtocolHandling": false,
 
   "diffEditor.renderIndicators": false,
   "diffEditor.experimental.showMoves": true,
