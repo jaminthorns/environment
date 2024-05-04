@@ -8,6 +8,7 @@ copy github_cli $HOME/.config/gh
 copy homebrew $HOME
 copy lf/config $HOME/.config/lf
 copy mycli $HOME
+copy obsidian $(secret OBSIDIAN_VAULT_PATH)/.obsidian
 copy pgcli $HOME/.config/pgcli
 
 if os_status mac-os; then
