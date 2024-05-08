@@ -62,10 +62,10 @@
   "errorLens.padding": "0 1ch",
 
   "gitterm.terminalLinks.provideFileLinks": "withRevisionContext",
-  "gitterm.gitCommands.folderHistory": "git history -s '-m' ${revision} -p '${folder}'",
-  "gitterm.gitCommands.fileHistory": "git history -s '-m' ${revision} -f '${filename}'",
-  "gitterm.gitCommands.revisionHistory": "git history -s '-m' ${revision}",
-  "gitterm.gitCommands.showRevision": "git view -m ${revision}",
+  "gitterm.gitCommands.folderHistory": "git history ${revision} -p '${folder}'",
+  "gitterm.gitCommands.fileHistory": "git history ${revision} -f '${filename}'",
+  "gitterm.gitCommands.revisionHistory": "git history ${revision}",
+  "gitterm.gitCommands.showRevision": "git view ${revision}",
 
   "githubPullRequests.pullBranch": "never",
 
