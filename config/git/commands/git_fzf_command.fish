@@ -39,7 +39,7 @@ begin
     argparse "flags=" "main-view-name=" "items-variable=" "no-items-message=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect ctrl-b
-    set fzf_command "fzf --exit-0 --expect=$variable_expect $_flag_flags"
+    set fzf_command "fzf --expect=$variable_expect $_flag_flags"
 
     if not set -q GIT_FZF_SHOW_PREVIEW
         set -a fzf_command "--bind=start:hide-preview"
