@@ -25,9 +25,11 @@
 	merge-conflict-theirs-diff-header-style = magenta
 	merge-conflict-theirs-diff-header-decoration-style = magenta box
 [delta "section-styles"]
-	commit-decoration-style = yellow box ul
-	file-decoration-style = blue box
-	hunk-header-style = omit
+	commit-decoration-style = yellow ul ol
+	file-decoration-style = blue box ul
+	hunk-label = ""
+	hunk-header-style = syntax
+	hunk-header-decoration-style = brightblack ul
 [delta "line-numbers"]
 	line-numbers = true
 	line-numbers-minus-style = red
