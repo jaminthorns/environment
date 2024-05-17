@@ -25,9 +25,6 @@ if status is-interactive
     # Set pager to less
     set -gx PAGER less
 
-    # Set true color support
-    set -gx COLORTERM truecolor
-
     # Configure Erlang
     set -gx ERL_AFLAGS -kernel shell_history enabled
     set -gx KERL_BUILD_DOCS yes
