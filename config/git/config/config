@@ -15,6 +15,8 @@
 	features = hyperlinks merge-conflicts section-styles line-numbers consistent-diff-colors dracula-colors
 	navigate = true
 	paging = always
+[delta "navigate-commits"]
+	navigate-regex = "^commit"
 [delta "hyperlinks"]
 	hyperlinks = true
 	hyperlinks-commit-link-format = ""

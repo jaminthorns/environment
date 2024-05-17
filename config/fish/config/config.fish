@@ -36,6 +36,9 @@ if status is-interactive
     set -gx BAT_THEME Dracula
     set -gx BAT_PAGING always
 
+    # Configure Delta
+    set -gx DELTA_FEATURES +
+
     # Configure width breakpoint
     set -gx WIDTH_BREAKPOINT 120
 
