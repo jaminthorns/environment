@@ -66,9 +66,8 @@
   "gitterm.terminalLinks.provideFileLinks": "withRevisionContext",
   "gitterm.gitCommands.folderHistory": "git history ${revision} -p '${folder}'",
   "gitterm.gitCommands.fileHistory": "git history ${revision} -f '${filename}'",
-  "gitterm.gitCommands.lineHistory": "DELTA_FEATURES=\"$DELTA_FEATURES navigate-commits\" git log ${revision} ${lineRanges}",
+  "gitterm.gitCommands.lineHistory": "DELTA_FEATURES=\"$DELTA_FEATURES navigate-commits\" git log ${revision} ${fileLineRanges}",
   "gitterm.gitCommands.revisionHistory": "git history ${revision}",
-  "gitterm.gitCommands.showRevision": "git view ${revision}",
 
   "githubPullRequests.pullBranch": "never",
 
