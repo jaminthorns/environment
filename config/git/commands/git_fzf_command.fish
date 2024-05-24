@@ -23,11 +23,11 @@ end
 function external_command -a command main_view_name
     string collect "
     begin
-        set -a LESS --jump-target=2 --header=1
+        set DELTA_PAGER less --header=1 --jump-target=3
 
         begin
             set_color --underline cyan
-            echo -e '← Back to $main_view_name [q]\n'
+            echo -e '← Back to $main_view_name [q]'
             set_color normal
 
             $command
