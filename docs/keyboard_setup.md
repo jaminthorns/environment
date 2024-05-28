@@ -14,7 +14,7 @@ Current keyboard: Keychron Q3
 
   - Change knob press to play/pause (`KC_MPLY`)
 
-  - Change `Print Screen` and `Scroll Lock` back to original values
+  - Change `Scroll Lock` and `Pause` back to original values
 
     These keys are by default programmed as non-standard 🎤 and 💡 keys, but I
     use these for personal shortcuts.
