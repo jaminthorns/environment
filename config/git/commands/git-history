@@ -21,10 +21,10 @@ else if set -q _flag_file
 end
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--ansi --multi --track --scheme=history" \
+    --flags "--read0 --ansi --multi --track --scheme=history --marker-multi-line='┃  '" \
     --main-view-name history \
     --items-variable commits \
     --no-items-message "No commit selected." \
-    --list-command "git log --color --format=compact $list_options $args $show_paths" \
-    --items-command "sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
+    --list-command "git log -z --color --format=comfortable $list_options $args $show_paths" \
+    --items-command "awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
     --view-command "git show --color --decorate $_flag_show_options \\\$items $view_paths"

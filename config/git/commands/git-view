@@ -4,7 +4,7 @@ argparse --ignore-unknown "p/path=+" -- $argv
 
 set args (string escape -- $argv)
 set paths -- (string escape $_flag_path)
-set header (git show --format="" --shortstat $argv -- $_flag_path)
+set header (git show --format= --shortstat $argv -- $_flag_path)
 
 if test (count $header) -eq 0
     set header "No changes"
@@ -16,7 +16,7 @@ source (status dirname)/git_fzf_command.fish \
     --main-view-name changes \
     --items-variable files \
     --no-items-message "No file selected." \
-    --list-command "git show --format="" --name-status $args $paths | format_git_name_status" \
+    --list-command "git show --format= --name-status $args $paths | format_git_name_status" \
     --items-command "cut -d \$separator -f 2,4 | string split \$separator" \
     --view-command "git -C (git rev-parse --show-toplevel) show --format="" $args -- \\\$items" \
     --summary-command "git show --color --decorate --no-patch $args $paths"
