@@ -1,27 +1,27 @@
 source ../functions/config_functions.sh
 
-copy asdf $HOME
-copy elixir $HOME
-copy fish/config $HOME/.config/fish
-copy git/config $HOME/.config/git
-copy github_cli $HOME/.config/gh
-copy homebrew $HOME
-copy lf/config $HOME/.config/lf
-copy mycli $HOME
-copy obsidian $(secret OBSIDIAN_VAULT_PATH)/.obsidian
-copy pgcli $HOME/.config/pgcli
+copy asdf "$HOME"
+copy elixir "$HOME"
+copy fish/config "$HOME/.config/fish"
+copy git/config "$HOME/.config/git"
+copy github_cli "$HOME/.config/gh"
+copy homebrew "$HOME"
+copy lf/config "$HOME/.config/lf"
+copy mycli "$HOME"
+copy obsidian "$(secret OBSIDIAN_VAULT_PATH)/.obsidian"
+copy pgcli "$HOME/.config/pgcli"
 
 if os_status mac-os; then
   copy code/settings "$HOME/Library/Application Support/Code/User"
-  copy hammerspoon $HOME/.hammerspoon
+  copy hammerspoon "$HOME/.hammerspoon"
 fi
 
 if os_status linux-non-wsl; then
-  copy code/settings $HOME/.config/Code/User
+  copy code/settings "$HOME/.config/Code/User"
 fi
 
 if os_status mac-os || os_status linux-non-wsl; then
-  copy wezterm $HOME/.config/wezterm
+  copy wezterm "$HOME/.config/wezterm"
 fi
 
 if os_status wsl; then

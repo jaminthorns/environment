@@ -8,7 +8,7 @@ function copy {
   local config_path dest_path
   local paths=$(config_paths "$1" "$2")
 
-  while read -r config_path dest_path; do
+  while IFS="|" read -r config_path dest_path; do
     local dest_parent_dir=$(dirname "$dest_path")
 
     mkdir -p "$dest_parent_dir" && read_config "$config_path" > "$dest_path"

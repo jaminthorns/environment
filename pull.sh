@@ -8,7 +8,7 @@ function copy {
   local config_path dest_path
   local paths=$(config_paths "$1" "$2")
 
-  while read -r config_path dest_path; do
+  while IFS="|" read -r config_path dest_path; do
     local labels="-L config -L evaluated -L destination"
     local merged=$(read_config "$config_path" | diff3 -m $labels "$config_path" - "$dest_path")
 
