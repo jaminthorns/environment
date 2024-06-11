@@ -2,7 +2,6 @@ acarreiro.calculate
 alefragnani.project-manager
 bierner.markdown-mermaid
 bmalehorn.vscode-fish
-bradymholt.pgformatter
 dbaeumer.vscode-eslint
 dotjoshjohnson.xml
 dracula-theme.theme-dracula
@@ -18,6 +17,7 @@ mrorz.language-gettext
 ms-vscode-remote.remote-wsl
 ms-vsliveshare.vsliveshare
 phoenixframework.phoenix
+renesaarsoo.sql-formatter-vsc
 rust-lang.rust-analyzer
 stkb.rewrap
 swindh.enumerator
