@@ -20,3 +20,20 @@ hs.hotkey.bind({ "cmd", "alt" }, "f15", hs.caffeinate.systemSleep)
 
 -- Open terminal
 hs.hotkey.bind({ "alt" }, "`", function() hs.application.open("WezTerm.app") end)
+
+-- Chooser
+-- hs.hotkey.bind({ "alt" }, "p", function()
+--   local chooser = hs.chooser.new(function(stuff)
+--     print(stuff)
+--   end)
+
+--   chooser:searchSubText(true)
+
+--   chooser:choices({
+--     { text = "First",  subText = "Quis incididunt elit irure sit nisi tempor proident id.", key = "1" },
+--     { text = "Second", subText = "Eu Lorem anim est non.",                                  key = "2" },
+--     { text = "Third",  subText = "Labore labore esse Lorem dolor.",                         key = "3" },
+--   })
+
+--   chooser:show()
+-- end)
