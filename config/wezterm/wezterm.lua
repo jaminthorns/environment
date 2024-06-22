@@ -2,6 +2,7 @@ local wezterm = require "wezterm"
 local action = wezterm.action
 local mac_os = {{os_status mac-os && echo true || echo false}}
 local wsl = {{os_status wsl && echo true || echo false}}
+local cmd_key = "{{command_key upper}}"
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   local tab_config = tab.is_active and "active_tab" or hover and "inactive_tab_hover" or "inactive_tab"
@@ -70,27 +71,27 @@ local config = {
 
   keys = {
     -- Tab/pane control
-    { key = "n",          mods = "CTRL|SHIFT",            action = action.SpawnTab("DefaultDomain") },
-    { key = "w",          mods = "CTRL|SHIFT",            action = action.CloseCurrentPane({ confirm = false }) },
-    { key = "|",          mods = "CTRL|SHIFT",            action = action.SplitHorizontal({ domain = "DefaultDomain" }) },
-    { key = "{",          mods = "CTRL|SHIFT",            action = action.ActivatePaneDirection("Prev") },
-    { key = "}",          mods = "CTRL|SHIFT",            action = action.ActivatePaneDirection("Next") },
-    { key = "LeftArrow",  mods = "CTRL|SHIFT",            action = action.ActivateTabRelative(-1) },
-    { key = "RightArrow", mods = "CTRL|SHIFT",            action = action.ActivateTabRelative(1) },
+    { key = "n",          mods = "CTRL|SHIFT", action = action.SpawnTab("DefaultDomain") },
+    { key = "w",          mods = "CTRL|SHIFT", action = action.CloseCurrentPane({ confirm = false }) },
+    { key = "|",          mods = "CTRL|SHIFT", action = action.SplitHorizontal({ domain = "DefaultDomain" }) },
+    { key = "{",          mods = "CTRL|SHIFT", action = action.ActivatePaneDirection("Prev") },
+    { key = "}",          mods = "CTRL|SHIFT", action = action.ActivatePaneDirection("Next") },
+    { key = "LeftArrow",  mods = "CTRL|SHIFT", action = action.ActivateTabRelative(-1) },
+    { key = "RightArrow", mods = "CTRL|SHIFT", action = action.ActivateTabRelative(1) },
 
     -- Screen/cursor control
-    { key = "k",          mods = "{{command_key upper}}", action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
-    { key = "LeftArrow",  mods = "{{command_key upper}}", action = action.SendString("\x01") },
-    { key = "RightArrow", mods = "{{command_key upper}}", action = action.SendString("\x05") },
-    { key = "Backspace",  mods = "{{command_key upper}}", action = action.SendString("\x15") },
-    { key = "UpArrow",    mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5H") },
-    { key = "DownArrow",  mods = "{{command_key upper}}", action = action.SendString("\x1b[1;5F") },
-    { key = "LeftArrow",  mods = "ALT",                   action = action.SendString("\x1bb") },
-    { key = "RightArrow", mods = "ALT",                   action = action.SendString("\x1bf") },
-    { key = "Delete",     mods = "ALT",                   action = action.SendString("\x1bd") },
+    { key = "k",          mods = cmd_key,      action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
+    { key = "LeftArrow",  mods = cmd_key,      action = action.SendString("\x01") },
+    { key = "RightArrow", mods = cmd_key,      action = action.SendString("\x05") },
+    { key = "Backspace",  mods = cmd_key,      action = action.SendString("\x15") },
+    { key = "UpArrow",    mods = cmd_key,      action = action.SendString("\x1b[1;5H") },
+    { key = "DownArrow",  mods = cmd_key,      action = action.SendString("\x1b[1;5F") },
+    { key = "LeftArrow",  mods = "ALT",        action = action.SendString("\x1bb") },
+    { key = "RightArrow", mods = "ALT",        action = action.SendString("\x1bf") },
+    { key = "Delete",     mods = "ALT",        action = action.SendString("\x1bd") },
 
     -- Disable fullscreen shortcut
-    { key = "Enter",      mods = "ALT",                   action = action.SendKey({ key = "Enter", mods = "ALT" }) },
+    { key = "Enter",      mods = "ALT",        action = action.SendKey({ key = "Enter", mods = "ALT" }) },
   },
 }
 
