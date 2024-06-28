@@ -78,6 +78,8 @@
 
   "elixirLS.dialyzerEnabled": false,
 
+  "sarif-viewer.connectToGithubCodeScanning": "off",
+
   "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown][html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
