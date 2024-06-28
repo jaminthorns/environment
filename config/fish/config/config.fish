@@ -17,7 +17,7 @@ if status is-interactive
     set -g fish_greeting
 
     # Set editor to Visual Studio Code
-    if test $TERM_PROGRAM = vscode
+    if set -q TERM_PROGRAM && test $TERM_PROGRAM = vscode
         set -gx EDITOR code --wait
     else
         set -gx EDITOR code --wait --new-window
