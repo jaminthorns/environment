@@ -67,6 +67,9 @@
 	coloring = highlightRecent
 [difftool "code"]
 	cmd = code --wait --diff $LOCAL $REMOTE
+[fetch]
+	prune = true
+	pruneTags = true
 [pull]
 	rebase = false
 [rebase]
