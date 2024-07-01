@@ -57,7 +57,7 @@
 
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
-  "git.autofetch": true,
+  "git.autofetch": "all",
 
   "errorLens.removeLinebreaks": false,
   "errorLens.messageBackgroundMode": "message",
