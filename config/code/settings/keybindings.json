@@ -27,10 +27,9 @@
   { "key": "{{command_key}}+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
   { "key": "alt+backspace", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b\u007f" }, "when": "terminalFocus" },
 
-  // Terminal (printing file info)
+  // Terminal (print file path)
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "'${relativeFile}'" }, "when": "!isWindows && terminalFocus" },
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "(wslpath '${relativeFile}')" }, "when": "isWindows && terminalFocus" },
-  { "key": "ctrl+shift+l", "command": "workbench.action.terminal.sendSequence", "args": { "text": "${lineNumber},+1" }, "when": "terminalFocus" },
 
   // Clearing
   { "key": "{{command_key}}+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" },
@@ -58,6 +57,9 @@
   // Elixir
   { "key": "alt+p", "command": "extension.toPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
   { "key": "alt+shift+p", "command": "extension.fromPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
+
+  // Markdown
+  { "key": "alt+c", "command": "markdown.extension.checkTaskList", "when": "editorTextFocus && resourceLangId == 'markdown'" },
 
   // Open projects with project manager in new windows
   { "key": "{{command_key}}+alt+p", "command": "projectManager.listProjectsNewWindow" },
