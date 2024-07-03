@@ -2,6 +2,9 @@
   // Mult-line editing
   { "key": "{{command_key}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
 
+  // Quick search
+  { "key": "{{command_key}}+e", "command": "workbench.action.quickTextSearch" },
+
   // Code navigation
   { "key": "ctrl+]", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus" },
   { "key": "ctrl+shift+]", "command": "editor.action.goToImplementation", "when": "editorHasImplementationProvider && editorTextFocus" },
