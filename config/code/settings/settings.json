@@ -78,6 +78,11 @@
 
   "elixirLS.dialyzerEnabled": false,
 
+  "SQL-Formatter-VSCode.dialect": "postgresql",
+  "SQL-Formatter-VSCode.keywordCase": "upper",
+  "SQL-Formatter-VSCode.functionCase": "lower",
+  "SQL-Formatter-VSCode.identifierCase": "lower",
+
   "sarif-viewer.connectToGithubCodeScanning": "off",
 
   "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown][html]": {
