@@ -16,7 +16,7 @@
 
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": "single",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Dracula Theme",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
   "workbench.editor.empty.hint": "hidden",
