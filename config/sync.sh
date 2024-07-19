@@ -1,6 +1,6 @@
 source ../functions/config_functions.sh
 
-copy asdf "$HOME"
+copy asdf/config "$HOME"
 copy elixir "$HOME"
 copy fish/config "$HOME/.config/fish"
 copy git/config "$HOME/.config/git"
@@ -29,6 +29,9 @@ if os_status wsl; then
   copy code/settings "$APPDATA/Code/User"
   copy wezterm "$ProgramFiles/WezTerm"
 fi
+
+on_push asdf/push.sh
+on_pull asdf/pull.sh
 
 on_push cargo/push.sh
 on_pull cargo/pull.sh
