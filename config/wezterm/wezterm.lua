@@ -31,6 +31,7 @@ local config = {
   window_close_confirmation = "NeverPrompt",
   inactive_pane_hsb = { brightness = 0.75 },
   front_end = "WebGpu",
+  enable_scroll_bar = true,
 
   -- Tab bar
   use_fancy_tab_bar = false,
@@ -59,6 +60,7 @@ local config = {
     cursor_border = "white",
     selection_fg = "white",
     selection_bg = "#44475A",
+    scrollbar_thumb = "#363848", -- Selection color blended 50% with background color
     ansi = { "#21222C", "#FF5555", "#50FA7B", "#F1FA8C", "#BD93F9", "#FF79C6", "#8BE9FD", "#F8F8F2" },
     brights = { "#6272A4", "#FF6E6E", "#69FF94", "#FFFFA5", "#D6ACFF", "#FF92DF", "#A4FFFF", "#FFFFFF" },
     tab_bar = {
