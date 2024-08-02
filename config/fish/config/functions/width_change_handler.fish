@@ -1,4 +1,8 @@
 function width_change_handler --on-signal WINCH --on-event fish_postexec
+    if not set -q WIDTH_BREAKPOINT
+        return
+    end
+
     set DELTA_FEATURES (string split " " $DELTA_FEATURES)
 
     if test (tput cols) -gt $WIDTH_BREAKPOINT

@@ -18,8 +18,17 @@ eval $($brew shellenv)
 # Install Homebrew packages
 read_config config/homebrew/.Brewfile | brew bundle --no-lock --file=-
 
-# Install Fisher
-fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+# Initialize asdf
+source $(brew --prefix asdf)/libexec/asdf.sh
+
+# Add asdf plugins
+cut -d " " -f 1 config/asdf/config/.tool-versions | xargs -n 1 asdf plugin add
+
+# Install asdf programs
+(cd config/asdf/config && asdf install)
+
+# Install Fisher and plugins
+fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && set fisher_path \$__fish_config_dir/fisher && cat config/fish/config/fish_plugins | fisher install"
 
 # Get fish path
 fish=$(command -v fish)
@@ -32,9 +41,3 @@ test $SHELL = $fish || chsh -s $fish
 
 # Push configuration
 source push.sh
-
-# Install asdf programs
-fish -c "asdf install"
-
-# Install Fisher plugins
-fish -c "fisher update"
