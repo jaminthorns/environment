@@ -3,6 +3,7 @@ local action = wezterm.action
 local mac_os = {{os_status mac-os && echo true || echo false}}
 local wsl = {{os_status wsl && echo true || echo false}}
 local cmd_key = "{{command_key upper}}"
+local scrollbar_color = "#363848" -- Selection color blended 50% with background color
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   local tab_config = tab.is_active and "active_tab" or hover and "inactive_tab_hover" or "inactive_tab"
@@ -20,6 +21,23 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     { Foreground = { Color = cap_fg_color } },
     { Text = "" },
   }
+end)
+
+-- Hide the scrollbar when there is no scrollback or alternate screen is active
+wezterm.on("update-status", function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  local colors = window:effective_config().colors
+  local dimensions = pane:get_dimensions()
+
+  if dimensions.scrollback_rows == dimensions.viewport_rows or pane:is_alt_screen_active() then
+    colors.scrollbar_thumb = "none"
+  else
+    colors.scrollbar_thumb = scrollbar_color
+  end
+
+  overrides.colors = colors
+
+  window:set_config_overrides(overrides)
 end)
 
 local config = {
@@ -60,7 +78,7 @@ local config = {
     cursor_border = "white",
     selection_fg = "white",
     selection_bg = "#44475A",
-    scrollbar_thumb = "#363848", -- Selection color blended 50% with background color
+    scrollbar_thumb = scrollbar_color,
     ansi = { "#21222C", "#FF5555", "#50FA7B", "#F1FA8C", "#BD93F9", "#FF79C6", "#8BE9FD", "#F8F8F2" },
     brights = { "#6272A4", "#FF6E6E", "#69FF94", "#FFFFA5", "#D6ACFF", "#FF92DF", "#A4FFFF", "#FFFFFF" },
     tab_bar = {
