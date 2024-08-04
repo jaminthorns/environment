@@ -8,11 +8,12 @@ set shell fish
 set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)"
 set ifs
 set truncatechar …
+set hiddenfiles ".*:desktop.ini"
 set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
 set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0m\033[30m\033[0m"
 set cursoractivefmt "\033[48;2;68;71;90m" # Selection color
-set cursorparentfmt "\033[48;2;51;54;68m" # Selection color blended 40% with background
-set cursorpreviewfmt "\033[48;2;51;54;68m" # Selection color blended 40% with background
+set cursorparentfmt "\033[48;2;48;51;65m" # Selection color blended 30% with background color
+set cursorpreviewfmt "\033[48;2;48;51;65m" # Selection color blended 30% with background color
 
 clearmaps
 
