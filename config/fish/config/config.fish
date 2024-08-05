@@ -24,7 +24,7 @@ if status is-interactive
     end
 
     # Configure less
-    set -gx LESS --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=.1
+    set -gx LESS --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=20
 
     # Set pager to less
     set -gx PAGER less
