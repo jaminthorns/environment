@@ -18,10 +18,16 @@ MapAllModifiers()
 !#Pause::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
 
 ; Open terminal
-;
-; This currently opens in the background because the hook is enabled, but the
-; hook is needed for mapping the modifier keys.
-#`:: Run "wezterm-gui.exe"
+#`::
+If WinExist(TerminalClass) {
+  WinActivate
+} Else {
+  Run "wezterm-gui.exe", , , OutputVarPID
+  WinWait ahk_pid %OutputVarPID%
+  WinActivate ahk_pid %OutputVarPID%
+}
+
+Return
 
 ; Emoji keyboard
 !^Space::Send #.
