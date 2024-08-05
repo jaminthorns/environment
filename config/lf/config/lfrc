@@ -49,6 +49,7 @@ map <c-end> bottom
 
 # Conventional file manager keybindings
 map <tab> :toggle; down
+map <backtab> :toggle; up
 map <esc> :unselect; clear
 map <c-a> :unselect; invert
 map <c-c> copy
