@@ -46,6 +46,7 @@
   "extensions.ignoreRecommendations": true,
 
   "terminal.integrated.fontSize": 12,
+  "terminal.integrated.tabs.title": "${sequence}",
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.macOptionIsMeta": true,
