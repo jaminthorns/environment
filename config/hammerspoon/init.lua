@@ -15,7 +15,8 @@ bindSystemKey({ "cmd", "alt" }, "help", "SOUND_DOWN")
 bindSystemKey({ "cmd", "alt" }, "home", "MUTE")
 bindSystemKey({ "cmd", "alt" }, "pageup", "SOUND_UP")
 
--- Sleep
+-- Power
+hs.hotkey.bind({ "cmd", "alt" }, "f14", hs.caffeinate.lockScreen)
 hs.hotkey.bind({ "cmd", "alt" }, "f15", hs.caffeinate.systemSleep)
 
 -- Open terminal

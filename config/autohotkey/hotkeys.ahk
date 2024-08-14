@@ -14,7 +14,8 @@ MapAllModifiers()
 !#Home::Send {Volume_Mute}
 !#Insert::Send {Volume_Down}
 
-; Sleep
+; Power
+!#ScrollLock::DllCall("LockWorkStation")
 !#Pause::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
 
 ; Open terminal
