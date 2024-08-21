@@ -36,7 +36,8 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
 
-  "window.title": "${rootName}${separator}${activeRepositoryBranchName}",
+  "window.title": "${rootNameShort}${separator}${activeRepositoryBranchName}",
+  "window.titleSeparator": " • ",
 
   "search.useGlobalIgnoreFiles": true,
   "search.mode": "newEditor",
