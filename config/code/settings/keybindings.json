@@ -17,13 +17,13 @@
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
 
   // Terminal (tab/pane control)
-  { "key": "ctrl+shift+n", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus" },
-  { "key": "ctrl+shift+w", "command": "workbench.action.terminal.kill", "when": "terminalFocus" },
-  { "key": "ctrl+shift+\\", "command": "workbench.action.terminal.split", "when": "terminalFocus" },
-  { "key": "ctrl+shift+left", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus" },
-  { "key": "ctrl+shift+right", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus" },
-  { "key": "ctrl+shift+[", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
-  { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
+  { "key": "ctrl+shift+n", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus || terminalTabsFocus" },
+  { "key": "ctrl+shift+w", "command": "workbench.action.terminal.kill", "when": "terminalFocus || terminalTabsFocus" },
+  { "key": "ctrl+shift+\\", "command": "workbench.action.terminal.split", "when": "terminalFocus || terminalTabsFocus" },
+  { "key": "ctrl+shift+left", "command": "workbench.action.terminal.focusPrevious", "when": "terminalFocus || terminalTabsFocus" },
+  { "key": "ctrl+shift+right", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus || terminalTabsFocus" },
+  { "key": "ctrl+shift+[", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus || terminalTabsFocus" },
+  { "key": "ctrl+shift+]", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus || terminalTabsFocus" },
 
   // Terminal (cursor control)
   { "key": "{{command_key}}+up", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5H" }, "when": "terminalFocus" },
