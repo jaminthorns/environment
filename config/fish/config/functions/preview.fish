@@ -35,7 +35,7 @@ function preview
             ffmpeg -v quiet -i $path -frames:v 1 -codec:v tiff -f image2pipe - | chafa $chafa_options
         case "*"
             if test (file -b --mime-encoding $path) = binary
-                hexyl --border=none $path
+                set_color brblack && file --brief --dereference $path | fold -w $_flag_width
             else
                 bat --plain --wrap=character --terminal-width=$_flag_width --color=always $path
             end
