@@ -40,16 +40,18 @@
   { "key": "ctrl+l", "command": "workbench.output.action.clearOutput", "when": "focusedView == 'workbench.panel.output'" },
 
   // Jumping within a file (later keybindings supersede earlier ones)
-  { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus" },
   { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus" },
-  { "key": "shift+ctrl+down", "command": "merge-conflict.previous", "when": "editorTextFocus && mergeConflictsCount > 0" },
-  { "key": "shift+ctrl+up", "command": "merge-conflict.next", "when": "editorTextFocus && mergeConflictsCount > 0" },
-  { "key": "shift+ctrl+down", "command": "workbench.action.compareEditor.nextChange", "when": "editorTextFocus && isInDiffEditor" },
+  { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus" },
+  { "key": "shift+ctrl+up", "command": "merge-conflict.previous", "when": "editorTextFocus && mergeConflictsCount > 0" },
+  { "key": "shift+ctrl+down", "command": "merge-conflict.next", "when": "editorTextFocus && mergeConflictsCount > 0" },
+  { "key": "shift+ctrl+up", "command": "merge.goToPreviousUnhandledConflict", "when": "isMergeEditor" },
+  { "key": "shift+ctrl+down", "command": "merge.goToNextUnhandledConflict", "when": "isMergeEditor" },
   { "key": "shift+ctrl+up", "command": "workbench.action.compareEditor.previousChange", "when": "editorTextFocus && isInDiffEditor" },
-  { "key": "shift+ctrl+down", "command": "search.action.focusNextSearchResult", "when": "inSearchEditor" },
+  { "key": "shift+ctrl+down", "command": "workbench.action.compareEditor.nextChange", "when": "editorTextFocus && isInDiffEditor" },
   { "key": "shift+ctrl+up", "command": "search.action.focusPreviousSearchResult", "when": "inSearchEditor" },
-  { "key": "shift+ctrl+down", "command": "editor.action.nextMatchFindAction", "when": "findWidgetVisible" },
+  { "key": "shift+ctrl+down", "command": "search.action.focusNextSearchResult", "when": "inSearchEditor" },
   { "key": "shift+ctrl+up", "command": "editor.action.previousMatchFindAction", "when": "findWidgetVisible" },
+  { "key": "shift+ctrl+down", "command": "editor.action.nextMatchFindAction", "when": "findWidgetVisible" },
 
   // Git
   { "key": "shift+ctrl+c", "command": "git.openChange", "when": "editorTextFocus" },
