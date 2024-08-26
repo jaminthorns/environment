@@ -21,6 +21,7 @@
   "workbench.settings.editor": "json",
   "workbench.editor.empty.hint": "hidden",
   "workbench.layoutControl.enabled": false,
+  "workbench.activityBar.location": "top",
 
   "breadcrumbs.enabled": false,
 
