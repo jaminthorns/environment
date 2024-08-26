@@ -26,6 +26,8 @@ defmodule IExUtils do
 
   def copy(term), do: term |> inspect(pretty: true, limit: :infinity) |> copy()
 
+  def paste, do: "fish" |> System.cmd(["-c", "fish_clipboard_paste"]) |> elem(0)
+
   def code(text) when is_binary(text) do
     port = Port.open({:spawn, "code -"}, [])
 
@@ -67,7 +69,7 @@ defmodule IExUtils do
   end
 end
 
-import IExUtils, only: [copy: 1, code: 1, time: 1, time: 2]
+import IExUtils, only: [copy: 1, paste: 0, code: 1, time: 1, time: 2]
 
 IEx.configure(
   default_prompt: IExUtils.prompt(false),
