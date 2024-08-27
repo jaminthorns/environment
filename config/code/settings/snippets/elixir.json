@@ -10,5 +10,13 @@
   "(Piped) Inspect a value": {
     "prefix": "pins",
     "body": ["IO.inspect(label: \"$1\")"]
-  }
+  },
+  "(Piped) `tap/2`": {
+    "prefix": "tap",
+    "body": ["tap(fn $1 -> $2 end)"]
+  },
+  "(Piped) `then/2`": {
+    "prefix": "then",
+    "body": ["then(fn $1 -> $2 end)"]
+  },
 }
