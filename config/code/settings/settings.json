@@ -62,6 +62,7 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.autofetch": "all",
+  "git.openRepositoryInParentFolders": "never",
 
   "errorLens.removeLinebreaks": false,
   "errorLens.messageBackgroundMode": "message",
