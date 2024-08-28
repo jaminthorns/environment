@@ -30,8 +30,6 @@ brew "ripgrep"
 brew "tldr"
 
 if OS.mac?
-  tap "homebrew/cask-fonts"
-
   cask "font-jetbrains-mono"
   cask "hammerspoon"
   cask "ngrok"
