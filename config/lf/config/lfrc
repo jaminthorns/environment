@@ -23,6 +23,10 @@ map <up> up
 map <m-up> up
 map <down> down
 map <m-down> down
+map <pgup> page-up
+map <pgdn> page-down
+map <home> top
+map <end> bottom
 map <left> updir
 map <right> open
 map <c-r> reload
