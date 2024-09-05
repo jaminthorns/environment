@@ -32,7 +32,6 @@
   "diffEditor.experimental.showMoves": true,
 
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
-  "scm.showHistoryGraph": false,
 
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
