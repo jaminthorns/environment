@@ -1,4 +1,4 @@
-local config_extensions=$(cat extensions | sort)
+config_extensions=$(cat extensions | sort)
 
 function push_extensions {
   local code_command=$1
