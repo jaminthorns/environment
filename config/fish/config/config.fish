@@ -26,6 +26,10 @@ if status is-interactive
     # Configure less
     set -gx LESS --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=20
 
+    if set -q GITTERM_SEARCH
+        set -a LESS --pattern=$GITTERM_SEARCH
+    end
+
     # Set pager to less
     set -gx PAGER less
 
