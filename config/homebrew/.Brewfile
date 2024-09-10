@@ -32,6 +32,7 @@ brew "tldr"
 
 if OS.mac?
   cask "font-jetbrains-mono"
+  cask "font-symbols-only-nerd-font"
   cask "hammerspoon"
   cask "ngrok"
   cask "wezterm"
