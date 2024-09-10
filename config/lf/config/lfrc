@@ -64,14 +64,14 @@ map <enter> rename
 map <delete> delete
 
 # Custom commands
-map <a-enter> bulk-edit
+map <a-enter> edit-paths
 map e edit
 map ac archive-compress
 map ae archive-extract
 map ic image-convert-format
 map ir image-resize
 map cw copy-working-path
-map cs copy-selected-paths
+map cp copy-selected-paths
 map cf copy-selected-filenames
 map r reveal-in-system-file-manager
 
@@ -85,7 +85,7 @@ cmd new-folder %{{
   end
 }}
 
-cmd bulk-edit &{{
+cmd edit-paths &{{
   vimv $fx
 }}
 
