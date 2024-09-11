@@ -3,7 +3,7 @@ less_chatty = True
 multi_line = True
 keyword_casing = upper
 table_format = psql_unicode
-prompt = '\x1b[30m\x1b[40m \x1b[34m\h \x1b[90m╱ \x1b[36m\d \x1b[0m\x1b[30m\n\x1b[32m▶ '
+prompt = '\x1b[30m\x1b[40m \x1b[34m\h \x1b[90m╱ \x1b[36m\d \x1b[0;30m\n\x1b[32m▶ '
 prompt_continuation = '~'
 pager = 'less --header=3 --jump-target=4'
 

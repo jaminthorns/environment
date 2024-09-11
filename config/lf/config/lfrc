@@ -2,7 +2,8 @@ set mouse true
 set sixel true
 set reverse true
 set dirfirst false
-set info time
+set incsearch true
+set incfilter true
 set sortby time
 set shell fish
 set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)"
@@ -10,7 +11,9 @@ set ifs
 set truncatechar …
 set hiddenfiles ".*:desktop.ini"
 set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
-set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0m\033[30m\033[0m"
+set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0;30m"
+set statfmt "\033[30m\033[40;90m %S, %t| ╱ \033[36m→ %l| \033[0;30m"
+set rulerfmt "\033[30m\033[40m |\033[31m%m cut\033[90m ╱ |\033[33m%c copied\033[90m ╱ |\033[35m%s selected\033[90m ╱ |\033[32m%p\033[90m ╱ |\033[32m\"%f\"\033[90m ╱ |\033[37;1m%i\033[90m/%t \033[0;30m"
 set cursoractivefmt "\033[48;2;68;71;90m" # Selection color
 set cursorparentfmt "\033[48;2;48;51;65m" # Selection color blended 30% with background color
 set cursorpreviewfmt "\033[48;2;48;51;65m" # Selection color blended 30% with background color
@@ -60,6 +63,7 @@ map <c-c> copy
 map <c-x> cut
 map <c-v> paste
 map <c-n> new-folder
+map <c-f> filter
 map <enter> rename
 map <delete> delete
 
