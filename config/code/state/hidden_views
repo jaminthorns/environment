@@ -1,0 +1,5 @@
+workbench.explorer.views.state.hidden	npm
+workbench.explorer.views.state.hidden	timeline
+workbench.scm.views.state.hidden	workbench.scm.history
+workbench.scm.views.state.hidden	workbench.scm.repositories
+workbench.view.extensions.state.hidden	extensions.recommendedList

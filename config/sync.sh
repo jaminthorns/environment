@@ -37,6 +37,7 @@ on_pull asdf/pull.sh
 on_push cargo/push.sh
 on_pull cargo/pull.sh
 
+on_push code/state/push.sh
 on_push code/extensions/push.sh
 on_pull code/extensions/pull.sh
 

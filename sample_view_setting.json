@@ -1,0 +1,94 @@
+[
+  {
+    "id": "workbench.views.extensions.installed",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.workspaceRecommendations",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.popular",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.otherRecommendations",
+    "isHidden": false
+  },
+  {
+    "id": "extensions.recommendedList",
+    "isHidden": true
+  },
+  {
+    "id": "workbench.views.extensions.enabled",
+    "isHidden": true
+  },
+  {
+    "id": "workbench.views.extensions.disabled",
+    "isHidden": true
+  },
+  {
+    "id": "workbench.views.extensions.marketplace",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.searchInstalled",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.searchEnabled",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.searchDisabled",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.searchOutdated",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.searchBuiltin",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.searchWorkspaceUnsupported",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.builtinFeatureExtensions",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.builtinThemeExtensions",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.builtinProgrammingLanguageExtensions",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.untrustedUnsupportedExtensions",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.untrustedPartiallySupportedExtensions",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.virtualUnsupportedExtensions",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.virtualPartiallySupportedExtensions",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.deprecatedExtensions",
+    "isHidden": false
+  },
+  {
+    "id": "workbench.views.extensions.searchRecentlyUpdated",
+    "isHidden": false
+  }
+]
