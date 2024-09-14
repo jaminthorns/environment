@@ -21,7 +21,7 @@
 [delta "hyperlinks"]
 	hyperlinks = true
 	hyperlinks-commit-link-format = ""
-	hyperlinks-file-link-format = vscode://file/{path}:{line}
+	hyperlinks-file-link-format = vscode://{{os_status wsl && echo vscode-remote/wsl+Ubuntu || echo file}}/{path}:{line}
 [delta "merge-conflicts"]
 	merge-conflict-ours-diff-header-style = cyan
 	merge-conflict-ours-diff-header-decoration-style = cyan box
