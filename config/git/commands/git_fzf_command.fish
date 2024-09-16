@@ -25,6 +25,10 @@ function external_command -a command main_view_name
     begin
         set DELTA_PAGER less --header=1 --jump-target=3
 
+        for opt in \\\$GIT_FZF_PAGER_OPTS
+            set -a DELTA_PAGER \\\$opt
+        end
+
         begin
             set_color --underline cyan
             echo -e '← Back to $main_view_name [q]'
