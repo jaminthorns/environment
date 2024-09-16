@@ -62,7 +62,8 @@ map <c-a> :unselect; invert
 map <c-c> copy
 map <c-x> cut
 map <c-v> paste
-map <c-n> new-folder
+map <c-n>d new-directory
+map <c-n>f new-file
 map <c-f> filter
 map <enter> rename
 map <delete> delete
@@ -79,14 +80,19 @@ map cp copy-selected-paths
 map cf copy-selected-filenames
 map r reveal-in-system-file-manager
 
-cmd new-folder %{{
+cmd new-directory %{{
   if test -z $fs
-    printf " create new folder: " && read folder_name
-    mkdir -p $folder_name && printf "new folder created"
+    printf " create new directory: " && read dir_name
+    mkdir -p $dir_name && printf "new directory created"
   else
-    printf " move files to new folder: " && read folder_name
-    mkdir -p $folder_name && mv (echo $fs) $folder_name && printf "files moved to new folder"
+    printf " move files to new directory: " && read dir_name
+    mkdir -p $dir_name && mv (echo $fs) $dir_name && printf "files moved to new directory"
   end
+}}
+
+cmd new-file %{{
+  printf " create new file: " && read file_name
+  touch $file_name && printf "new file created"
 }}
 
 cmd edit-paths &{{
