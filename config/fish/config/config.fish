@@ -46,7 +46,7 @@ if status is-interactive
 
     # Configure Git fzf commands
     if set -q GITTERM_SEARCH
-        set -gx GIT_FZF_PAGER_OPTS --jump-target=.5 --pattern=$GITTERM_SEARCH
+        set -gx GIT_FZF_PAGER_OPTS --jump-target=.5 --pattern=(string escape $GITTERM_SEARCH)
     end
 
     # Configure lf
