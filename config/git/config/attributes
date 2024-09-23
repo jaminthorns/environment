@@ -3,5 +3,4 @@
 *.exs diff=elixir
 *.html diff=html
 *.md diff=markdown
-*.py diff=python
 *.rs diff=rust
