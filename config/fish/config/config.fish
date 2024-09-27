@@ -29,6 +29,9 @@ if status is-interactive
     # Set pager to less
     set -gx PAGER less
 
+    # Configure Homebrew
+    set -gx HOMEBREW_NO_AUTOREMOVE 1
+
     # Configure Erlang
     set -gx ERL_AFLAGS -kernel shell_history enabled
     set -gx KERL_BUILD_DOCS yes
