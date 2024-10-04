@@ -48,6 +48,7 @@
 
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.tabs.title": "${sequence}",
+  "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.macOptionIsMeta": true,
