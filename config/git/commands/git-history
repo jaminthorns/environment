@@ -1,8 +1,14 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown "p/path=+" "f/file=" "s/show-options=" -- $argv
+argparse --ignore-unknown source "p/path=+" "f/file=" "s/show-options=" -- $argv
 
 set args (string escape -- $argv)
+
+if set -q _flag_source
+    set log_format comfortable-source
+else
+    set log_format comfortable
+end
 
 if set -q _flag_path
     set show_paths -- (string escape $_flag_path)
@@ -25,6 +31,6 @@ source (status dirname)/git_fzf_command.fish \
     --main-view-name history \
     --items-variable commits \
     --no-items-message "No commit selected." \
-    --list-command "git log -z --color --format=comfortable $list_options $args $show_paths" \
+    --list-command "git log -z --color --format=$log_format $list_options $args $show_paths" \
     --items-command "awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
     --view-command "git show --color --decorate $_flag_show_options \\\$items $view_paths"

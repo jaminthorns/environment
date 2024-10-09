@@ -1,7 +1,7 @@
 complete -c git-todo -k -a "(__fish_git_refs)"
 
 complete -c git-branches -w "git branch"
-complete -c git-branches -s g -l graph-options -d "Options for the 'git graph' view"
+complete -c git-branches -s l -l log-options -d "Options for the 'git log' view"
 
 complete -c git-compare -w "git diff"
 complete -c git-compare -s p -l path -d "Show only changes from specified path"

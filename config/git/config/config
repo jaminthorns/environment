@@ -8,8 +8,10 @@
 [color.blame]
 	highlightRecent = "normal #000000, 1 year ago, normal #241B30, 6 months ago, normal #302540, 3 months ago, normal #3C2E50, 1 month ago, normal #483860, 2 weeks ago, normal #554170, 1 day ago, normal #614B80"
 [pretty]
-	compact = %C(bold blue)%h%C(reset) - %s %C(brightblack)%an, %ar %C(magenta)[%S]%C(yellow)%d%C(reset)
-	comfortable = %C(bold blue)%h%C(reset) - %s %C(magenta)[%S]%C(yellow)%d%n%C(brightblack)%an, %ar%C(reset)
+	compact = %C(bold blue)%h%C(reset) - %s %C(brightblack)%an, %ar%C(yellow)%d%C(reset)
+	compact-source = %C(bold blue)%h%C(reset) - %s %C(brightblack)%an, %ar %C(magenta)[%S]%C(yellow)%d%C(reset)
+	comfortable = %C(bold blue)%h%C(reset) - %s%C(yellow)%d%n%C(brightblack)%an, %ar%C(reset)
+	comfortable-source = %C(bold blue)%h%C(reset) - %s %C(magenta)[%S]%C(yellow)%d%n%C(brightblack)%an, %ar%C(reset)
 [interactive]
 	diffFilter = delta --color-only
 [delta]
@@ -91,4 +93,5 @@
 	force-push = push --force-with-lease --force-if-includes
 	message = log --max-count=1 --format='%B'
 	graph = log --graph --format=compact
+	graph-source = log --graph --format=compact-source
 	publish = "! f() { git push --set-upstream ${1:-origin} $(git branch --show-current); }; f"
