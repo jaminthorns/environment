@@ -18,10 +18,10 @@ end
 
 if string match -q -r (dots_regex 2) $first_arg
     set commit_range (string replace -r (dots_regex 2) "..." $first_arg)
-    set summary_command "git graph-source --color $commit_range $paths"
+    set summary_command "git log --graph --format=comfortable-source --color $commit_range $paths"
 else if string match -q -r (dots_regex 3) $first_arg
     set commit_range (string replace -r (dots_regex 3) ".." $first_arg)
-    set summary_command "git graph-source --color $commit_range $paths"
+    set summary_command "git log --format=comfortable --color $commit_range $paths"
 else
     set highlight (set_color cyan)
     set reset (set_color reset)
