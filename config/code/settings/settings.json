@@ -22,6 +22,7 @@
   "workbench.editor.empty.hint": "hidden",
   "workbench.layoutControl.enabled": false,
   "workbench.activityBar.location": "top",
+  "workbench.panel.showLabels": false,
 
   "breadcrumbs.enabled": false,
 
