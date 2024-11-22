@@ -1,6 +1,5 @@
 set mouse true
 set sixel true
-set watch true
 set sortby time
 set reverse true
 set dirfirst false
