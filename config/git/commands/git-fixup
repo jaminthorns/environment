@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+set commit $argv[1]
+
+git commit --fixup=$commit
+git rebase --autosquash $commit~
