@@ -1,3 +1,5 @@
+# Provide functionality for setting a variable in another process.
+
 function parent_pid -a pid
     ps -o ppid= -p $pid | string trim
 end

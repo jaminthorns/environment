@@ -1,3 +1,5 @@
+# Completion for custom Git commands.
+
 complete -c git-todo -k -a "(__fish_git_refs)"
 
 complete -c git-branches -w "git branch"

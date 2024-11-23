@@ -1,3 +1,5 @@
+# Store Fisher config separately from "user space" config.
+
 set fisher_path $__fish_config_dir/fisher
 
 set -p fish_complete_path $fisher_path/completions

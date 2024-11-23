@@ -1,3 +1,5 @@
+# Wrapper for `man` to set colors.
+
 functions -c man __man
 
 function man --wraps man
