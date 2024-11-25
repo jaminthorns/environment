@@ -1,4 +1,4 @@
-# Provide functionality for maintaining a process-level store for toggles.
+# Provide functionality for storing toggle states.
 
 function create_toggles
     set uuid (uuidgen | string replace -a - _)
