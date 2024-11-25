@@ -40,10 +40,14 @@ function external_command -a command main_view_name
 end
 
 begin
-    argparse "flags=" "main-view-name=" "items-variable=" "no-items-message=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
+    argparse "flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect ctrl-b
     set fzf_command "fzf --expect=$variable_expect $_flag_flags"
+
+    for bind in $_flag_bind
+        set -a fzf_command "--bind=$bind"
+    end
 
     if not set -q GIT_FZF_SHOW_PREVIEW
         set -a fzf_command "--bind=start:hide-preview"
@@ -81,7 +85,7 @@ begin
         set -a fzf_command "--bind=\"ctrl-space:execute($fzf_summary_command)\""
     end
 
-    set output (eval "$_flag_list_command | $fzf_command")
+    set output (eval $_flag_list_command | eval $fzf_command)
     set fzf_status $status
 
     if test $fzf_status -eq 0

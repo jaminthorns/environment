@@ -1,15 +1,9 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown source "p/path=+" "f/file=" "s/show-options=" -- $argv
+argparse --ignore-unknown graph source "p/path=+" "f/file=" "s/show-options=" -- $argv
 
 set args (string escape -- $argv)
 set diff_merges (git config get log.diffMerges)
-
-if set -q _flag_source
-    set log_format comfortable-source
-else
-    set log_format comfortable
-end
 
 if set -q _flag_path
     set show_paths -- (string escape $_flag_path)
@@ -27,11 +21,37 @@ else if set -q _flag_file
     end
 end
 
+set list_toggles (create_toggles)
+set -q _flag_graph && toggle $list_toggles graph
+set -q _flag_source && toggle $list_toggles source
+
+set list_command "
+begin
+    if enabled $list_toggles graph
+        set graph_option --graph
+    end
+
+    if enabled $list_toggles source
+        set format_option --format=comfortable-source
+    else
+        set format_option --format=comfortable
+    end
+
+    git log -z --color \$graph_option \$format_option $list_options $args $show_paths
+end"
+
+set list_command_reload (string replace -a '$' '\$' $list_command | string collect)
+
 source (status dirname)/git_fzf_command.fish \
     --flags "--read0 --ansi --multi --track --scheme=history --marker-multi-line='┃  '" \
     --main-view-name history \
     --items-variable commits \
     --no-items-message "No commit selected." \
-    --list-command "git log -z --color --format=$log_format $list_options $args $show_paths" \
+    --list-command $list_command \
     --items-command "awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
-    --view-command "git show --color --decorate --diff-merges=$diff_merges $_flag_show_options \\\$items $view_paths"
+    --view-command "git show --color --decorate --diff-merges=$diff_merges $_flag_show_options \\\$items $view_paths" \
+    --bind="\"ctrl-g:execute-silent(toggle $list_toggles graph)+reload($list_command_reload)\"" \
+    --bind="\"ctrl-s:execute-silent(toggle $list_toggles source)+reload($list_command_reload)\""
+
+# Not executed when terminal is killed, leaving behind cruft variables
+delete_toggles $list_toggles

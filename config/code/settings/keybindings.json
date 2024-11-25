@@ -76,6 +76,9 @@
   { "key": "ctrl+shift+-", "command": "workbench.action.navigateForward", "when": "canNavigateForward" },
   { "key": "ctrl+alt+t", "command": "workbench.action.closeOtherEditors" },
 
+  // Remove Windows keybindings
+  { "key": "ctrl+g", "command": "-workbench.action.terminal.goToRecentDirectory", "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"},
+
   // Reset workbench state
   {
     "key": "ctrl+shift+backspace",
