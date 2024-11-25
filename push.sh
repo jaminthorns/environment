@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
+source functions/config_functions.sh
 source functions/config_paths.sh
-source functions/read_config.sh
 source functions/run_script.sh
 
 function copy {
@@ -9,9 +9,7 @@ function copy {
   local paths=$(config_paths "$1" "$2")
 
   while IFS="|" read -r config_path dest_path; do
-    local dest_parent_dir=$(dirname "$dest_path")
-
-    mkdir -p "$dest_parent_dir" && read_config "$config_path" > "$dest_path"
+    mkdir -p "$(dirname "$dest_path")" && read_config "$config_path" > "$dest_path"
   done <<< "$paths"
 }
 

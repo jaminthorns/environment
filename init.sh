@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-source functions/read_config.sh
 source functions/config_functions.sh
 
 # Install Linux dependencies

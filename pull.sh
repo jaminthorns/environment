@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
+source functions/config_functions.sh
 source functions/config_paths.sh
-source functions/read_config.sh
 source functions/run_script.sh
 
 function copy {
@@ -9,10 +9,7 @@ function copy {
   local paths=$(config_paths "$1" "$2")
 
   while IFS="|" read -r config_path dest_path; do
-    local labels="-L config -L evaluated -L destination"
-    local merged=$(read_config "$config_path" | diff3 -m $labels "$config_path" - "$dest_path")
-
-    echo "$merged" > "$config_path"
+    merge_config "$config_path" "$dest_path"
   done <<< "$paths"
 }
 

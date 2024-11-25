@@ -53,5 +53,4 @@ source (status dirname)/git_fzf_command.fish \
     --bind="\"ctrl-g:execute-silent(toggle $list_toggles graph)+reload($list_command_reload)\"" \
     --bind="\"ctrl-s:execute-silent(toggle $list_toggles source)+reload($list_command_reload)\""
 
-# Not executed when terminal is killed, leaving behind cruft variables
 delete_toggles $list_toggles

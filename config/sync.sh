@@ -40,4 +40,7 @@ on_pull cargo/pull.sh
 on_push code/extensions/push.sh
 on_pull code/extensions/pull.sh
 
+on_push cron/push.sh
+on_pull cron/pull.sh
+
 on_push fish/configure_tide.sh
