@@ -32,9 +32,9 @@ begin
     end
 
     if enabled $list_toggles source
-        set format_option --format=comfortable-source
+        set format_option --format=comfy-source
     else
-        set format_option --format=comfortable
+        set format_option --format=comfy
     end
 
     git log -z --color \$graph_option \$format_option $list_options $args $show_paths

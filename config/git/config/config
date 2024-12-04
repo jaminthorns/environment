@@ -8,10 +8,10 @@
 [color.blame]
 	highlightRecent = "normal #000000, 1 year ago, normal #241B30, 6 months ago, normal #302540, 3 months ago, normal #3C2E50, 1 month ago, normal #483860, 2 weeks ago, normal #554170, 1 day ago, normal #614B80"
 [pretty]
-	compact = %C(bold blue)%h%C(reset) - %s %C(brightblack)%an, %ar%C(yellow)%d%C(reset)
-	compact-source = %C(bold blue)%h%C(reset) - %s %C(brightblack)%an, %ar %C(magenta)[%S]%C(yellow)%d%C(reset)
-	comfortable = %C(bold blue)%h%C(reset) - %s%C(yellow)%d%n%C(brightblack)%an, %ar%C(reset)
-	comfortable-source = %C(bold blue)%h%C(reset) - %s %C(magenta)[%S]%C(yellow)%d%n%C(brightblack)%an, %ar%C(reset)
+	compact = %C(yellow)%h %C(cyan)%ar %C(blue)%an%C(magenta)% D %C(brightblack)%s%C(reset)
+	compact-source = %C(yellow)%h %C(green)%S %C(cyan)%ar %C(blue)%an%C(magenta)% D %C(brightblack)%s%C(reset)
+	comfy = %C(yellow)%h %C(cyan)%ar %C(blue)%an%C(magenta)% D%n%C(brightblack)%s%C(reset)
+	comfy-source = %C(yellow)%h %C(green)%S %C(cyan)%ar %C(blue)%an%C(magenta)% D%n%C(brightblack)%s%C(reset)
 [interactive]
 	diffFilter = delta --color-only
 [delta]
