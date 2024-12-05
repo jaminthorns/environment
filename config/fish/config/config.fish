@@ -41,7 +41,6 @@ if status is-interactive
     set -gx BAT_PAGING always
 
     # Configure Delta
-    set -gx DELTA_PAGER less --jump-target=2
     set -gx DELTA_FEATURES +
 
     # Configure width breakpoint

@@ -23,7 +23,7 @@ end
 function external_command -a command main_view_name
     string collect "
     begin
-        set DELTA_PAGER less --header=1 --jump-target=3
+        set -gx DELTA_PAGER less --header=1 --jump-target=2
 
         for opt in \\\$GIT_FZF_PAGER_OPTS
             set -a DELTA_PAGER \\\$opt

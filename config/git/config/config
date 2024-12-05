@@ -25,18 +25,21 @@
 	hyperlinks-commit-link-format = ""
 	hyperlinks-file-link-format = vscode://{{os_status wsl && echo vscode-remote/wsl+Ubuntu || echo file}}/{path}:{line}
 [delta "merge-conflicts"]
-	merge-conflict-ours-diff-header-style = cyan
-	merge-conflict-ours-diff-header-decoration-style = cyan box
-	merge-conflict-theirs-diff-header-style = magenta
-	merge-conflict-theirs-diff-header-decoration-style = magenta box
+	merge-conflict-begin-symbol = <
+	merge-conflict-end-symbol = >
+	merge-conflict-ours-diff-header-style = brightblack ul
+	merge-conflict-ours-diff-header-decoration-style = omit
+	merge-conflict-theirs-diff-header-style = brightblack ul
+	merge-conflict-theirs-diff-header-decoration-style = omit
 [delta "section-styles"]
-	commit-decoration-style = yellow ul ol
-	file-decoration-style = blue box ul
+	commit-decoration-style = yellow ul
 	hunk-label = ""
-	hunk-header-style = syntax
+	hunk-header-style = brightblack
 	hunk-header-decoration-style = brightblack ul
 [delta "line-numbers"]
 	line-numbers = true
+	line-numbers-left-style = brightblack
+	line-numbers-right-style = brightblack
 	line-numbers-minus-style = red
 	line-numbers-plus-style = green
 	line-numbers-zero-style = brightblack
