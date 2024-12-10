@@ -1,3 +1,7 @@
+# Environment variables
+.env
+.env.*
+
 # macOS folder attributes
 .DS_Store
 
