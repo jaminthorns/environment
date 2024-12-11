@@ -33,6 +33,7 @@
   "diffEditor.renderIndicators": false,
   "diffEditor.experimental.showMoves": true,
 
+  "scm.inputFontFamily": "editor",
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
 
   "files.trimTrailingWhitespace": true,
