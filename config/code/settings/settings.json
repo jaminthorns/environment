@@ -21,6 +21,7 @@
   "workbench.settings.editor": "json",
   "workbench.editor.empty.hint": "hidden",
   "workbench.layoutControl.enabled": false,
+  "workbench.navigationControl.enabled": false,
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
 
@@ -48,6 +49,7 @@
   "extensions.ignoreRecommendations": true,
 
   "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontLigatures": true,
   "terminal.integrated.tabs.title": "${sequence}",
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.scrollback": 10000,
