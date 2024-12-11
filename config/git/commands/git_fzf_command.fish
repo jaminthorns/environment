@@ -42,7 +42,7 @@ end
 begin
     argparse "flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
 
-    set variable_expect ctrl-b
+    set variable_expect alt-v
     set fzf_command "fzf --expect=$variable_expect $_flag_flags"
 
     for bind in $_flag_bind
@@ -82,7 +82,7 @@ begin
 
     if set -q _flag_summary_command
         set fzf_summary_command (external_command $_flag_summary_command $_flag_main_view_name)
-        set -a fzf_command "--bind=\"ctrl-space:execute($fzf_summary_command)\""
+        set -a fzf_command "--bind=\"alt-space:execute($fzf_summary_command)\""
     end
 
     set output (eval $_flag_list_command | eval $fzf_command)

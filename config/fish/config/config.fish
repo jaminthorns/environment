@@ -61,8 +61,9 @@ if status is-interactive
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,spinner:green,prompt:green,border:blue,scrollbar:bright-black,preview-scrollbar:bright-black,header:bright-black"
     set -gx FZF_DEFAULT_OPTS --reverse --no-info --no-separator --highlight-line --preview-window=border-left \
         --bind="esc:cancel" \
-        --bind="ctrl-a:select-all" \
-        --bind="ctrl-p:toggle-preview" \
+        --bind="alt-p:toggle-preview" \
+        --bind="alt-up:first" \
+        --bind="alt-down:last" \
         --pointer=(string escape " ") \
         --prompt=(string escape $fzf_prompt) \
         --ellipsis=(string escape "…") \

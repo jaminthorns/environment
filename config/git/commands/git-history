@@ -50,7 +50,7 @@ source (status dirname)/git_fzf_command.fish \
     --list-command $list_command \
     --items-command "awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
     --view-command "git show --color --decorate --diff-merges=$diff_merges $_flag_show_options \\\$items $view_paths" \
-    --bind="\"ctrl-g:execute-silent(toggle $list_toggles graph)+reload($list_command_reload)\"" \
-    --bind="\"ctrl-s:execute-silent(toggle $list_toggles source)+reload($list_command_reload)\""
+    --bind="\"alt-g:execute-silent(toggle $list_toggles graph)+reload($list_command_reload)\"" \
+    --bind="\"alt-s:execute-silent(toggle $list_toggles source)+reload($list_command_reload)\""
 
 delete_toggles $list_toggles

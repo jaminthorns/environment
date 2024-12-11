@@ -57,7 +57,7 @@ map <c-end> bottom
 map <tab> :toggle; down
 map <backtab> :toggle; up
 map <esc> :unselect; clear
-map <c-a> :unselect; invert
+map <c-a> glob-select *
 map <c-c> copy
 map <c-x> cut
 map <c-v>f paste
