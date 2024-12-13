@@ -40,7 +40,7 @@ if OS.mac?
 
   # Dependencies for compiled asdf programs
   brew "erlang", args: ["only-dependencies"]
-  brew "postgresql@14", args: ["only-dependencies"]
+  brew "postgresql@17", args: ["only-dependencies"]
 end
 
 {{read_local Brewfile}}
