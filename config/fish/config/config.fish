@@ -57,24 +57,23 @@ if status is-interactive
     end
 
     # Configure fzf
-    set -l fzf_prompt "▶ "
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,spinner:green,prompt:green,border:blue,scrollbar:bright-black,preview-scrollbar:bright-black,header:bright-black"
-    set -gx FZF_DEFAULT_OPTS --reverse --no-info --no-separator --highlight-line --preview-window=border-left \
+    set -gx FZF_DEFAULT_OPTS --reverse --no-info --no-separator --highlight-line --preview-window=border-left --scrollbar=▐ \
         --bind="esc:cancel" \
         --bind="alt-p:toggle-preview" \
         --bind="alt-up:first" \
         --bind="alt-down:last" \
         --pointer=(string escape " ") \
-        --prompt=(string escape $fzf_prompt) \
+        --prompt=(string escape "▶ ") \
         --ellipsis=(string escape "…") \
         --color=$fzf_colors
 
     # Configure fzf.fish
     set -g fzf_history_time_format "%F %r"
-    set -g fzf_directory_opts --prompt="Files $fzf_prompt" --bind="alt-enter:replace-query"
-    set -g fzf_history_opts --prompt="History $fzf_prompt" --preview-window=border-top
-    set -g fzf_variables_opts --prompt="Variables $fzf_prompt"
-    set -g fzf_processes_opts --prompt="Processes $fzf_prompt" --preview-window=border-top
+    set -g fzf_directory_opts --prompt=(render_prompt Files) --bind="alt-enter:replace-query"
+    set -g fzf_history_opts --prompt=(render_prompt History) --preview-window=border-top
+    set -g fzf_variables_opts --prompt=(render_prompt Variables)
+    set -g fzf_processes_opts --prompt=(render_prompt Processes) --preview-window=border-top
     set -g fzf_fd_opts --unrestricted --exclude=.git
     set -l fzf_preview_cmd "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES"
     set -gx fzf_preview_dir_cmd $fzf_preview_cmd

@@ -78,6 +78,7 @@ map ir image-resize
 map cw copy-working-path
 map cp copy-selected-paths
 map cf copy-selected-filenames
+map <c-t> jump
 map r reveal-in-system-file-manager
 
 cmd paste-links %{{
@@ -153,6 +154,20 @@ cmd copy-selected-paths %{{
 cmd copy-selected-filenames %{{
   echo -n "$(path basename $fx)" | fish_clipboard_copy 2>/dev/null
   printf "selected filenames copied to clipboard"
+}}
+
+cmd jump ${{
+  set fd_cmd fd
+  set prompt (render_prompt Jump)
+  set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
+
+  if test $lf_hidden = true
+    set -a fd_cmd --hidden
+  end
+
+  if set path ($fd_cmd --color=always --base-directory=$PWD . | fzf --ansi --prompt=$prompt --preview=$preview | string escape)
+    lf -remote "send $id select $path"
+  end
 }}
 
 cmd reveal-in-system-file-manager &{{
