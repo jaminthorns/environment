@@ -25,6 +25,8 @@
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
 
+  "chat.commandCenter.enabled": false,
+
   "breadcrumbs.enabled": false,
 
   "security.workspace.trust.banner": "never",
