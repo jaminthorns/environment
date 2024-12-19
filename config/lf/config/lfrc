@@ -7,6 +7,7 @@ set info time
 set incsearch true
 set incfilter true
 set sortby time
+set ratios 2:4:3
 set shell fish
 set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)"
 set ifs
@@ -78,8 +79,10 @@ map ir image-resize
 map cw copy-working-path
 map cp copy-selected-paths
 map cf copy-selected-filenames
-map <c-t> jump
 map r reveal-in-system-file-manager
+map <c-t> jump
+map <a-b> jump-prev
+map <a-f> jump-next
 
 cmd paste-links %{{
   set load (cat $HOME/.local/share/lf/files)
