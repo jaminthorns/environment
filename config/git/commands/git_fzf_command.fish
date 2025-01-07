@@ -36,7 +36,7 @@ function external_command -a command main_view_name
 
             $command
         end | delta
-    end >/dev/tty"
+    end"
 end
 
 begin
