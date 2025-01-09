@@ -32,10 +32,10 @@
 	merge-conflict-theirs-diff-header-style = brightblack ul
 	merge-conflict-theirs-diff-header-decoration-style = omit
 [delta "section-styles"]
-	commit-decoration-style = yellow ul
+	file-decoration-style = omit
 	hunk-label = ""
-	hunk-header-style = brightblack
-	hunk-header-decoration-style = brightblack ul
+	hunk-header-style = ul brightblack
+	hunk-header-decoration-style = omit
 [delta "line-numbers"]
 	line-numbers = true
 	line-numbers-left-style = brightblack
