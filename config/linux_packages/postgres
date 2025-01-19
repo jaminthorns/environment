@@ -1,8 +1,11 @@
+bison
 build-essential
+flex
 icu-devtools
 libcurl4-openssl-dev
 libicu-dev
 libreadline-dev
 libssl-dev
+pkgconf
 uuid-dev
 zlib1g-dev
