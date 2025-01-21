@@ -64,9 +64,11 @@ if status is-interactive
         --bind="alt-p:toggle-preview" \
         --bind="alt-up:first" \
         --bind="alt-down:last" \
-        --pointer=(string escape " ") \
         --prompt=(string escape "▶ ") \
-        --ellipsis=(string escape "…") \
+        --pointer="" \
+        --marker="▌" \
+        --marker-multi-line="▌▌▌" \
+        --ellipsis="…" \
         --color=$fzf_colors
 
     # Configure fzf.fish

@@ -43,7 +43,7 @@ end"
 set list_command_reload (string replace -a '$' '\$' $list_command | string collect)
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--read0 --ansi --multi --track --scheme=history --marker-multi-line='┃  '" \
+    --flags "--read0 --ansi --multi --track --scheme=history" \
     --main-view-name history \
     --items-variable commits \
     --no-items-message "No commit selected." \
