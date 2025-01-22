@@ -92,7 +92,6 @@
 [alias]
 	me = config --get user.email
 	cb = branch --show-current
-	mend = commit --amend --no-edit
 	force-push = push --force-with-lease --force-if-includes
 	message = log --max-count=1 --format='%B'
 	graph = log --graph --format=compact
