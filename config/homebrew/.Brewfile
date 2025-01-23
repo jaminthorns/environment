@@ -2,6 +2,7 @@ brew "asdf"
 brew "bat"
 brew "bottom"
 brew "chafa"
+brew "cloudflared"
 brew "diffutils"
 brew "dua-cli"
 brew "exiftool"
@@ -35,7 +36,6 @@ if OS.mac?
   cask "font-jetbrains-mono"
   cask "font-symbols-only-nerd-font"
   cask "hammerspoon"
-  cask "ngrok"
   cask "wezterm"
 
   # Dependencies for compiled asdf programs
