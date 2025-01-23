@@ -39,7 +39,7 @@ if OS.mac?
   cask "wezterm"
 
   # Dependencies for compiled asdf programs
-  brew "erlang", args: ["only-dependencies"]
+  brew "erlang@27", args: ["only-dependencies"]
   brew "postgresql@17", args: ["only-dependencies"]
 end
 
