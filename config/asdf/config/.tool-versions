@@ -1,5 +1,5 @@
-elixir 1.17.3
-erlang 27.1.2
+elixir 1.18.2
+erlang 27.2.1
 nodejs 22.2.0
 postgres 17.2
 rust 1.84.0
