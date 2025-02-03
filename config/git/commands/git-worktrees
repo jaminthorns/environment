@@ -5,7 +5,7 @@ argparse --ignore-unknown "s/status-options=" -- $argv
 set args (string escape -- $argv)
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--ansi --multi" \
+    --flags "--ansi --multi --scheme=path" \
     --main-view-name worktrees \
     --items-variable worktrees \
     --no-items-message "No worktree selected." \

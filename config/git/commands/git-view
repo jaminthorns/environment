@@ -11,7 +11,7 @@ if test (count $header) -eq 0
 end
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--ansi --multi" \
+    --flags "--ansi --multi --scheme=path" \
     --header $header \
     --main-view-name changes \
     --items-variable files \
