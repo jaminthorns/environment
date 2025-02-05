@@ -67,9 +67,24 @@ defmodule IExUtils do
     {time, _} = :timer.tc(fun)
     time / 1_000_000
   end
+
+  def investigate_query(query, repo, opts \\ []) do
+    timestamp = DateTime.to_unix(DateTime.utc_now())
+    query_path = "#{System.tmp_dir!()}/query_#{timestamp}.sql"
+    plan_path = "#{System.tmp_dir!()}/plan_#{timestamp}.plan"
+
+    {sql, _params} = repo.to_sql(:all, query)
+    plan = repo.explain(:all, query, opts)
+
+    File.write!(query_path, sql)
+    File.write!(plan_path, plan)
+
+    System.cmd("code", [query_path])
+    System.cmd("code", [plan_path])
+  end
 end
 
-import IExUtils, only: [copy: 1, paste: 0, code: 1, time: 1, time: 2]
+import IExUtils
 
 IEx.configure(
   default_prompt: IExUtils.prompt(false),
