@@ -51,7 +51,7 @@
   "extensions.ignoreRecommendations": true,
 
   "terminal.integrated.fontSize": 12,
-  "terminal.integrated.fontLigatures": true,
+  "terminal.integrated.fontLigatures.enabled": true,
   "terminal.integrated.tabs.title": "${sequence}",
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.scrollback": 10000,
