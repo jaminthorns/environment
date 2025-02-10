@@ -4,6 +4,10 @@ else
     set commit (git rev-parse HEAD)
 end
 
+if not test -z (git status --porcelain | string collect)
+    set should_stash
+end
+
 switch $argv[1]
     case fixup
         set stash_opts --keep-index
@@ -15,7 +19,13 @@ switch $argv[1]
         set fixup_value reword:$commit
 end
 
-git stash $stash_opts
+if set -q should_stash
+    git stash $stash_opts
+end
+
 git commit --fixup=$fixup_value
 git rebase --autosquash $commit~
-git stash pop
+
+if set -q should_stash
+    git stash pop
+end
