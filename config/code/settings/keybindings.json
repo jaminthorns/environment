@@ -7,10 +7,11 @@
 
   // Code navigation
   { "key": "ctrl+]", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus" },
-  { "key": "ctrl+shift+[", "command": "editor.action.goToImplementation", "when": "editorHasImplementationProvider && editorTextFocus" },
-  { "key": "ctrl+shift+alt+[", "command": "references-view.findImplementations", "when": "editorHasImplementationProvider && editorTextFocus" },
+  { "key": "ctrl+shift+]", "command": "editor.action.revealDeclaration", "when": "editorHasDefinitionProvider && editorTextFocus" },
   { "key": "ctrl+[", "command": "editor.action.goToReferences", "when": "editorHasReferenceProvider && editorTextFocus" },
   { "key": "ctrl+alt+[", "command": "references-view.findReferences", "when": "editorHasReferenceProvider && editorTextFocus" },
+  { "key": "ctrl+shift+[", "command": "editor.action.goToImplementation", "when": "editorHasImplementationProvider && editorTextFocus" },
+  { "key": "ctrl+shift+alt+[", "command": "references-view.findImplementations", "when": "editorHasImplementationProvider && editorTextFocus" },
 
   // Maximizing
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizeEditorGroup", "when": "editorPartMultipleEditorGroups" },
