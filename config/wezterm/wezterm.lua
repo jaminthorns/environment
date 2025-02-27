@@ -103,6 +103,10 @@ local config = {
     { key = "RightArrow", mods = "ALT",            action = action.SendString("\x1bf") },
     { key = "Delete",     mods = "ALT",            action = action.SendString("\x1bd") },
 
+    -- Previous command navigation
+    { key = "UpArrow",    mods = "CTRL|SHIFT",     action = action.ScrollToPrompt(-1) },
+    { key = "DownArrow",  mods = "CTRL|SHIFT",     action = action.ScrollToPrompt(1) },
+
     -- Disable fullscreen shortcut
     { key = "Enter",      mods = "ALT",            action = action.SendKey({ key = "Enter", mods = "ALT" }) },
   },

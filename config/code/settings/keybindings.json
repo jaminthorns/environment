@@ -30,6 +30,10 @@
   { "key": "{{command_key}}+down", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;5F" }, "when": "terminalFocus" },
   { "key": "alt+backspace", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b\u007f" }, "when": "terminalFocus" },
 
+  // Terminal (previous command navigation)
+  { "key": "ctrl+shift+up", "command": "workbench.action.terminal.scrollToPreviousCommand", "when": "terminalFocus" },
+  { "key": "ctrl+shift+down", "command": "workbench.action.terminal.scrollToNextCommand", "when": "terminalFocus" },
+
   // Terminal (print file path)
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "'${relativeFile}'" }, "when": "!isWindows && terminalFocus" },
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "(wslpath '${relativeFile}')" }, "when": "isWindows && terminalFocus" },
