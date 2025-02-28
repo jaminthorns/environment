@@ -15,7 +15,7 @@ set truncatechar …
 set hiddenfiles ".*:desktop.ini"
 set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
 set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0;30m"
-set statfmt "\033[30m\033[40;90m %S, %t| ╱ \033[36m→ %l| \033[0;30m"
+set statfmt "\033[30m\033[40;90m %p ╱ %S ╱ %t | ╱ \033[36m→ %l| \033[0;30m"
 set rulerfmt "\033[30m\033[40m |\033[31m%m cut\033[90m ╱ |\033[33m%c copied\033[90m ╱ |\033[35m%s selected\033[90m ╱ |\033[32m%p\033[90m ╱ |\033[32m\"%f\"\033[90m ╱ |\033[37;1m%i\033[90m/%t \033[0;30m"
 set cursoractivefmt "\033[48;2;68;71;90m" # Selection color
 set cursorparentfmt "\033[48;2;48;51;65m" # Selection color blended 30% with background color
