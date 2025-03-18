@@ -15,7 +15,7 @@ test -x $brew || bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebre
 eval $($brew shellenv)
 
 # Install Homebrew packages
-read_config config/homebrew/.Brewfile | brew bundle --no-lock --file=-
+read_config config/homebrew/.Brewfile | brew bundle --file=-
 
 # Initialize asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
