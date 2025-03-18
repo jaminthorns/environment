@@ -39,9 +39,19 @@ if OS.mac?
   cask "hammerspoon"
   cask "wezterm"
 
-  # Dependencies for compiled asdf programs
-  brew "erlang@27", args: ["only-dependencies"]
-  brew "postgresql@17", args: ["only-dependencies"]
+  # Dependencies for asdf Erlang (https://github.com/asdf-vm/asdf-erlang)
+  brew "autoconf"
+  brew "openssl"
+  brew "wxwidgets"
+
+  # Dependencies for asdf Postgres (https://github.com/smashedtoatoms/asdf-postgres)
+  brew "curl"
+  brew "gcc"
+  brew "icu4c"
+  brew "ossp-uuid"
+  brew "pkg-config"
+  brew "readline"
+  brew "zlib"
 end
 
 {{read_local Brewfile}}
