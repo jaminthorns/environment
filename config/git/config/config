@@ -48,10 +48,10 @@
 	minus-style = minus-emph-style
 	plus-style = plus-emph-style
 [delta "dracula-colors"]
-	minus-emph-style = syntax "#80363E"
-	minus-non-emph-style = syntax "#61303A"
-	plus-emph-style = syntax "#2D583F"
-	plus-non-emph-style = syntax "#2A463B"
+	minus-emph-style = syntax "#5E353E" # Red blended 25% with background color
+	minus-non-emph-style = syntax "#3E2E39" # Red blended 10% with background color
+	plus-emph-style = syntax "#325E47" # Green blended 25% with background color
+	plus-non-emph-style = syntax "#2C3F3D" # Green blended 10% with background color
 	map-styles = "bold purple => syntax #404968, bold cyan => syntax #404968, bold blue => syntax #363C53, bold yellow => syntax #363C53"
 [branch]
 	sort = -committerdate
