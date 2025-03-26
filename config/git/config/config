@@ -18,6 +18,7 @@
 	features = hyperlinks merge-conflicts section-styles line-numbers consistent-diff-colors dracula-colors
 	navigate = true
 	paging = always
+	wrap-max-lines = unlimited
 [delta "navigate-commits"]
 	navigate-regex = "^commit"
 [delta "hyperlinks"]
