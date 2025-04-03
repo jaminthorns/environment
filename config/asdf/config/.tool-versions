@@ -1,5 +1,6 @@
 elixir 1.18.2
 erlang 27.2.1
+golang 1.24.2
 nodejs 22.2.0
 postgres 17.2
 rust 1.84.0
