@@ -1,4 +1,4 @@
-set -x separator \u001f
+set -x SEP \u001f
 
 function color_git_name_status -a pattern color_name
     set color (set_color $color_name)
@@ -11,8 +11,8 @@ end
 function format_git_name_status
     sed -E \
         -e "s/R[0-9]+/R/" \
-        -e "s/\t/ $separator/" \
-        -e "s/\t/$separator $(set_color blue)⟶$(set_color reset) $separator/" \
+        -e "s/\t/ $SEP/" \
+        -e "s/\t/$SEP $(set_color blue)⟶$(set_color reset) $SEP/" \
         (color_git_name_status A green) \
         (color_git_name_status D red) \
         (color_git_name_status M yellow) \

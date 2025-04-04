@@ -35,6 +35,6 @@ source (status dirname)/git_fzf_command.fish \
     --items-variable files \
     --no-items-message "No file selected." \
     --list-command "git diff --name-status $args $paths | format_git_name_status" \
-    --items-command "cut -d \$separator -f 2,4 | string split \$separator" \
+    --items-command "cut -d \$SEP -f 2,4 | string split \$SEP" \
     --view-command "git -C (git rev-parse --show-toplevel) diff $args -- \\\$items" \
     --summary-command $summary_command
