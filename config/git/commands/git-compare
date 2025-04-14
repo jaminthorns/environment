@@ -10,6 +10,10 @@ if test (count $header) -eq 0
     set header "No changes"
 end
 
+if test (git diff --name-only --diff-filter=U | count) -gt 0
+    set unmerged_filter --diff-filter=U
+end
+
 set first_arg (string match -e -v -r "^-" -- $args)
 
 function dots_regex -a count
@@ -36,7 +40,7 @@ source (status dirname)/git_fzf_command.fish \
     --main-view-name changes \
     --items-variable files \
     --no-items-message "No file selected." \
-    --list-command "git diff --name-status $args $paths | format_git_name_status" \
+    --list-command "git diff --name-status $unmerged_filter $args $paths | format_git_name_status" \
     --items-command "cut -d \$SEP -f 2,4 | string split \$SEP" \
     --view-command "git -C (git rev-parse --show-toplevel) diff $args -- \\\$items" \
     --summary-command $summary_command
