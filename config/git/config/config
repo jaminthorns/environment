@@ -21,6 +21,10 @@
 	wrap-max-lines = unlimited
 [delta "navigate-commits"]
 	navigate-regex = "^commit"
+[delta "navigate-files"]
+	navigate-regex = "^(added:|removed:|renamed:|modified:)"
+[delta "navigate-changes"]
+	navigate-regex = "^Δ"
 [delta "hyperlinks"]
 	hyperlinks = true
 	hyperlinks-commit-link-format = ""
@@ -33,9 +37,12 @@
 	merge-conflict-theirs-diff-header-style = brightblack ul
 	merge-conflict-theirs-diff-header-decoration-style = omit
 [delta "section-styles"]
+	file-modified-label = modified:
 	file-decoration-style = omit
-	hunk-label = ""
-	hunk-header-style = ul brightblack
+	hunk-label = Δ
+	hunk-header-file-style = magenta
+	hunk-header-line-number-style = magenta
+	hunk-header-style = line-number brightblack
 	hunk-header-decoration-style = omit
 [delta "line-numbers"]
 	line-numbers = true

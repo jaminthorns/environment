@@ -10,6 +10,8 @@ if test (count $header) -eq 0
     set header "No changes"
 end
 
+set -a DELTA_FEATURES navigate-changes
+
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi --scheme=path" \
     --header $header \

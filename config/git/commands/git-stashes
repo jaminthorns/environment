@@ -4,6 +4,8 @@ argparse --ignore-unknown "s/show-options=" -- $argv
 
 set args (string escape -- $argv)
 
+set -a DELTA_FEATURES navigate-files
+
 source (status dirname)/git_fzf_command.fish \
     --flags --multi \
     --main-view-name stashes \

@@ -28,6 +28,8 @@ else
     set summary_command "echo 'Could not determine a commit range (use $highlight<commit>..<commit>$reset or $highlight<commit>...<commit>$reset syntax).' | less"
 end
 
+set -a DELTA_FEATURES navigate-changes
+
 source (status dirname)/git_fzf_command.fish \
     --flags "--ansi --multi" \
     --header $header \
