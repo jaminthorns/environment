@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
 set branch $argv[1]
-set -a LESS --pattern=TODO
+set -x DELTA_PAGER less --jump-target=.5 --pattern=TODO
 
 git diff $branch...
