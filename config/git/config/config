@@ -75,7 +75,7 @@
 	colorMovedWS = allow-indentation-change
 [log]
 	date = "format-local:%F %r"
-	diffMerges = remerge
+	diffMerges = dense-combined
 [blame]
 	coloring = highlightRecent
 [difftool "code"]
