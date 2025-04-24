@@ -10,7 +10,7 @@ if test (count $header) -eq 0
     set header "No changes"
 end
 
-if test (git diff --name-only --diff-filter=U | count) -gt 0
+if test (git diff --name-only --diff-filter=U $argv -- $_flag_path | count) -gt 0
     set unmerged_filter --diff-filter=U
 end
 
