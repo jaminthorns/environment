@@ -75,8 +75,8 @@
 
   "gitterm.showDefault.revision": "terminal",
   "gitterm.terminalLinks.provideFileLinks": "withRevisionContext",
-  "gitterm.gitCommands.showRevision": "git view -m ${revision}",
-  "gitterm.gitCommands.folderHistory": "git history ${revision} -p '${folder}'",
+  "gitterm.gitCommands.showRevision": "git view --diff-merges=on ${revision}",
+  "gitterm.gitCommands.folderHistory": "git history ${revision} --path '${folder}'",
   "gitterm.gitCommands.fileHistory": "git history ${reverseFlags} ${revision} -f '${filename}'",
   "gitterm.gitCommands.lineHistory": "DELTA_FEATURES=\"$DELTA_FEATURES navigate-commits\" git log ${revision} ${fileLineRanges}",
   "gitterm.gitCommands.revisionHistory": "git history ${reverseFlags} ${revision}",

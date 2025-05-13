@@ -3,7 +3,6 @@
 argparse --ignore-unknown graph source "p/path=+" "f/file=" "s/show-options=" -- $argv
 
 set args (string escape -- $argv)
-set diff_merges (git config get log.diffMerges)
 
 if set -q _flag_path
     set show_paths -- (string escape $_flag_path)
@@ -51,7 +50,7 @@ source (status dirname)/git_fzf_command.fish \
     --no-items-message "No commit selected." \
     --list-command $list_command \
     --items-command "awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
-    --view-command "git show --color --decorate --diff-merges=$diff_merges $_flag_show_options \\\$items $view_paths" \
+    --view-command "git show --color --decorate --diff-merges=on $_flag_show_options \\\$items $view_paths" \
     --bind="\"alt-g:execute-silent(toggle $list_toggles graph)+reload($list_command_reload)\"" \
     --bind="\"alt-s:execute-silent(toggle $list_toggles source)+reload($list_command_reload)\""
 
