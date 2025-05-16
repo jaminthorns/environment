@@ -7,6 +7,15 @@
     "prefix": "ins",
     "body": ["IO.inspect($1, label: \"$2\")"]
   },
+  "Time some code": {
+    "prefix": "time",
+    "body": [
+      "fn -> $1 end",
+      "|> :timer.tc()",
+      "|> tap(fn {ms, _} -> IO.inspect(ms, label: \"$2\") end)",
+      "|> elem(1)"
+    ]
+  },
   "(Piped) Inspect a value": {
     "prefix": "pins",
     "body": ["IO.inspect(label: \"$1\")"]
@@ -18,5 +27,5 @@
   "(Piped) `then/2`": {
     "prefix": "then",
     "body": ["then(fn $1 -> $2 end)"]
-  },
+  }
 }

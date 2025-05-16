@@ -4,7 +4,7 @@
     "prefix": "log",
     "body": ["console.log('$1', $2)"]
   },
-  "Time a section of code": {
+  "Time some code": {
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": "time",
     "body": ["console.time('$1')", "console.timeEnd('$1')"]
