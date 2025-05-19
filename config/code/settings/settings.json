@@ -73,7 +73,6 @@
   "errorLens.messageBackgroundMode": "message",
   "errorLens.padding": "0 1ch",
 
-  "gitterm.showDefault.revision": "terminal",
   "gitterm.terminalLinks.provideFileLinks": "withRevisionContext",
   "gitterm.gitCommands.showRevision": "git view --diff-merges=on ${revision}",
   "gitterm.gitCommands.folderHistory": "git history ${revision} --path '${folder}'",
