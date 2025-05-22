@@ -5,7 +5,6 @@ bierner.markdown-mermaid
 bmalehorn.vscode-fish
 chrisjaustin.postgres-plan
 dbaeumer.vscode-eslint
-docker.docker
 dotjoshjohnson.xml
 dracula-theme.theme-dracula
 earshinov.permute-lines
@@ -21,8 +20,9 @@ jaminthorns.gitterm
 mark-wiemer.vscode-autohotkey-plus-plus
 mitchdenny.ecdc
 mrorz.language-gettext
-ms-azuretools.vscode-docker
+ms-azuretools.vscode-containers
 ms-sarifvscode.sarif-viewer
+ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-wsl
 ms-vsliveshare.vsliveshare
 phoenixframework.phoenix
