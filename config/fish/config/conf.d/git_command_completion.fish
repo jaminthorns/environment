@@ -1,6 +1,8 @@
 # Completion for custom Git commands.
 
-complete -c git-todo -k -a "(__fish_git_refs)"
+complete -c git-todo -k -n "__fish_is_first_arg" -a "(__fish_git_refs)"
+
+complete -c git-sprout -k -n "__fish_is_first_arg" -a "(__fish_git_refs)"
 
 complete -c git-branches -w "git branch"
 complete -c git-branches -s l -l log-options -d "Options for the 'git log' view"
