@@ -71,6 +71,7 @@
 	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [diff]
 	tool = code
+	algorithm = histogram
 	colorMoved = default
 	colorMovedWS = allow-indentation-change
 [log]
@@ -84,6 +85,8 @@
 	prune = true
 [pull]
 	rebase = false
+[push]
+	autoSetupRemote = true
 [rebase]
 	instructionFormat = format:%s (%cr) <%an>
 [rerere]
@@ -104,4 +107,3 @@
 	message = log --max-count=1 --format='%B'
 	graph = log --graph --format=compact
 	graph-source = log --graph --format=compact-source
-	publish = "! f() { git push --set-upstream ${1:-origin} $(git branch --show-current); }; f"
