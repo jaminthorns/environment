@@ -66,6 +66,7 @@
 	cleanup = scissors
 [merge]
 	tool = code
+	autoStash = true
 	conflictStyle = zdiff3
 [mergetool "code"]
 	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
@@ -88,7 +89,13 @@
 [push]
 	autoSetupRemote = true
 [rebase]
+	autoStash = true
+	autoSquash = true
 	instructionFormat = format:%s (%cr) <%an>
+[stash]
+	showIncludeUntracked = true
+	showPatch = true
+	showStat = false
 [rerere]
 	enabled = true
 [sequence]

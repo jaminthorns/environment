@@ -1,3 +1,10 @@
 #!/usr/bin/env fish
 
-source (status dirname)/git_fixup.fish amend $argv
+if set -q argv[1]
+    set commit (git rev-parse $argv[1])
+else
+    set commit (git rev-parse HEAD)
+end
+
+git commit --fixup=amend:$commit
+git rebase --autostash --autosquash $commit~
