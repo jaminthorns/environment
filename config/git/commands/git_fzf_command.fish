@@ -20,7 +20,7 @@ function format_git_name_status
         (color_git_name_status U magenta)
 end
 
-function external_command -a command main_view_name
+function external_command -a command main_view_name delta_flags
     string collect "
     begin
         set -gx DELTA_PAGER less --header=1 --jump-target=2
@@ -35,12 +35,12 @@ function external_command -a command main_view_name
             set_color normal
 
             $command
-        end | delta
+        end | delta $delta_flags
     end"
 end
 
 begin
-    argparse "flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
+    argparse "flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "hyperlink-format=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect alt-v
     set fzf_command "fzf --expect=$variable_expect $_flag_flags"
@@ -63,10 +63,14 @@ begin
         set no_items_message "No items selected."
     end
 
+    if set -q _flag_hyperlink_format
+        set hyperlink_format_flag "--hyperlinks-file-link-format=$_flag_hyperlink_format"
+    end
+
+    set fzf_items_command "set -gx items (echo {} | $_flag_items_command)"
+
     set fzf_content_command "
     begin
-        set items (echo {} | $_flag_items_command)
-
         if test (count \\\$items) -eq 0
             set_color brblack && echo '$no_items_message' | less
         else
@@ -74,10 +78,10 @@ begin
         end
     end"
 
-    set fzf_preview_command "$fzf_content_command | delta --width \\\$FZF_PREVIEW_COLUMNS"
+    set fzf_preview_command "$fzf_items_command; $fzf_content_command | delta --width=\\\$FZF_PREVIEW_COLUMNS $hyperlink_format_flag"
     set -a fzf_command "--preview=\"$fzf_preview_command\""
 
-    set fzf_view_command (external_command $fzf_content_command $_flag_main_view_name)
+    set fzf_view_command "$fzf_items_command; $(external_command $fzf_content_command $_flag_main_view_name $hyperlink_format_flag)"
     set -a fzf_command "--bind=\"alt-enter:execute($fzf_view_command)\""
 
     if set -q _flag_summary_command

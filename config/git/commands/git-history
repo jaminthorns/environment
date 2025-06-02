@@ -48,6 +48,7 @@ source (status dirname)/git_fzf_command.fish \
     --main-view-name history \
     --items-variable commits \
     --no-items-message "No commit selected." \
+    --hyperlink-format "vscode://jaminthorns.gitterm/\\\$items:{path}:{line}" \
     --list-command $list_command \
     --items-command "awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
     --view-command "git show --color --decorate --diff-merges=on $_flag_show_options \\\$items $view_paths" \
