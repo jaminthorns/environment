@@ -5,10 +5,10 @@ argparse --ignore-unknown "l/log-options=" -- $argv
 set args (string escape -- $argv)
 
 source (status dirname)/git_fzf_command.fish \
-    --fzf-flags "--ansi --multi" \
-    --main-view-name branches \
-    --items-variable branches \
-    --no-items-message "No branch selected." \
-    --list-command "git branch --color $args" \
-    --items-command "sed -e 's/*//' -e 's/+//' -e 's/->//' | string split --no-empty ' '" \
-    --view-command "git log --format=comfy --color $_flag_log_options \\\$items"
+    --fzf-flags="--ansi --multi" \
+    --main-view-name=branches \
+    --items-variable=branches \
+    --no-items-message="No branch selected." \
+    --list-command="git branch --color $args" \
+    --items-command="sed -e 's/*//' -e 's/+//' -e 's/->//' | string split --no-empty ' '" \
+    --view-command="git log --format=comfy --color $_flag_log_options \\\$items"

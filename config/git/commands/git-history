@@ -21,7 +21,7 @@ else if set -q _flag_file
 end
 
 if set -q GITTERM_SEARCH
-    set pager_flags_flag --pager-flags "--jump-target=.5 --pattern=$(string escape $GITTERM_SEARCH)"
+    set pager_flags_flag --pager-flags="--jump-target=.5 --pattern=$(string escape $GITTERM_SEARCH)"
 end
 
 set list_toggles (create_toggles)
@@ -48,14 +48,14 @@ set list_command_reload (string replace -a '$' '\$' $list_command | string colle
 set -a DELTA_FEATURES navigate-files
 
 source (status dirname)/git_fzf_command.fish \
-    --fzf-flags "--read0 --ansi --multi --track --scheme=history" \
-    --main-view-name history \
-    --items-variable commits \
-    --no-items-message "No commit selected." \
-    --hyperlink-format "vscode://jaminthorns.gitterm/\\\$items:{path}:{line}" \
-    --list-command $list_command \
-    --items-command "awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
-    --view-command "git show --color --decorate --diff-merges=on $_flag_show_options \\\$items $view_paths" \
+    --fzf-flags="--read0 --ansi --multi --track --scheme=history" \
+    --main-view-name=history \
+    --items-variable=commits \
+    --no-items-message="No commit selected." \
+    --hyperlink-format="vscode://jaminthorns.gitterm/\\\$items:{path}:{line}" \
+    --list-command=$list_command \
+    --items-command="awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
+    --view-command="git show --color --decorate --diff-merges=on $_flag_show_options \\\$items $view_paths" \
     --bind="\"alt-g:execute-silent(toggle $list_toggles graph)+reload($list_command_reload)\"" \
     --bind="\"alt-s:execute-silent(toggle $list_toggles source)+reload($list_command_reload)\"" \
     $pager_flags_flag

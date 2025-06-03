@@ -6,10 +6,10 @@ set args (string escape -- $argv)
 set sep \u001f
 
 source (status dirname)/git_fzf_command.fish \
-    --fzf-flags "--ansi --multi --scheme=path" \
-    --main-view-name worktrees \
-    --items-variable worktrees \
-    --no-items-message "No worktree selected." \
-    --list-command "git worktree list --porcelain $args | string join $sep | string split $sep$sep | string match '*"$sep"HEAD*' | string match -g -r '^worktree (.*?)$sep'" \
-    --items-command cat \
-    --view-command "git -C \\\$items -c color.status=always status $_flag_status_options"
+    --fzf-flags="--ansi --multi --scheme=path" \
+    --main-view-name=worktrees \
+    --items-variable=worktrees \
+    --no-items-message="No worktree selected." \
+    --list-command="git worktree list --porcelain $args | string join $sep | string split $sep$sep | string match '*"$sep"HEAD*' | string match -g -r '^worktree (.*?)$sep'" \
+    --items-command=cat \
+    --view-command="git -C \\\$items -c color.status=always status $_flag_status_options"
