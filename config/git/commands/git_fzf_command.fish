@@ -20,14 +20,10 @@ function format_git_name_status
         (color_git_name_status U magenta)
 end
 
-function external_command -a command main_view_name delta_flags
+function external_command -a command main_view_name delta_pager_flags delta_flags
     string collect "
     begin
-        set -gx DELTA_PAGER less --header=1 --jump-target=2
-
-        for opt in \\\$GIT_FZF_PAGER_OPTS
-            set -a DELTA_PAGER \\\$opt
-        end
+        set -gx DELTA_PAGER less --header=1 --jump-target=2 $delta_pager_flags
 
         begin
             set_color --underline cyan
@@ -40,10 +36,10 @@ function external_command -a command main_view_name delta_flags
 end
 
 begin
-    argparse "flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "hyperlink-format=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
+    argparse "fzf-flags=" "pager-flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "hyperlink-format=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect alt-v
-    set fzf_command "fzf --expect=$variable_expect $_flag_flags"
+    set fzf_command "fzf --expect=$variable_expect $_flag_fzf_flags"
 
     for bind in $_flag_bind
         set -a fzf_command "--bind=$bind"
@@ -81,7 +77,7 @@ begin
     set fzf_preview_command "$fzf_items_command; $fzf_content_command | delta --width=\\\$FZF_PREVIEW_COLUMNS $hyperlink_format_flag"
     set -a fzf_command "--preview=\"$fzf_preview_command\""
 
-    set fzf_view_command "$fzf_items_command; $(external_command $fzf_content_command $_flag_main_view_name $hyperlink_format_flag)"
+    set fzf_view_command "$fzf_items_command; $(external_command $fzf_content_command $_flag_main_view_name "$_flag_pager_flags" "$hyperlink_format_flag")"
     set -a fzf_command "--bind=\"alt-enter:execute($fzf_view_command)\""
 
     if set -q _flag_summary_command

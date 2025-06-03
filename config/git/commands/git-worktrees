@@ -6,7 +6,7 @@ set args (string escape -- $argv)
 set sep \u001f
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--ansi --multi --scheme=path" \
+    --fzf-flags "--ansi --multi --scheme=path" \
     --main-view-name worktrees \
     --items-variable worktrees \
     --no-items-message "No worktree selected." \

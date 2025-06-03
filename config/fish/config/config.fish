@@ -46,11 +46,6 @@ if status is-interactive
     # Configure width breakpoint
     set -gx WIDTH_BREAKPOINT 120
 
-    # Configure Git fzf commands
-    if set -q GITTERM_SEARCH
-        set -gx GIT_FZF_PAGER_OPTS --jump-target=.5 --pattern=(string escape $GITTERM_SEARCH)
-    end
-
     # Configure lf
     if {{os_status wsl && echo true || echo false}}
         set -gx OPENER wslview

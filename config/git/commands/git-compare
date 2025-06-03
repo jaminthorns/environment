@@ -35,7 +35,7 @@ end
 set -a DELTA_FEATURES navigate-changes
 
 source (status dirname)/git_fzf_command.fish \
-    --flags "--ansi --multi" \
+    --fzf-flags "--ansi --multi" \
     --header $header \
     --main-view-name changes \
     --items-variable files \

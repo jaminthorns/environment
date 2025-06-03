@@ -7,7 +7,7 @@ set args (string escape -- $argv)
 set -a DELTA_FEATURES navigate-files
 
 source (status dirname)/git_fzf_command.fish \
-    --flags --multi \
+    --fzf-flags --multi \
     --main-view-name stashes \
     --items-variable stashes \
     --no-items-message "No stash selected." \
