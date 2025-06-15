@@ -13,6 +13,8 @@
   "editor.smoothScrolling": true,
   "editor.find.seedSearchStringFromSelection": "selection",
   "editor.inlayHints.enabled": "off",
+  "editor.selectionHighlight": false,
+  "editor.occurrencesHighlight": "off",
 
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": "single",
