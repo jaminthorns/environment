@@ -69,6 +69,8 @@
   "git.autofetch": "all",
   "git.openRepositoryInParentFolders": "never",
 
+  "liveshare.showInStatusBar": "never",
+
   "errorLens.removeLinebreaks": false,
   "errorLens.messageBackgroundMode": "message",
   "errorLens.padding": "0 1ch",
@@ -84,11 +86,14 @@
   "githubPullRequests.pullBranch": "never",
 
   "projectManager.sortList": "Recent",
+  "projectManager.showProjectNameInStatusBar": false,
 
   "rest-client.previewResponsePanelTakeFocus": false,
   "rest-client.requestNameAsResponseTabTitle": true,
 
   "elixirLS.dialyzerEnabled": false,
+
+  "Lua.window.statusBar": false,
 
   "SQL-Formatter-VSCode.dialect": "postgresql",
   "SQL-Formatter-VSCode.keywordCase": "upper",
