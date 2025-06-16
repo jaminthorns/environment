@@ -86,6 +86,10 @@
   "gitterm.gitCommands.revisionDiff": "git compare ${fromRevision} ${toRevision}",
   "gitterm.gitCommands.stringSearch": "git history ${revision} ${searches}",
 
+  "github.copilot.enable": {
+    "*": false
+  },
+
   "githubPullRequests.pullBranch": "never",
 
   "projectManager.sortList": "Recent",
