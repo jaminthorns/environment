@@ -83,6 +83,8 @@
   "gitterm.gitCommands.fileHistory": "git history ${reverseFlags} ${revision} -f '${filename}'",
   "gitterm.gitCommands.lineHistory": "DELTA_FEATURES=\"$DELTA_FEATURES navigate-commits\" git log ${revision} ${fileLineRanges}",
   "gitterm.gitCommands.revisionHistory": "git history ${reverseFlags} ${revision}",
+  "gitterm.gitCommands.revisionRangeHistory": "git history ${revisionRange}",
+  "gitterm.gitCommands.revisionDiff": "git compare ${fromRevision} ${toRevision}",
   "gitterm.gitCommands.stringSearch": "git history ${revision} ${searches}",
 
   "githubPullRequests.pullBranch": "never",
