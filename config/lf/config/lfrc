@@ -1,12 +1,11 @@
 set mouse true
 set sixel true
-set sortby time
 set reverse true
 set dirfirst false
-set info time
 set incsearch true
 set incfilter true
-set sortby time
+set info ctime
+set sortby ctime
 set ratios 2:4:3
 set shell fish
 set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)"
@@ -44,10 +43,10 @@ map zh set hidden!
 map zr set reverse!
 map zn set info
 map zs set info size
-map zt set info time
-map za set info size:time
+map zt set info ctime
+map za set info size:ctime
 map sn :set sortby natural; set reverse false; set dirfirst true; set info
-map st :set sortby time; set reverse true; set dirfirst false; set info time
+map st :set sortby ctime; set reverse true; set dirfirst false; set info ctime
 map ss :set sortby size; set reverse true; set dirfirst false; set info size
 
 # macOS-like top/bottom navigation
