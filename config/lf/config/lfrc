@@ -32,7 +32,9 @@ map <m-down> down
 map <pgup> page-up
 map <pgdn> page-down
 map <home> top
+map <a-up> top
 map <end> bottom
+map <a-down> bottom
 map <left> updir
 map <right> open
 map <c-r> reload
