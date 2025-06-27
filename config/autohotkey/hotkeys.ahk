@@ -87,6 +87,7 @@ RWin::Return
 ; Tab control
 ^+#Left::Send ^+!{Left}
 ^+#Right::Send ^+!{Right}
+^+#n::Send ^+!{n}
 
 ; Backspace/Delete
 #Backspace::Send !{Backspace}

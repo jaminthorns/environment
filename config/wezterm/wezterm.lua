@@ -122,6 +122,15 @@ end
 
 if wsl then
   config.default_domain = "WSL:Ubuntu"
+
+  config.launch_menu = {
+    { label = "Linux", domain = 'DefaultDomain' },
+    { label = "Windows (PowerShell)", domain = { DomainName = "local" }, args = { "powershell.exe", "-NoLogo" } },
+  }
+
+  table.insert(config.keys,
+    { key = "n", mods = "CTRL|SHIFT|ALT", action = action.ShowLauncherArgs({ flags = "LAUNCH_MENU_ITEMS" }) }
+  )
 end
 
 return config
