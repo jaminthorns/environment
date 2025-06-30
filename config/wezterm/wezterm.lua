@@ -103,6 +103,9 @@ local config = {
     { key = "RightArrow", mods = "ALT",            action = action.SendString("\x1bf") },
     { key = "Delete",     mods = "ALT",            action = action.SendString("\x1bd") },
 
+    -- Searching
+    { key = "Enter",      mods = "SHIFT",          action = action.CopyMode("NextMatch") },
+
     -- Previous command navigation
     { key = "UpArrow",    mods = "CTRL|SHIFT",     action = action.ScrollToPrompt(-1) },
     { key = "DownArrow",  mods = "CTRL|SHIFT",     action = action.ScrollToPrompt(1) },
@@ -124,7 +127,7 @@ if wsl then
   config.default_domain = "WSL:Ubuntu"
 
   config.launch_menu = {
-    { label = "Linux", domain = 'DefaultDomain' },
+    { label = "Linux",                domain = "DefaultDomain" },
     { label = "Windows (PowerShell)", domain = { DomainName = "local" }, args = { "powershell.exe", "-NoLogo" } },
   }
 
