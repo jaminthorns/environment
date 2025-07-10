@@ -9,16 +9,13 @@ set paths $_flag_path
 set escaped_paths (string escape $paths)
 
 set header (git show --format= --shortstat $args -- $paths)
+set revision (git show --format=%H --no-patch $args)
 
 if test (count $header) -eq 0
     set header "No changes"
 end
 
 set -a DELTA_FEATURES navigate-changes
-
-if set -q GITTERM_REVISION
-    set hyperlink_format_flag --hyperlink-format="vscode://jaminthorns.gitterm/$GITTERM_REVISION:{path}:{line}"
-end
 
 function list_function -V args -V paths
     git show --format= --name-status $args -- $paths | format_git_name_status
@@ -32,8 +29,8 @@ source (status dirname)/git_fzf_command.fish \
     --main-view-name=changes \
     --items-variable=files \
     --no-items-message="No file selected." \
+    --hyperlink-format="vscode://jaminthorns.gitterm/$revision:{path}:{line}" \
     --list-function=list_function \
     --items-command="cut -d \$SEP -f 2,4 | string split \$SEP" \
     --view-command="git -C (git rev-parse --show-toplevel) show --format= $escaped_args -- \$items" \
-    --summary-command="git show --color --decorate --no-patch $escaped_args -- $escaped_paths" \
-    $hyperlink_format_flag
+    --summary-command="git show --color --decorate --no-patch $escaped_args -- $escaped_paths"
