@@ -2,15 +2,19 @@
 
 argparse --ignore-unknown "s/show-options=" -- $argv
 
-set args (string escape -- $argv)
+set args $argv
+
+function list_function -V args
+    git stash list $args
+end
 
 set -a DELTA_FEATURES navigate-files
 
 source (status dirname)/git_fzf_command.fish \
-    --fzf-flags=--multi \
+    --fzf-flag=--multi \
     --main-view-name=stashes \
     --items-variable=stashes \
     --no-items-message="No stash selected." \
-    --list-command="git stash list $args" \
+    --list-function=list_function \
     --items-command="cut -d ':' -f 1" \
-    --view-command="git show --color --decorate --diff-merges=first-parent $_flag_stash_show_options \\\$items"
+    --view-command="git show --color --decorate --diff-merges=first-parent $_flag_stash_show_options \$items"

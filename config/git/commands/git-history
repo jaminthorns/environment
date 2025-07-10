@@ -2,21 +2,21 @@
 
 argparse --ignore-unknown graph source "p/path=+" "f/file=" "s/show-options=" -- $argv
 
-set args (string escape -- $argv)
+set args $argv
 
 if set -q _flag_path
-    set show_paths -- (string escape $_flag_path)
-    set view_paths -- (string escape $_flag_path)
+    set show_paths $_flag_path
+    set view_paths (string escape $_flag_path)
 else if set -q _flag_file
-    set -x commit_filenames (string replace -a -r "\n\n" "\t" (git log $argv --follow --name-status --format="%H" -- $_flag_file | string collect) | string collect)
+    set -x commit_filenames (string replace -a -r "\n\n" "\t" (git log $args --follow --name-status --format="%H" -- $_flag_file | string collect) | string collect)
 
     if test (count $commit_filenames) -eq 0
         echo "fatal: no file history for '$_flag_file'" >&2
         exit 1
     else
         set list_options --follow
-        set show_paths -- (string escape $_flag_file)
-        set view_paths -- '\$(echo "\$commit_filenames" | grep \$items | cut -f 3- | string split \t)'
+        set show_paths $_flag_file
+        set view_paths "(echo \"\$commit_filenames\" | grep \$items | cut -f 3- | string split \t)"
     end
 end
 
@@ -28,8 +28,7 @@ set list_toggles (create_toggles)
 set -q _flag_graph && toggle $list_toggles graph
 set -q _flag_source && toggle $list_toggles source
 
-set list_command "
-begin
+function list_function -V list_toggles -V list_options -V args -V show_paths
     if enabled $list_toggles graph
         set graph_option --graph
     end
@@ -40,24 +39,28 @@ begin
         set format_option --format=comfy
     end
 
-    git log -z --color \$graph_option \$format_option $list_options $args $show_paths
-end"
+    git log -z --color $graph_option $format_option $list_options $args -- $show_paths
+end
 
-set list_command_reload (string replace -a '$' '\$' $list_command | string collect)
+set list_command "$(functions --no-details list_function); list_function"
 
 set -a DELTA_FEATURES navigate-files
 
 source (status dirname)/git_fzf_command.fish \
-    --fzf-flags="--read0 --ansi --multi --track --scheme=history" \
+    --fzf-flag=--read0 \
+    --fzf-flag=--ansi \
+    --fzf-flag=--multi \
+    --fzf-flag=--track \
+    --fzf-flag=--scheme=history \
     --main-view-name=history \
     --items-variable=commits \
     --no-items-message="No commit selected." \
-    --hyperlink-format="vscode://jaminthorns.gitterm/\\\$items:{path}:{line}" \
-    --list-command=$list_command \
+    --hyperlink-format="vscode://jaminthorns.gitterm/\$items:{path}:{line}" \
+    --list-function=list_function \
     --items-command="awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
-    --view-command="git show --color --decorate --diff-merges=on $_flag_show_options \\\$items $view_paths" \
-    --bind="\"alt-g:execute-silent(toggle $list_toggles graph)+reload($list_command_reload)\"" \
-    --bind="\"alt-s:execute-silent(toggle $list_toggles source)+reload($list_command_reload)\"" \
+    --view-command="git show --color --decorate --diff-merges=on $_flag_show_options \$items -- $view_paths" \
+    --bind="alt-g:execute-silent(toggle $list_toggles graph)+reload($list_command)" \
+    --bind="alt-s:execute-silent(toggle $list_toggles source)+reload($list_command)" \
     $pager_flags_flag
 
 delete_toggles $list_toggles
