@@ -36,21 +36,21 @@ function external_command -a command main_view_name delta_pager_flags delta_flag
 end
 
 begin
-    argparse "fzf-flags=" "pager-flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "hyperlink-format=" "list-command=" "items-command=" "view-command=" "summary-command=" -- $argv
+    argparse "fzf-flag=+" "pager-flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "hyperlink-format=" "list-function=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect alt-v
-    set fzf_command "fzf --expect=$variable_expect $_flag_fzf_flags"
+    set fzf_command fzf --expect=$variable_expect $_flag_fzf_flag
 
     for bind in $_flag_bind
-        set -a fzf_command "--bind=$bind"
+        set -a fzf_command --bind=$bind
     end
 
     if not set -q GIT_FZF_SHOW_PREVIEW
-        set -a fzf_command "--bind=start:hide-preview"
+        set -a fzf_command --bind=start:hide-preview
     end
 
     if set -q _flag_header
-        set -a fzf_command "--header='$_flag_header'"
+        set -a fzf_command --header=$_flag_header
     end
 
     if set -q _flag_no_items_message
@@ -60,32 +60,32 @@ begin
     end
 
     if set -q _flag_hyperlink_format
-        set hyperlink_format_flag "--hyperlinks-file-link-format=$_flag_hyperlink_format"
+        set hyperlink_format_flag --hyperlinks-file-link-format=$_flag_hyperlink_format
     end
 
     set fzf_items_command "set -gx items (echo {} | $_flag_items_command)"
 
     set fzf_content_command "
     begin
-        if test (count \\\$items) -eq 0
+        if test (count \$items) -eq 0
             set_color brblack && echo '$no_items_message' | less
         else
             $_flag_view_command
         end
     end"
 
-    set fzf_preview_command "$fzf_items_command; $fzf_content_command | delta --width=\\\$FZF_PREVIEW_COLUMNS $hyperlink_format_flag"
-    set -a fzf_command "--preview=\"$fzf_preview_command\""
+    set fzf_preview_command "$fzf_items_command; $fzf_content_command | delta --width=\$FZF_PREVIEW_COLUMNS $hyperlink_format_flag"
+    set -a fzf_command --preview=$fzf_preview_command
 
     set fzf_view_command "$fzf_items_command; $(external_command $fzf_content_command $_flag_main_view_name "$_flag_pager_flags" "$hyperlink_format_flag")"
-    set -a fzf_command "--bind=\"alt-enter:execute($fzf_view_command)\""
+    set -a fzf_command "--bind=alt-enter:execute($fzf_view_command)"
 
     if set -q _flag_summary_command
         set fzf_summary_command (external_command $_flag_summary_command $_flag_main_view_name)
-        set -a fzf_command "--bind=\"alt-space:execute($fzf_summary_command)\""
+        set -a fzf_command "--bind=alt-space:execute($fzf_summary_command)"
     end
 
-    set output (eval $_flag_list_command | eval $fzf_command)
+    set output ($_flag_list_function | $fzf_command)
     set fzf_status $status
 
     if test $fzf_status -eq 0
@@ -99,7 +99,7 @@ begin
 
                 set_remote $calling_pid $_flag_items_variable $items
                 echo "Selected items stored in $(set_color green)\$$_flag_items_variable$(set_color reset) variable"
-            case '*'
+            case "*"
                 string collect $items
         end
     end

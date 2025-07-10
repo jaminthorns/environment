@@ -2,14 +2,20 @@
 
 argparse --ignore-unknown "s/status-options=" -- $argv
 
-set args (string escape -- $argv)
-set sep \u001f
+set args $argv
+
+function list_function -V args
+    set sep \u001f
+    git worktree list --porcelain $args | string join $sep | string split $sep$sep | string match "*"$sep"HEAD*" | string match -g -r "^worktree (.*?)$sep"
+end
 
 source (status dirname)/git_fzf_command.fish \
-    --fzf-flags="--ansi --multi --scheme=path" \
+    --fzf-flag=--ansi \
+    --fzf-flag=--multi \
+    --fzf-flag=--scheme=path \
     --main-view-name=worktrees \
     --items-variable=worktrees \
     --no-items-message="No worktree selected." \
-    --list-command="git worktree list --porcelain $args | string join $sep | string split $sep$sep | string match '*"$sep"HEAD*' | string match -g -r '^worktree (.*?)$sep'" \
+    --list-function=list_function \
     --items-command=cat \
-    --view-command="git -C \\\$items -c color.status=always status $_flag_status_options"
+    --view-command="git -C \$items -c color.status=always status $_flag_status_options"

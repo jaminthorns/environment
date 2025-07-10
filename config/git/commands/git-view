@@ -2,9 +2,13 @@
 
 argparse --ignore-unknown "p/path=+" -- $argv
 
-set args (string escape -- $argv)
-set paths -- (string escape $_flag_path)
-set header (git show --format= --shortstat $argv -- $_flag_path)
+set args $argv
+set escaped_args (string escape -- $args)
+
+set paths $_flag_path
+set escaped_paths (string escape $paths)
+
+set header (git show --format= --shortstat $args -- $paths)
 
 if test (count $header) -eq 0
     set header "No changes"
@@ -16,14 +20,20 @@ if set -q GITTERM_REVISION
     set hyperlink_format_flag --hyperlink-format="vscode://jaminthorns.gitterm/$GITTERM_REVISION:{path}:{line}"
 end
 
+function list_function -V args -V paths
+    git show --format= --name-status $args -- $paths | format_git_name_status
+end
+
 source (status dirname)/git_fzf_command.fish \
-    --fzf-flags="--ansi --multi --scheme=path" \
+    --fzf-flag=--ansi \
+    --fzf-flag=--multi \
+    --fzf-flag=--scheme=path \
     --header=$header \
     --main-view-name=changes \
     --items-variable=files \
     --no-items-message="No file selected." \
-    --list-command="git show --format= --name-status $args $paths | format_git_name_status" \
+    --list-function=list_function \
     --items-command="cut -d \$SEP -f 2,4 | string split \$SEP" \
-    --view-command="git -C (git rev-parse --show-toplevel) show --format="" $args -- \\\$items" \
-    --summary-command="git show --color --decorate --no-patch $args $paths" \
+    --view-command="git -C (git rev-parse --show-toplevel) show --format= $escaped_args -- \$items" \
+    --summary-command="git show --color --decorate --no-patch $escaped_args -- $escaped_paths" \
     $hyperlink_format_flag

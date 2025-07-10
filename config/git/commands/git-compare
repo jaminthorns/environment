@@ -2,15 +2,19 @@
 
 argparse --ignore-unknown "p/path=+" -- $argv
 
-set args (string escape -- $argv)
-set paths -- (string escape $_flag_path)
-set header (git diff --shortstat $argv -- $_flag_path)
+set args $argv
+set escaped_args (string escape -- $args)
+
+set paths $_flag_path
+set escaped_paths (string escape $paths)
+
+set header (git diff --shortstat $args -- $paths)
 
 if test (count $header) -eq 0
     set header "No changes"
 end
 
-if test (git diff --name-only --diff-filter=U $argv -- $_flag_path | count) -gt 0
+if test (git diff --name-only --diff-filter=U $args -- $paths | count) -gt 0
     set unmerged_filter --diff-filter=U
 end
 
@@ -22,25 +26,30 @@ end
 
 if string match -q -r (dots_regex 2) $first_arg
     set commit_range (string replace -r (dots_regex 2) "..." $first_arg)
-    set summary_command "git log --graph --format=comfy-source --color $commit_range $paths"
+    set summary_command "git log --graph --format=comfy-source --color $commit_range -- $escaped_paths"
 else if string match -q -r (dots_regex 3) $first_arg
     set commit_range (string replace -r (dots_regex 3) ".." $first_arg)
-    set summary_command "git log --format=comfy --color $commit_range $paths"
+    set summary_command "git log --format=comfy --color $commit_range -- $escaped_paths"
 else
     set highlight (set_color cyan)
     set reset (set_color reset)
     set summary_command "echo 'Could not determine a commit range (use $highlight<commit>..<commit>$reset or $highlight<commit>...<commit>$reset syntax).' | less"
 end
 
+function list_function -V unmerged_filter -V args -V paths
+    git diff --name-status $unmerged_filter $args -- $paths | format_git_name_status
+end
+
 set -a DELTA_FEATURES navigate-changes
 
 source (status dirname)/git_fzf_command.fish \
-    --fzf-flags="--ansi --multi" \
+    --fzf-flag=--ansi \
+    --fzf-flag=--multi \
     --header=$header \
     --main-view-name=changes \
     --items-variable=files \
     --no-items-message="No file selected." \
-    --list-command="git diff --name-status $unmerged_filter $args $paths | format_git_name_status" \
+    --list-function=list_function \
     --items-command="cut -d \$SEP -f 2,4 | string split \$SEP" \
-    --view-command="git -C (git rev-parse --show-toplevel) diff $args -- \\\$items" \
+    --view-command="git -C (git rev-parse --show-toplevel) diff $escaped_args -- \$items" \
     --summary-command=$summary_command
