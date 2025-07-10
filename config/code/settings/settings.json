@@ -11,6 +11,7 @@
   "editor.minimap.enabled": false,
   "editor.stickyTabStops": true,
   "editor.smoothScrolling": true,
+  "editor.scrollOnMiddleClick": true,
   "editor.find.seedSearchStringFromSelection": "selection",
   "editor.inlayHints.enabled": "off",
 
