@@ -52,6 +52,8 @@ source (status dirname)/git_fzf_command.fish \
     --fzf-flag=--multi \
     --fzf-flag=--track \
     --fzf-flag=--scheme=history \
+    --fzf-flag="--bind=alt-g:execute-silent(toggle $list_toggles graph)+reload($list_command)" \
+    --fzf-flag="--bind=alt-s:execute-silent(toggle $list_toggles source)+reload($list_command)" \
     --main-view-name=history \
     --items-variable=commits \
     --no-items-message="No commit selected." \
@@ -59,8 +61,6 @@ source (status dirname)/git_fzf_command.fish \
     --list-function=list_function \
     --items-command="awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
     --view-command="git show --color --decorate --diff-merges=on $_flag_show_options \$items -- $view_paths" \
-    --bind="alt-g:execute-silent(toggle $list_toggles graph)+reload($list_command)" \
-    --bind="alt-s:execute-silent(toggle $list_toggles source)+reload($list_command)" \
     $pager_flags_flag
 
 delete_toggles $list_toggles
