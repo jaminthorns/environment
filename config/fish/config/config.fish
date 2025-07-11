@@ -55,20 +55,20 @@ if status is-interactive
     set -l scrollbar_color "#363848" # Selection color blended 50% with background color
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,spinner:green,prompt:green,border:blue,scrollbar:$scrollbar_color,preview-scrollbar:$scrollbar_color,header:bright-black"
     set -gx FZF_DEFAULT_OPTS --reverse --no-info --no-separator --highlight-line --preview-window=border-left --scrollbar=█ \
-        --bind="esc:cancel" \
-        --bind="alt-p:toggle-preview" \
-        --bind="alt-up:first" \
-        --bind="alt-down:last" \
+        --bind=esc:cancel \
+        --bind=alt-p:toggle-preview \
+        --bind=alt-up:first \
+        --bind=alt-down:last \
         --prompt=(string escape "▶ ") \
-        --pointer="" \
-        --marker="▌" \
-        --marker-multi-line="▌▌▌" \
-        --ellipsis="…" \
+        --pointer= \
+        --marker=▌ \
+        --marker-multi-line=▌▌▌ \
+        --ellipsis=… \
         --color=$fzf_colors
 
     # Configure fzf.fish
     set -g fzf_history_time_format "%F %r"
-    set -g fzf_directory_opts --prompt=(render_prompt Files) --bind="alt-enter:replace-query"
+    set -g fzf_directory_opts --prompt=(render_prompt Files) --bind=alt-enter:replace-query
     set -g fzf_history_opts --prompt=(render_prompt History) --preview-window=border-top
     set -g fzf_variables_opts --prompt=(render_prompt Variables)
     set -g fzf_processes_opts --prompt=(render_prompt Processes) --preview-window=border-top
