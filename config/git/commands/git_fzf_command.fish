@@ -36,14 +36,10 @@ function external_command -a command main_view_name delta_pager_flags delta_flag
 end
 
 begin
-    argparse "fzf-flag=+" "pager-flags=" "bind=+" "main-view-name=" "items-variable=" "no-items-message=" "header=" "hyperlink-format=" "list-function=" "items-command=" "view-command=" "summary-command=" -- $argv
+    argparse "fzf-flag=+" "pager-flags=" "main-view-name=" "items-variable=" "no-items-message=" "header=" "hyperlink-format=" "list-function=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect alt-v
     set fzf_command fzf --expect=$variable_expect $_flag_fzf_flag
-
-    for bind in $_flag_bind
-        set -a fzf_command --bind=$bind
-    end
 
     if not set -q GIT_FZF_SHOW_PREVIEW
         set -a fzf_command --bind=start:hide-preview
