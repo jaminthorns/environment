@@ -4,17 +4,27 @@ local mac_os = {{os_status mac-os && echo true || echo false}}
 local wsl = {{os_status wsl && echo true || echo false}}
 local cmd_key = "{{command_key upper}}"
 
+wezterm.on('format-window-title', function(tab, pane, tabs, panes, config)
+  return pane.title
+end)
+
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   local tab_config = tab.is_active and "active_tab" or hover and "inactive_tab_hover" or "inactive_tab"
   local cap_bg_color = config.colors.tab_bar.background
   local cap_fg_color = config.colors.tab_bar[tab_config].bg_color
+
+  local current_tab = wezterm.mux.get_tab(tab.tab_id)
+  local current_panes = current_tab:panes()
+
+  local pane_count = #current_panes > 1 and " [" .. #current_panes .. "]" or ""
+  local title = tab.active_pane.title .. pane_count
 
   return {
     { Background = { Color = cap_bg_color } },
     { Foreground = { Color = cap_fg_color } },
     { Text = "" },
     "ResetAttributes",
-    { Text = " " .. tab.active_pane.title .. " " },
+    { Text = " " .. wezterm.truncate_right(title, max_width - 4) .. " " },
     "ResetAttributes",
     { Background = { Color = cap_bg_color } },
     { Foreground = { Color = cap_fg_color } },
@@ -85,6 +95,7 @@ local config = {
     { key = "n",          mods = "CTRL|SHIFT",     action = action.SpawnTab("DefaultDomain") },
     { key = "w",          mods = "CTRL|SHIFT",     action = action.CloseCurrentPane({ confirm = false }) },
     { key = "|",          mods = "CTRL|SHIFT",     action = action.SplitHorizontal({ domain = "DefaultDomain" }) },
+    { key = "|",          mods = "CTRL|SHIFT|ALT", action = action.SplitVertical({ domain = "DefaultDomain" }) },
     { key = "{",          mods = "CTRL|SHIFT",     action = action.ActivatePaneDirection("Prev") },
     { key = "}",          mods = "CTRL|SHIFT",     action = action.ActivatePaneDirection("Next") },
     { key = "LeftArrow",  mods = "CTRL|SHIFT",     action = action.ActivateTabRelative(-1) },
