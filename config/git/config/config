@@ -5,8 +5,6 @@
 	pager = delta
 [init]
 	defaultBranch = main
-[advice]
-	forceDeleteBranch = false
 [color.blame]
 	highlightRecent = "normal #000000, 1 year ago, normal #241B30, 6 months ago, normal #302540, 3 months ago, normal #3C2E50, 1 month ago, normal #483860, 2 weeks ago, normal #554170, 1 day ago, normal #614B80"
 [pretty]
