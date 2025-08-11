@@ -5,7 +5,7 @@
   "editor.renderLineHighlight": "all",
   "editor.cursorBlinking": "phase",
   "editor.rulers": [80],
-  "editor.fontFamily": "JetBrains Mono, Symbols Nerd Font Mono",
+  "editor.fontFamily": "Maple Mono, Symbols Nerd Font Mono",
   "editor.fontLigatures": true,
   "editor.dragAndDrop": false,
   "editor.minimap.enabled": false,

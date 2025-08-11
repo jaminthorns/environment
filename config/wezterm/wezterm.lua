@@ -63,12 +63,7 @@ local config = {
   -- Fonts
   font_size = mac_os and 12 or 9,
   bold_brightens_ansi_colors = false,
-  font = wezterm.font("JetBrains Mono"),
-  font_rules = {
-    { intensity = "Bold",   italic = false, font = wezterm.font("JetBrains Mono Bold") },
-    { intensity = "Normal", italic = true,  font = wezterm.font("JetBrains Mono Italic") },
-    { intensity = "Bold",   italic = true,  font = wezterm.font("JetBrains Mono Bold Italic") },
-  },
+  font = wezterm.font("Maple Mono"),
 
   -- Colors
   colors = {

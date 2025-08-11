@@ -34,7 +34,7 @@ brew "ripgrep"
 brew "tldr"
 
 if OS.mac?
-  cask "font-jetbrains-mono"
+  cask "font-maple-mono"
   cask "font-symbols-only-nerd-font"
   cask "hammerspoon"
   cask "wezterm"
