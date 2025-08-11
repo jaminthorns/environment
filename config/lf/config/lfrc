@@ -85,6 +85,7 @@ map r reveal-in-system-file-manager
 map <c-t> jump
 map <a-b> jump-prev
 map <a-f> jump-next
+map <a-q> quit-cd
 
 cmd paste-links %{{
   set load (cat $HOME/.local/share/lf/files)
@@ -171,7 +172,7 @@ cmd jump ${{
   end
 
   if set path ($fd_cmd --color=always --base-directory=$PWD . | fzf --ansi --prompt=$prompt --preview=$preview | string escape)
-    lf -remote "send $id select $path"
+    command lf -remote "send $id select $path"
   end
 }}
 
@@ -183,4 +184,9 @@ cmd reveal-in-system-file-manager &{{
   if {{os_status wsl && echo true || echo false}}
     powershell.exe "explorer.exe /select,$(path basename $f)"
   end
+}}
+
+cmd quit-cd :{{
+  $echo lf_change_directory
+  quit
 }}
