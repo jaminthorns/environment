@@ -54,7 +54,7 @@ if status is-interactive
     # Configure fzf
     set -l scrollbar_color "#363848" # Selection color blended 50% with background color
     set -l fzf_colors "bg+:#44475A,gutter:-1,hl:cyan,hl+:cyan,info:blue,marker:magenta,spinner:green,prompt:green,border:blue,scrollbar:$scrollbar_color,preview-scrollbar:$scrollbar_color,header:bright-black"
-    set -gx FZF_DEFAULT_OPTS --reverse --no-info --no-separator --highlight-line --preview-window=border-left --scrollbar=█ \
+    set -gx FZF_DEFAULT_OPTS --reverse --info=inline-right --no-separator --highlight-line --preview-window=border-left --scrollbar=█ \
         --bind=esc:cancel \
         --bind=alt-p:toggle-preview \
         --bind=alt-up:first \
