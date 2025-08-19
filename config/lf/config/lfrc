@@ -87,6 +87,13 @@ map <a-b> jump-prev
 map <a-f> jump-next
 map <a-q> quit-cd
 
+cmd on-init set-title
+cmd on-cd set-title
+
+cmd set-title &{{
+  lf -remote "send $id tty-write \"\033]0;lf: $(prompt_pwd)\007\""
+}}
+
 cmd paste-links %{{
   set load (cat $HOME/.local/share/lf/files)
   set files $load[2..]
