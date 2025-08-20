@@ -1,7 +1,13 @@
 function lf --wraps lf
-    set output (command lf -print-last-dir $argv 2>&1)
+    set -x lf_quit_operation_path (mktemp)
+    set last_dir_path (mktemp)
 
-    if test $output[1] = lf_change_directory
-        cd $output[2]
+    command lf -last-dir-path=$last_dir_path $argv
+
+    switch (cat $lf_quit_operation_path)
+        case change_directory
+            cd (cat $last_dir_path)
     end
+
+    rm $lf_quit_operation_path $last_dir_path
 end

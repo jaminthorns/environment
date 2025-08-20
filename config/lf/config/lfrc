@@ -91,7 +91,7 @@ cmd on-init set-title
 cmd on-cd set-title
 
 cmd set-title &{{
-  lf -remote "send $id tty-write \"\033]0;lf: $(prompt_pwd)\007\""
+  command lf -remote "send $id tty-write \"\033]0;lf: $(prompt_pwd)\007\""
 }}
 
 cmd paste-links %{{
@@ -194,6 +194,6 @@ cmd reveal-in-system-file-manager &{{
 }}
 
 cmd quit-cd :{{
-  $echo lf_change_directory
+  $echo change_directory > $lf_quit_operation_path
   quit
 }}
