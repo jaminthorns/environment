@@ -11,7 +11,7 @@ function preview
     if set -q TERM_PROGRAM && test $TERM_PROGRAM = WezTerm && {{os_status wsl && echo false || echo true}}
         set -a chafa_options --format=sixels
     else
-        set -a chafa_options --format=symbols
+        set -a chafa_options --format=symbols --symbols=vhalf
     end
 
     if set -q _flag_width _flag_height
