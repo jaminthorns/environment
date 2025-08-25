@@ -4,7 +4,7 @@ set reverse true
 set dirfirst false
 set incsearch true
 set incfilter true
-set watch {{os_status wsl && echo false || echo true}}
+set watch true
 set info ctime
 set sortby ctime
 set ratios 2:4:3
