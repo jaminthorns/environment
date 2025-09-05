@@ -90,7 +90,8 @@ map cw copy-working-path
 map cp copy-selected-paths
 map cf copy-selected-filenames
 map r reveal-in-system-file-manager
-map <c-t> jump
+map <c-right> jump-path
+map <c-left> jump-history
 map <a-q> quit-cd
 
 cmd on-init set-title
@@ -175,9 +176,9 @@ cmd copy-selected-filenames %{{
   printf "selected filenames copied to clipboard"
 }}
 
-cmd jump ${{
+cmd jump-path ${{
   set fd_cmd fd
-  set prompt (render_prompt Jump)
+  set prompt (render_prompt "→ Path")
   set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
 
   if test $lf_hidden = true
@@ -186,6 +187,15 @@ cmd jump ${{
 
   if set path ($fd_cmd --color=always --base-directory=$PWD . | fzf --ansi --prompt=$prompt --preview=$preview | string escape)
     command lf -remote "send $id select $path"
+  end
+}}
+
+cmd jump-history ${{
+  set prompt (render_prompt "→ History")
+  set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
+
+  if set path (lf -remote "query $id jumps" | tail -n +2 | cut -f 2 | fzf --ansi --prompt=$prompt --preview=$preview | string escape)
+    command lf -remote "send $id cd $path"
   end
 }}
 
