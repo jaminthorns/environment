@@ -7,7 +7,7 @@ set incfilter true
 set watch true
 set info time
 set sortby time
-set ratios 2:4:3
+set ratios 1:2:1
 set shell fish
 set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)"
 set ifs
@@ -71,6 +71,14 @@ map <c-f> filter
 map <enter> rename
 map <delete> delete
 
+# Navigation
+map <a-b> jump-prev
+map <a-f> jump-next
+
+# Layouts
+map lf set ratios 1:2:1 # Full
+map lp set ratios 1:2 # Preview
+
 # Custom commands
 map <a-enter> edit-paths
 map e edit
@@ -83,8 +91,6 @@ map cp copy-selected-paths
 map cf copy-selected-filenames
 map r reveal-in-system-file-manager
 map <c-t> jump
-map <a-b> jump-prev
-map <a-f> jump-next
 map <a-q> quit-cd
 
 cmd on-init set-title
