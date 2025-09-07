@@ -48,7 +48,7 @@ if status is-interactive
 
     # Configure lf
     if {{os_status wsl && echo true || echo false}}
-        set -gx OPENER wslview
+        set -gx OPENER windows_open
     end
 
     # Configure fzf
