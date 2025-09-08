@@ -28,7 +28,7 @@ function preview
         case application/gzip application/x-7z-compressed application/x-bzip2 application/x-tar application/x-xz application/zip application/zstd
             ouch list --yes --tree $path
         case application/pdf
-            pdftoppm -jpeg -f 1 -l 1 $path | chafa $chafa_options
+            pdftoppm -jpeg -f 1 -l 1 $path 2>/dev/null | chafa $chafa_options
         case "image/*"
             chafa $chafa_options $path 2>/dev/null || magick $path tiff:- | chafa $chafa_options
         case "video/*"
