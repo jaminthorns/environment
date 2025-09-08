@@ -110,8 +110,6 @@ local config = {
     { key = "Backspace",  mods = cmd_key,          action = action.SendString("\x15") },
     { key = "UpArrow",    mods = cmd_key,          action = action.SendString("\x1b[1;5H") },
     { key = "DownArrow",  mods = cmd_key,          action = action.SendString("\x1b[1;5F") },
-    { key = "LeftArrow",  mods = "ALT",            action = action.SendString("\x1bb") },
-    { key = "RightArrow", mods = "ALT",            action = action.SendString("\x1bf") },
     { key = "Delete",     mods = "ALT",            action = action.SendString("\x1bd") },
 
     -- Searching

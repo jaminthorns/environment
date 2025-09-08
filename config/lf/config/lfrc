@@ -72,8 +72,8 @@ map <enter> rename
 map <delete> delete
 
 # Navigation
-map <a-b> jump-prev
-map <a-f> jump-next
+map <a-left> jump-prev
+map <a-right> jump-next
 
 # Layouts
 map lf set ratios 1:2:1 # Full
@@ -90,8 +90,8 @@ map cw copy-working-path
 map cp copy-selected-paths
 map cf copy-selected-filenames
 map r reveal-in-system-file-manager
-map <c-right> jump-path
-map <c-left> jump-history
+map j jump
+map h history
 map <a-q> quit-cd
 
 cmd on-init set-title
@@ -176,9 +176,9 @@ cmd copy-selected-filenames %{{
   printf "selected filenames copied to clipboard"
 }}
 
-cmd jump-path ${{
+cmd jump ${{
   set fd_cmd fd
-  set prompt (render_prompt "→ Path")
+  set prompt (render_prompt "Jump")
   set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
 
   if test $lf_hidden = true
@@ -190,8 +190,8 @@ cmd jump-path ${{
   end
 }}
 
-cmd jump-history ${{
-  set prompt (render_prompt "→ History")
+cmd history ${{
+  set prompt (render_prompt "History")
   set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
 
   if set path (lf -remote "query $id jumps" | tail -n +2 | cut -f 2 | fzf --ansi --prompt=$prompt --preview=$preview | string escape)

@@ -36,7 +36,6 @@ Return
 ; Window snapping
 ^#Left::Send #{Left}
 ^#Right::Send #{Right}
-^#Enter::Send #{Up 2}
 
 ; Disable modifier key press behavior
 Alt::Return
@@ -57,8 +56,6 @@ RWin::Return
 !+Right::Send +{End}
 
 ; Cursor control (Win -> Option)
-#Up::Send !{Up}
-#Down::Send !{Down}
 #Left::Send ^{Left}
 #Right::Send ^{Right}
 #+Up::Send !+{Up}
@@ -95,6 +92,10 @@ RWin::Return
 #Delete::Send !{Delete}
 !Delete::Send ^{Delete}
 #If
+
+; Cursor control (Win -> Option)
+#Up::Send !{Up}
+#Down::Send !{Down}
 
 ; Cursor control (Alt + Win -> Command + Option)
 !#Up::Send ^!{Up}
