@@ -9,7 +9,7 @@ set info time
 set sortby time
 set ratios 1:2:1
 set shell fish
-set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)"
+set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)" # Convert file variables to lists
 set ifs
 set truncatechar …
 set hiddenfiles ".*:desktop.ini"
@@ -109,18 +109,30 @@ cmd paste-links %{{
 }}
 
 cmd new-directory %{{
-  if test -z $fs
+  if test (count $fs) -eq 0
     printf " create new directory: " && read dir_name
-    mkdir -p $dir_name && printf "new directory created"
+    mkdir -p $dir_name
+    set message "new directory created"
   else
     printf " move files to new directory: " && read dir_name
-    mkdir -p $dir_name && mv (echo $fs) $dir_name && printf "files moved to new directory"
+    mkdir -p $dir_name && mv $fs $dir_name
+    set message "files moved to new directory"
+  end
+
+  if test $status -eq 0
+    command lf -remote "send $id select '$dir_name'" >/dev/null
+    printf $message
   end
 }}
 
 cmd new-file %{{
   printf " create new file: " && read file_name
-  touch $file_name && printf "new file created"
+  touch $file_name
+
+  if test $status -eq 0
+    command lf -remote "send $id select '$file_name'"
+    printf "new file created"
+  end
 }}
 
 cmd edit-paths &{{
