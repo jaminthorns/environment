@@ -86,9 +86,8 @@
   "gitterm.gitCommands.revisionDiff": "git compare ${fromRevision} ${toRevision}",
   "gitterm.gitCommands.stringSearch": "git history ${revision} ${searches}",
 
-  "github.copilot.enable": {
-    "*": false
-  },
+  "github.copilot.enable": { "*": false },
+  "github.copilot.editor.enableCodeActions": false,
 
   "githubPullRequests.pullBranch": "never",
 
