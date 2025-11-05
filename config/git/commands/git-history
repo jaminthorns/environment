@@ -1,22 +1,19 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown graph source "p/path=+" "f/file=" "s/show-options=" -- $argv
+set paths (non_option_args $argv)
+set escaped_paths (string escape -- $paths)
 
-set args $argv
+argparse --ignore-unknown graph source follow "s/show-options=" -- (option_args $argv)
+set options $argv
 
-if set -q _flag_path
-    set show_paths $_flag_path
-    set view_paths (string escape $_flag_path)
-else if set -q _flag_file
-    set -x commit_filenames (string replace -a -r "\n\n" "\t" (git log $args --follow --name-status --format="%H" -- $_flag_file | string collect) | string collect)
+if set -q _flag_follow
+    set -x commit_filenames (string replace -a -r "\n\n" "\t" (git log $options --follow --name-status --format="%H" -- $paths | string collect || exit 1) | string collect)
 
     if test (count $commit_filenames) -eq 0
-        echo "fatal: no file history for '$_flag_file'" >&2
+        echo "fatal: no file history for '$paths'" >&2
         exit 1
     else
-        set list_options --follow
-        set show_paths $_flag_file
-        set view_paths "(echo \"\$commit_filenames\" | grep \$items | cut -f 3- | string split \t)"
+        set escaped_paths "(echo \"\$commit_filenames\" | grep \$items | cut -f 3- | string split \t)"
     end
 end
 
@@ -28,18 +25,20 @@ set list_toggles (create_toggles)
 set -q _flag_graph && toggle $list_toggles graph
 set -q _flag_source && toggle $list_toggles source
 
-function list_function -V list_toggles -V list_options -V args -V show_paths
+function list_function -V list_toggles -V _flag_follow -V options -V paths
     if enabled $list_toggles graph
-        set graph_option --graph
+        set -a options --graph
+    else if set -q _flag_follow
+        set -a options --follow
     end
 
     if enabled $list_toggles source
-        set format_option --format=comfy-source
+        set -a options --format=comfy-source
     else
-        set format_option --format=comfy
+        set -a options --format=comfy
     end
 
-    git log -z --color $graph_option $format_option $list_options $args -- $show_paths
+    git log -z --color $options -- $paths
 end
 
 set list_command "$(functions --no-details list_function); list_function"
@@ -60,7 +59,7 @@ source (status dirname)/git_fzf_command.fish \
     --hyperlink-format="vscode://jaminthorns.gitterm/\$items:{path}:{line}" \
     --list-function=list_function \
     --items-command="awk 'NR % 2 == 1' | sed -nE 's/[^0-9a-f]*([0-9a-f]+).*/\1/p' | xargs git rev-parse" \
-    --view-command="git show --color --decorate --diff-merges=on $_flag_show_options \$items -- $view_paths" \
+    --view-command="git show --color --decorate --diff-merges=on $_flag_show_options \$items -- $escaped_paths" \
     $pager_flags_flag
 
 delete_toggles $list_toggles

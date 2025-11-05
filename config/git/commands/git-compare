@@ -1,24 +1,22 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown "p/path=+" -- $argv
+set paths (non_option_args $argv)
+set escaped_paths (string escape -- $paths)
 
-set args $argv
-set escaped_args (string escape -- $args)
+set options (option_args $argv)
+set escaped_options (string escape -- $options)
 
-set paths $_flag_path
-set escaped_paths (string escape $paths)
-
-set header (git diff --shortstat $args -- $paths)
+set header (git diff --shortstat $options -- $paths)
 
 if test (count $header) -eq 0
     set header "No changes"
 end
 
-if test (git diff --name-only --diff-filter=U $args -- $paths | count) -gt 0
+if test (git diff --name-only --diff-filter=U $options -- $paths | count) -gt 0
     set unmerged_filter --diff-filter=U
 end
 
-set first_arg (string match -e -v -r "^-" -- $args)
+set first_arg (string match -e -v -r "^-" -- $options)
 
 function dots_regex -a count
     echo "(?<!\.)\.{$count}(?!\.)"
@@ -36,8 +34,8 @@ else
     set summary_command "echo 'Could not determine a commit range (use $highlight<commit>..<commit>$reset or $highlight<commit>...<commit>$reset syntax).' | less"
 end
 
-function list_function -V unmerged_filter -V args -V paths
-    git diff --name-status $unmerged_filter $args -- $paths | format_git_name_status
+function list_function -V unmerged_filter -V options -V paths
+    git diff --name-status $unmerged_filter $options -- $paths | format_git_name_status
 end
 
 set -a DELTA_FEATURES navigate-changes
@@ -51,5 +49,5 @@ source (status dirname)/git_fzf_command.fish \
     --no-items-message="No file selected." \
     --list-function=list_function \
     --items-command="cut -d \$SEP -f 2,4 | string split \$SEP" \
-    --view-command="git -C (git rev-parse --show-toplevel) diff $escaped_args -- \$items" \
+    --view-command="git -C (git rev-parse --show-toplevel) diff $escaped_options -- \$items" \
     --summary-command=$summary_command

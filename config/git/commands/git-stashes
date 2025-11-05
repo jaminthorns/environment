@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
 
 argparse --ignore-unknown "s/show-options=" -- $argv
-
 set args $argv
 
 function list_function -V args

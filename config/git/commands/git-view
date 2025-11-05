@@ -1,15 +1,13 @@
 #!/usr/bin/env fish
 
-argparse --ignore-unknown "p/path=+" -- $argv
+set paths (non_option_args $argv)
+set escaped_paths (string escape -- $paths)
 
-set args $argv
-set escaped_args (string escape -- $args)
+set options (option_args $argv)
+set escaped_options (string escape -- $options)
 
-set paths $_flag_path
-set escaped_paths (string escape $paths)
-
-set header (git show --format= --shortstat $args -- $paths)
-set revision (git show --format=%H --no-patch $args)
+set header (git show --format= --shortstat $options -- $paths)
+set revision (git show --format=%H --no-patch $options)
 
 if test (count $header) -eq 0
     set header "No changes"
@@ -17,8 +15,8 @@ end
 
 set -a DELTA_FEATURES navigate-changes
 
-function list_function -V args -V paths
-    git show --format= --name-status $args -- $paths | format_git_name_status
+function list_function -V options -V paths
+    git show --format= --name-status $options -- $paths | format_git_name_status
 end
 
 source (status dirname)/git_fzf_command.fish \
@@ -32,5 +30,5 @@ source (status dirname)/git_fzf_command.fish \
     --hyperlink-format="vscode://jaminthorns.gitterm/$revision:{path}:{line}" \
     --list-function=list_function \
     --items-command="cut -d \$SEP -f 2,4 | string split \$SEP" \
-    --view-command="git -C (git rev-parse --show-toplevel) show --format= $escaped_args -- \$items" \
-    --summary-command="git show --color --decorate --no-patch $escaped_args -- $escaped_paths"
+    --view-command="git -C (git rev-parse --show-toplevel) show --format= $escaped_options -- \$items" \
+    --summary-command="git show --color --decorate --no-patch $escaped_options -- $escaped_paths"
