@@ -113,5 +113,6 @@
 	cb = branch --show-current
 	force-push = push --force-with-lease --force-if-includes
 	message = log --max-count=1 --format='%B'
+	summarize = log --format='%s'
 	graph = log --graph --format=compact
 	graph-source = log --graph --format=compact-source
