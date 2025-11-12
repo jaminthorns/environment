@@ -5,6 +5,7 @@ bierner.markdown-mermaid
 bmalehorn.vscode-fish
 chrisjaustin.postgres-plan
 dbaeumer.vscode-eslint
+dnut.rewrap-revived
 dotjoshjohnson.xml
 dracula-theme.theme-dracula
 earshinov.permute-lines
@@ -29,7 +30,6 @@ ms-vsliveshare.vsliveshare
 phoenixframework.phoenix
 renesaarsoo.sql-formatter-vsc
 rust-lang.rust-analyzer
-stkb.rewrap
 stubedston.align-text
 sumneko.lua
 swindh.enumerator
