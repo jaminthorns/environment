@@ -57,6 +57,8 @@
   { "key": "shift+ctrl+down", "command": "merge.goToNextUnhandledConflict", "when": "isMergeEditor" },
   { "key": "shift+ctrl+up", "command": "workbench.action.compareEditor.previousChange", "when": "editorTextFocus && isInDiffEditor" },
   { "key": "shift+ctrl+down", "command": "workbench.action.compareEditor.nextChange", "when": "editorTextFocus && isInDiffEditor" },
+  { "key": "shift+ctrl+up", "command": "multiDiffEditor.goToPreviousChange", "when": "activeEditor == 'multiDiffEditor'" },
+  { "key": "shift+ctrl+down", "command": "multiDiffEditor.goToNextChange", "when": "activeEditor == 'multiDiffEditor'" },
   { "key": "shift+ctrl+up", "command": "search.action.focusPreviousSearchResult", "when": "inSearchEditor" },
   { "key": "shift+ctrl+down", "command": "search.action.focusNextSearchResult", "when": "inSearchEditor" },
   { "key": "shift+ctrl+up", "command": "editor.action.previousMatchFindAction", "when": "findWidgetVisible" },
