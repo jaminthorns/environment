@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+git branch --delete --force $argv[1]
+git push origin --delete $argv[1]
