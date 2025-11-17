@@ -13,9 +13,10 @@
   { "key": "ctrl+shift+[", "command": "editor.action.goToImplementation", "when": "editorHasImplementationProvider && editorTextFocus" },
   { "key": "ctrl+shift+alt+[", "command": "references-view.findImplementations", "when": "editorHasImplementationProvider && editorTextFocus" },
 
-  // Maximizing
+  // Layout
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizeEditorGroup", "when": "editorPartMultipleEditorGroups" },
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
+  { "key": "ctrl+shift+'", "command": "workbench.action.toggleCenteredLayout", "when": "editorTextFocus" },
 
   // Terminal (tab/pane control)
   { "key": "ctrl+shift+n", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus || terminalTabsFocus" },
