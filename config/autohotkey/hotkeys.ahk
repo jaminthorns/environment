@@ -33,6 +33,9 @@ Return
 ; Emoji keyboard
 !^Space::Send #.
 
+; Clipboard history
+!+v::Send {Shift Up}#v
+
 ; Window snapping
 ^#Left::Send #{Left}
 ^#Right::Send #{Right}
@@ -112,8 +115,10 @@ MapAllModifiers() {
     ControlFunc := Func("Control").Bind(Key)
     Hotkey, !%Key%, %ControlFunc%
 
-    ControlShiftFunc := Func("ControlShift").Bind(Key)
-    Hotkey, !+%Key%, %ControlShiftFunc%
+    If (Key != "v") {
+      ControlShiftFunc := Func("ControlShift").Bind(Key)
+      Hotkey, !+%Key%, %ControlShiftFunc%
+    }
 
     AltFunc := Func("Alt").Bind(Key)
     Hotkey, #%Key%, %AltFunc%
