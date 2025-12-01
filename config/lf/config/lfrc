@@ -1,5 +1,4 @@
 set mouse true
-set sixel true
 set reverse true
 set dirfirst false
 set incsearch true
