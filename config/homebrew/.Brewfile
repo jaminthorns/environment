@@ -31,7 +31,6 @@ brew "pastel"
 brew "pgcli"
 brew "poppler"
 brew "ripgrep"
-brew "tldr"
 
 if OS.mac?
   cask "font-jetbrains-mono"
