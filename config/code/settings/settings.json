@@ -70,8 +70,6 @@
   "git.autofetch": "all",
   "git.openRepositoryInParentFolders": "never",
 
-  "liveshare.showInStatusBar": "never",
-
   "errorLens.removeLinebreaks": false,
   "errorLens.messageBackgroundMode": "message",
   "errorLens.padding": "0 1ch",
