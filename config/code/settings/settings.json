@@ -76,6 +76,7 @@
   "errorLens.padding": "0 1ch",
 
   "gitterm.terminalLinks.provideFileLinks": "withRevisionContext",
+  "gitterm.selectionSearch.modifyEnv": "GITTERM_SEARCH",
   "gitterm.gitCommands.showRevision": "git view --diff-merges=on ${revision}",
   "gitterm.gitCommands.folderHistory": "git history ${revision} -- '${folder}'",
   "gitterm.gitCommands.fileHistory": "git history ${reverseFlags} ${revision} -- '${filename}'",

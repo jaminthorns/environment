@@ -23,8 +23,10 @@ if status is-interactive
         set -gx EDITOR code --wait --new-window
     end
 
-    # Configure less
-    set -gx LESS --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=20
+    # Configure less if not configured from parent shell
+    if not set -q LESS
+        set -gx LESS --RAW-CONTROL-CHARS --use-color --ignore-case --chop-long-lines --clear-screen --tilde --shift=20
+    end
 
     # Set pager to less
     set -gx PAGER less
