@@ -16,7 +16,7 @@
   // Layout
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizeEditorGroup", "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups" },
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
-  { "key": "ctrl+shift+'", "command": "workbench.action.toggleCenteredLayout", "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups" },
+  { "key": "ctrl+shift+'", "command": "workbench.action.toggleCenteredLayout", "when": "editorFocus" },
 
   // Terminal (tab/pane control)
   { "key": "ctrl+shift+n", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus || terminalTabsFocus" },
