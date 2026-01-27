@@ -13,6 +13,7 @@ function format_git_name_status
         -e "s/R[0-9]+/R/" \
         -e "s/\t/ $SEP/" \
         -e "s/\t/$SEP $(set_color blue)⟶$(set_color reset) $SEP/" \
+        -e "s/([A-Z] )(.*\/)(.*)/\1$(set_color brblack)\2$(set_color reset)\3/" \
         (color_git_name_status A green) \
         (color_git_name_status D red) \
         (color_git_name_status M yellow) \
