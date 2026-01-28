@@ -16,5 +16,5 @@ source (status dirname)/git_fzf_command.fish \
     --no-items-message="No stash selected." \
     --hyperlink-format="vscode://jaminthorns.gitterm/\$items:{path}:{line}" \
     --list-function=list_function \
-    --items-command="cut -d ':' -f 1" \
+    --items-command="cut -d : -f 1" \
     --view-command="git show --color --decorate --diff-merges=first-parent $_flag_stash_show_options \$items"

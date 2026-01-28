@@ -6,7 +6,7 @@ function secret {
   fi
 
   local name=$1
-  local value=$(grep "$1" $secrets_path | cut -d "=" -f 2)
+  local value=$(grep "$1" $secrets_path | cut -d = -f 2)
 
   if test -z "$value"; then
     read -r -p "$name: " value < /dev/tty
