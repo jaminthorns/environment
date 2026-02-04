@@ -26,7 +26,7 @@
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
 
-  "chat.commandCenter.enabled": false,
+  "chat.agentsControl.enabled": false,
 
   "breadcrumbs.enabled": false,
 
@@ -107,15 +107,15 @@
   "SQL-Formatter-VSCode.identifierCase": "lower",
 
   "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown][html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 
   "[elixir]": {
     "editor.rulers": [80, 98],
-    "editor.wordSeparators": "`~#$%^&*()-=+[{]}\\|;:'\",.<>/"
+    "editor.wordSeparators": "`~#$%^&*()-=+[{]}\\|;:'\",.<>/",
   },
 
   "[fish]": {
-    "editor.tabSize": 4
-  }
+    "editor.tabSize": 4,
+  },
 }
