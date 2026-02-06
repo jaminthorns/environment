@@ -2,8 +2,11 @@ if status is-login
     # Initialize Homebrew
     {{export PATH="/dev/null:$PATH" && brew shellenv fish}}
 
+    # Add local binaries to PATH
+    fish_add_path -gP $HOME/.local/bin
+
     # Add asdf shims to PATH
-    fish_add_path -gP "$HOME/.asdf/shims"
+    fish_add_path -gP $HOME/.asdf/shims
 
     # Add Git commands to PATH
     fish_add_path -gP {{git rev-parse --show-toplevel}}/config/git/commands
