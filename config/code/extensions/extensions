@@ -9,6 +9,7 @@ dnut.rewrap-revived
 dracula-theme.theme-dracula
 earshinov.permute-lines
 esbenp.prettier-vscode
+expertlsp.expert
 github.copilot-chat
 github.vscode-github-actions
 github.vscode-pull-request-github
@@ -16,7 +17,6 @@ golang.go
 grapecity.gc-excelviewer
 humao.rest-client
 iliazeus.vscode-ansi
-jakebecker.elixir-ls
 jaminthorns.gitterm
 mark-wiemer.vscode-autohotkey-plus-plus
 mitchdenny.ecdc
