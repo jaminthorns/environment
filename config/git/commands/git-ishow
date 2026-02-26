@@ -19,7 +19,7 @@ function list_function -V options -V paths
     git show --format= --name-status $options -- $paths | format_git_name_status
 end
 
-source (status dirname)/git_fzf_command.fish \
+source (status dirname)/git_interactive_command.fish \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
     --fzf-flag=--scheme=path \

@@ -8,7 +8,7 @@ function list_function -V args
     git worktree list --porcelain $args | string join $sep | string split $sep$sep | string match "*"$sep"HEAD*" | string match -g -r "^worktree (.*?)$sep"
 end
 
-source (status dirname)/git_fzf_command.fish \
+source (status dirname)/git_interactive_command.fish \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
     --fzf-flag=--scheme=path \

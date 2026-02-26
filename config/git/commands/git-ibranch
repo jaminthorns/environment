@@ -7,7 +7,7 @@ function list_function -V args
     git branch --color $args
 end
 
-source (status dirname)/git_fzf_command.fish \
+source (status dirname)/git_interactive_command.fish \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
     --main-view-name=branches \
