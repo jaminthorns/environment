@@ -1,9 +1,7 @@
 # Provide functionality for storing toggle states.
 
 function create_toggles
-    set uuid (uuidgen | string replace -a - _)
-    set store_var _toggles_{$fish_pid}_$uuid
-
+    set store_var (create_temp_uvar)
     set -U $store_var
 
     echo $store_var
@@ -24,19 +22,5 @@ function enabled -a store_var toggle_name
         string collect $$store_var
     else
         contains $toggle_name $$store_var
-    end
-end
-
-function delete_toggles -a store_var
-    set -U -e $store_var
-end
-
-function clean_toggles
-    for store_var in (set -U | string split -f 1 " " | string match "_toggles_*")
-        set pid (string match -r -g "_toggles_(\d+)" $store_var)
-
-        if not ps -p $pid >/dev/null
-            set -e $store_var
-        end
     end
 end

@@ -6,7 +6,7 @@ set escaped_paths (string escape -- $paths)
 set options (option_args $argv)
 set escaped_options (string escape -- $options)
 
-set header (git diff --shortstat $options -- $paths)
+set header (git diff --shortstat $options -- $paths | string trim)
 
 if test (count $header) -eq 0
     set header "No changes"
@@ -43,7 +43,7 @@ set -a DELTA_FEATURES navigate-changes
 source (status dirname)/git_fzf_command.fish \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
-    --header=$header \
+    --fzf-flag=--header=$header \
     --main-view-name=changes \
     --items-variable=files \
     --no-items-message="No file selected." \

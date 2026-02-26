@@ -1,3 +1,3 @@
 SHELL={{command -v fish}}
 
-@reboot clean_toggles
+@reboot clean_temp_uvars

@@ -3,17 +3,6 @@
 set paths (non_option_args $argv)
 
 argparse --ignore-unknown graph source follow "s/show-options=" -- (option_args $argv)
-set options $argv
-
-if set -q _flag_follow
-    # Get historical paths at each commit in file's history when following renames
-    set -x COMMIT_PATHS (string replace -a -r \n\n \t (git log $options --follow --name-status --format=%H -- $paths | string collect || exit 1) | string collect)
-
-    if test (count $COMMIT_PATHS) -eq 0
-        echo "fatal: no file history for '$paths'" >&2
-        exit 1
-    end
-end
 
 if set -q GITTERM_SEARCH
     set pager_flags_flag --pager-flags="--jump-target=.5 --pattern=$(string escape $GITTERM_SEARCH)"
@@ -22,12 +11,45 @@ end
 set list_toggles (create_toggles)
 set -q _flag_graph && toggle $list_toggles graph
 set -q _flag_source && toggle $list_toggles source
+set -q _flag_follow && toggle $list_toggles follow
 
-function list_function -V list_toggles -V _flag_follow -V options -V paths
+set commit_paths_var (create_temp_uvar)
+
+function footer_function -V list_toggles -V paths
+    set statuses
+
+    set -a statuses (enabled $list_toggles graph && echo "● [g]raph" || echo "○ [g]raph")
+    set -a statuses (enabled $list_toggles source && echo "● [s]ource" || echo "○ [s]ource")
+
+    if test (count $paths) -gt 0
+        set -a statuses (enabled $list_toggles follow && echo "● [f]ollow" || echo "○ [f]ollow")
+    end
+
+    string join "  " $statuses
+end
+
+set footer_command "$(functions --no-details footer_function); footer_function"
+
+function toggle_flag -a flag -V list_toggles
+    toggle $list_toggles $flag
+
+    # --graph and --follow don't play well together, so enabling one will disable the other
+    if test $flag = graph && enabled $list_toggles follow
+        toggle $list_toggles follow
+    end
+
+    if test $flag = follow && enabled $list_toggles graph
+        toggle $list_toggles graph
+    end
+end
+
+set toggle_flag_command "$(functions --no-details toggle_flag); toggle_flag"
+
+function list_function -V list_toggles -V argv -V commit_paths_var -V paths
+    set options $argv
+
     if enabled $list_toggles graph
         set -a options --graph
-    else if set -q _flag_follow
-        set -a options --follow
     end
 
     if enabled $list_toggles source
@@ -36,15 +58,24 @@ function list_function -V list_toggles -V _flag_follow -V options -V paths
         set -a options --format=comfy
     end
 
+    if enabled $list_toggles follow && test (count $paths) -gt 0
+        set -a options --follow
+
+        # Get historical paths at each commit in file's history when following renames
+        if not set -q $commit_paths_var
+            set -U $commit_paths_var (string replace -a -r \n\n \t (git log $argv --follow --name-status --format=%H -- $paths | string collect))
+        end
+    end
+
     git log -z --color $options -- $paths
 end
 
 set list_command "$(functions --no-details list_function); list_function"
 
-function view_function -V list_toggles -V _flag_follow -V _flag_show_options -V paths
-    if set -q _flag_follow && not enabled $list_toggles graph
+function view_function -V list_toggles -V commit_paths_var -V _flag_show_options -V paths
+    if enabled $list_toggles follow && test (count $paths) -gt 0
         # Find paths for the commit being viewed when following renames
-        set show_paths (string collect $COMMIT_PATHS | grep $items | string split -a -f 3-4 \t)
+        set show_paths (string collect $$commit_paths_var | grep $items | string split -a -f 3-4 \t)
     else
         set show_paths $paths
     end
@@ -62,8 +93,10 @@ source (status dirname)/git_fzf_command.fish \
     --fzf-flag=--multi \
     --fzf-flag=--track \
     --fzf-flag=--scheme=history \
-    --fzf-flag="--bind=alt-g:execute-silent(toggle $list_toggles graph)+reload($list_command)" \
-    --fzf-flag="--bind=alt-s:execute-silent(toggle $list_toggles source)+reload($list_command)" \
+    --fzf-flag="--footer=$(footer_function)" \
+    --fzf-flag="--bind=alt-g:execute-silent($toggle_flag_command graph)+reload($list_command)+transform-footer($footer_command)" \
+    --fzf-flag="--bind=alt-s:execute-silent($toggle_flag_command source)+reload($list_command)+transform-footer($footer_command)" \
+    --fzf-flag="--bind=alt-f:execute-silent($toggle_flag_command follow)+reload($list_command)+transform-footer($footer_command)" \
     --main-view-name=history \
     --items-variable=commits \
     --no-items-message="No commit selected." \
@@ -73,4 +106,5 @@ source (status dirname)/git_fzf_command.fish \
     --view-command=$view_command \
     $pager_flags_flag
 
-delete_toggles $list_toggles
+set -e $list_toggles
+set -e $commit_paths_var

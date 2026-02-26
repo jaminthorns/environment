@@ -70,12 +70,14 @@ if status is-interactive
         "border:blue" \
         "scrollbar:$fzf_scrollbar_color" \
         "preview-scrollbar:$fzf_scrollbar_color" \
-        "header:bright-black"
+        "header:bright-black" \
+        "footer:bright-black"
     set -gx FZF_DEFAULT_OPTS \
         --reverse \
         --info=inline-right \
         --no-separator \
         --highlight-line \
+        --footer-border=none \
         --preview-window=border-left \
         --prompt=(string escape "▶ ") \
         --pointer= \

@@ -6,7 +6,7 @@ set escaped_paths (string escape -- $paths)
 set options (option_args $argv)
 set escaped_options (string escape -- $options)
 
-set header (git show --format= --shortstat $options -- $paths)
+set header (git show --format= --shortstat $options -- $paths | string trim)
 set revision (git show --format=%H --no-patch $options)
 
 if test (count $header) -eq 0
@@ -23,7 +23,7 @@ source (status dirname)/git_fzf_command.fish \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
     --fzf-flag=--scheme=path \
-    --header=$header \
+    --fzf-flag=--header=$header \
     --main-view-name=changes \
     --items-variable=files \
     --no-items-message="No file selected." \
