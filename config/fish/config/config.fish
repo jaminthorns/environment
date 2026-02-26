@@ -87,8 +87,10 @@ if status is-interactive
         --scrollbar=█ \
         --bind=esc:cancel \
         --bind=alt-p:toggle-preview \
-        --bind=alt-up:first \
-        --bind=alt-down:last \
+        --bind=alt-up:page-up \
+        --bind=alt-down:page-down \
+        --bind=alt-shift-up:first \
+        --bind=alt-shift-down:last \
         --color=(string join , $fzf_colors)
 
     # Configure fzf.fish
