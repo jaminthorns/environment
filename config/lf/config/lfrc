@@ -4,9 +4,9 @@ set dirfirst false
 set incsearch true
 set incfilter true
 set watch true
-set info time
 set sortby time
 set ratios 1:2:1
+set scrolloff 3
 set shell fish
 set shellopts "--init-command=set fs (echo -n $fs); set fx (echo -n $fx)" # Convert file variables to lists
 set ifs
