@@ -31,9 +31,7 @@ map <m-down> down
 map <pgup> page-up
 map <pgdn> page-down
 map <home> top
-map <a-up> top
 map <end> bottom
-map <a-down> bottom
 map <left> updir
 map <right> open
 map <c-r> reload
@@ -51,9 +49,13 @@ map sn :set sortby natural; set reverse false; set dirfirst true; set info
 map st :set sortby time; set reverse true; set dirfirst false; set info time
 map ss :set sortby size; set reverse true; set dirfirst false; set info size
 
-# macOS-like top/bottom navigation
-map <c-home> top
-map <c-end> bottom
+# Up/down navigation
+map <a-up> page-up
+map <a-down> page-down
+map <c-up> top
+map <c-down> bottom
+map <c-home> top # Needed for Windows
+map <c-end> bottom # Needed for Windows
 
 # Conventional file manager keybindings
 map <tab> :toggle; down
