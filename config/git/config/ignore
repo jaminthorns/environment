@@ -11,8 +11,8 @@
 # Visual Studio Code workspaces
 *.code-workspace
 
-# Elixir Language Server artifacts
-.elixir_ls
+# Expert Language Server artifacts
+.expert
 
 # IEx configuration
 .iex.exs
