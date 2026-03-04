@@ -3,7 +3,6 @@ set reverse true
 set dirfirst false
 set incsearch true
 set incfilter true
-set watch true
 set sortby time
 set ratios 1:2:1
 set scrolloff 3
