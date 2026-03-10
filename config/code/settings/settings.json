@@ -105,6 +105,8 @@
   "SQL-Formatter-VSCode.functionCase": "lower",
   "SQL-Formatter-VSCode.identifierCase": "lower",
 
+  "markdown.extension.toc.updateOnSave": false,
+
   "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][markdown][html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
