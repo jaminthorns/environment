@@ -67,6 +67,8 @@
   "terminal.integrated.suggest.enabled": false,
   "terminal.integrated.inheritEnv": {{os_status mac-os && echo false || echo true}},
 
+  "remote.autoForwardPortsSource": "hybrid",
+
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.autofetch": "all",
