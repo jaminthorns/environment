@@ -91,7 +91,6 @@ source (status dirname)/git_interactive_command.fish \
     --fzf-flag=--read0 \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
-    --fzf-flag=--track \
     --fzf-flag=--scheme=history \
     --fzf-flag="--footer=$(footer_function)" \
     --fzf-flag="--bind=alt-g:execute-silent($toggle_flag_command graph)+reload($list_command)+transform-footer($footer_command)" \
