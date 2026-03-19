@@ -79,7 +79,7 @@
 
   "gitsquatch.terminalLinks.provideFileLinks": "withRevisionContext",
   "gitsquatch.selectionSearch.modifyEnv": "GITSQUATCH_SEARCH",
-  "gitsquatch.gitCommands.showRevision": "git ishow --diff-merges=on ${revision}",
+  "gitsquatch.gitCommands.showRevision": "git ishow --diff-merges=first-parent ${revision}",
   "gitsquatch.gitCommands.folderHistory": "git ilog ${revision} -- '${folder}'",
   "gitsquatch.gitCommands.fileHistory": "git ilog ${reverseFlags} ${revision} -- '${filename}'",
   "gitsquatch.gitCommands.lineHistory": "DELTA_FEATURES=\"$DELTA_FEATURES navigate-commits\" git log ${revision} ${fileLineRanges}",
