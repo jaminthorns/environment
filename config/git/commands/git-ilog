@@ -80,7 +80,7 @@ function view_function -V list_toggles -V commit_paths_var -V _flag_show_options
         set show_paths $paths
     end
 
-    git show --color --decorate --diff-merges=on $_flag_show_options $items -- $show_paths
+    git show --color --decorate $_flag_show_options $items -- $show_paths
 end
 
 set view_command "$(functions --no-details view_function); view_function"
