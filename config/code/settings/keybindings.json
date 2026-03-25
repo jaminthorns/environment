@@ -71,10 +71,6 @@
   { "key": "{{command_key}}+k {{command_key}}+s", "command": "git.stageSelectedRanges", "when": "editorTextFocus && !operationInProgress" },
   { "key": "{{command_key}}+k {{command_key}}+u", "command": "git.unstageSelectedRanges", "when": "isInDiffEditor && !operationInProgress" },
 
-  // Elixir
-  { "key": "alt+p", "command": "extension.toPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
-  { "key": "alt+shift+p", "command": "extension.fromPipe", "when": "editorTextFocus && resourceLangId == 'elixir'" },
-
   // Markdown
   { "key": "alt+c", "command": "markdown.extension.checkTaskList", "when": "editorTextFocus && resourceLangId == 'markdown'" },
 
