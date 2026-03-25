@@ -87,6 +87,7 @@ if status is-interactive
         --scrollbar=█ \
         --bind=esc:cancel \
         --bind=alt-p:toggle-preview \
+        --bind=alt-a:select-all \
         --bind=alt-.:toggle-track-current \
         --bind=alt-up:page-up \
         --bind=alt-down:page-down \
