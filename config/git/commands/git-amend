@@ -7,4 +7,4 @@ else
 end
 
 git commit --fixup=amend:$commit
-git rebase --autostash --autosquash $commit~
+git rebase --autosquash $commit~
