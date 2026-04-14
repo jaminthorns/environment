@@ -6,7 +6,7 @@ Current keyboard: Keychron Q3
 
 - [Keychron Q3 User
   Guide](https://www.keychron.com/pages/keychron-q3-user-guide)
-- [VIA](https://usevia.app)
+- [Keychron Launcher](https://launcher.keychron.com/)
 
 ## Steps
 
@@ -21,7 +21,9 @@ Current keyboard: Keychron Q3
 
 - Lighting
 
-  - Change the backlight effect to `REACTIVE_MULTIWIDE`
+  - Change the backlight effect to Reactive Multiwide`
+
+  - Change the speed to `63`
 
   - Change the backlight color to `#CEFF22`
 
