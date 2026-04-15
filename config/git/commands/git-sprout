@@ -1,21 +1,18 @@
 #!/usr/bin/env fish
 
-if not test (count $argv) -eq 2
-    echo "fatal: must supply base revision and branch name" >&2
+argparse "c/create-branch=" -- $argv
+
+if not set -q argv[1]
+    echo "fatal: must supply base revision" >&2
     exit 1
 end
 
 set base_revision $argv[1]
-set branch_name $argv[2]
 set current_branch (git branch --show-current)
 
-if git rev-parse --verify $branch_name >/dev/null 2>&1
-    echo "fatal: branch $branch_name already exists" >&2
-    exit 1
-end
-
-git switch -c $branch_name
 git commit
+
+set commit (git rev-parse HEAD)
 
 if not test -z (git status --porcelain | string collect)
     set should_stash
@@ -25,7 +22,15 @@ if set -q should_stash
     git stash --include-untracked
 end
 
-git rebase --onto $base_revision HEAD~
+git reset --hard HEAD~
+
+if set -q _flag_create_branch
+    git switch -c $_flag_create_branch $base_revision
+else
+    git switch $base_revision
+end
+
+git cherry-pick $commit
 git switch $current_branch
 
 if set -q should_stash
