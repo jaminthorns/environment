@@ -26,7 +26,7 @@
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
 
-  "chat.agentsControl.enabled": "hidden",
+  "chat.disableAIFeatures": true,
 
   "breadcrumbs.enabled": false,
 
@@ -87,9 +87,6 @@
   "gitsquatch.gitCommands.revisionRangeHistory": "git ilog ${revisionRange}",
   "gitsquatch.gitCommands.revisionDiff": "git idiff ${fromRevision} ${toRevision}",
   "gitsquatch.gitCommands.stringSearch": "git ilog ${revision} ${searches}",
-
-  "github.copilot.enable": { "*": false },
-  "github.copilot.editor.enableCodeActions": false,
 
   "githubPullRequests.pullBranch": "never",
 
