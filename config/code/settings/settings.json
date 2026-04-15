@@ -26,7 +26,7 @@
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
 
-  "chat.agentsControl.enabled": "hidden",
+  "chat.disableAIFeatures": true,
 
   "breadcrumbs.enabled": false,
 
