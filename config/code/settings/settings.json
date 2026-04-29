@@ -17,10 +17,11 @@
 
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": "single",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.useModal": "off",
   "workbench.colorTheme": "Dracula Theme",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
-  "workbench.editor.empty.hint": "hidden",
   "workbench.layoutControl.enabled": false,
   "workbench.navigationControl.enabled": false,
   "workbench.activityBar.location": "top",
@@ -41,13 +42,14 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
 
-  "window.title": "${rootPath}${separator}${activeRepositoryBranchName}",
+  "window.title": "${rootPath}",
   "window.titleSeparator": " • ",
+  "window.commandCenter": false,
 
   "search.useGlobalIgnoreFiles": true,
   "search.mode": "newEditor",
 
-  "debug.toolBarLocation": "commandCenter",
+  "debug.toolBarLocation": "docked",
 
   "extensions.ignoreRecommendations": true,
 
