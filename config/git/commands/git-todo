@@ -1,6 +1,11 @@
 #!/usr/bin/env fish
 
-set branch $argv[1]
+if not set -q argv[1]
+    echo "fatal: must supply revision" >&2
+    exit 1
+end
+
+set revision $argv[1]
 set -x DELTA_PAGER less --jump-target=.5 --pattern=TODO
 
-git diff --unified=0 $branch...
+git diff --unified=0 $revision...

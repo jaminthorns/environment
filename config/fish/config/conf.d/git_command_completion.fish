@@ -7,6 +7,9 @@ complete -c git-sprout -s c -l create-branch
 
 complete -c git-purge-branch -k -n "__fish_is_first_arg" -a "(__fish_git_refs)"
 
+complete -c git-branch-range -k -n "__fish_is_first_arg" -a "(__fish_git_commits)"
+complete -c git-branch-range -s t -l target -r -d "Target ref that branch is merged into" -a "(__fish_git_refs)"
+
 complete -c git-ibranch -w "git branch"
 complete -c git-ibranch -s l -l log-options -r -d "Options for the 'git log' view"
 

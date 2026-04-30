@@ -1,0 +1,31 @@
+#!/usr/bin/env fish
+
+argparse "t/target=" -- $argv
+
+if not set -q argv[1]
+    echo "fatal: must supply revision" >&2
+    exit 1
+end
+
+set revision $argv[1]
+
+if set -q _flag_target
+    set target $_flag_target
+else
+    set target (git rev-parse --abbrev-ref origin/HEAD)
+end
+
+for commit in (git rev-list --ancestry-path --merges --reverse $revision..$target)
+    if git merge-base --is-ancestor $revision $commit^2 && not git merge-base --is-ancestor $revision $commit^1
+        set merge_commit $commit
+        break
+    end
+end
+
+if not set -q merge_commit
+    exit 1
+end
+
+set fork_commit (git rev-parse $merge_commit^1)
+
+echo $fork_commit..$merge_commit
