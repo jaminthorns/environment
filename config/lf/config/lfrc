@@ -93,6 +93,7 @@ map cf copy-selected-filenames
 map r reveal-in-system-file-manager
 map j jump
 map h history
+map d drag-and-drop
 map <a-q> quit-cd
 
 cmd on-init set-title
@@ -221,6 +222,8 @@ cmd reveal-in-system-file-manager &{{
     powershell.exe "explorer.exe /select,$(path basename $f)"
   end
 }}
+
+cmd drag-and-drop &ripdrag --all-compact --and-exit --content-width=150 --content-height=50 $fx
 
 cmd quit-cd :{{
   $echo change_directory > $lf_quit_operation_path

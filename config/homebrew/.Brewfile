@@ -31,6 +31,10 @@ brew "pgcli"
 brew "poppler"
 brew "ripgrep"
 
+# Dependencies for ripdrag
+brew "gtk4"
+brew "pkg-config"
+
 if OS.mac?
   cask "font-jetbrains-mono"
   cask "font-symbols-only-nerd-font"
