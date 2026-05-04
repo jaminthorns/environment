@@ -105,12 +105,13 @@ local config = {
 
     -- Screen/cursor control
     { key = "k",          mods = cmd_key,          action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
-    { key = "LeftArrow",  mods = cmd_key,          action = action.SendString("\x01") },
-    { key = "RightArrow", mods = cmd_key,          action = action.SendString("\x05") },
-    { key = "Backspace",  mods = cmd_key,          action = action.SendString("\x15") },
-    { key = "UpArrow",    mods = cmd_key,          action = action.SendString("\x1b[1;5H") },
-    { key = "DownArrow",  mods = cmd_key,          action = action.SendString("\x1b[1;5F") },
-    { key = "Delete",     mods = "ALT",            action = action.SendString("\x1bd") },
+    { key = "LeftArrow",  mods = cmd_key,          action = action.SendKey({ key = "a", mods = "CTRL" }) },
+    { key = "RightArrow", mods = cmd_key,          action = action.SendKey({ key = "e", mods = "CTRL" }) },
+    { key = "Backspace",  mods = cmd_key,          action = action.SendKey({ key = "u", mods = "CTRL" }) },
+    { key = "Delete",     mods = cmd_key,          action = action.SendKey({ key = "k", mods = "CTRL" }) },
+    { key = "UpArrow",    mods = cmd_key,          action = action.SendKey({ key = "Home", mods = "CTRL" }) },
+    { key = "DownArrow",  mods = cmd_key,          action = action.SendKey({ key = "End", mods = "CTRL" }) },
+    { key = "Delete",     mods = "ALT",            action = action.SendKey({ key = "d", mods = "ALT" }) },
 
     -- Searching
     { key = "Enter",      mods = "SHIFT",          action = action.CopyMode("NextMatch") },
