@@ -21,6 +21,12 @@
   { "key": "ctrl+shift+enter", "command": "workbench.action.toggleMaximizedPanel", "when": "panelFocus" },
   { "key": "ctrl+shift+'", "command": "workbench.action.toggleCenteredLayout", "when": "editorFocus" },
 
+  // Sidebars
+  { "key": "ctrl+shift+b", "command": "workbench.action.toggleSidebarVisibility" },
+  { "key": "ctrl+b", "command": "-workbench.action.toggleSidebarVisibility" },
+  { "key": "ctrl+shift+alt+b", "command": "workbench.action.toggleAuxiliaryBar" },
+  { "key": "ctrl+alt+b", "command": "-workbench.action.toggleAuxiliaryBar" },
+
   // Terminal (tab/pane control)
   { "key": "ctrl+shift+n", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus || terminalTabsFocus" },
   { "key": "ctrl+shift+w", "command": "workbench.action.terminal.kill", "when": "terminalFocus || terminalTabsFocus" },
