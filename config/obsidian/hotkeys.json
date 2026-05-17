@@ -36,7 +36,7 @@
   "app:go-back": [
     {
       "modifiers": [
-        "Mod"
+        "Ctrl"
       ],
       "key": "-"
     }
@@ -44,7 +44,7 @@
   "app:go-forward": [
     {
       "modifiers": [
-        "Mod",
+        "Ctrl",
         "Shift"
       ],
       "key": "-"
@@ -53,7 +53,7 @@
   "backlink:open": [
     {
       "modifiers": [
-        "Mod"
+        "Ctrl"
       ],
       "key": "["
     }
@@ -61,7 +61,7 @@
   "editor:follow-link": [
     {
       "modifiers": [
-        "Mod"
+        "Ctrl"
       ],
       "key": "]"
     }
@@ -111,7 +111,7 @@
   "app:toggle-left-sidebar": [
     {
       "modifiers": [
-        "Mod",
+        "Ctrl",
         "Shift"
       ],
       "key": "B"
@@ -121,7 +121,7 @@
     {
       "modifiers": [
         "Alt",
-        "Mod",
+        "Ctrl",
         "Shift"
       ],
       "key": "B"
