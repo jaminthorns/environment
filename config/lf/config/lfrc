@@ -151,7 +151,7 @@ cmd archive-compress %{{
 }}
 
 cmd archive-extract %{{
-  ouch decompress $f && printf "archive extracted"
+  ouch decompress --dir (path basename -E $f) $f && printf "archive extracted"
 }}
 
 cmd image-convert-format %{{
