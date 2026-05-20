@@ -85,8 +85,6 @@ map <a-enter> edit-paths
 map e edit
 map ac archive-compress
 map ae archive-extract
-map ic image-convert-format
-map ir image-resize
 map cw copy-working-path
 map cp copy-selected-paths
 map cf copy-selected-filenames
@@ -152,26 +150,6 @@ cmd archive-compress %{{
 
 cmd archive-extract %{{
   ouch decompress --dir (path basename -E $f) $f && printf "archive extracted"
-}}
-
-cmd image-convert-format %{{
-  printf " convert images to format: " && read format
-
-  for file in $fx
-    magick $file (path change-extension $format $file)
-  end
-
-  printf "images converted to $format"
-}}
-
-cmd image-resize %{{
-  printf " resize images: " && read geometry
-
-  for file in $fx
-    magick $file -resize $geometry (path change-extension "resized$(path extension $file)" $file)
-  end
-
-  printf "images resized"
 }}
 
 cmd copy-working-path %{{
