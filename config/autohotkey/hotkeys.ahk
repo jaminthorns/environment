@@ -1,8 +1,9 @@
 #UseHook
 
-TerminalClass := "ahk_class org.wezfurlong.wezterm"
+TerminalId := "ahk_class org.wezfurlong.wezterm"
+VSCodeId := "ahk_exe Code.exe"
 
-MapAllModifiers()
+MapWinToCtrl()
 
 ; Media
 !#End::Send {Media_Play_Pause}
@@ -19,26 +20,40 @@ MapAllModifiers()
 !#Pause::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
 
 ; Open terminal
-#`::
-If WinExist(TerminalClass) {
-  WinActivate
-} Else {
-  Run "wezterm-gui.exe", , , OutputVarPID
-  WinWait ahk_pid %OutputVarPID%
-  WinActivate ahk_pid %OutputVarPID%
-}
-
+!`::
+  If WinExist(TerminalId) {
+    WinActivate
+  } Else {
+    Run "wezterm-gui.exe", , , OutputVarPID
+    WinWait ahk_pid %OutputVarPID%
+    WinActivate ahk_pid %OutputVarPID%
+  }
 Return
 
 ; Emoji keyboard
-!^Space::Send #.
+#^Space::Send #.
 
 ; Clipboard history
-!+v::Send {Shift Up}#v
+#+v::Send {Shift Up}#v
 
 ; Window snapping
-^#Left::Send #{Left}
-^#Right::Send #{Right}
+^!Left::Send #{Left}
+^!Right::Send #{Right}
+
+; Window Switching
+!Tab::Send #{Tab}
+
+#Tab::
+  Send {Alt Down}{Tab}
+  KeyWait LWin
+  Send {Alt Up}
+Return
+
+#+Tab::
+  Send {Alt Down}{Shift Down}{Tab}
+  KeyWait LWin
+  Send {Alt Up}{Shift Up}
+Return
 
 ; Disable modifier key press behavior
 Alt::Return
@@ -47,64 +62,86 @@ LWin::Return
 RWin & vkFF::Return
 RWin::Return
 
-#If !WinActive(TerminalClass)
-; Cursor control (Alt -> Command)
-!Up::Send ^{Home}
-!Down::Send ^{End}
-!Left::Send {Home}
-!Right::Send {End}
-!+Up::Send ^+{Home}
-!+Down::Send ^+{End}
-!+Left::Send +{Home}
-!+Right::Send +{End}
+; macOS-like cursor control (general applications + VS Code)
+#If !WinActive(TerminalId)
+  #Left::Send {Home} ; Move cursor to start of line
+  #Right::Send {End} ; Move cursor to end of line
+  #Up::Send ^{Home} ; Move cursor to start of input
+  #Down::Send ^{End} ; Move cursor to end of input
 
-; Cursor control (Win -> Option)
-#Left::Send ^{Left}
-#Right::Send ^{Right}
-#+Up::Send !+{Up}
-#+Down::Send !+{Down}
-#+Left::Send ^+{Left}
-#+Right::Send ^+{Right}
+  #+Left::Send +{Home} ; Select to start of line
+  #+Right::Send +{End} ; Select to end of line
+  #+Up::Send ^+{Home} ; Select to start of input
+  #+Down::Send ^+{End} ; Select to end of input
 
-; Backspace/Delete
-#Backspace::Send ^{Backspace}
-!Backspace::Send +{Home}{Delete}
-#Delete::Send ^{Delete}
-!Delete::Send +{End}{Delete}
+  !Left::Send ^{Left} ; Move cursor left by word
+  !Right::Send ^{Right} ; Move cursor right by word
+  !+Left::Send ^+{Left} ; Select left by word
+  !+Right::Send ^+{Right} ; Select right by word
+
+  !Backspace::Send ^{Backspace} ; Delete word backward
+  !Delete::Send ^{Delete} ; Delete word forward
 #If
 
-#If WinActive(TerminalClass)
-; Cursor control (Alt -> Command)
-!Up::Send ^{Up}
-!Down::Send ^{Down}
-!Left::Send ^{Left}
-!Right::Send ^{Right}
-
-; Cursor control (Win -> Option)
-#Left::Send !{Left}
-#Right::Send !{Right}
-
-; Tab control
-^+#Left::Send ^+!{Left}
-^+#Right::Send ^+!{Right}
-^+#n::Send ^+!{n}
-
-; Backspace/Delete
-#Backspace::Send !{Backspace}
-!Backspace::Send ^{Backspace}
-#Delete::Send !{Delete}
-!Delete::Send ^{Delete}
+; macOS-like cursor control (general applications)
+;
+; In VS Code, cursor movement within editor inputs can be fully remapped from
+; any keystroke, but other inputs (quick picks, search widgets, file pickers)
+; cannot be remapped. To implement line deletion in Windows, multiple keystrokes
+; are required, which works fine for inputs (editor or otherwise) but doesn't
+; map cleanly to terminal keybindings.
+;
+; Because of this, we make the choice to sacrifice line deletion keybindings in
+; non-editor inputs so we can have line deletion be triggered by a single
+; keystroke using surrogate keys, which can then be handled in VS Code
+; keybindings for the editor and terminal.
+#If !WinActive(TerminalId) && !WinActive(VSCodeId)
+  #Backspace::Send +{Home}{Delete} ; Delete line backward
+  #Delete::Send +{End}{Delete} ; Delete line forward
 #If
 
-; Cursor control (Win -> Option)
-#Up::Send !{Up}
-#Down::Send !{Down}
+; macOS-like cursor control (WezTerm)
+;
+; In WezTerm, we just map Win to Ctrl and handle further mapping in config.
+#If WinActive(TerminalId)
+  #Up::Send ^{Up}
+  #Down::Send ^{Down}
+  #Left::Send ^{Left}
+  #Right::Send ^{Right}
+  #Backspace::Send ^{Backspace}
+  #Delete::Send ^{Delete}
+#If
 
-; Cursor control (Alt + Win -> Command + Option)
-!#Up::Send ^!{Up}
-!#Down::Send ^!{Down}
+; VS Code-specific tweaks
+#If WinActive(VSCodeId)
+  ; Move editor shortcut
+  ^#Left::Send ^!{Left}
+  ^#Right::Send ^!{Right}
 
-MapAllModifiers() {
+  ; Duplicate cursor shortcut
+  !#Up::Send ^!{Up}
+  !#Down::Send ^!{Down}
+
+  ; Send surrogate keys for line deletion
+  #Backspace::Send ^{F13}
+  #Delete::Send ^{F14}
+
+  ; Workaround for Win+L release behavior
+  ;
+  ; AutoHotkey waits until after the modifier is released when sending the L key
+  ; for Win key shortcuts to prevent locking the computer. This wait is fine for
+  ; general applications, but this shortcuts is pressed repeatedly in VS Code,
+  ; so we send a surrogate key.
+  #l::Send ^{F15}
+#If
+
+; Workaround for Win+Esc shortcut (opens start menu)
+^Esc::Send ^{F16}
+
+; Workaround for Alt+Space shortcut (opens window menu)
+!Space::Send ^{F17}
+
+MapWinToCtrl() {
   Keys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
     , "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     , "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
@@ -113,23 +150,17 @@ MapAllModifiers() {
 
   For _, Key In Keys {
     ControlFunc := Func("Control").Bind(Key)
-    Hotkey, !%Key%, %ControlFunc%
+    Hotkey, #%Key%, %ControlFunc%
 
-    If (Key != "v") {
+    ; Win+Shift+V used for clipboard history
+    ; Win+Shift+C used for color picker
+    If (Key != "v" && key != "c") {
       ControlShiftFunc := Func("ControlShift").Bind(Key)
-      Hotkey, !+%Key%, %ControlShiftFunc%
+      Hotkey, #+%Key%, %ControlShiftFunc%
     }
 
-    AltFunc := Func("Alt").Bind(Key)
-    Hotkey, #%Key%, %AltFunc%
-
-    AltShiftFunc := Func("AltShift").Bind(Key)
-    Hotkey, #+%Key%, %AltShiftFunc%
-
-    If (Key != "Enter") {
-      ControlAltFunc := Func("ControlAlt").Bind(Key)
-      Hotkey, !#%Key%, %ControlAltFunc%
-    }
+    ControlAltFunc := Func("ControlAlt").Bind(Key)
+    Hotkey, !#%Key%, %ControlAltFunc%
 
     ControlAltShiftFunc := Func("ControlAltShift").Bind(Key)
     Hotkey, !#+%Key%, %ControlAltShiftFunc%
@@ -137,25 +168,33 @@ MapAllModifiers() {
 }
 
 Control(Key) {
-  Send ^{%Key%}
+  If StrLen(Key) > 1 {
+    Send ^{%Key%}
+  } Else {
+    Send ^%Key%
+  }
 }
 
 ControlShift(Key) {
-  Send ^+{%Key%}
-}
-
-Alt(Key) {
-  Send !{%Key%}
-}
-
-AltShift(Key) {
-  Send !+{%Key%}
+  If StrLen(Key) > 1 {
+    Send ^+{%Key%}
+  } Else {
+    Send ^+%Key%
+  }
 }
 
 ControlAlt(Key) {
-  Send ^!{%Key%}
+  If StrLen(Key) > 1 {
+    Send ^!{%Key%}
+  } Else {
+    Send ^!%Key%
+  }
 }
 
 ControlAltShift(Key) {
-  Send ^!+{%Key%}
+  If StrLen(Key) > 1 {
+    Send ^!+{%Key%}
+  } Else {
+    Send ^!+%Key%
+  }
 }

@@ -103,25 +103,30 @@ local config = {
     { key = "LeftArrow",  mods = "CTRL|SHIFT|ALT", action = action.MoveTabRelative(-1) },
     { key = "RightArrow", mods = "CTRL|SHIFT|ALT", action = action.MoveTabRelative(1) },
 
-    -- Screen/cursor control
-    { key = "k",          mods = cmd_key,          action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
-    { key = "LeftArrow",  mods = cmd_key,          action = action.SendKey({ key = "a", mods = "CTRL" }) },
-    { key = "RightArrow", mods = cmd_key,          action = action.SendKey({ key = "e", mods = "CTRL" }) },
-    { key = "Backspace",  mods = cmd_key,          action = action.SendKey({ key = "u", mods = "CTRL" }) },
-    { key = "Delete",     mods = cmd_key,          action = action.SendKey({ key = "k", mods = "CTRL" }) },
-    { key = "UpArrow",    mods = cmd_key,          action = action.SendKey({ key = "Home", mods = "CTRL" }) },
-    { key = "DownArrow",  mods = cmd_key,          action = action.SendKey({ key = "End", mods = "CTRL" }) },
-    { key = "Delete",     mods = "ALT",            action = action.SendKey({ key = "d", mods = "ALT" }) },
+    -- Cursor control
+    { key = "UpArrow",    mods = cmd_key,          action = action.SendKey({ mods = "CTRL", key = "Home" }) },
+    { key = "DownArrow",  mods = cmd_key,          action = action.SendKey({ mods = "CTRL", key = "End" }) },
+    { key = "LeftArrow",  mods = cmd_key,          action = action.SendKey({ mods = "CTRL", key = "a" }) },
+    { key = "RightArrow", mods = cmd_key,          action = action.SendKey({ mods = "CTRL", key = "e" }) },
+    { key = "Backspace",  mods = cmd_key,          action = action.SendKey({ mods = "CTRL", key = "u" }) },
+    { key = "Delete",     mods = cmd_key,          action = action.SendKey({ mods = "CTRL", key = "k" }) },
+    { key = "Delete",     mods = "ALT",            action = action.SendKey({ mods = "ALT", key = "d" }) },
 
-    -- Searching
+    -- Screen clearing
+    { key = "k",          mods = cmd_key,          action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
+
+    -- Search navigation
     { key = "Enter",      mods = "SHIFT",          action = action.CopyMode("NextMatch") },
 
-    -- Previous command navigation
+    -- Command navigation
     { key = "UpArrow",    mods = "CTRL|SHIFT",     action = action.ScrollToPrompt(-1) },
     { key = "DownArrow",  mods = "CTRL|SHIFT",     action = action.ScrollToPrompt(1) },
 
     -- Disable fullscreen shortcut
-    { key = "Enter",      mods = "ALT",            action = action.SendKey({ key = "Enter", mods = "ALT" }) },
+    { key = "Enter",      mods = "ALT",            action = action.SendKey({ mods = "ALT", key = "Enter" }) },
+
+    -- Windows workarounds
+    { key = "F17",        mods = "CTRL",           action = action.SendKey({ mods = "ALT", key = "Space" }) },
   },
 }
 

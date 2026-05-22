@@ -12,6 +12,8 @@ Current keyboard: Keychron Q3
 
 - Keys
 
+  - Reverse `Alt` and `Win` keys
+
   - Change knob press to play/pause (`KC_MPLY`)
 
   - Change `Scroll Lock` and `Pause` back to original values
