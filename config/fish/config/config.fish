@@ -86,13 +86,13 @@ if status is-interactive
         --ellipsis=… \
         --scrollbar=█ \
         --bind=esc:cancel \
+        --bind=ctrl-a:select-all \
         --bind=alt-p:toggle-preview \
-        --bind=alt-a:select-all \
         --bind=alt-.:toggle-track-current \
         --bind=alt-up:page-up \
         --bind=alt-down:page-down \
-        --bind=ctrl-up:first \
-        --bind=ctrl-down:last \
+        --bind=ctrl-home:first \
+        --bind=ctrl-end:last \
         --color=(string join , $fzf_colors)
 
     # Configure fzf.fish
