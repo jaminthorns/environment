@@ -129,6 +129,12 @@
   { "key": "ctrl+f13", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u0015" }, "when": "!isMac && terminalFocus" },
   { "key": "ctrl+f14", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u000B" }, "when": "!isMac && terminalFocus" },
 
+  // Workaround for copy/paste/search (non-macOS)
+  { "key": "ctrl+c", "command": "workbench.action.terminal.copySelection", "when": "!isMac && terminalFocus" },
+  { "key": "ctrl+alt+c", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u0003" }, "when": "!isMac && terminalFocus" },
+  { "key": "ctrl+alt+v", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u0016" }, "when": "!isMac && terminalFocus" },
+  { "key": "ctrl+alt+f", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u0006" }, "when": "!isMac && terminalFocus" },
+
   //// Miscellaneous
 
   // Git changes

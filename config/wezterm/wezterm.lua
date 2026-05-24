@@ -4,7 +4,7 @@ local mac_os = {{os_status mac-os && echo true || echo false}}
 local wsl = {{os_status wsl && echo true || echo false}}
 local cmd_key = "{{command_key upper}}"
 
-wezterm.on('format-window-title', function(tab, pane, tabs, panes, config)
+wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
   return pane.title
 end)
 
@@ -113,10 +113,9 @@ local config = {
     { key = "Delete",     mods = "ALT",            action = action.SendKey({ mods = "ALT", key = "d" }) },
 
     -- Screen clearing
-    { key = "k",          mods = cmd_key,          action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
+    { key = "k",          mods = cmd_key,          action = action.Multiple({ action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) }) },
 
     -- Search
-    { key = "f",          mods = "CTRL|SHIFT",     action = action.Search({ CaseInSensitiveString = '' }) },
     { key = "Enter",      mods = "SHIFT",          action = action.CopyMode("NextMatch") },
 
     -- Command navigation
@@ -125,6 +124,14 @@ local config = {
 
     -- Disable fullscreen shortcut
     { key = "Enter",      mods = "ALT",            action = action.SendKey({ mods = "ALT", key = "Enter" }) },
+
+    -- Workaround for copy/paste/search
+    { key = "c",          mods = cmd_key,          action = action.CopyTo("Clipboard") },
+    { key = "c",          mods = "CTRL|ALT",       action = action.SendKey({ mods = "CTRL", key = "c" }) },
+    { key = "v",          mods = cmd_key,          action = action.PasteFrom("Clipboard") },
+    { key = "v",          mods = "CTRL|ALT",       action = action.SendKey({ mods = "CTRL", key = "v" }) },
+    { key = "f",          mods = cmd_key,          action = action.Search("CurrentSelectionOrEmptyString") },
+    { key = "f",          mods = "CTRL|ALT",       action = action.SendKey({ mods = "CTRL", key = "f" }) },
 
     -- Windows workarounds
     { key = "F17",        mods = "CTRL",           action = action.SendKey({ mods = "ALT", key = "Space" }) },

@@ -62,7 +62,7 @@ LWin::Return
 RWin & vkFF::Return
 RWin::Return
 
-; macOS-like cursor control (general applications + VS Code)
+; General applications + VS Code
 #If !WinActive(TerminalId)
   #Left::Send {Home} ; Move cursor to start of line
   #Right::Send {End} ; Move cursor to end of line
@@ -83,27 +83,23 @@ RWin::Return
   !Delete::Send ^{Delete} ; Delete word forward
 #If
 
-; macOS-like cursor control (general applications)
-;
-; In VS Code, cursor movement within editor inputs can be fully remapped from
-; any keystroke, but other inputs (quick picks, search widgets, file pickers)
-; cannot be remapped. To implement line deletion in Windows, multiple keystrokes
-; are required, which works fine for inputs (editor or otherwise) but doesn't
-; map cleanly to terminal keybindings.
-;
-; Because of this, we make the choice to sacrifice line deletion keybindings in
-; non-editor inputs so we can have line deletion be triggered by a single
-; keystroke using surrogate keys, which can then be handled in VS Code
-; keybindings for the editor and terminal.
+; General applications
 #If !WinActive(TerminalId) && !WinActive(VSCodeId)
   #Backspace::Send +{Home}{Delete} ; Delete line backward
   #Delete::Send +{End}{Delete} ; Delete line forward
 #If
 
-; macOS-like cursor control (WezTerm)
-;
-; In WezTerm, we just map Win to Ctrl and handle further mapping in config.
+; VS Code + Terminal
+#If WinActive(TerminalId) || WinActive(VSCodeId)
+  ; Workaround for copy/paste/search in terminal
+  ^c::Send ^!c
+  ^v::Send ^!v
+  ^f::Send ^!f
+#If
+
+; Terminal
 #If WinActive(TerminalId)
+  ; Just map Win to Ctrl and handle further mapping in config
   #Up::Send ^{Up}
   #Down::Send ^{Down}
   #Left::Send ^{Left}
@@ -112,7 +108,7 @@ RWin::Return
   #Delete::Send ^{Delete}
 #If
 
-; VS Code-specific tweaks
+; VS Code
 #If WinActive(VSCodeId)
   ; Move editor shortcut
   ^#Left::Send ^!{Left}
@@ -123,6 +119,17 @@ RWin::Return
   !#Down::Send ^!{Down}
 
   ; Send surrogate keys for line deletion
+  ;
+  ; In VS Code, cursor movement within editor inputs can be fully remapped from
+  ; any keystroke, but other inputs (quick picks, search widgets, file pickers)
+  ; cannot be remapped. To implement line deletion in Windows, multiple
+  ; keystrokes are required, which works fine for inputs (editor or otherwise)
+  ; but doesn't map cleanly to terminal keybindings.
+  ;
+  ; Because of this, we make the choice to sacrifice line deletion keybindings
+  ; in non-editor inputs so we can have line deletion be triggered by a single
+  ; keystroke using surrogate keys, which can then be handled in VS Code
+  ; keybindings for the editor and terminal.
   #Backspace::Send ^{F13}
   #Delete::Send ^{F14}
 
@@ -154,7 +161,7 @@ MapWinToCtrl() {
 
     ; Win+Shift+V used for clipboard history
     ; Win+Shift+C used for color picker
-    If (Key != "v" && key != "c") {
+    If (Key != "v" && Key != "c") {
       ControlShiftFunc := Func("ControlShift").Bind(Key)
       Hotkey, #+%Key%, %ControlShiftFunc%
     }
