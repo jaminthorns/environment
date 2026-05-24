@@ -115,7 +115,8 @@ local config = {
     -- Screen clearing
     { key = "k",          mods = cmd_key,          action = action.Multiple { action.ClearScrollback("ScrollbackAndViewport"), action.SendKey({ key = "l", mods = "CTRL" }) } },
 
-    -- Search navigation
+    -- Search
+    { key = "f",          mods = "CTRL|SHIFT",     action = action.Search({ CaseInSensitiveString = '' }) },
     { key = "Enter",      mods = "SHIFT",          action = action.CopyMode("NextMatch") },
 
     -- Command navigation
