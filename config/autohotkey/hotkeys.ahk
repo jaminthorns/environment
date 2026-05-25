@@ -133,20 +133,27 @@ RWin::Return
   #Backspace::Send ^{F13}
   #Delete::Send ^{F14}
 
+  ; Send surrogate keys for smart select
+  ;
+  ; The physical keys used for these shortcuts map to the keystrokes sent for
+  ; selecting by word.
+  ^+Left::Send ^{F15}
+  ^+Right::Send ^{F16}
+
   ; Workaround for Win+L release behavior
   ;
   ; AutoHotkey waits until after the modifier is released when sending the L key
   ; for Win key shortcuts to prevent locking the computer. This wait is fine for
   ; general applications, but this shortcuts is pressed repeatedly in VS Code,
   ; so we send a surrogate key.
-  #l::Send ^{F15}
+  #l::Send ^{F17}
 #If
 
 ; Workaround for Win+Esc shortcut (opens start menu)
-^Esc::Send ^{F16}
+^Esc::Send ^{F18}
 
 ; Workaround for Alt+Space shortcut (opens window menu)
-!Space::Send ^{F17}
+!Space::Send ^{F19}
 
 MapWinToCtrl() {
   Keys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
