@@ -19,6 +19,9 @@
   { "key": "ctrl+l", "command": "workbench.debug.panel.action.clearReplAction", "when": "focusedView == 'workbench.panel.repl.view'" },
   { "key": "ctrl+l", "command": "workbench.output.action.clearOutput", "when": "focusedView == 'workbench.panel.output'" },
 
+  // Focus source control view (macOS)
+  { "key": "cmd+shift+g", "command": "workbench.view.scm", "when": "isMac && workbench.scm.active" },
+
   // Reset workbench state
   {
     "key": "ctrl+shift+backspace",
@@ -68,11 +71,25 @@
   { "key": "shift+ctrl+up", "command": "editor.action.previousMatchFindAction", "when": "findWidgetVisible" },
   { "key": "shift+ctrl+down", "command": "editor.action.nextMatchFindAction", "when": "findWidgetVisible" },
 
-  // macOS-like line deletion for non-macOS
+  // non-macOS search mode toggles (macOS)
+  { "key": "alt+c", "command": "toggleSearchEditorCaseSensitive", "when": "isMac && inSearchEditor && searchInputBoxFocus" },
+  { "key": "alt+c", "command": "workbench.action.terminal.toggleFindCaseSensitive", "when": "isMac && terminalFindVisible && terminalHasBeenCreated || terminalFindVisible && terminalProcessSupported" },
+  { "key": "alt+c", "command": "toggleFindCaseSensitive", "when": "isMac && editorFocus" },
+  { "key": "alt+c", "command": "toggleSearchCaseSensitive", "when": "isMac && searchViewletFocus && !fileMatchOrFolderMatchFocus" },
+  { "key": "alt+w", "command": "toggleSearchEditorWholeWord", "when": "isMac && inSearchEditor && searchInputBoxFocus" },
+  { "key": "alt+w", "command": "workbench.action.terminal.toggleFindWholeWord", "when": "isMac && terminalFindVisible && terminalHasBeenCreated || terminalFindVisible && terminalProcessSupported" },
+  { "key": "alt+w", "command": "toggleFindWholeWord", "when": "isMac && editorFocus" },
+  { "key": "alt+w", "command": "toggleSearchWholeWord", "when": "isMac && searchViewletFocus" },
+  { "key": "alt+r", "command": "toggleSearchEditorRegex", "when": "isMac && inSearchEditor && searchInputBoxFocus" },
+  { "key": "alt+r", "command": "workbench.action.terminal.toggleFindRegex", "when": "isMac && terminalFindVisible && terminalHasBeenCreated || terminalFindVisible && terminalProcessSupported" },
+  { "key": "alt+r", "command": "toggleFindRegex", "when": "isMac && editorFocus" },
+  { "key": "alt+r", "command": "toggleSearchRegex", "when": "isMac && searchViewletFocus" },
+
+  // macOS-like line deletion (non-macOS)
   { "key": "ctrl+f13", "command": "deleteAllLeft", "when": "!isMac && textInputFocus" },
   { "key": "ctrl+f14", "command": "deleteAllRight", "when": "!isMac && textInputFocus" },
 
-  // Keybindings from macOS for non-macOS
+  // macOS keybindings (non-macOS)
   { "key": "ctrl+-", "command": "-workbench.action.zoomOut", "when": "!isMac" },
   { "key": "ctrl+-", "command": "workbench.action.navigateBack", "when": "!isMac && canNavigateBack" },
   { "key": "ctrl+shift+-", "command": "-workbench.action.zoomOut", "when": "!isMac" },
