@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+source (status dirname)/git_interactive_command.fish
+
 set paths (non_option_args $argv)
 set escaped_paths (string escape -- $paths)
 
@@ -19,9 +21,12 @@ function list_function -V options -V paths
     git show --format= --name-status $options -- $paths | format_git_name_status
 end
 
-source (status dirname)/git_interactive_command.fish \
+git_interactive_command \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
+    --fzf-flag=--delimiter=$SEP \
+    --fzf-flag=--freeze-left=1 \
+    --fzf-flag=--keep-right \
     --fzf-flag=--scheme=path \
     --fzf-flag=--header=$header \
     --main-view-name=changes \
@@ -29,6 +34,6 @@ source (status dirname)/git_interactive_command.fish \
     --no-items-message="No file selected." \
     --hyperlink-format="vscode://jaminthorns.gitsquatch/$revision:{path}:{line}" \
     --list-function=list_function \
-    --items-command="cut -d \$SEP -f 2,4 | string split \$SEP" \
+    --items-command="cut -d $SEP -f 2,4 | string split $SEP" \
     --view-command="git -C (git rev-parse --show-toplevel) show --format= $escaped_options -- \$items" \
     --summary-command="git show --color --decorate --no-patch $escaped_options -- $escaped_paths"

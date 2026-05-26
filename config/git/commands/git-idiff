@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+source (status dirname)/git_interactive_command.fish
+
 set paths (non_option_args $argv)
 set escaped_paths (string escape -- $paths)
 
@@ -40,14 +42,17 @@ end
 
 set -a DELTA_FEATURES navigate-changes
 
-source (status dirname)/git_interactive_command.fish \
+git_interactive_command \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
+    --fzf-flag=--delimiter=$SEP \
+    --fzf-flag=--freeze-left=1 \
+    --fzf-flag=--keep-right \
     --fzf-flag=--header=$header \
     --main-view-name=changes \
     --items-variable=files \
     --no-items-message="No file selected." \
     --list-function=list_function \
-    --items-command="cut -d \$SEP -f 2,4 | string split \$SEP" \
+    --items-command="cut -d $SEP -f 2,4 | string split $SEP" \
     --view-command="git -C (git rev-parse --show-toplevel) diff $escaped_options -- \$items" \
     --summary-command=$summary_command

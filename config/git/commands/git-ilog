@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+source (status dirname)/git_interactive_command.fish
+
 set paths (non_option_args $argv)
 
 argparse --ignore-unknown graph source follow "s/show-options=" -- (option_args $argv)
@@ -87,7 +89,7 @@ set view_command "$(functions --no-details view_function); view_function"
 
 set -a DELTA_FEATURES navigate-files
 
-source (status dirname)/git_interactive_command.fish \
+git_interactive_command \
     --fzf-flag=--read0 \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \

@@ -1,14 +1,15 @@
 #!/usr/bin/env fish
 
+source (status dirname)/git_interactive_command.fish
+
 argparse --ignore-unknown "s/status-options=" -- $argv
 set args $argv
 
 function list_function -V args
-    set sep \u001f
-    git worktree list --porcelain $args | string join $sep | string split $sep$sep | string match "*"$sep"HEAD*" | string match -g -r "^worktree (.*?)$sep"
+    git worktree list --porcelain $args | string join $SEP | string split $SEP$SEP | string match "*"$SEP"HEAD*" | string match -g -r "^worktree (.*?)$SEP"
 end
 
-source (status dirname)/git_interactive_command.fish \
+git_interactive_command \
     --fzf-flag=--ansi \
     --fzf-flag=--multi \
     --fzf-flag=--scheme=path \

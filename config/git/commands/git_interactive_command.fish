@@ -36,7 +36,7 @@ function external_command -a command main_view_name delta_pager_flags delta_flag
     end"
 end
 
-begin
+function git_interactive_command
     argparse "fzf-flag=+" "pager-flags=" "main-view-name=" "items-variable=" "no-items-message=" "header=" "hyperlink-format=" "list-function=" "items-command=" "view-command=" "summary-command=" -- $argv
 
     set variable_expect alt-v

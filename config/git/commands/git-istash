@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+source (status dirname)/git_interactive_command.fish
+
 argparse --ignore-unknown "s/show-options=" -- $argv
 set args $argv
 
@@ -9,7 +11,7 @@ end
 
 set -a DELTA_FEATURES navigate-files
 
-source (status dirname)/git_interactive_command.fish \
+git_interactive_command \
     --fzf-flag=--multi \
     --main-view-name=stashes \
     --items-variable=stashes \
