@@ -38,6 +38,13 @@
 
   //// Editor
 
+  // Scrolling
+  { "key": "ctrl+up", "command": "editorScroll", "args": { "by": "halfPage", "to": "up", "revealCursor": false }, "when": "editorTextFocus" },
+  { "key": "ctrl+down", "command": "editorScroll", "args": { "by": "halfPage", "to": "down", "revealCursor": false }, "when": "editorTextFocus" },
+
+  // Place cursor at center of editor
+  { "key": "ctrl+shift+space", "command": "cursorMove", "args": { "to": "viewPortCenter" }, "when": "editorTextFocus" },
+
   // Mult-line editing (from Sublime Text)
   { "key": "{{command_key}}+shift+l", "command": "editor.action.insertCursorAtEndOfEachLineSelected", "when": "editorTextFocus" },
 
@@ -56,8 +63,8 @@
   { "key": "ctrl+shift+alt+[", "command": "references-view.findImplementations", "when": "editorHasImplementationProvider && editorTextFocus" },
 
   // Jumping within a file (later keybindings supersede earlier ones)
-  { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus" },
-  { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus" },
+  { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus && scmActiveResourceHasChanges" },
+  { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && scmActiveResourceHasChanges" },
   { "key": "shift+ctrl+up", "command": "merge-conflict.previous", "when": "editorTextFocus && mergeConflictsCount > 0" },
   { "key": "shift+ctrl+down", "command": "merge-conflict.next", "when": "editorTextFocus && mergeConflictsCount > 0" },
   { "key": "shift+ctrl+up", "command": "merge.goToPreviousUnhandledConflict", "when": "isMergeEditor" },
