@@ -160,6 +160,8 @@
   { "key": "end", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u0005" }, "when": "!isMac && terminalFocus" },
   { "key": "ctrl+f13", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u0015" }, "when": "!isMac && terminalFocus" },
   { "key": "ctrl+f14", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u000B" }, "when": "!isMac && terminalFocus" },
+  { "key": "ctrl+shift+left", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;4D" }, "when": "!isMac && terminalFocus" },
+  { "key": "ctrl+shift+right", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b[1;4C" }, "when": "!isMac && terminalFocus" },
 
   // Workaround for copy/paste/search (non-macOS)
   { "key": "ctrl+c", "command": "workbench.action.terminal.copySelection", "when": "!isMac && terminalFocus" },
