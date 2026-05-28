@@ -2,8 +2,8 @@
 
 complete -c git-todo -k -n "__fish_is_first_arg" -a "(__fish_git_refs)"
 
-complete -c git-sprout -k -n "__fish_is_first_arg" -a "(__fish_git_refs)"
-complete -c git-sprout -s c -l create-branch
+complete -c git-onto -k -n "__fish_is_first_arg" -a "(__fish_git_refs)"
+complete -c git-onto -s c -l create-branch -r -d "Create a new branch"
 
 complete -c git-purge-branch -k -n "__fish_is_first_arg" -a "(__fish_git_refs)"
 
