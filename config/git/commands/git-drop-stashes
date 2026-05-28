@@ -1,5 +1,0 @@
-#!/usr/bin/env fish
-
-for stash in (git istash | sort -r)
-    git stash drop $stash
-end

@@ -9,10 +9,33 @@ function list_function -V args
     git stash list $args
 end
 
+set list_command "$(functions --no-details list_function); list_function"
+
+function drop_stashes
+    set stash_count (count $argv)
+
+    if test $stash_count -gt 1
+        set suffix es
+    end
+
+    read -P "Drop $stash_count stash$suffix? [y/N] " confirm
+
+    if test $confirm = y -o $confirm = Y
+        for stash in (string collect $argv | sort -r)
+            git stash drop $stash
+        end
+    end
+end
+
+set drop_stashes_command "$(functions --no-details drop_stashes); drop_stashes"
+
 set -a DELTA_FEATURES navigate-files
 
 git_interactive_command \
     --fzf-flag=--multi \
+    --fzf-flag=--delimiter=: \
+    --fzf-flag=--footer=[d]rop \
+    --fzf-flag="--bind=alt-d:execute($drop_stashes_command {+1})+reload($list_command)" \
     --main-view-name=stashes \
     --items-variable=stashes \
     --no-items-message="No stash selected." \
