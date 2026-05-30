@@ -5,6 +5,11 @@ VSCodeId := "ahk_exe Code.exe"
 
 MapWinToCtrl()
 
+; Send Win-modified clicks with blind mode to prevent opening Start Menu
+#LButton::Send {Blind}^{LButton}
+#RButton::Send {Blind}^{RButton}
+#MButton::Send {Blind}^{MButton}
+
 ; Media
 !#End::Send {Media_Play_Pause}
 !#Delete::Send {Media_Prev}
@@ -160,7 +165,7 @@ MapWinToCtrl() {
     , "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     , "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
     , "-", "=", "[", "]", "\", ";", "'", ",", ".", "/"
-    , "Enter", "RButton", "LButton", "MButton"]
+    , "Enter"]
 
   For _, Key In Keys {
     ControlFunc := Func("Control").Bind(Key)
