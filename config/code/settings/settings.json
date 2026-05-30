@@ -33,6 +33,7 @@
 
   "security.workspace.trust.banner": "never",
   "security.promptForLocalFileProtocolHandling": false,
+  "security.promptForRemoteFileProtocolHandling": false,
 
   "diffEditor.renderIndicators": false,
   "diffEditor.experimental.showMoves": true,
