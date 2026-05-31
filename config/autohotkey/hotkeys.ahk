@@ -86,6 +86,9 @@ RWin::Return
 
   !Backspace::Send ^{Backspace} ; Delete word backward
   !Delete::Send ^{Delete} ; Delete word forward
+
+  !#Up::Send ^!{Up} ; Add cursor above
+  !#Down::Send ^!{Down} ; Add cursor below
 #If
 
 ; General applications
@@ -118,10 +121,6 @@ RWin::Return
   ; Move editor shortcut
   ^#Left::Send ^!{Left}
   ^#Right::Send ^!{Right}
-
-  ; Duplicate cursor shortcut
-  !#Up::Send ^!{Up}
-  !#Down::Send ^!{Down}
 
   ; Send surrogate keys for line deletion
   ;
