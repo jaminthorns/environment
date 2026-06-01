@@ -43,7 +43,7 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
 
-  "window.title": "${rootPath}",
+  "window.title": "${rootNameShort}${separator}${activeRepositoryBranchName}",
   "window.titleSeparator": " • ",
   "window.commandCenter": false,
 
