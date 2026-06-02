@@ -112,8 +112,7 @@
   { "key": "ctrl+shift+down", "command": "workbench.action.terminal.scrollToNextCommand", "when": "terminalFocus" },
 
   // Print active editor file path
-  { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "'${relativeFile}'" }, "when": "!isWindows && terminalFocus" },
-  { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "(wslpath '${relativeFile}')" }, "when": "isWindows && terminalFocus" },
+  { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\"${file}\"" }, "when": "terminalFocus" },
 
   // Remove unnecessary keybindings
   { "key": "ctrl+g", "command": "-workbench.action.terminal.goToRecentDirectory" },
