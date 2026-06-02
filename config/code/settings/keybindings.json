@@ -30,11 +30,13 @@
     "key": "ctrl+shift+backspace",
     "command": "runCommands",
     "args": {
+      // workbench.action.terminal.killAll needs to be last
       "commands": [
+        "workbench.action.closePanel",
         "workbench.action.closeAllEditors",
-        "workbench.action.terminal.killAll",
         "workbench.files.action.focusFilesExplorer",
-        "workbench.files.action.collapseExplorerFolders"
+        "workbench.files.action.collapseExplorerFolders",
+        "workbench.action.terminal.killAll"
       ]
     }
   },
