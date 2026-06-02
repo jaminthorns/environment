@@ -134,7 +134,7 @@ local config = {
     { key = "f",          mods = "CTRL|ALT",       action = action.SendKey({ mods = "CTRL", key = "f" }) },
 
     -- Windows workarounds
-    { key = "F19",        mods = "CTRL",           action = action.SendKey({ mods = "ALT", key = "Space" }) },
+    { key = "F20",        mods = "CTRL",           action = action.SendKey({ mods = "ALT", key = "Space" }) },
   },
 }
 

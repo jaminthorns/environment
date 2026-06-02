@@ -97,14 +97,6 @@ RWin::Return
   #Delete::Send +{End}{Delete} ; Delete line forward
 #If
 
-; VS Code + Terminal
-#If WinActive(TerminalId) || WinActive(VSCodeId)
-  ; Workaround for copy/paste/search in terminal
-  ^c::Send ^!c
-  ^v::Send ^!v
-  ^f::Send ^!f
-#If
-
 ; Terminal
 #If WinActive(TerminalId)
   ; Just map Win to Ctrl and handle further mapping in config
@@ -122,7 +114,7 @@ RWin::Return
   ^#Left::Send ^!{Left}
   ^#Right::Send ^!{Right}
 
-  ; Send surrogate keys for line deletion
+  ; Workaround for line deletion shortcuts
   ;
   ; In VS Code, cursor movement within editor inputs can be fully remapped from
   ; any keystroke, but other inputs (quick picks, search widgets, file pickers)
@@ -137,7 +129,7 @@ RWin::Return
   #Backspace::Send ^{F13}
   #Delete::Send ^{F14}
 
-  ; Send surrogate keys for smart select
+  ; Workaround for smart select shortcuts
   ;
   ; The physical keys used for these shortcuts map to the keystrokes sent for
   ; selecting by word.
@@ -151,13 +143,29 @@ RWin::Return
   ; general applications, but this shortcuts is pressed repeatedly in VS Code,
   ; so we send a surrogate key.
   #l::Send ^{F17}
+
+  ; Workaround for cancelling file switcher
+  ;
+  ; This opens the start menu.
+  ^Esc::Send ^{F18}
+
+  ; Workaround for triggering command palette in terminal
+  ;
+  ; This conflicts with my shortcut for printing the active file path to the
+  ; terminal.
+  #+p::Send ^{F19}
 #If
 
-; Workaround for Win+Esc shortcut (opens start menu)
-^Esc::Send ^{F18}
+; VS Code + Terminal
+#If WinActive(TerminalId) || WinActive(VSCodeId)
+  ; Workaround for copy/paste/search in terminal
+  ^c::Send ^!c
+  ^v::Send ^!v
+  ^f::Send ^!f
 
-; Workaround for Alt+Space shortcut (opens window menu)
-!Space::Send ^{F19}
+  ; Workaround for Alt+Space shortcut (opens window menu)
+  !Space::Send ^{F20}
+#If
 
 MapWinToCtrl() {
   Keys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"

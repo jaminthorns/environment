@@ -22,6 +22,9 @@
   // Focus source control view (macOS)
   { "key": "cmd+shift+g", "command": "workbench.view.scm", "when": "isMac && workbench.scm.active" },
 
+  // Command palette (non-macOS)
+  { "key": "ctrl+f19", "command": "workbench.action.showCommands", "when": "!isMac" },
+
   // Reset workbench state
   {
     "key": "ctrl+shift+backspace",
@@ -187,5 +190,5 @@
   // Windows workarounds
   { "key": "ctrl+f17", "command": "expandLineSelection", "when": "isWindows && textInputFocus" }, // Ctrl+L for selecting lines
   { "key": "ctrl+f18", "command": "quickInput.hide", "when": "isWindows && inQuickInput" }, // Ctrl+Esc for cancelling quick picker
-  { "key": "ctrl+f19", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b " }, "when": "isWindows && terminalFocus" } // Alt+Enter for terminal program shortcuts
+  { "key": "ctrl+f20", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\u001b " }, "when": "isWindows && terminalFocus" } // Alt+Enter for terminal program shortcuts
 ]

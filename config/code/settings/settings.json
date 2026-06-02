@@ -68,6 +68,14 @@
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.suggest.enabled": false,
   "terminal.integrated.inheritEnv": {{os_status mac-os && echo false || echo true}},
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.view.explorer",
+    "workbench.view.search",
+    "workbench.view.scm",
+    "workbench.view.debug",
+    "workbench.view.extensions",
+    "workbench.action.findInFiles",
+  ],
 
   "remote.autoForwardPortsSource": "hybrid",
 
