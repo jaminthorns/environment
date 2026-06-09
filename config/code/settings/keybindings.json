@@ -67,33 +67,33 @@
   { "key": "ctrl+shift+[", "command": "editor.action.goToImplementation", "when": "editorHasImplementationProvider && editorTextFocus" },
   { "key": "ctrl+shift+alt+[", "command": "references-view.findImplementations", "when": "editorHasImplementationProvider && editorTextFocus" },
 
-  // Jumping within a file (later keybindings supersede earlier ones)
-  { "key": "shift+ctrl+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus && scmActiveResourceHasChanges" },
-  { "key": "shift+ctrl+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && scmActiveResourceHasChanges" },
-  { "key": "shift+ctrl+up", "command": "merge-conflict.previous", "when": "editorTextFocus && mergeConflictsCount > 0" },
-  { "key": "shift+ctrl+down", "command": "merge-conflict.next", "when": "editorTextFocus && mergeConflictsCount > 0" },
-  { "key": "shift+ctrl+up", "command": "merge.goToPreviousUnhandledConflict", "when": "isMergeEditor" },
-  { "key": "shift+ctrl+down", "command": "merge.goToNextUnhandledConflict", "when": "isMergeEditor" },
-  { "key": "shift+ctrl+up", "command": "workbench.action.compareEditor.previousChange", "when": "editorTextFocus && isInDiffEditor" },
-  { "key": "shift+ctrl+down", "command": "workbench.action.compareEditor.nextChange", "when": "editorTextFocus && isInDiffEditor" },
-  { "key": "shift+ctrl+up", "command": "multiDiffEditor.goToPreviousChange", "when": "activeEditor == 'multiDiffEditor'" },
-  { "key": "shift+ctrl+down", "command": "multiDiffEditor.goToNextChange", "when": "activeEditor == 'multiDiffEditor'" },
-  { "key": "shift+ctrl+up", "command": "search.action.focusPreviousSearchResult", "when": "inSearchEditor" },
-  { "key": "shift+ctrl+down", "command": "search.action.focusNextSearchResult", "when": "inSearchEditor" },
-  { "key": "shift+ctrl+up", "command": "editor.action.previousMatchFindAction", "when": "findWidgetVisible" },
-  { "key": "shift+ctrl+down", "command": "editor.action.nextMatchFindAction", "when": "findWidgetVisible" },
+  // Up/down movement within an editor (later keybindings supersede earlier ones)
+  { "key": "ctrl+shift+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus && scmActiveResourceHasChanges" },
+  { "key": "ctrl+shift+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && scmActiveResourceHasChanges" },
+  { "key": "ctrl+shift+up", "command": "merge-conflict.previous", "when": "editorTextFocus && mergeConflictsCount > 0" },
+  { "key": "ctrl+shift+down", "command": "merge-conflict.next", "when": "editorTextFocus && mergeConflictsCount > 0" },
+  { "key": "ctrl+shift+up", "command": "merge.goToPreviousUnhandledConflict", "when": "isMergeEditor" },
+  { "key": "ctrl+shift+down", "command": "merge.goToNextUnhandledConflict", "when": "isMergeEditor" },
+  { "key": "ctrl+shift+up", "command": "workbench.action.compareEditor.previousChange", "when": "editorTextFocus && isInDiffEditor" },
+  { "key": "ctrl+shift+down", "command": "workbench.action.compareEditor.nextChange", "when": "editorTextFocus && isInDiffEditor" },
+  { "key": "ctrl+shift+up", "command": "multiDiffEditor.goToPreviousChange", "when": "activeEditor == 'multiDiffEditor'" },
+  { "key": "ctrl+shift+down", "command": "multiDiffEditor.goToNextChange", "when": "activeEditor == 'multiDiffEditor'" },
+  { "key": "ctrl+shift+up", "command": "search.action.focusPreviousSearchResult", "when": "inSearchEditor" },
+  { "key": "ctrl+shift+down", "command": "search.action.focusNextSearchResult", "when": "inSearchEditor" },
+  { "key": "ctrl+shift+up", "command": "editor.action.previousMatchFindAction", "when": "findWidgetVisible" },
+  { "key": "ctrl+shift+down", "command": "editor.action.nextMatchFindAction", "when": "findWidgetVisible" },
 
   // non-macOS search mode toggles (macOS)
   { "key": "alt+c", "command": "toggleSearchEditorCaseSensitive", "when": "isMac && inSearchEditor && searchInputBoxFocus" },
-  { "key": "alt+c", "command": "workbench.action.terminal.toggleFindCaseSensitive", "when": "isMac && terminalFindVisible && terminalHasBeenCreated || terminalFindVisible && terminalProcessSupported" },
+  { "key": "alt+c", "command": "workbench.action.terminal.toggleFindCaseSensitive", "when": "isMac && terminalFindVisible" },
   { "key": "alt+c", "command": "toggleFindCaseSensitive", "when": "isMac && editorFocus" },
   { "key": "alt+c", "command": "toggleSearchCaseSensitive", "when": "isMac && searchViewletFocus && !fileMatchOrFolderMatchFocus" },
   { "key": "alt+w", "command": "toggleSearchEditorWholeWord", "when": "isMac && inSearchEditor && searchInputBoxFocus" },
-  { "key": "alt+w", "command": "workbench.action.terminal.toggleFindWholeWord", "when": "isMac && terminalFindVisible && terminalHasBeenCreated || terminalFindVisible && terminalProcessSupported" },
+  { "key": "alt+w", "command": "workbench.action.terminal.toggleFindWholeWord", "when": "isMac && terminalFindVisible" },
   { "key": "alt+w", "command": "toggleFindWholeWord", "when": "isMac && editorFocus" },
   { "key": "alt+w", "command": "toggleSearchWholeWord", "when": "isMac && searchViewletFocus" },
   { "key": "alt+r", "command": "toggleSearchEditorRegex", "when": "isMac && inSearchEditor && searchInputBoxFocus" },
-  { "key": "alt+r", "command": "workbench.action.terminal.toggleFindRegex", "when": "isMac && terminalFindVisible && terminalHasBeenCreated || terminalFindVisible && terminalProcessSupported" },
+  { "key": "alt+r", "command": "workbench.action.terminal.toggleFindRegex", "when": "isMac && terminalFindVisible" },
   { "key": "alt+r", "command": "toggleFindRegex", "when": "isMac && editorFocus" },
   { "key": "alt+r", "command": "toggleSearchRegex", "when": "isMac && searchViewletFocus" },
 
@@ -112,9 +112,11 @@
 
   //// Terminal
 
-  // Command navigation
+  // Up/down movement within a terminal (later keybindings supersede earlier ones)
   { "key": "ctrl+shift+up", "command": "workbench.action.terminal.scrollToPreviousCommand", "when": "terminalFocus" },
   { "key": "ctrl+shift+down", "command": "workbench.action.terminal.scrollToNextCommand", "when": "terminalFocus" },
+  { "key": "ctrl+shift+up", "command": "workbench.action.terminal.findPrevious", "when": "terminalFindVisible" },
+  { "key": "ctrl+shift+down", "command": "workbench.action.terminal.findNext", "when": "terminalFindVisible" },
 
   // Print active editor file path
   { "key": "ctrl+shift+p", "command": "workbench.action.terminal.sendSequence", "args": { "text": "\"${file}\"" }, "when": "terminalFocus" },
