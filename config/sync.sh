@@ -28,6 +28,7 @@ if os_status wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
   copy code/settings "$APPDATA/Code/User"
   copy wezterm "$ProgramFiles/WezTerm"
+  copy wsl "$USERPROFILE"
 fi
 
 on_push asdf/push.sh
