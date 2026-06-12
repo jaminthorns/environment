@@ -30,6 +30,7 @@ brew "pastel"
 brew "pgcli"
 brew "poppler"
 brew "ripgrep"
+brew "slides"
 
 if OS.mac?
   cask "font-jetbrains-mono"
