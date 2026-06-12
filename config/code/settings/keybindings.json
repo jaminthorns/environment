@@ -80,6 +80,8 @@
   { "key": "ctrl+shift+down", "command": "multiDiffEditor.goToNextChange", "when": "activeEditor == 'multiDiffEditor'" },
   { "key": "ctrl+shift+up", "command": "search.action.focusPreviousSearchResult", "when": "inSearchEditor" },
   { "key": "ctrl+shift+down", "command": "search.action.focusNextSearchResult", "when": "inSearchEditor" },
+  { "key": "ctrl+shift+up", "command": "goToPreviousReference", "when": "inReferenceSearchEditor || referenceSearchVisible" },
+  { "key": "ctrl+shift+down", "command": "goToNextReference", "when": "inReferenceSearchEditor || referenceSearchVisible" },
   { "key": "ctrl+shift+up", "command": "editor.action.previousMatchFindAction", "when": "findWidgetVisible" },
   { "key": "ctrl+shift+down", "command": "editor.action.nextMatchFindAction", "when": "findWidgetVisible" },
 
