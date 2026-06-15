@@ -84,7 +84,7 @@
 [fetch]
 	prune = true
 [pull]
-	rebase = false
+	rebase = true
 [push]
 	autoSetupRemote = true
 [rebase]
