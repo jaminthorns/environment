@@ -32,9 +32,10 @@ brew "poppler"
 brew "ripgrep"
 brew "slides"
 
+cask "font-jetbrains-mono"
+cask "font-symbols-only-nerd-font"
+
 if OS.mac?
-  cask "font-jetbrains-mono"
-  cask "font-symbols-only-nerd-font"
   cask "hammerspoon"
   cask "wezterm"
 
