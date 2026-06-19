@@ -51,6 +51,7 @@ local config = {
   window_close_confirmation = "NeverPrompt",
   inactive_pane_hsb = { brightness = 0.75 },
   front_end = "WebGpu",
+  enable_wayland = false,
 
   -- Tab bar
   use_fancy_tab_bar = false,
