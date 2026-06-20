@@ -19,6 +19,7 @@ I'm running Fedora on an Asus Tuf A14 with an RTX 4060 paired with integrated gr
 - AATWS
 - Auto Power Profile
 - Dash to Dock
+- Medialine
 
 ## NVIDIA Driver Installation
 
