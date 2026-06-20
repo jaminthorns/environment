@@ -3,7 +3,7 @@
 source functions/os_status.sh
 
 # Upgrade Linux packages
-os_status linux && sudo apt update && sudo apt upgrade -y
+os_status linux && sudo dnf upgrade
 
 # Upgrade Homebrew packages
 brew upgrade

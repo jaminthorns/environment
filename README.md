@@ -34,7 +34,7 @@ Run the `init` command:
 
 ## Updating Programs
 
-Programs (`apt`/`brew` packages, `asdf` tools, and `fisher` plugins) can be
+Programs (`dnf`/`brew` packages, `asdf` tools, and `fisher` plugins) can be
 updated with the `update` command:
 
 ```shell
