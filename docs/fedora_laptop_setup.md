@@ -20,6 +20,7 @@ I'm running Fedora on an Asus Tuf A14 with an RTX 4060 paired with integrated gr
 - Auto Power Profile
 - Dash to Dock
 - Medialine
+- Transparent Top Bar (Adjustable Transparency)
 
 ## NVIDIA Driver Installation
 
