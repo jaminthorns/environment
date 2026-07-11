@@ -18,6 +18,8 @@ fi
 
 if os_status linux-non-wsl; then
   copy code/settings "$HOME/.config/Code/User"
+  copy keymapper "$HOME/.config/keymapper"
+  copy run_or_raise "$HOME/.config/run-or-raise"
 fi
 
 if os_status mac-os || os_status linux-non-wsl; then
