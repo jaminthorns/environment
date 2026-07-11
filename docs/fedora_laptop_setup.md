@@ -1,6 +1,9 @@
 # Fedora Laptop Setup
 
-I'm running Fedora on an Asus Tuf A14 with an RTX 4060 paired with integrated graphics.
+- Operating System: Fedora 44
+- Laptop: [Asus Tuf A14 (2025)](https://www.asus.com/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-a14-2025/)
+- Processor: AMD Ryzen AI 7 350
+- Graphics: NVIDIA GeForce 5060 Laptop
 
 ## Applications
 
@@ -16,11 +19,14 @@ I'm running Fedora on an Asus Tuf A14 with an RTX 4060 paired with integrated gr
 
 ## GNOME Extensions
 
-- AATWS
-- Auto Power Profile
-- Dash to Dock
-- Medialine
-- Transparent Top Bar (Adjustable Transparency)
+- [AATWS (Advanced Alt-Tab Window Switcher)](https://extensions.gnome.org/extension/4412/advanced-alttab-window-switcher/)
+- [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-profile/)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+- [Medialine](https://extensions.gnome.org/extension/10076/medialine/)
+- [Transparent Top Bar (Adjustable transparency)](https://extensions.gnome.org/extension/3960/transparent-top-bar-adjustable-transparency/)
+- [Run or Raise](https://extensions.gnome.org/extension/1336/run-or-raise/)
+- [Keymapper](https://github.com/houmain/keymapper/tree/main/extra/share/gnome-shell/extensions/keymapper%40houmain.github.com)
+- [No overview at start-up](https://extensions.gnome.org/extension/4099/no-overview/)
 
 ## NVIDIA Driver Installation
 
