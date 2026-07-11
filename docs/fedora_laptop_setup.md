@@ -5,6 +5,14 @@
 - Processor: AMD Ryzen AI 7 350
 - Graphics: NVIDIA GeForce 5060 Laptop
 
+## To-Do
+
+- Sync startup applications
+- Sync Gnome keyboard shortcuts
+- Sync enabled services
+- Finish keymapper config
+- Disable adaptive backlight management
+
 ## Applications
 
 - Steam (Software)
