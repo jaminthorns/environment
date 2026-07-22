@@ -16,7 +16,7 @@ else
 end
 
 for commit in (git rev-list --ancestry-path --merges --reverse $revision..$target)
-    if git merge-base --is-ancestor $revision $commit^2 && not git merge-base --is-ancestor $revision $commit^1
+    if not git merge-base --is-ancestor $revision $commit^1
         set merge_commit $commit
         break
     end
