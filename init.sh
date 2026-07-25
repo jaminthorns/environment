@@ -2,9 +2,6 @@
 
 source functions/config_functions.sh
 
-# Install Linux dependencies (WIP for Fedora)
-os_status linux && sudo dnf upgrade
-
 # Get Homebrew path
 os_status linux && brew="/home/linuxbrew/.linuxbrew/bin/brew" || brew="/opt/homebrew/bin/brew"
 
