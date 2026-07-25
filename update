@@ -2,9 +2,6 @@
 
 source functions/os_status.sh
 
-# Upgrade Linux packages
-os_status linux-non-wsl && sudo dnf upgrade
-
 # Upgrade Homebrew packages
 brew upgrade
 
