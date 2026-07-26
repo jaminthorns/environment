@@ -18,6 +18,7 @@
 - Steam (Software)
 - Flatseal (Software)
 - KeePassXC (Software)
+- Obsidian (Software)
 - Tweaks (Software)
 - NVIDIA Linux Graphics Driver (Software)
 - Visual Studio Code (Website)
