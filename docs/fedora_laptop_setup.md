@@ -22,6 +22,7 @@
 - NVIDIA Linux Graphics Driver (Software)
 - Visual Studio Code (Website)
 - Wezterm (Website)
+- Ghostty (Website)
 - Vivaldi (Website)
 - Wayland Scroll Factor (Website)
 
