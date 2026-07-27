@@ -37,6 +37,7 @@
 - [Run or Raise](https://extensions.gnome.org/extension/1336/run-or-raise/)
 - [Keymapper](https://github.com/houmain/keymapper/tree/main/extra/share/gnome-shell/extensions/keymapper%40houmain.github.com)
 - [No overview at start-up](https://extensions.gnome.org/extension/4099/no-overview/)
+- [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 
 ## NVIDIA Driver Installation
 
