@@ -13,7 +13,7 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 - 🍺 Cross-platform packages with [Homebrew](https://brew.sh/).
 - 🛠 Version-controlled development tools with [`asdf`](https://asdf-vm.com/).
 - 🐠 Friendly shell with [`fish`](https://fishshell.com/).
-- 🖥 Modern terminal with [WezTerm](https://wezfurlong.org/wezterm/).
+- 👻 Modern terminal with [Ghostty](https://ghostty.org/).
 - ⌨️ Uniform keyboard setup between Windows/macOS.
 
 ## Initial Setup
