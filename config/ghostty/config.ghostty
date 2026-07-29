@@ -1,5 +1,6 @@
 # Sizing/positioning
 font-size = 12
+font-thicken = true
 window-height = 25
 window-width = 100
 window-padding-x = 8
