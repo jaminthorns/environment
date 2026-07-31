@@ -29,6 +29,7 @@ brew "pandoc"
 brew "pastel"
 brew "pgcli"
 brew "poppler"
+brew "rclone"
 brew "ripgrep"
 brew "slides"
 
