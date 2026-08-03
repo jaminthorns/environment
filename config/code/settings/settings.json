@@ -26,6 +26,7 @@
   "workbench.navigationControl.enabled": false,
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
+  "workbench.enableExperiments": false,
 
   "chat.disableAIFeatures": true,
 
