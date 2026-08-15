@@ -17,6 +17,7 @@ if os_status mac-os; then
 fi
 
 if os_status linux-non-wsl; then
+  copy autostart "$HOME/.config/autostart"
   copy code/settings "$HOME/.config/Code/User"
   copy keymapper "$HOME/.config/keymapper"
   copy run_or_raise "$HOME/.config/run-or-raise"
