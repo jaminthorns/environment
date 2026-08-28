@@ -21,6 +21,7 @@
 - Obsidian (Software)
 - Tweaks (Software)
 - NVIDIA Linux Graphics Driver (Software)
+- Easy Effects (Software)
 - Visual Studio Code (Website)
 - Wezterm (Website)
 - Ghostty (Website)
@@ -105,3 +106,7 @@
   sudo ausearch -m avc -ts recent | audit2allow -M linuxcampam_xdm
   sudo semodule -i linuxcampam_xdm.pp
   ```
+
+## Better Speaker Quality
+
+The [Advanced Auto Gain](https://github.com/JackHack96/EasyEffects-Presets/blob/master/Advanced%20Auto%20Gain.json) preset sounds pretty good.
