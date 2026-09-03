@@ -26,19 +26,19 @@ WSL](https://docs.microsoft.com/en-us/windows/wsl/filesystems#share-environment-
 WSLENV=USERPROFILE/up:APPDATA/up:ProgramFiles/up
 ```
 
-Run the `init.sh` script:
+Run the `init` command:
 
 ```shell
-./init.sh
+./init
 ```
 
 ## Updating Programs
 
 Programs (`apt`/`brew` packages, `asdf` tools, and `fisher` plugins) can be
-updated with the `update.sh` script:
+updated with the `update` command:
 
 ```shell
-./update.sh
+./update
 ```
 
 ## Configuration Files
@@ -96,21 +96,21 @@ Within it, you can use the bi-directional `copy` function along with the
 The scripts for `on_push` and `on_pull` will be run from their containing
 folder.
 
-If configuration is changed inside the repository, run the `push.sh` script:
+If configuration is changed inside the repository, run the `push` command:
 
 ```shell
-./push.sh
+./push
 ```
 
 This will copy files from `config` into the system and run scripts according to
 `config/sync.sh`.
 
-If configuration is changed outside the repository, run the `pull.sh` script:
+If configuration is changed outside the repository, run the `pull` command:
 
 ```shell
-./pull.sh
+./pull
 ```
 
 This will copy files into `config` from the system and run scripts according to
-`config/sync.sh`. If lines near a substitution are changed, running `pull.sh`
-could result in conflicts. Make sure to resolve these before committing.
+`config/sync.sh`. If lines near a substitution are changed, running `pull` could
+result in conflicts. Make sure to resolve these before committing.
