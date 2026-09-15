@@ -44,6 +44,10 @@ map za set info size:time
 map sn :set sortby natural; set reverse false; set dirfirst true; set info
 map st :set sortby time; set reverse true; set dirfirst false; set info time
 map ss :set sortby size; set reverse true; set dirfirst false; set info size
+map \$ shell
+map \% shell-pipe
+map \! shell-wait
+map \& shell-async
 
 # Up/down navigation
 map <a-up> page-up
@@ -89,12 +93,6 @@ map <a-q> quit-cd
 
 cmd on-init set-title
 cmd on-cd set-title
-
-cmd test-selection !{{
-  set -S fs fx
-}}
-
-map x test-selection
 
 cmd set-title &{{
   command lf -remote "send $id tty-write \"\033]0;lf: $(prompt_pwd)\007\""
