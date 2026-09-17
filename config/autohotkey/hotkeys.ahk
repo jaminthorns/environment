@@ -118,9 +118,9 @@ RWin::Return
   ;
   ; In VS Code, cursor movement within editor inputs can be fully remapped from
   ; any keystroke, but other inputs (quick picks, search widgets, file pickers)
-  ; cannot be remapped. To implement line deletion in Windows, multiple
-  ; keystrokes are required, which works fine for inputs (editor or otherwise)
-  ; but doesn't map cleanly to terminal keybindings.
+  ; cannot be remapped. To implement line deletion, multiple keystrokes are
+  ; required, which works fine for inputs (editor or otherwise) but doesn't map
+  ; cleanly to terminal keybindings.
   ;
   ; Because of this, we make the choice to sacrifice line deletion keybindings
   ; in non-editor inputs so we can have line deletion be triggered by a single
