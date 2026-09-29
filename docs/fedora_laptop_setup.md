@@ -8,7 +8,7 @@
 ## To-Do
 
 - Sync startup applications
-- Sync Gnome keyboard shortcuts
+- Sync Gnome keyboard shortcuts (dconf path: `/org/gnome/desktop/wm/keybindings/`)
 - Sync enabled services
 - Finish keymapper config
 - Disable adaptive backlight management
