@@ -27,6 +27,7 @@
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
   "workbench.enableExperiments": false,
+  "workbench.experimental.modernUI": false,
 
   "chat.disableAIFeatures": true,
 
