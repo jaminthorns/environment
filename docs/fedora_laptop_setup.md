@@ -61,10 +61,6 @@
 
   But I probably only need `xorg-x11-drv-nvidia-libs.i686` (test this)
 
-## Screen Artifacts Fix
-
-- Set `AMD_DEBUG=nodcc` in `/etc/environment`
-
 ## Face Authentication with LinuxCamPam
 
 - Install LinuxCamPAM from COPR repo (https://copr.fedorainfracloud.org/coprs/funkemunky/linuxcampam/):
