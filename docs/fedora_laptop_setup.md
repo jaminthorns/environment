@@ -40,6 +40,7 @@
 - [No overview at start-up](https://extensions.gnome.org/extension/4099/no-overview/)
 - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 - [Hide minimized](https://extensions.gnome.org/extension/2639/hide-minimized/)
+- [Rectangle](https://extensions.gnome.org/extension/6553/rectangle/)
 
 ## NVIDIA Driver Installation
 
