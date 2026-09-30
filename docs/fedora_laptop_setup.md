@@ -10,8 +10,7 @@
 - Sync startup applications
 - Sync Gnome keyboard shortcuts (dconf path: `/org/gnome/desktop/wm/keybindings/`)
 - Sync enabled services
-- Finish keymapper config
-- Disable adaptive backlight management
+- Sync shell extensions (`gnome-extensions list --user`)
 
 ## Applications
 
@@ -31,7 +30,6 @@
 ## GNOME Extensions
 
 - [AATWS (Advanced Alt-Tab Window Switcher)](https://extensions.gnome.org/extension/4412/advanced-alttab-window-switcher/)
-- [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-profile/)
 - [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
 - [Medialine](https://extensions.gnome.org/extension/10076/medialine/)
 - [Transparent Top Bar (Adjustable transparency)](https://extensions.gnome.org/extension/3960/transparent-top-bar-adjustable-transparency/)
