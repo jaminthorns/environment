@@ -1,3 +1,6 @@
+# General behavior
+confirm-close-surface = false
+
 # Sizing/positioning
 font-size = 9
 window-height = 25
