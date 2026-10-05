@@ -78,6 +78,7 @@
     "workbench.view.debug",
     "workbench.view.extensions",
     "workbench.action.findInFiles",
+    "projectManager.listProjectsNewWindow",
   ],
 
   "remote.autoForwardPortsSource": "hybrid",
