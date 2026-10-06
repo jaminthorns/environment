@@ -43,6 +43,8 @@ on_pull cargo/pull.sh
 on_push code/extensions/push.sh
 on_pull code/extensions/pull.sh
 
+on_pull gnome/extensions/pull.sh
+
 on_push cron/push.sh
 on_pull cron/pull.sh
 

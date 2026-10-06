@@ -8,7 +8,6 @@
 ## To-Do
 
 - Sync enabled services
-- Sync shell extensions (`gnome-extensions list --user`)
 
 ## Applications
 
@@ -24,19 +23,6 @@
 - Ghostty (Website)
 - Vivaldi (Website)
 - Wayland Scroll Factor (Website)
-
-## GNOME Extensions
-
-- [AATWS (Advanced Alt-Tab Window Switcher)](https://extensions.gnome.org/extension/4412/advanced-alttab-window-switcher/)
-- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
-- [Medialine](https://extensions.gnome.org/extension/10076/medialine/)
-- [Transparent Top Bar (Adjustable transparency)](https://extensions.gnome.org/extension/3960/transparent-top-bar-adjustable-transparency/)
-- [Run or Raise](https://extensions.gnome.org/extension/1336/run-or-raise/)
-- [Keymapper](https://github.com/houmain/keymapper/tree/main/extra/share/gnome-shell/extensions/keymapper%40houmain.github.com)
-- [No overview at start-up](https://extensions.gnome.org/extension/4099/no-overview/)
-- [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
-- [Hide minimized](https://extensions.gnome.org/extension/2639/hide-minimized/)
-- [Rectangle](https://extensions.gnome.org/extension/6553/rectangle/)
 
 ## NVIDIA Driver Installation
 
