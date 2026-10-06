@@ -7,8 +7,6 @@
 
 ## To-Do
 
-- Sync startup applications
-- Sync Gnome keyboard shortcuts (dconf path: `/org/gnome/desktop/wm/keybindings/`)
 - Sync enabled services
 - Sync shell extensions (`gnome-extensions list --user`)
 

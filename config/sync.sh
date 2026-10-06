@@ -46,4 +46,7 @@ on_pull code/extensions/pull.sh
 on_push cron/push.sh
 on_pull cron/pull.sh
 
+on_push dconf/push.sh
+on_pull dconf/pull.sh
+
 on_push fish/configure_tide.sh
