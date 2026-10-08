@@ -23,6 +23,7 @@
 - Ghostty (Website)
 - Vivaldi (Website)
 - Wayland Scroll Factor (Website)
+- Smile (Software)
 
 ## NVIDIA Driver Installation
 
