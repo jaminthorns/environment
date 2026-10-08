@@ -90,3 +90,17 @@
 ## Better Speaker Quality
 
 The [Advanced Auto Gain](https://github.com/JackHack96/EasyEffects-Presets/blob/master/Advanced%20Auto%20Gain.json) preset sounds pretty good.
+
+## Enroll disk encryption passphrase in TPM device
+
+- Find encrypted partition:
+
+  ```sh
+  lsblk
+  ```
+
+- Enroll the TPM device:
+
+  ```sh
+  sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=7 /dev/YOUR_PARTITION
+  ```
