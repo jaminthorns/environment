@@ -11,18 +11,12 @@ MapWinToCtrl()
 #MButton::Send {Blind}^{MButton}
 
 ; Media
-!#End::Send {Media_Play_Pause}
-!#Delete::Send {Media_Prev}
-!#PgDn::Send {Media_Next}
+^![::Send {Media_Prev}
+^!]::Send {Media_Next}
+^!\::Send {Media_Play_Pause}
 
-; Volume
-!#PgUp::Send {Volume_Up}
-!#Home::Send {Volume_Mute}
-!#Insert::Send {Volume_Down}
-
-; Power
-!#ScrollLock::DllCall("LockWorkStation")
-!#Pause::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
+; Sleep
+^!/::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
 
 ; Open terminal
 !`::
@@ -171,8 +165,8 @@ MapWinToCtrl() {
   Keys := ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
     , "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     , "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
-    , "-", "=", "[", "]", "\", ";", "'", ",", ".", "/"
-    , "Enter"]
+    , "`", "-", "=", "[", "]", "\", ";", "'", ",", ".", "/"
+    , "Delete", "Backspace", "Enter"]
 
   For _, Key In Keys {
     ControlFunc := Func("Control").Bind(Key)
