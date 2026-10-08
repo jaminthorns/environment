@@ -1,0 +1,6 @@
+libcurl-devel
+libuuid-devel
+openssl-devel
+readline-devel
+uuid-devel
+zlib-devel

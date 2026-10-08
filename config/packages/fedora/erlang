@@ -1,0 +1,8 @@
+autoconf
+automake
+gcc
+gcc-c++
+ncurses-devel
+openssl-devel
+wxBase
+wxGTK-devel

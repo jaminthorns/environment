@@ -2,6 +2,9 @@
 
 source functions/config_functions.sh
 
+# Install Linux dependencies
+os_status linux && sudo dnf upgrade && find config/packages/fedora -type f | xargs cat | xargs sudo dnf install -y --comment=environment-init
+
 # Get Homebrew path
 os_status linux && brew="/home/linuxbrew/.linuxbrew/bin/brew" || brew="/opt/homebrew/bin/brew"
 
@@ -21,7 +24,7 @@ source $(brew --prefix asdf)/libexec/asdf.sh
 cut -d " " -f 1 config/asdf/config/.tool-versions | xargs -n 1 asdf plugin add
 
 # Install asdf programs
-(cd config/asdf/config && asdf install)
+(cd config/asdf/config && HOMEBREW_PREFIX=/tmp/disabled asdf install)
 
 # Install Fisher and plugins
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && set fisher_path \$__fish_config_dir/fisher && cat config/fish/config/fish_plugins | fisher install"
