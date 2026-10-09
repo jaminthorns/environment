@@ -14,6 +14,7 @@ expertlsp.expert
 github.vscode-github-actions
 github.vscode-pull-request-github
 golang.go
+hangxingliu.vscode-systemd-support
 humao.rest-client
 iliazeus.vscode-ansi
 jakearl.search-editor-apply-changes

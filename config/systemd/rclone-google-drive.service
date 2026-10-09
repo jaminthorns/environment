@@ -1,0 +1,15 @@
+[Unit]
+Description=Mount Google Drive folder with rclone
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+ExecStartPre=/usr/bin/mkdir -p %h/Drive
+ExecStart=/home/linuxbrew/.linuxbrew/bin/rclone mount google_drive: %h/Drive --vfs-cache-mode full --drive-export-formats link.html
+ExecStop=/bin/fusermount -uz %h/Drive
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
