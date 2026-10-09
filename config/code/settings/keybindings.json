@@ -68,6 +68,8 @@
   { "key": "ctrl+shift+alt+[", "command": "references-view.findImplementations", "when": "editorHasImplementationProvider && editorTextFocus" },
 
   // Up/down movement within an editor (later keybindings supersede earlier ones)
+  { "key": "ctrl+shift+up", "command": "-editor.action.insertCursorAbove", "when": "editorTextFocus" },
+  { "key": "ctrl+shift+down", "command": "-editor.action.insertCursorBelow", "when": "editorTextFocus" },
   { "key": "ctrl+shift+up", "command": "workbench.action.editor.previousChange", "when": "editorTextFocus && scmActiveResourceHasChanges" },
   { "key": "ctrl+shift+down", "command": "workbench.action.editor.nextChange", "when": "editorTextFocus && scmActiveResourceHasChanges" },
   { "key": "ctrl+shift+up", "command": "merge-conflict.previous", "when": "editorTextFocus && mergeConflictsCount > 0" },
