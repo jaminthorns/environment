@@ -22,6 +22,13 @@ if os_status linux-non-wsl; then
   copy keymapper "$HOME/.config/keymapper"
   copy run_or_raise "$HOME/.config/run-or-raise"
   copy systemd/services "$HOME/.config/systemd/user"
+
+  on_push dconf/push.sh
+  on_pull dconf/pull.sh
+
+  on_pull gnome/extensions/pull.sh
+
+  on_push systemd/enable_services.sh
 fi
 
 if os_status mac-os || os_status linux-non-wsl; then
@@ -43,14 +50,7 @@ on_pull cargo/pull.sh
 on_push code/extensions/push.sh
 on_pull code/extensions/pull.sh
 
-on_pull gnome/extensions/pull.sh
-
 on_push cron/push.sh
 on_pull cron/pull.sh
-
-on_push dconf/push.sh
-on_pull dconf/pull.sh
-
-on_push systemd/enable_services.sh
 
 on_push fish/configure_tide.sh
