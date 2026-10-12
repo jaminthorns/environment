@@ -5,10 +5,6 @@
 - Processor: AMD Ryzen AI 7 350
 - Graphics: NVIDIA GeForce 5060 Laptop
 
-## To-Do
-
-- Sync enabled services
-
 ## Applications
 
 - Steam (Software)
@@ -24,6 +20,18 @@
 - Vivaldi (Website)
 - Wayland Scroll Factor (Website)
 - Smile (Software)
+
+## Issues
+
+- Touchpad sometimes degrades to a condition with worse acceleration/click behavior
+  - Lasts 30-60 sec before it restores automatically
+
+- Sometimes doesn't go to sleep when closed
+
+- Chromium applications freeze for a few seconds and flash
+  - Sometime degraded afterwards
+    - Visual artifacts in Vivaldi
+    - Fallback terminal renderer in VS Code
 
 ## NVIDIA Driver Installation
 
