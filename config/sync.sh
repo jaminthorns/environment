@@ -26,7 +26,6 @@ fi
 
 if os_status mac-os || os_status linux-non-wsl; then
   copy ghostty "$HOME/.config/ghostty"
-  copy wezterm "$HOME/.config/wezterm"
 fi
 
 if os_status wsl; then

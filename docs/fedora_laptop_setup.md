@@ -1,25 +1,11 @@
 # Fedora Laptop Setup
 
+## System Specifications
+
 - Operating System: Fedora 44
 - Laptop: [Asus Tuf A14 (2025)](https://www.asus.com/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-a14-2025/)
 - Processor: AMD Ryzen AI 7 350
 - Graphics: NVIDIA GeForce 5060 Laptop
-
-## Applications
-
-- Steam (Software)
-- Flatseal (Software)
-- KeePassXC (Software)
-- Obsidian (Software)
-- Tweaks (Software)
-- NVIDIA Linux Graphics Driver (Software)
-- Easy Effects (Software)
-- Visual Studio Code (Website)
-- Wezterm (Website)
-- Ghostty (Website)
-- Vivaldi (Website)
-- Wayland Scroll Factor (Website)
-- Smile (Software)
 
 ## Issues
 
