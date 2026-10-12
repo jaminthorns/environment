@@ -34,8 +34,8 @@ Run the `init` command:
 
 ## Updating Programs
 
-Programs (`dnf`/`brew` packages, `asdf` tools, and `fisher` plugins) can be
-updated with the `update` command:
+Programs (distro packages, `brew` packages, `asdf` tools, and `fisher` plugins)
+can be updated with the `update` command:
 
 ```shell
 ./update
