@@ -189,6 +189,10 @@ cmd history ${{
 }}
 
 cmd reveal-in-system-file-manager &{{
+  if {{os_status linux-non-wsl && echo true || echo false}}
+    nautilus $f
+  end
+
   if {{os_status mac-os && echo true || echo false}}
     open -R $f
   end
