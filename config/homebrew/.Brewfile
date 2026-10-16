@@ -33,6 +33,7 @@ brew "rclone"
 brew "ripgrep"
 brew "slides"
 
+cask "claude-code"
 cask "font-jetbrains-mono"
 cask "font-symbols-only-nerd-font"
 
