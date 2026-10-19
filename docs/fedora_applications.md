@@ -2,17 +2,25 @@
 
 ## Software
 
-- Steam
+- Convey
+- Dconf Editor
+- Discord
+- Easy Effects
+- Eyedropper
 - Flatseal
 - KeePassXC
+- NVIDIA Linux Graphics Driver
 - Obsidian
 - Smile
-- NVIDIA Linux Graphics Driver
-- Easy Effects (laptop-only)
+- Steam
+- Todoist
 
-## Repositories
+## Copr Repository
 
-- Visual Studio Code (instructions: https://code.visualstudio.com/docs/setup/linux)
-- Vivaldi (instructions: https://vivaldi.com/download/)
-- Ghostty (copr: `copr.fedorainfracloud.org/scottames/ghostty`)
-- Wayland Scroll Factor (copr: `copr.fedorainfracloud.org/daniel-g-carrasco/wayland-scroll-factor`)
+- Ghostty (`copr.fedorainfracloud.org/scottames/ghostty`)
+- Wayland Scroll Factor (`copr.fedorainfracloud.org/daniel-g-carrasco/wayland-scroll-factor`)
+
+## Website-Directed
+
+- Visual Studio Code (https://code.visualstudio.com/docs/setup/linux)
+- Vivaldi (https://vivaldi.com/download/)
