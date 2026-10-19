@@ -86,9 +86,10 @@ map ae archive-extract
 map cw copy-working-path
 map cp copy-selected-paths
 map cf copy-selected-filenames
-map r reveal-in-system-file-manager
 map j jump
 map h history
+map r reveal-in-system-file-manager
+map d drag-and-drop
 map <a-q> quit-cd
 
 cmd on-init set-title
@@ -200,6 +201,10 @@ cmd reveal-in-system-file-manager &{{
   if {{os_status wsl && echo true || echo false}}
     powershell.exe "explorer.exe /select,$(path basename $f)"
   end
+}}
+
+cmd drag-and-drop &{{
+  ripdrag --all-compact --and-exit --content-width=150 --content-height=75 $fx
 }}
 
 cmd quit-cd :{{

@@ -19,6 +19,7 @@ fi
 if os_status linux-non-wsl; then
   copy autostart "$HOME/.config/autostart"
   copy code/settings "$HOME/.config/Code/User"
+  copy gtk "$HOME/.config/gtk-4.0"
   copy keymapper "$HOME/.config/keymapper"
   copy run_or_raise "$HOME/.config/run-or-raise"
   copy systemd/services "$HOME/.config/systemd/user"
