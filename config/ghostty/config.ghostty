@@ -68,3 +68,6 @@ keybind = ctrl+alt+v=text:\x16
 keybind = ctrl+f=start_search
 keybind = chain=search_selection
 keybind = ctrl+alt+f=text:\x06
+
+# Fix for Copyous
+keybind = ctrl+shift+insert=paste_from_clipboard
