@@ -11,6 +11,18 @@
 
 - Touchpad sometimes degrades to a condition with worse acceleration/click behavior
   - Lasts 30-60 sec before it restores automatically
+  - Immediate fix: reboot the drivers
+
+    ```sh
+    sudo rmmod i2c_hid_acpi && sudo modprobe i2c_hid_acpi
+    ```
+
+- Audio stops working
+  - Fix: restart the audio service
+
+    ```sh
+    systemctl --user restart pipewire
+    ```
 
 - Sometimes doesn't go to sleep when closed
 
