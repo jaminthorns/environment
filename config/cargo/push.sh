@@ -1,4 +1,4 @@
-config_packages=$(cat packages | sort)
+config_packages=$(read_config packages | grep -v "^$" | sort)
 installed_packages=$(cargo install --list | grep "    " | tr -d " " | sort)
 
 comm -23 <(echo "$config_packages") <(echo "$installed_packages") | xargs -r cargo install
