@@ -110,3 +110,11 @@ The [Advanced Auto Gain](https://github.com/JackHack96/EasyEffects-Presets/blob/
   ```sh
   sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=7 /dev/YOUR_PARTITION
   ```
+
+## Disable function key kock by default
+
+Create `/etc/modprobe.d/asus_wmi.conf`:
+
+```
+options asus_wmi fnlock_default=N
+```
