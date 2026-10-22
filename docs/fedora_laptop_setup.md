@@ -118,3 +118,13 @@ Create `/etc/modprobe.d/asus_wmi.conf`:
 ```
 options asus_wmi fnlock_default=N
 ```
+
+## Increase ZRAM size to full memory
+
+Create `/etc/systemd/zram-generator.conf`:
+
+```
+[zram0]
+zram-size=ram
+compression-algorithm=zstd
+```
