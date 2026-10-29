@@ -110,11 +110,14 @@ if status is-interactive
     # Customize Tide prompt
     set -gx tide_character_icon ▶
     set -gx tide_left_prompt_items pwd git
-    set -gx tide_right_prompt_items status cmd_duration context jobs
+    set -gx tide_right_prompt_items status cmd_duration context jobs lf_selection
     set -gx tide_status_icon ✓
     set -gx tide_status_icon_failure ✕
     set -gx tide_jobs_icon ⋯
     set -gx tide_git_truncation_length 50
+    set -gx tide_lf_selection_icon 
+    set -gx tide_lf_selection_color magenta
+    set -gx tide_lf_selection_bg_color black
 end
 
 # In a terminal or some process started by a terminal

@@ -8,14 +8,14 @@ set sortby time
 set ratios 1:2:1
 set scrolloff 3
 set shell fish
-set shellopts "--init-command=set fs (string split \\n $fs); set fx (string split \\n $fx)" # Convert file variables to lists
+set shellopts --init-command=lf_vars_split
 set ifs
 set truncatechar …
 set hiddenfiles ".*:desktop.ini"
 set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
 set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0;30m"
 set statfmt "\033[30m\033[40;90m %p ╱ %S ╱ %t | ╱ \033[36m→ %l| \033[0;30m"
-set rulerfmt "\033[30m\033[40m |\033[31m%m cut\033[90m ╱ |\033[33m%c copied\033[90m ╱ |\033[35m%s selected\033[90m ╱ |\033[32m%p\033[90m ╱ |\033[32m\"%f\"\033[90m ╱ |\033[37;1m%i\033[90m/%t \033[0;30m"
+set rulerfmt "\033[30m\033[40m |\033[31m %m\033[90m ╱ |\033[33m %c\033[90m ╱ |\033[35m %s\033[90m ╱ |\033[32m%p\033[90m ╱ |\033[32m %f\033[90m ╱ |\033[37;1m%i\033[90m/%t \033[0;30m"
 set cursoractivefmt "\033[48;2;68;71;90m" # Selection color
 set cursorparentfmt "\033[4;58;2;68;71;90m" # Selection color underline
 set cursorpreviewfmt "\033[4;58;2;68;71;90m" # Selection color underline
@@ -44,10 +44,6 @@ map za set info size:time
 map sn :set sortby natural; set reverse false; set dirfirst true; set info
 map st :set sortby time; set reverse true; set dirfirst false; set info time
 map ss :set sortby size; set reverse true; set dirfirst false; set info size
-map \$ shell
-map \% shell-pipe
-map \! shell-wait
-map \& shell-async
 
 # Up/down navigation
 map <a-up> page-up
@@ -90,6 +86,7 @@ map j jump
 map h history
 map r reveal-in-system-file-manager
 map d drag-and-drop
+map <gt> $lf_vars_join && fish --init-command=lf_vars_split
 map <a-q> quit-cd
 
 cmd on-init set-title
