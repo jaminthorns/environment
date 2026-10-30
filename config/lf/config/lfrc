@@ -13,8 +13,8 @@ set ifs
 set truncatechar …
 set hiddenfiles ".*:desktop.ini"
 set previewer "{{git rev-parse --show-toplevel}}/config/lf/previewer"
-set promptfmt "\033[30m\033[40m \033[90m%d\033[37;1m%f \033[0;30m"
-set statfmt "\033[30m\033[40;90m %p ╱ %S ╱ %t | ╱ \033[36m→ %l| \033[0;30m"
+set promptfmt "\033[30m\033[40m \033[36m%w\033[90m ╱ \033[37;1m%f \033[0;30m"
+set statfmt "\033[30m\033[40;90m %u ╱ %p ╱ %S ╱ %t | ╱ \033[36m→ %l| \033[0;30m"
 set rulerfmt "\033[30m\033[40m |\033[31m %m\033[90m ╱ |\033[33m %c\033[90m ╱ |\033[35m %s\033[90m ╱ |\033[32m%p\033[90m ╱ |\033[32m %f\033[90m ╱ |\033[37;1m%i\033[90m/%t \033[0;30m"
 set cursoractivefmt "\033[48;2;68;71;90m" # Selection color
 set cursorparentfmt "\033[4;58;2;68;71;90m" # Selection color underline
@@ -22,85 +22,168 @@ set cursorpreviewfmt "\033[4;58;2;68;71;90m" # Selection color underline
 
 clearmaps
 
-# Default keybindings to keep
-map q quit
+# Navigation
+
 map <up> up
 map <m-up> up
 map <down> down
 map <m-down> down
+map <a-up> page-up
+map <a-down> page-down
+map <c-home> top
+map <c-end> bottom
 map <left> updir
-map <right> open
-map <c-r> reload
+map <right> change-directory
+map <a-left> jump-prev
+map <a-right> jump-next
+map h jump-history
+map j jump-path
+
+cmd change-directory &{{
+  if test -d $f
+    command lf -remote "send $id cd $(string escape $f)"
+  end
+}}
+
+cmd jump-history ${{
+  set prompt (render_prompt "History")
+  set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
+
+  if set path (lf -remote "query $id jumps" | tail -n +2 | cut -f 2 | fzf --ansi --prompt=$prompt --preview=$preview | string escape)
+    command lf -remote "send $id cd $path"
+  end
+}}
+
+cmd jump-path ${{
+  set fd_cmd fd
+  set prompt (render_prompt "Jump")
+  set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
+
+  if test $lf_hidden = true
+    set -a fd_cmd --hidden
+  end
+
+  if set path ($fd_cmd --color=always --base-directory=$PWD . | fzf --ansi --prompt=$prompt --preview=$preview | string escape)
+    command lf -remote "send $id select $path"
+  end
+}}
+
+# Interaction
+
+map o open
+map e edit
+map p preview-text
+map d drag-and-drop
+map r reveal-in-system-file-manager
+map cw copy-working-path
+map cp copy-selected-paths
+map cf copy-selected-filenames
+map ac archive-compress
+map ae archive-extract
+map <gt> open-interactive-shell
+
+cmd edit &{{
+  code $fx
+}}
+
+cmd preview-text ${{
+  preview $f | $PAGER
+}}
+
+cmd drag-and-drop &{{
+  ripdrag --all-compact --and-exit --content-width=150 --content-height=75 $fx
+}}
+
+cmd reveal-in-system-file-manager &{{
+  if {{os_status linux-non-wsl && echo true || echo false}}
+    nautilus $f
+  end
+
+  if {{os_status mac-os && echo true || echo false}}
+    open -R $f
+  end
+
+  if {{os_status wsl && echo true || echo false}}
+    powershell.exe "explorer.exe /select,$(path basename $f)"
+  end
+}}
+
+cmd copy-working-path %{{
+  echo -n $PWD | fish_clipboard_copy 2>/dev/null
+  printf "working path copied to clipboard"
+}}
+
+cmd copy-selected-paths %{{
+  echo -n "$(string collect $fx)" | fish_clipboard_copy 2>/dev/null
+  printf "selected paths copied to clipboard"
+}}
+
+cmd copy-selected-filenames %{{
+  echo -n "$(path basename $fx)" | fish_clipboard_copy 2>/dev/null
+  printf "selected filenames copied to clipboard"
+}}
+
+cmd archive-compress %{{
+  printf " compress to archive: " && read archive_name
+  set relative_files (string replace "$PWD/" "" $fx)
+  ouch compress $relative_files $archive_name && printf "archive created"
+}}
+
+cmd archive-extract %{{
+  ouch decompress --dir (path basename -E $f) $f && printf "archive extracted"
+}}
+
+cmd open-interactive-shell ${{
+  lf_vars_join
+  fish --init-command=lf_vars_split
+}}
+
+# Display
+
 map / search
-map ? search-back
 map n search-next
 map N search-prev
+map f filter
+map sn :set sortby natural; set reverse false; set dirfirst true; set info
+map st :set sortby time; set reverse true; set dirfirst false; set info time
+map ss :set sortby size; set reverse true; set dirfirst false; set info size
 map zh set hidden!
 map zr set reverse!
 map zn set info
 map zs set info size
 map zt set info time
 map za set info size:time
-map sn :set sortby natural; set reverse false; set dirfirst true; set info
-map st :set sortby time; set reverse true; set dirfirst false; set info time
-map ss :set sortby size; set reverse true; set dirfirst false; set info size
+map lf set ratios 1:2:1
+map lp set ratios 1:2
+map <c-r> reload
 
-# Up/down navigation
-map <a-up> page-up
-map <a-down> page-down
-map <c-home> top
-map <c-end> bottom
+# Operations
 
-# Conventional file manager keybindings
-map <tab> :toggle; down
-map <backtab> :toggle; up
-map <esc> :unselect; clear
-map <c-a> glob-select *
 map <c-c> copy
 map <c-x> cut
 map <c-v>f paste
 map <c-v>l paste-links
-map <c-n>d new-directory
 map <c-n>f new-file
-map <c-f> filter
+map <c-n>d new-directory
 map <enter> rename
+map <a-enter> bulk-rename
 map <delete> delete
-
-# Navigation
-map <a-left> jump-prev
-map <a-right> jump-next
-
-# Layouts
-map lf set ratios 1:2:1 # Full
-map lp set ratios 1:2 # Preview
-
-# Custom commands
-map <a-enter> edit-paths
-map e edit
-map ac archive-compress
-map ae archive-extract
-map cw copy-working-path
-map cp copy-selected-paths
-map cf copy-selected-filenames
-map j jump
-map h history
-map r reveal-in-system-file-manager
-map d drag-and-drop
-map <gt> $lf_vars_join && fish --init-command=lf_vars_split
-map <a-q> quit-cd
-
-cmd on-init set-title
-cmd on-cd set-title
-
-cmd set-title &{{
-  command lf -remote "send $id tty-write \"\033]0;lf: $(prompt_pwd)\007\""
-}}
 
 cmd paste-links %{{
   set load (cat $HOME/.local/share/lf/files)
   set files $load[2..]
 
   ln -s $files .
+}}
+
+cmd new-file %{{
+  printf " create new file: " && read file_name
+  touch $file_name
+
+  if test $status -eq 0
+    command lf -remote "send $id select '$file_name'"
+    printf "new file created"
+  end
 }}
 
 cmd new-directory %{{
@@ -120,91 +203,40 @@ cmd new-directory %{{
   end
 }}
 
-cmd new-file %{{
-  printf " create new file: " && read file_name
-  touch $file_name
-
-  if test $status -eq 0
-    command lf -remote "send $id select '$file_name'"
-    printf "new file created"
-  end
-}}
-
-cmd edit-paths &{{
+cmd bulk-rename &{{
   vimv $fx
 }}
 
-cmd edit &{{
-  code $fx
+# Selection
+
+map <tab> :toggle; down
+map <backtab> :toggle; up
+map <c-a> glob-select *
+map <esc> :unselect; clear
+
+# Help
+
+map ? help
+
+cmd help ${{
+  $PAGER {{git rev-parse --show-toplevel}}/config/lf/help.txt
 }}
 
-cmd archive-compress %{{
-  printf " compress to archive: " && read archive_name
-  set relative_files (string replace "$PWD/" "" $fx)
-  ouch compress $relative_files $archive_name && printf "archive created"
-}}
+# Quitting
 
-cmd archive-extract %{{
-  ouch decompress --dir (path basename -E $f) $f && printf "archive extracted"
-}}
-
-cmd copy-working-path %{{
-  echo -n $PWD | fish_clipboard_copy 2>/dev/null
-  printf "working path copied to clipboard"
-}}
-
-cmd copy-selected-paths %{{
-  echo -n "$(string collect $fx)" | fish_clipboard_copy 2>/dev/null
-  printf "selected paths copied to clipboard"
-}}
-
-cmd copy-selected-filenames %{{
-  echo -n "$(path basename $fx)" | fish_clipboard_copy 2>/dev/null
-  printf "selected filenames copied to clipboard"
-}}
-
-cmd jump ${{
-  set fd_cmd fd
-  set prompt (render_prompt "Jump")
-  set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
-
-  if test $lf_hidden = true
-    set -a fd_cmd --hidden
-  end
-
-  if set path ($fd_cmd --color=always --base-directory=$PWD . | fzf --ansi --prompt=$prompt --preview=$preview | string escape)
-    command lf -remote "send $id select $path"
-  end
-}}
-
-cmd history ${{
-  set prompt (render_prompt "History")
-  set preview "preview --width=\$FZF_PREVIEW_COLUMNS --height=\$FZF_PREVIEW_LINES {}"
-
-  if set path (lf -remote "query $id jumps" | tail -n +2 | cut -f 2 | fzf --ansi --prompt=$prompt --preview=$preview | string escape)
-    command lf -remote "send $id cd $path"
-  end
-}}
-
-cmd reveal-in-system-file-manager &{{
-  if {{os_status linux-non-wsl && echo true || echo false}}
-    nautilus $f
-  end
-
-  if {{os_status mac-os && echo true || echo false}}
-    open -R $f
-  end
-
-  if {{os_status wsl && echo true || echo false}}
-    powershell.exe "explorer.exe /select,$(path basename $f)"
-  end
-}}
-
-cmd drag-and-drop &{{
-  ripdrag --all-compact --and-exit --content-width=150 --content-height=75 $fx
-}}
+map q quit
+map <a-q> quit-cd
 
 cmd quit-cd :{{
   $echo change_directory > $lf_quit_operation_path
   quit
+}}
+
+# Set terminal title
+
+cmd on-init set-terminal-title
+cmd on-cd set-terminal-title
+
+cmd set-terminal-title &{{
+  command lf -remote "send $id tty-write \"\033]0;lf: $(prompt_pwd)\007\""
 }}

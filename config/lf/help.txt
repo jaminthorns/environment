@@ -1,0 +1,50 @@
+NAVIGATION
+
+  up/down          move up/down
+  alt+up/down      page up/down
+  meta+up/down     go to top/bottom
+  left/right       go up/down directory
+  alt-left/right   go back/forward in history
+  h                jump history
+  j                jump path
+
+INTERACTION
+
+  o                open file
+  e                edit file
+  p                preview file
+  d                drag and drop
+  r                reveal in system file manager
+  c                copy paths/filenames
+  a                archive operations
+  >                open interactive shell
+
+DISPLAY
+
+  /                search
+  f                filter
+  s                sort by
+  z                set info
+  l                set layout
+  ctrl+r           reload
+
+OPERATIONS
+
+  ctrl+c           copy
+  ctrl+x           cut
+  ctrl+v           paste
+  ctrl+n           new
+  enter            rename
+  alt+enter        bulk rename
+  delete           delete
+
+SELECTION
+
+  tab/shift+tab    select and move up/down
+  ctrl+a           select all
+  esc              clear selection
+
+QUITTING
+
+  q                quit
+  alt+q            quit into select directory
