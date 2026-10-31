@@ -17,8 +17,9 @@
 
 ## Copr Repository
 
-- Ghostty (`copr.fedorainfracloud.org/scottames/ghostty`)
-- Wayland Scroll Factor (`copr.fedorainfracloud.org/daniel-g-carrasco/wayland-scroll-factor`)
+- Ghostty (`scottames/ghostty`)
+- LinuxCamPAM (`funkemunky/linuxcampam`)
+- Wayland Scroll Factor (`daniel-g-carrasco/wayland-scroll-factor`)
 
 ## Website-Directed
 
