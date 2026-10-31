@@ -27,7 +27,7 @@ if os_status linux-non-wsl; then
   on_push dconf/push.sh
   on_pull dconf/pull.sh
 
-  on_pull gnome/extensions/pull.sh
+  on_pull gnome_extensions/pull.sh
 
   on_push face_auth/install_face_auth.sh
 
