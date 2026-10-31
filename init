@@ -3,8 +3,8 @@
 source functions/config_functions.sh
 
 # Install Linux dependencies
-os_status fedora && sudo dnf upgrade && find config/packages/fedora -type f | xargs cat | xargs sudo dnf install -y --comment=environment-init
-os_status ubuntu && sudo apt update && sudo apt upgrade -y && find config/packages/ubuntu -type f | xargs cat | xargs sudo apt install -y
+os_status linux-fedora && sudo dnf upgrade && find config/packages/fedora -type f | xargs cat | xargs sudo dnf install -y --comment=environment-init
+os_status linux-ubuntu && sudo apt update && sudo apt upgrade -y && find config/packages/ubuntu -type f | xargs cat | xargs sudo apt install -y
 
 # Get Homebrew path
 os_status linux && brew="/home/linuxbrew/.linuxbrew/bin/brew" || brew="/opt/homebrew/bin/brew"

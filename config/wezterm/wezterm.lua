@@ -1,7 +1,7 @@
 local wezterm = require "wezterm"
 local action = wezterm.action
 local mac_os = {{os_status mac-os && echo true || echo false}}
-local wsl = {{os_status wsl && echo true || echo false}}
+local wsl = {{os_status linux-wsl && echo true || echo false}}
 local cmd_key = "{{command_key upper}}"
 
 wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)

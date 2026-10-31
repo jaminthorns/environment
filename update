@@ -3,7 +3,7 @@
 source functions/os_status.sh
 
 # Upgrade Linux packages
-os_status wsl && os_status ubuntu && sudo apt update && sudo apt upgrade -y
+os_status linux-wsl && os_status linux-ubuntu && sudo apt update && sudo apt upgrade -y
 
 # Upgrade Homebrew packages
 brew upgrade

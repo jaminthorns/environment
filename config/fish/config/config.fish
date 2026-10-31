@@ -52,7 +52,7 @@ if status is-interactive
     set -gx WIDTH_BREAKPOINT 120
 
     # Configure lf
-    if {{os_status wsl && echo true || echo false}}
+    if {{os_status linux-wsl && echo true || echo false}}
         set -gx OPENER windows_open
     end
 

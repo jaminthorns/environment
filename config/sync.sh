@@ -16,7 +16,7 @@ if os_status mac-os; then
   copy hammerspoon "$HOME/.hammerspoon"
 fi
 
-if os_status linux-non-wsl; then
+if os_status linux-desktop; then
   copy autostart "$HOME/.config/autostart"
   copy code/settings "$HOME/.config/Code/User"
   copy gtk "$HOME/.config/gtk-4.0"
@@ -32,11 +32,11 @@ if os_status linux-non-wsl; then
   on_push systemd/enable_services.sh
 fi
 
-if os_status mac-os || os_status linux-non-wsl; then
+if os_status mac-os || os_status linux-desktop; then
   copy ghostty "$HOME/.config/ghostty"
 fi
 
-if os_status wsl; then
+if os_status linux-wsl; then
   copy autohotkey "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup"
   copy code/settings "$APPDATA/Code/User"
   copy wezterm "$ProgramFiles/WezTerm"

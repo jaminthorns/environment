@@ -95,7 +95,7 @@ cmd drag-and-drop &{{
 }}
 
 cmd reveal-in-system-file-manager &{{
-  if {{os_status linux-non-wsl && echo true || echo false}}
+  if {{os_status linux-desktop && echo true || echo false}}
     nautilus $f
   end
 
@@ -103,7 +103,7 @@ cmd reveal-in-system-file-manager &{{
     open -R $f
   end
 
-  if {{os_status wsl && echo true || echo false}}
+  if {{os_status linux-wsl && echo true || echo false}}
     powershell.exe "explorer.exe /select,$(path basename $f)"
   end
 }}

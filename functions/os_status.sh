@@ -4,13 +4,13 @@ function os_status {
       test $(uname -s) = "Darwin";;
     linux)
       test $(uname -s) = "Linux";;
-    wsl)
+    linux-wsl)
       os_status linux && uname -r | grep -q "microsoft";;
-    linux-non-wsl)
-      os_status linux && ! os_status wsl;;
-    fedora)
+    linux-desktop)
+      os_status linux && ! os_status linux-wsl;;
+    linux-fedora)
       os_status linux && cat /etc/os-release | grep -q ID=fedora;;
-    ubuntu)
+    linux-ubuntu)
       os_status linux && cat /etc/os-release | grep -q ID=ubuntu;;
   esac
 }

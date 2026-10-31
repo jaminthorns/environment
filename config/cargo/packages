@@ -1,2 +1,2 @@
-{{os_status linux-non-wsl && echo ripdrag}}
+{{os_status linux-desktop || os_status mac-os && echo ripdrag}}
 vimv

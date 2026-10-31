@@ -14,7 +14,7 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 - 🛠 Version-controlled development tools with [`asdf`](https://asdf-vm.com/).
 - 🐠 Friendly shell with [`fish`](https://fishshell.com/).
 - 👻 Modern terminal with [Ghostty](https://ghostty.org/).
-- ⌨️ Uniform keyboard setup between Windows/macOS.
+- ⌨️ Uniform keyboard setup between Windows/macOS/Linux.
 
 ## Initial Setup
 
@@ -76,7 +76,7 @@ Within substitutions and scripts, you can use the following functions:
   setup is meant to act like macOS, so command key behavior is emulated in other
   environments.
 
-- `windows_run` runs a command directly in Windows.
+- `windows_run` runs a command directly in Windows (for use with WSL).
 
 ## Syncing Configuration
 
