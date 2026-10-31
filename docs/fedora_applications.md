@@ -18,10 +18,10 @@
 ## Copr Repository
 
 - Ghostty (`scottames/ghostty`)
-- LinuxCamPAM (`funkemunky/linuxcampam`)
 - Wayland Scroll Factor (`daniel-g-carrasco/wayland-scroll-factor`)
 
 ## Website-Directed
 
 - Visual Studio Code (https://code.visualstudio.com/docs/setup/linux)
 - Vivaldi (https://vivaldi.com/download/)
+- Gaze (https://gaze.gundulabs.com/guide/installation.html)

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-pgrep -u "$PAM_USER" -x gnome-shell >/dev/null

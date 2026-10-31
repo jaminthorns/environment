@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# Run this after attempting to unlock with LinuxCamPAM.
-#
-# GDM doesn't have access to camera, so an SELinux module needs to be generated
-# and installed added to allow this.
-
-sudo ausearch -m avc -ts recent | audit2allow -M linuxcampam_xdm
-sudo semodule -i linuxcampam_xdm.pp
-rm linuxcampam_xdm.te linuxcampam_xdm.pp

@@ -29,8 +29,6 @@ if os_status linux-non-wsl; then
 
   on_pull gnome_extensions/pull.sh
 
-  on_push face_auth/install_face_auth.sh
-
   on_push systemd/enable_services.sh
 fi
 
