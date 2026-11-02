@@ -27,6 +27,7 @@ if os_status linux-desktop; then
   on_push dconf/push.sh
   on_pull dconf/pull.sh
 
+  on_push gnome_extensions/push.sh
   on_pull gnome_extensions/pull.sh
 
   on_push systemd/enable_services.sh
