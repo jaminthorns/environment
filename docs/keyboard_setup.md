@@ -1,33 +1,34 @@
 # Keyboard Setup
 
-Current keyboard: Keychron Q3
+## Keyboard Info
+
+- Model: Keychron Q3
 
 ## Links
 
-- [Keychron Q3 User
-  Guide](https://www.keychron.com/pages/keychron-q3-user-guide)
+- [User Guide](https://www.keychron.com/pages/keychron-q3-user-guide)
 - [Keychron Launcher](https://launcher.keychron.com/)
 
-## Steps
+## Setup
 
-- Keys
+### Keys
 
-  - Reverse `Alt` and `Win` keys
+- Reverse `Alt` and `Win` keys
 
-  - Change knob press to play/pause (`KC_MPLY`)
+- Change knob press to play/pause (`KC_MPLY`)
 
-  - Change `Scroll Lock` and `Pause` back to original values
+- Change `Scroll Lock` and `Pause` back to original values
 
-    These keys are by default programmed as non-standard 🎤 and 💡 keys, but I
-    use these for personal shortcuts.
+  These keys are by default programmed as non-standard 🎤 and 💡 keys, but I
+  use these for personal shortcuts.
 
-- Lighting
+### Lighting
 
-  - Change the backlight effect to Reactive Multiwide`
+- Change the backlight effect to Reactive Multiwide`
 
-  - Change the speed to `63`
+- Change the speed to `63`
 
-  - Change the backlight color to `#CEFF22`
+- Change the backlight color to `#CEFF22`
 
-    This looks more yellow than green, but it renders as an earthy light green
-    on the Keychron Q3.
+  This looks more yellow than green, but it renders as an earthy light green
+  on the Keychron Q3.
