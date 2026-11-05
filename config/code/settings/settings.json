@@ -58,6 +58,7 @@
   "debug.toolBarLocation": "docked",
 
   "extensions.ignoreRecommendations": true,
+  "extensions.verifySignature": false,
 
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.fontLigatures.enabled": true,
