@@ -232,11 +232,15 @@ cmd quit-cd :{{
   quit
 }}
 
-# Set terminal title
+# Set terminal attributes
 
-cmd on-init set-terminal-title
-cmd on-cd set-terminal-title
+cmd on-init set-terminal-attributes
+cmd on-cd set-terminal-attributes
 
-cmd set-terminal-title &{{
-  command lf -remote "send $id tty-write \"\033]0;lf: $(prompt_pwd)\007\""
+cmd set-terminal-attributes &{{
+  # Set terminal title
+  command lf -remote "send $id tty-write \"\033]0;lf: $(prompt_pwd)\033\\\""
+
+  # Set terminal directory
+  command lf -remote "send $id tty-write \"\033]7;file://$(hostname)$PWD\033\\\""
 }}
