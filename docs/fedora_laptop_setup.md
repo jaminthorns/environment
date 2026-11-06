@@ -1,19 +1,20 @@
 # Fedora Laptop Setup
 
+Documentation for Fedora setup specific to my laptop.
+
 ## System Info
 
 - Laptop: Asus Tuf A14 (2025)
 - Processor: AMD Ryzen AI 7 350
-- Graphics: NVIDIA GeForce 5060 Laptop
+- Graphics: NVIDIA GeForce RTX 5060 Laptop
 
 ## Applications
 
 - Easy Effects (Software)
-- Gaze (Installation: https://gaze.gundulabs.com/guide/installation.html)
 - NVIDIA Linux Graphics Driver (Software)
 - Wayland Scroll Factor (Copr: `daniel-g-carrasco/wayland-scroll-factor`)
 
-## Tweaks
+## Setup
 
 ### Improve speaker quality
 
@@ -28,26 +29,6 @@ https://github.com/JackHack96/EasyEffects-Presets/blob/master/Advanced%20Auto%20
 
 Scrolling with the trackpad is too sensitive on this laptop. Setting vertical
 and horizontal scroll to `0.25` in Wayland Scroll Factor feels better.
-
-### Disable disk encryption passphrase
-
-When the disk is encrypted, a passphrase is required on every boot. This
-passphrase can be stored on the
-[TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module) so that it doesn't
-need to be entered. This has some security downsides, but I think it's worth the
-convenience.
-
-Find the encrypted partition:
-
-```sh
-lsblk
-```
-
-Enroll the TPM device:
-
-```sh
-sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=7 /dev/ENCRYPTED_PARTITION
-```
 
 ### Default to system hotkeys
 
@@ -96,14 +77,14 @@ saving (C-State 3) might be causing electrical issues that in turn causes this.
 This is observable as coil whine when listening closely near the touchpad. This
 can be tested by observing that sustained CPU load makes coil whine go away:
 
-```
+```sh
 yes > /dev/null
 ```
 
 If the touchpad falls into a degraded state, you can restart the touchpad kernel
 module:
 
-```
+```sh
 sudo modprobe -r i2c_hid_acpi && sudo modprobe i2c_hid_acpi
 ```
 
