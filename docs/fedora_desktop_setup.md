@@ -54,3 +54,37 @@ Reload udev and devices:
 ```sh
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
+
+### Fix horizontal scroll direction
+
+The default horizontal scroll direction for my Logitech MX Master mouse is
+inverted. It can easily be fixed with a device quirk.
+
+Install `libinput-utils`:
+
+```sh
+sudo dnf install libinput-utils
+```
+
+Create `/etc/libinput/local-overrides.quirks`:
+
+```
+[Logitech MX Master]
+MatchName=Logitech USB Receiver Mouse
+ModelInvertHorizontalScrolling=1
+```
+
+## Issues
+
+### Screen flashes a frozen frame during display handoff
+
+When screen handoffs occur (during login/logout, suspend/wake, screen off/on), a
+frozen frame is displayed momentarily. While this frame is displayed, inputs
+like mouse and keyboard do not work. This is especially frustrating when the
+screen turns on since input is delayed even though the system wasn't suspended.
+
+### Refresh rate drop
+
+Sometimes when resuming from screen off or sleep, the refresh rate will drop to
+a noticeably lower frame rate. Logging in and out, restarting, or changing the
+refresh rate to something else and back again fixes the issue.
