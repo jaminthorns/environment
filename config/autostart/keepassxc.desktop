@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=KeePassXC
+Exec=flatpak run org.keepassxc.KeePassXC
