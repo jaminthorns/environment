@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=keymapper
-Exec=keymapper --update
+Exec=keymapper --no-tray --update
