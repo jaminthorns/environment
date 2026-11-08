@@ -75,6 +75,7 @@ map e edit
 map p preview-text
 map d drag-and-drop
 map r reveal-in-system-file-manager
+map t trash-restore
 map cw copy-working-path
 map cp copy-selected-paths
 map cf copy-selected-filenames
@@ -106,6 +107,10 @@ cmd reveal-in-system-file-manager &{{
   if {{os_status linux-wsl && echo true || echo false}}
     powershell.exe "explorer.exe /select,$(path basename $f)"
   end
+}}
+
+cmd trash-restore ${{
+  gtrash restore
 }}
 
 cmd copy-working-path %{{
@@ -167,7 +172,8 @@ map <c-n>f new-file
 map <c-n>d new-directory
 map <enter> rename
 map <a-enter> bulk-rename
-map <delete> delete
+map <delete> trash
+map <a-d> delete
 
 cmd paste-links %{{
   set load (cat $HOME/.local/share/lf/files)
@@ -205,6 +211,10 @@ cmd new-directory %{{
 
 cmd bulk-rename &{{
   vimv $fx
+}}
+
+cmd trash &{{
+  gtrash put $fx
 }}
 
 # Selection
