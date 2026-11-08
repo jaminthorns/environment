@@ -72,55 +72,6 @@ compression-algorithm=zstd
 ### Touchpad ghost touches and degraded state
 
 The touchpad occasionally experiences ghost touches and falls back to a degraded
-state with decreased acceleration and click sensitivity. It seems like CPU power
-saving (C-State 3) might be causing electrical issues that in turn causes this.
-This is observable as coil whine when listening closely near the touchpad. This
-can be tested by observing that sustained CPU load makes coil whine go away:
-
-```sh
-yes > /dev/null
-```
-
-If the touchpad falls into a degraded state, you can restart the touchpad kernel
-module:
-
-```sh
-sudo modprobe -r i2c_hid_acpi && sudo modprobe i2c_hid_acpi
-```
-
-As a temporary workaround, I've disabled the lowest CPU idle state while the
-laptop is awake with these systemd services:
-
-- `disable-c3-boot.service`
-
-  ```
-  [Unit]
-  Description=Disable CPU C3 idle state on boot (touchpad issue workaround)
-
-  [Service]
-  Type=oneshot
-  ExecStart=/usr/bin/cpupower -c all idle-set -d 3
-
-  [Install]
-  WantedBy=multi-user.target
-  ```
-
-- `disable-c3-sleep.service`
-
-  ```
-  [Unit]
-  Description=Handle CPU C3 idle state around suspend (touchpad issue workaround)
-  Before=sleep.target
-  StopWhenUnneeded=yes
-
-  [Service]
-  Type=oneshot
-  RemainAfterExit=yes
-  ExecStart=/usr/bin/cpupower -c all idle-set -e 3
-  ExecStop=/usr/bin/cpupower -c all idle-set -d 3
-
-  [Install]
-  WantedBy=sleep.target
-  ```
-
-I might make a warranty claim for this, since it seems to be a hardware issue.
+state with decreased acceleration and click sensitivity. It seems like this is a
+hardware issue caused by electrical interference, and I might make a warranty
+claim for it.
