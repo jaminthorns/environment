@@ -1,6 +1,5 @@
 brew "asdf"
 brew "bat"
-brew "bottom"
 brew "chafa"
 brew "cloudflared"
 brew "diffutils"
