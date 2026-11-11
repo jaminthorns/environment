@@ -130,24 +130,24 @@ RWin::Return
   ^+Left::Send ^{F15}
   ^+Right::Send ^{F16}
 
+  ; Workaround for triggering command palette in terminal
+  ;
+  ; This conflicts with my shortcut for printing the active file path to the
+  ; terminal.
+  #+p::Send ^{F17}
+
   ; Workaround for Win+L release behavior
   ;
   ; AutoHotkey waits until after the modifier is released when sending the L key
   ; for Win key shortcuts to prevent locking the computer. This wait is fine for
   ; general applications, but this shortcuts is pressed repeatedly in VS Code,
   ; so we send a surrogate key.
-  #l::Send ^{F17}
+  #l::Send ^{F18}
 
   ; Workaround for cancelling file switcher
   ;
   ; This opens the start menu.
-  ^Esc::Send ^{F18}
-
-  ; Workaround for triggering command palette in terminal
-  ;
-  ; This conflicts with my shortcut for printing the active file path to the
-  ; terminal.
-  #+p::Send ^{F19}
+  ^Esc::Send ^{F19}
 #If
 
 ; VS Code + Terminal
