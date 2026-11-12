@@ -76,6 +76,7 @@ map p preview-text
 map d drag-and-drop
 map r reveal-in-system-file-manager
 map t trash-restore
+map x send-to-device
 map cw copy-working-path
 map cp copy-selected-paths
 map cf copy-selected-filenames
@@ -111,6 +112,14 @@ cmd reveal-in-system-file-manager &{{
 
 cmd trash-restore ${{
   gtrash restore
+}}
+
+cmd send-to-device ${{
+  set message (send_to_device --full-screen $fx 2>&1)
+
+  if test $status -ne 0
+    command lf -remote "send $id echoerr $message"
+  end
 }}
 
 cmd copy-working-path %{{
