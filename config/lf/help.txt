@@ -16,6 +16,8 @@ INTERACTION
   d                drag and drop
   r                reveal in system file manager
   c                copy paths/filenames
+  t                restore from trash
+  x                send to device
   a                archive operations
   >                open interactive shell
 
