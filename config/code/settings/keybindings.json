@@ -121,6 +121,7 @@
   { "key": "shift+alt+up", "command": "editor.action.copyLinesUpAction", "when": "editorTextFocus && !editorReadonly" },
   { "key": "shift+alt+down", "command": "editor.action.copyLinesDownAction", "when": "editorTextFocus && !editorReadonly" },
   { "key": "shift+alt+f", "command": "editor.action.formatDocument", "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor" },
+  { "key": "shift+alt+f", "command": "editor.action.formatDocument.none", "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly" },
 
   //// Terminal
 
