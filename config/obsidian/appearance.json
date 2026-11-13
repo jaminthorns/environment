@@ -1,4 +1,5 @@
 {
   "accentColor": "",
-  "monospaceFontFamily": "JetBrains Mono"
+  "monospaceFontFamily": "JetBrains Mono",
+  "showRibbon": true
 }
