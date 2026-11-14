@@ -85,3 +85,22 @@ Create `/etc/udev/rules.d/80-disable-intel-hda.rules`:
 ```
 ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{class}=="0x040300", ATTR{remove}="1"
 ```
+
+### Disable SteelSeries Arctis driver
+
+The SteelSeries Arctis driver is incorrectly powering off the receiver for my
+SteelSeries Arctis 7 Pro headphones. It can be disabled in favor of the generic
+driver.
+
+Create `/etc/modprobe.d/steelseries-arctis-blacklist.conf`:
+
+
+```
+blacklist hid_steelseries_arctis
+```
+
+This driver is also present in initramfs, so rebuild it:
+
+```sh
+sudo dracut --force
+```
