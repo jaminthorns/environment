@@ -17,7 +17,8 @@ Documentation for Fedora setup specific to my desktop.
 
 By default, the NVIDIA drivers are omitted from being compiled into the initial
 RAM filesystem (initramfs), which causes the splash screen and disk encryption
-password entry to not be shown when booting from an NVIDIA GPU.
+password prompt to not be shown when booting from an NVIDIA GPU. If disk
+encryption is enabled, this will prevent the system from booting.
 
 Create `/etc/dracut.conf.d/99-nvidia-dracut.conf`:
 
@@ -25,11 +26,23 @@ Create `/etc/dracut.conf.d/99-nvidia-dracut.conf`:
 add_drivers+=" nvidia nvidia-drm nvidia-modeset nvidia-uvm "
 ```
 
-Rebuild initramfs:
+On kernel updates, initramfs gets rebuilt before the NVIDIA kernel module gets
+built. On NVIDIA driver updates, initramfs isn't automatically rebuilt. Either
+way, rebuild it once the NVIDIA kernel module is finished building:
 
 ```sh
 sudo dracut --force
 ```
+
+To check if the NVIDIA kernel module is built:
+
+```
+modinfo -F version nvidia
+```
+
+If boot is prevented because the disk encryption password prompt is not showing,
+boot without the `rhgb` kernel parameter, which will disable graphical boot and
+show a text prompt for the password instead.
 
 ### Grant raw access to QMK keyboard
 
@@ -93,7 +106,6 @@ SteelSeries Arctis 7 Pro headphones. It can be disabled in favor of the generic
 driver.
 
 Create `/etc/modprobe.d/steelseries-arctis-blacklist.conf`:
-
 
 ```
 blacklist hid_steelseries_arctis
