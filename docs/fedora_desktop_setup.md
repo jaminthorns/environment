@@ -6,9 +6,11 @@ Documentation for Fedora setup specific to my desktop.
 
 - Processor: Intel Core i9-13900K
 - Graphics: NVIDIA GeForce RTX 3070
+- Motherboard: MSI MPG Z790I EDGE WIFI
 
 ## Applications
 
+- LACT (Software)
 - NVIDIA Linux Graphics Driver (Software)
 
 ## Setup
@@ -61,25 +63,6 @@ Create `/etc/udev/rules.d/59-keyboard-raw-hid-access.rules`:
 KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0121", MODE="0660", TAG+="uaccess"
 ```
 
-### Fix mouse horizontal scroll direction
-
-The default horizontal scroll direction for my Logitech MX Master mouse is
-inverted. It can easily be fixed with a device quirk.
-
-Install `libinput-utils`:
-
-```sh
-sudo dnf install libinput-utils
-```
-
-Create `/etc/libinput/local-overrides.quirks`:
-
-```
-[Logitech MX Master]
-MatchName=Logitech USB Receiver Mouse
-ModelInvertHorizontalScrolling=1
-```
-
 ### Disable Intel HD Audio controller
 
 The onboard audio for my motherboard seems to be misbehaving, which through
@@ -91,7 +74,13 @@ sleeps or wakes. This is what's happening:
 - NVIDIA graphics needs to update audio state for every sleep/wake
 - Audio state update has to wait for timeout since interrupt line is disabled
 
-The Intel audio can just be disabled since I use USB audio.
+When this happens it can be detected from the kernel logs:
+
+```sh
+sudo dmesg | grep -i "disabling irq"
+```
+
+To fix the issue, the Intel audio can just be disabled since I use USB audio.
 
 Create `/etc/udev/rules.d/80-disable-intel-hda.rules`:
 

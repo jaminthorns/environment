@@ -4,20 +4,28 @@ Documentation for general Fedora setup.
 
 ## Fedora Applications
 
-- Convey (Software)
-- Dconf Editor (Software)
-- Discord (Software)
+## Environment
+
 - Gaze (Installation: https://gaze.gundulabs.com/guide/installation.html)
 - Ghostty (Copr: `scottames/ghostty`)
-- KeePassXC (Software)
 - Keymapper (Installation: https://github.com/houmain/keymapper#installation)
+- Visual Studio Code (Installation: https://code.visualstudio.com/docs/setup/linux)
+
+## General
+
+- Convey (Software)
+- Discord (Software)
+- KeePassXC (Software)
 - Obsidian (Software)
 - Spotify (Software)
-- Steam (Software)
 - Todoist (Software)
-- Visual Studio Code (Installation:
-  https://code.visualstudio.com/docs/setup/linux)
 - Vivaldi (Installation: https://vivaldi.com/download/)
+
+### Gaming
+
+- BedrockOnLinux (Installation: https://wyze3306.github.io/BedrockOnLinux/#get)
+- Solaar (Software)
+- Steam (Software)
 
 ## Setup
 
