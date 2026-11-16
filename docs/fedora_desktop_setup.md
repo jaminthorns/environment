@@ -105,3 +105,14 @@ This driver is also present in initramfs, so rebuild it:
 ```sh
 sudo dracut --force
 ```
+
+### Undervolt the GPU
+
+The GPU can be undervolted to lower the thermals and bring it below the
+throttling limit (the airflow on my desktop's compact case is not great). This
+is the result of trial and error to find a point of stability near the max clock
+rate of ~1900 MHz:
+
+- In LACT enable VF curve editing and open the VF curve editor
+- Select the entire curve and drag the 850 mV point up to 1900 Mhz
+- Flatten the curve to the right of 850 mV
