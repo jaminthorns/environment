@@ -1,15 +1,14 @@
-if status is-login
+if status is-interactive && not set -q PATH_SETUP_COMPLETE
     # Initialize Homebrew
     {{export PATH="/dev/null:$PATH" && brew shellenv fish}}
-
-    # Add local binaries to PATH
-    fish_add_path -P $HOME/.local/bin
 
     # Add asdf shims to PATH
     fish_add_path -P $HOME/.asdf/shims
 
     # Add Git commands to PATH
     fish_add_path -P {{git rev-parse --show-toplevel}}/config/git/commands
+
+    set -gx PATH_SETUP_COMPLETE
 end
 
 if status is-interactive
