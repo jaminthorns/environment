@@ -20,7 +20,8 @@ Documentation for Fedora setup specific to my desktop.
 By default, the NVIDIA drivers are omitted from being compiled into the initial
 RAM filesystem (initramfs), which causes the splash screen and disk encryption
 password prompt to not be shown when booting from an NVIDIA GPU. If disk
-encryption is enabled, this will prevent the system from booting.
+encryption is enabled without storing the password in TPM, this will prevent the
+system from booting (remove `rhgb` kernel parameter at boot to get around this).
 
 Create `/etc/dracut.conf.d/99-nvidia-dracut.conf`:
 
@@ -29,22 +30,18 @@ add_drivers+=" nvidia nvidia-drm nvidia-modeset nvidia-uvm "
 ```
 
 On kernel updates, initramfs gets rebuilt before the NVIDIA kernel module gets
-built. On NVIDIA driver updates, initramfs isn't automatically rebuilt. Either
-way, rebuild it once the NVIDIA kernel module is finished building:
+built. On NVIDIA driver updates, initramfs isn't automatically rebuilt. Always
+update these through `dnf upgrade` instead of Software:
+
+```sh
+sudo dnf upgrade --refresh "kernel*" "*nvidia*"
+```
+
+And rebuild initramfs once the NVIDIA kernel module is finished building:
 
 ```sh
 sudo dracut --force
 ```
-
-To check if the NVIDIA kernel module is built:
-
-```sh
-modinfo -F version nvidia
-```
-
-If boot is prevented because the disk encryption password prompt is not showing,
-boot without the `rhgb` kernel parameter, which will disable graphical boot and
-show a text prompt for the password instead.
 
 ### Grant raw access to QMK keyboard
 

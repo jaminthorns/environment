@@ -9,7 +9,8 @@ Documentation for general Fedora setup.
 - Gaze (Installation: https://gaze.gundulabs.com/guide/installation.html)
 - Ghostty (Copr: `scottames/ghostty`)
 - Keymapper (Installation: https://github.com/houmain/keymapper#installation)
-- Visual Studio Code (Installation: https://code.visualstudio.com/docs/setup/linux)
+- Visual Studio Code (Installation:
+  https://code.visualstudio.com/docs/setup/linux)
 
 ## General
 
@@ -45,10 +46,10 @@ rclone bisync google_drive:Passwords ~/Passwords/ --resync
 
 The systemd services in this repository will take care of the rest.
 
-### Disable disk encryption passphrase
+### Disable disk encryption password
 
-When the disk is encrypted, a passphrase is required on every boot. This
-passphrase can be stored on the
+When the disk is encrypted, a password is required on every boot. This password
+can be stored on the
 [TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module) so that it doesn't
 need to be entered. This has some security downsides, but I think it's worth the
 convenience.
