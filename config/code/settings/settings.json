@@ -83,6 +83,8 @@
     "workbench.view.extensions",
     "workbench.action.findInFiles",
     "projectManager.listProjectsNewWindow",
+    "workbench.action.openSettings",
+    "workbench.action.toggleSidebarVisibility",
   ],
 
   "remote.autoForwardPortsSource": "hybrid",
