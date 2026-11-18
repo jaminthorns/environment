@@ -2,3 +2,73 @@
 .tab.active .favicon {
   filter: unset !important;
 }
+
+/* Remove maximize button */
+#browser.linux .window-buttongroup button.window-maximize {
+  display: none;
+}
+
+/* Remove tab shadows */
+#browser.linux .tab {
+  box-shadow: initial !important;
+}
+
+/* Integrate window buttons with GNOME */
+#browser.linux #titlebar:has(.window-buttongroup),
+#browser.linux .toolbar:has(.window-buttongroup),
+#browser.linux .tabbar-wrapper:has(.window-buttongroup) #tabs-container {
+  padding-right: initial !important;
+}
+
+#browser.linux .window-buttongroup {
+  transform-origin: initial !important;
+}
+
+#browser.linux .window-buttongroup {
+  position: initial !important;
+  align-items: center;
+  gap: 12px;
+  padding-left: calc(10px * (1 / var(--uiZoomLevel)));
+  padding-right: calc(10px * (1 / var(--uiZoomLevel)));
+}
+
+#browser.linux .window-buttongroup button {
+  margin-left: initial !important;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  --windowButtonColor: rgb(0, 0, 0);
+  background-color: alpha(from var(--windowButtonColor) / 0.1);
+  transition: background 200ms ease-out;
+}
+
+#browser.linux.acc-dark.color-behind-tabs-on .window-buttongroup button,
+#browser.linux.bg-dark .window-buttongroup button {
+  --windowButtonColor: rgba(255, 255, 255);
+}
+
+#browser.linux .window-buttongroup button:hover {
+  background-color: alpha(from var(--windowButtonColor) / 0.2);
+}
+
+#browser.linux .window-buttongroup button:active {
+  background-color: alpha(from var(--windowButtonColor) / 0.3);
+}
+
+#browser.linux .window-buttongroup button svg {
+  transform: scale(0.75);
+}
+
+#browser.linux .window-buttongroup button.window-minimize svg {
+  translate: 0 25%;
+}
+
+#browser.linux .window-buttongroup button path {
+  stroke: currentColor;
+  fill: currentColor;
+  stroke-width: 2;
+}
