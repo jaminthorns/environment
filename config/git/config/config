@@ -15,7 +15,7 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	features = hyperlinks merge-conflicts section-styles line-numbers consistent-diff-colors dracula-colors
+	features = hyperlinks merge-conflicts section-styles line-numbers consistent-diff-colors
 	navigate = true
 	paging = always
 	wrap-max-lines = unlimited
@@ -54,12 +54,18 @@
 [delta "consistent-diff-colors"]
 	minus-style = minus-emph-style
 	plus-style = plus-emph-style
-[delta "dracula-colors"]
-	minus-emph-style = syntax "#5E353E" # Red blended 25% with background color
-	minus-non-emph-style = syntax "#3E2E39" # Red blended 10% with background color
-	plus-emph-style = syntax "#325E47" # Green blended 25% with background color
-	plus-non-emph-style = syntax "#2C3F3D" # Green blended 10% with background color
-	map-styles = "bold purple => syntax #404968, bold cyan => syntax #404968, bold blue => syntax #363C53, bold yellow => syntax #363C53"
+[delta "light-colors"]
+	minus-emph-style = syntax "#DDC6CC"
+	minus-non-emph-style = syntax "#E0D7DE"
+	plus-emph-style = syntax "#BBD2C3"
+	plus-non-emph-style = syntax "#BBD2C3"
+	map-styles = "bold purple => syntax #d0dae7, bold cyan => syntax #d0dae7, bold blue => syntax #8da1b9, bold yellow => syntax #8da1b9"
+[delta "dark-colors"]
+	minus-emph-style = syntax "#392A33"
+	minus-non-emph-style = syntax "#27232D"
+	plus-emph-style = syntax "#2C4137"
+	plus-non-emph-style = syntax "#202F2F"
+	map-styles = "bold purple => syntax #213043, bold cyan => syntax #213043, bold blue => syntax #3c526d, bold yellow => syntax #3c526d"
 [branch]
 	sort = -committerdate
 [commit]
@@ -104,7 +110,7 @@
 [interactive-rebase-tool]
 	autoSelectNext = true
 	verticalSpacingCharacter = ""
-	selectedBackgroundColor = 68,71,90
+	selectedBackgroundColor = 0
 	inputMoveSelectionDown = Alt+Down
 	inputMoveSelectionUp = Alt+Up
 	inputRebase = Alt+Enter
