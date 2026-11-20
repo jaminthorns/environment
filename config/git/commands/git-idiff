@@ -32,7 +32,7 @@ else if string match -q -r (dots_regex 3) $first_arg
     set summary_command "git log --format=comfy --color $commit_range -- $escaped_paths"
 else
     set highlight (set_color cyan)
-    set reset (set_color reset)
+    set reset (set_color --reset)
     set summary_command "echo 'Could not determine a commit range (use $highlight<commit>..<commit>$reset or $highlight<commit>...<commit>$reset syntax).' | less"
 end
 

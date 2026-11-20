@@ -12,8 +12,8 @@ if status is-interactive && not set -q PATH_SETUP_COMPLETE
 end
 
 if status is-interactive
-    # Set theme
-    fish_config theme choose "Dracula Official"
+    # Set LS_COLORS
+    {{dircolors -c "$(git rev-parse --show-toplevel)/config/dircolors/dir_colors"}}
 
     # Disable greeting
     set -g fish_greeting
@@ -41,7 +41,8 @@ if status is-interactive
     set -gx KERL_BUILD_DOCS yes
 
     # Configure bat
-    set -gx BAT_THEME Dracula
+    set -gx BAT_THEME_LIGHT Coldark-Cold
+    set -gx BAT_THEME_DARK Coldark-Dark
     set -gx BAT_PAGING always
 
     # Configure Delta
@@ -56,19 +57,17 @@ if status is-interactive
     end
 
     # Configure fzf
-    set -l fzf_scrollbar_color "#363848" # Selection color blended 50% with background color
     set -l fzf_colors \
-        "bg+:#44475A" \
-        "gutter:-1" \
+        16 \
+        "prompt:regular" \
+        "query:regular" \
+        "bg+:black" \
         "hl:cyan" \
         "hl+:cyan" \
         "info:blue" \
-        "marker:magenta" \
         "spinner:green" \
         "prompt:green" \
-        "border:blue" \
-        "scrollbar:$fzf_scrollbar_color" \
-        "preview-scrollbar:$fzf_scrollbar_color" \
+        "border:black" \
         "header:bright-black" \
         "footer:bright-black"
     set -gx FZF_DEFAULT_OPTS \
@@ -107,9 +106,14 @@ if status is-interactive
     fzf_configure_bindings --directory=\cT --history=\cR --variables=\cB --processes=\cG --git_status --git_log
 
     # Customize Tide prompt
-    set -gx tide_character_icon ▶
     set -gx tide_left_prompt_items pwd git
     set -gx tide_right_prompt_items status cmd_duration context jobs lf_selection
+    set -gx tide_pwd_color_anchors blue
+    set -gx tide_pwd_color_dirs blue
+    set -gx tide_pwd_color_truncated_dirs blue
+    set -gx tide_character_icon ▶
+    set -gx tide_character_color brblack
+    set -gx tide_character_color_failure brblack
     set -gx tide_status_icon ✓
     set -gx tide_status_icon_failure ✕
     set -gx tide_jobs_icon ⋯
@@ -122,4 +126,5 @@ end
 # In a terminal or some process started by a terminal
 if set -q TERM
     width_change_handler
+    theme_change_handler
 end

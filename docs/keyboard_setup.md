@@ -28,7 +28,7 @@
 
 - Change the speed to `63`
 
-- Change the backlight color to `#CEFF22`
+- Change the backlight color to `#ceff22`
 
   This looks more yellow than green, but it renders as an earthy light green
   on the Keychron Q3.

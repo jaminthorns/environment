@@ -8,7 +8,7 @@ My configuration files and initialization scripts for Windows/macOS/Linux.
 
 ## Features
 
-- 🧛‍♂️ Consistent colors with [Dracula](https://draculatheme.com/).
+- ❄️ Consistent colors with [Coldark](https://github.com/ArmandPhilippot/coldark/).
 - 📝 Fully-equipped text editing with [VS Code](https://code.visualstudio.com/).
 - 🍺 Cross-platform packages with [Homebrew](https://brew.sh/).
 - 🛠 Version-controlled development tools with [`asdf`](https://asdf-vm.com/).

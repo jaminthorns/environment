@@ -2,7 +2,7 @@ set -x SEP \u001f
 
 function color_git_name_status -a pattern color_name
     set color (set_color $color_name)
-    set reset (set_color reset)
+    set reset (set_color --reset)
 
     echo -- -e "s/^(.)($pattern)/\1$color\2$reset/"
     echo -- -e "s/^($pattern)/$color\1$reset/"
@@ -12,8 +12,8 @@ function format_git_name_status
     sed -E \
         -e "s/R[0-9]+/R/" \
         -e "s/\t/ $SEP/" \
-        -e "s/\t/$SEP $(set_color blue)⟶$(set_color reset) $SEP/" \
-        -e "s/([A-Z] )(.*\/)(.*)/\1$(set_color brblack)\2$(set_color reset)\3/" \
+        -e "s/\t/$SEP $(set_color blue)⟶$(set_color --reset) $SEP/" \
+        -e "s/([A-Z] )(.*\/)(.*)/\1$(set_color brblack)\2$(set_color --reset)\3/" \
         (color_git_name_status A green) \
         (color_git_name_status D red) \
         (color_git_name_status M yellow) \
@@ -95,7 +95,7 @@ function git_interactive_command
                 set calling_pid (parent_pid (parent_pid $fish_pid))
 
                 set_remote $calling_pid $_flag_items_variable $items
-                echo "Selected items stored in $(set_color green)\$$_flag_items_variable$(set_color reset) variable"
+                echo "Selected items stored in $(set_color green)\$$_flag_items_variable$(set_color --reset) variable"
             case "*"
                 string collect $items
         end

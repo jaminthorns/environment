@@ -4,7 +4,7 @@ function preview
     argparse "width=" "height=" -- $argv
 
     set path $argv
-    set chafa_options --animate=off --polite=on --bg="#282A36"
+    set chafa_options --animate=off
 
     set -e options[(contains -i $path $options)]
 
