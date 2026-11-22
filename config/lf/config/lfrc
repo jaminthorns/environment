@@ -158,9 +158,9 @@ map / search
 map n search-next
 map N search-prev
 map f filter
-map sn :set sortby natural; set reverse false; set dirfirst true; set info
-map st :set sortby time; set reverse true; set dirfirst false; set info time
-map ss :set sortby size; set reverse true; set dirfirst false; set info size
+map sn :set sortby natural; set reverse false; set dirfirst true
+map st :set sortby time; set reverse true; set dirfirst false
+map ss :set sortby size; set reverse true; set dirfirst false
 map zh set hidden!
 map zr set reverse!
 map zn set info
