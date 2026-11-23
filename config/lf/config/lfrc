@@ -144,7 +144,7 @@ cmd archive-compress %{{
 }}
 
 cmd archive-extract %{{
-  ouch decompress --dir (path basename -E $f) $f && printf "archive extracted"
+  ouch decompress $fx && printf "$(count $fx) archive(s) extracted"
 }}
 
 cmd open-interactive-shell ${{
