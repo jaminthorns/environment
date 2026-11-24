@@ -30,14 +30,22 @@ add_drivers+=" nvidia nvidia-drm nvidia-modeset nvidia-uvm "
 ```
 
 On kernel updates, initramfs gets rebuilt before the NVIDIA kernel module gets
-built. On NVIDIA driver updates, initramfs isn't automatically rebuilt. Always
-update these through `dnf upgrade` instead of Software:
+built. On NVIDIA driver updates, initramfs isn't automatically rebuilt. Either
+way, this means the kernel module won't automatically be included in initramfs.
+
+To fix this, always update these through `dnf upgrade` instead of Software:
 
 ```sh
 sudo dnf upgrade --refresh "kernel*" "*nvidia*"
 ```
 
-And rebuild initramfs once the NVIDIA kernel module is finished building:
+Wait for the kernel module to rebuild:
+
+```sh
+modinfo nvidia -F version
+```
+
+And rebuild initramfs:
 
 ```sh
 sudo dracut --force
