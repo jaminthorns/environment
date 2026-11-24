@@ -68,6 +68,8 @@ if status is-interactive
         "spinner:green" \
         "prompt:green" \
         "border:black" \
+        "scrollbar:bright-black" \
+        "preview-scrollbar:bright-black" \
         "header:bright-black" \
         "footer:bright-black"
     set -gx FZF_DEFAULT_OPTS \

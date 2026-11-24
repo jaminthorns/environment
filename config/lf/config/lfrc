@@ -17,8 +17,8 @@ set promptfmt "\033[30m\033[40m \033[34m%w\033[90m ╱ \033[1;37m%f \033[0;30
 set statfmt "\033[30m\033[40;90m %u ╱ %p ╱ %S ╱ %t | ╱ \033[36m→ %l| \033[0;30m"
 set rulerfmt "\033[30m\033[40m |\033[31m %m\033[90m ╱ |\033[33m %c\033[90m ╱ |\033[35m %s\033[90m ╱ |\033[32m%p\033[90m ╱ |\033[32m %f\033[90m ╱ |\033[37m%i\033[90m/%t \033[0;30m"
 set cursoractivefmt "\033[1;40m"
-set cursorparentfmt "\033[1;4;58;5;0m"
-set cursorpreviewfmt "\033[1;4;58;5;0m"
+set cursorparentfmt "\033[1;4;58;5;8m"
+set cursorpreviewfmt "\033[1;4;58;5;8m"
 
 clearmaps
 

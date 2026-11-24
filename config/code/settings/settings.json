@@ -32,12 +32,14 @@
   "workbench.enableExperiments": false,
   "workbench.colorCustomizations": {
     "[Coldark - Cold]": {
-      "terminal.ansiBlack": "#d0dae7",
+      "terminal.ansiBlack": "#f0f4f8",
+      "terminal.ansiBrightBlack": "#8da1b9",
       "statusBar.foreground": "#213043ba",
       "statusBar.background": "#00000000",
     },
     "[Coldark - Dark]": {
-      "terminal.ansiBlack": "#213043",
+      "terminal.ansiBlack": "#0b121b",
+      "terminal.ansiBrightBlack": "#3c526d",
       "statusBar.foreground": "#d0dae7ba",
       "statusBar.background": "#00000000",
     },
