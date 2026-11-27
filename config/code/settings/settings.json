@@ -54,8 +54,6 @@
   "diffEditor.renderIndicators": false,
   "diffEditor.experimental.showMoves": true,
 
-  "multiDiffEditor.experimental.fileList": true,
-
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
 
   "files.trimTrailingWhitespace": true,
